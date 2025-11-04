@@ -1,15 +1,18 @@
-# Matt Baier — Personal Resume Site
+# Matt Baier — A Personal Website and Journey
 
 This site started as a plain resume and evolved into a living demonstration of:
-- system thinking
+- systematuc thinking
 - personality and humor
 - real-world operational discipline
 - front-end control and UI polish
 - turning chaos into something smooth
+- proof of dedication and willingness to adapt
+- a showcase of some fun stuff
+- a reason to make hyphenated lists
 
-It's equal parts professional portfolio and personal calling card.
+It's equal parts professional portfolio and personal calling card. Text only, please.
 
-### What’s Inside
+### What’s Inside (That's what counts...right?)
 
 - Clean resume layout with warm paper aesthetic  
 - Animated theme toggle switching between:
