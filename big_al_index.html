@@ -1,0 +1,163 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Big A’s Meat House — poster x website hybrid</title>
+  <style>
+    :root{
+      --cosmic-red:#d83c24;        /* chili neon */
+      --cream:#fff6e3;             /* diner paper */
+      --space-black:#0f0e0d;       /* grill soot */
+      --mutant-mustard:#f5b62a;    /* mustard pop */
+      --candy-pink:#ff7aa2;        /* wonka-in-law */
+      --soda-blue:#7bd3ff;         /* fizz */
+      --pickle-green:#3b6b3b;      /* practical matt green */
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;background:var(--cream);color:var(--space-black);font-family: "Trebuchet MS", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;line-height:1.5}/* Poster header */
+header.hero{
+  background: radial-gradient(1200px 400px at 50% -20%, #ffd8c5 0%, var(--cosmic-red) 60%, #ac2b18 100%);
+  color:#fff;padding:48px 16px;text-align:center;position:relative;overflow:hidden
+}
+.hero h1{font-size:clamp(2.4rem, 6vw, 4rem);letter-spacing:1px;margin:0;text-shadow:3px 3px 0 rgba(15,14,13,.35)}
+.hero p.tag{margin-top:.5rem;font-style:italic;opacity:.95}
+.hero .badge{position:absolute;right:16px;bottom:12px;background:#00000022;color:#fff;padding:.35rem .6rem;border-radius:.5rem;font-size:.85rem}
+
+/* Sticky toolbar (acts like poster footer controls) */
+.toolbar{position:sticky;top:0;z-index:10;background:#222;color:#fff;display:flex;gap:12px;justify-content:center;align-items:center;padding:.6rem}
+.toolbar button{background:var(--mutant-mustard);border:none;border-radius:.6rem;padding:.6rem .9rem;font-weight:800;text-transform:uppercase;cursor:pointer}
+.toolbar a{color:var(--mutant-mustard);text-decoration:none;font-weight:700}
+
+/* Poster grid that still behaves like a site */
+main.poster{
+  max-width:1100px;margin:24px auto;padding:0 12px;display:grid;gap:14px;
+  grid-template-columns: 1.2fr .8fr;grid-template-areas:
+    "chaos bomb"
+    "regret dog"
+    "shake drink";
+}
+section.card{background:#fff;border:3px solid var(--cosmic-red);border-radius:18px;padding:18px;box-shadow:6px 6px 0 var(--space-black);position:relative}
+section.card h2{margin:0 0 .35rem 0;text-transform:uppercase;color:var(--cosmic-red);font-size:1.25rem}
+.price{color:var(--mutant-mustard);font-weight:900;margin:.15rem 0 .5rem}
+.desc{font-size:.98rem}
+
+/* Each tile gets a candy/grill accent and a tilt like a printed poster */
+.chaos{grid-area:chaos;transform:rotate(-1deg);background:linear-gradient(180deg,#fff 0,#ffe8e0 100%)}
+.bomb{grid-area:bomb;transform:rotate(1deg);background:linear-gradient(180deg,#fff 0,#fff2da 100%)}
+.regret{grid-area:regret;transform:rotate(-2deg);background:linear-gradient(180deg,#fff 0,#ffe3ee 100%)}
+.dog{grid-area:dog;transform:rotate(2deg);background:linear-gradient(180deg,#fff 0,#eafff7 100%)}
+.shake{grid-area:shake;background:linear-gradient(180deg,#fff 0,#fff6ff 100%)}
+.drink{grid-area:drink;background:linear-gradient(180deg,#fff 0,#eef9ff 100%)}
+
+/* Flavor labels */
+.tag{position:absolute;top:10px;right:10px;background:#00000010;padding:.25rem .55rem;border-radius:.5rem;font-size:.8rem}
+
+/* Lore & rules blocks */
+.lore,.rules{max-width:900px;margin:22px auto;padding:0 12px}
+.panel{background:#fff;border:3px dashed var(--pickle-green);border-radius:18px;padding:18px;box-shadow:6px 6px 0 #1b2c1b}
+.panel h3{margin:0 0 .5rem 0;color:var(--pickle-green);text-transform:uppercase}
+.rules ul{margin:.25rem 0 0 1.25rem}
+
+footer.site{margin:28px 0 40px;text-align:center;color:#555}
+
+/* Tiny entrance animation */
+@keyframes floatIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.card{animation:floatIn .5s ease both}
+.card:nth-child(1){animation-delay:.05s}
+.card:nth-child(2){animation-delay:.1s}
+.card:nth-child(3){animation-delay:.15s}
+.card:nth-child(4){animation-delay:.2s}
+.card:nth-child(5){animation-delay:.25s}
+.card:nth-child(6){animation-delay:.3s}
+
+/* Print styles: turn it into a clean poster */
+@media print{
+  @page{size:A4;margin:12mm}
+  body{background:#fff}
+  .toolbar, .hero .badge {display:none}
+  header.hero{background:#fff;color:#000;text-shadow:none;border-bottom:3px solid var(--space-black)}
+  main.poster{grid-template-columns:1fr 1fr}
+  section.card{box-shadow:none;border-color:#000}
+  .panel{box-shadow:none;border-color:#000}
+  a:link:after{content:" (" attr(href) ")";font-size:.8em}
+}
+
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <h1>Big A’s Meat House</h1>
+    <p class="tag">From the other side of the chocolate factory • Descendants of Howard the Duck</p>
+    <div class="badge">poster x website hybrid</div>
+  </header>  <div class="toolbar" role="region" aria-label="poster tools">
+    <button onclick="window.print()">Download / Print Menu</button>
+    <a href="#lore">Family History</a>
+    <a href="#rules">House Rules</a>
+  </div>  <main class="poster" id="menu">
+    <section class="card chaos">
+      <span class="tag">signature</span>
+      <h2>The Chaos Combo</h2>
+      <p class="price">$9.99</p>
+      <p class="desc">Two smash patties, house chili, shredded cheddar, crispy onions, pickles, brioche bun. Comes with fries. Messy, loud, glorious.</p>
+    </section><section class="card bomb">
+  <span class="tag">loaded</span>
+  <h2>Flavor Bomb Fries</h2>
+  <p class="price">$6.99</p>
+  <p class="desc">Hand-cut fries, liquid cheddar, bacon bits, jalapeño drizzle, scallions. Explosive flavor, zero explosives.</p>
+</section>
+
+<section class="card regret">
+  <span class="tag">half-pound</span>
+  <h2>The Manager’s Regret</h2>
+  <p class="price">$8.50</p>
+  <p class="desc">Double smash, American cheese, secret sauce, lettuce, tomato. You’ll regret nothing.</p>
+</section>
+
+<section class="card dog">
+  <span class="tag">koegel’s</span>
+  <h2>Midnight Grease Dog</h2>
+  <p class="price">$3.75</p>
+  <p class="desc">Koegel’s dog, coney sauce, raw onions, mustard. Simple. Sinful.</p>
+</section>
+
+<section class="card shake">
+  <span class="tag">dessert</span>
+  <h2>Birthday Cake Shake</h2>
+  <p class="price">$5.50</p>
+  <p class="desc">Vanilla custard, cake crumbles, sprinkles, whipped cream. Nostalgia in a cup.</p>
+</section>
+
+<section class="card drink">
+  <span class="tag">house soda</span>
+  <h2>Sizzle Suds</h2>
+  <p class="price">$2.50</p>
+  <p class="desc">A fizzy fusion of Sprite and Coke. Wrong in theory, right in practice.</p>
+</section>
+
+  </main>  <section class="lore" id="lore">
+    <div class="panel">
+      <h3>Family History</h3>
+      <p>
+        Legend says Big Al married into a certain confectionary dynasty. While the brother-in-law was busy with chocolate rivers and contract clauses,
+        Big Al perfected smash patties and chili geometry. Then some duck-blooded relatives popped out of a portal with a spatula.
+        The rest is deliciously complicated.
+      </p>
+    </div>
+  </section>  <section class="rules" id="rules">
+    <div class="panel">
+      <h3>House Rules</h3>
+      <ul>
+        <li>Everything’s made fresh. Patience tastes better than microwaves.</li>
+        <li>No substitutions unless you bring us snacks.</li>
+        <li>Don’t ask for a salad. We’re emotionally not ready for that.</li>
+        <li>Feathers found in food are compliments from the ancestors.</li>
+      </ul>
+    </div>
+  </section>  <footer class="site">
+    © 2025 Big A’s Meat House • Where the multiverse stops for fries
+  </footer>
+</body>
+</html>
