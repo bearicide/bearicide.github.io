@@ -6,20 +6,19 @@
   <title>Matt Baier – Personal Site & Resume</title>
 
   <meta name="description" content="Matt Baier — tech-enabled operations, leadership, and modern management. Resume and professional summary." />
-  <meta name="theme-color" content="#0c3b1e" />
+  <meta name="theme-color" content="#18453B" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐻</text></svg>">
 
   <style>
     :root {
-      --fg: #0c3b1e;
-      --accent: #0c3b1e;
+      --msu-green: #18453B;
+      --msu-white: #ffffff;
+      --um-blue: #00274C;
+      --um-maize: #FFCB05;
       --text: #111;
       --muted: #555;
       --rule: #e6e6e6;
-      --link: #0a5a32;
       --cream: #f7f4ec;
-      --blue: #00274C;
-      --maize: #FFCB05;
     }
 
     html, body {
@@ -28,15 +27,13 @@
       background: #2b2b2b;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, "Noto Sans", "Liberation Sans", sans-serif;
       color: var(--text);
-      -webkit-text-size-adjust: 100%;
-      text-rendering: optimizeLegibility;
     }
 
     .page {
       max-width: 800px;
       margin: 36px auto;
       padding: 28px;
-      border: 3px solid var(--fg);
+      border: 3px solid var(--msu-green);
       border-radius: 14px;
       background: var(--cream);
       box-shadow: 0 2px 14px rgba(0,0,0,.06);
@@ -44,8 +41,8 @@
 
     /* HEADER */
     .hdr {
-      background: var(--fg);
-      color: #fff;
+      background: var(--msu-green);
+      color: var(--msu-white);
       padding: 16px 20px;
       border-radius: 12px;
       display: flex;
@@ -96,22 +93,13 @@
       font-size: 1rem;
       font-weight: 600;
       cursor: pointer;
-      background: var(--maize);
-      color: var(--blue);
+      background: var(--msu-white);
+      color: var(--msu-green);
       transition: background 0.2s, color 0.2s;
+      text-decoration: none;
     }
 
     .btn:hover {
-      background: #ffe877;
-    }
-
-    .contact-btn {
-      text-decoration: none;
-      background: #fff;
-      color: var(--fg);
-    }
-
-    .contact-btn:hover {
       background: #eee;
     }
 
@@ -158,7 +146,7 @@
     footer {
       margin-top: 24px;
       padding-top: 12px;
-      border-top: 2px solid var(--fg);
+      border-top: 2px solid var(--msu-green);
       text-align: center;
       font-size: 1rem;
       font-weight: 600;
@@ -172,10 +160,9 @@
 
     footer a {
       text-decoration: none;
-      color: var(--accent);
+      color: var(--msu-green);
     }
 
-    /* Print */
     @media print {
       body { background: #fff; }
       .page { border: none; box-shadow: none; margin: 0; border-radius: 0; }
@@ -185,7 +172,7 @@
   </style>
 </head>
 <body>
-  <div class="page" id="page" data-mode="green">
+  <div class="page" id="page" data-mode="msu">
     <header class="hdr" role="banner">
       <div class="hdr-inner">
         <div class="id">
@@ -195,10 +182,10 @@
 
         <div class="hdr-buttons">
           <button id="themeBtn" class="btn" type="button" aria-pressed="false" aria-label="Toggle color theme">
-            Theme
+            Go Spartans!
           </button>
-          <a href="mailto:matt.baier86@gmail.com" class="btn contact-btn">Email</a>
-          <a href="tel:+18109226736" class="btn contact-btn">Call</a>
+          <a href="mailto:matt.baier86@gmail.com" class="btn">Email</a>
+          <a href="sms:+18109226736" class="btn">Text</a>
         </div>
       </div>
     </header>
@@ -284,30 +271,33 @@
   <script>
     const btn = document.getElementById('themeBtn');
     const page = document.getElementById('page');
+    const header = document.querySelector('.hdr');
 
-    function applyGreen() {
-      document.querySelector('.hdr').style.background = '#0c3b1e';
-      btn.style.background = '#FFCB05';
-      btn.style.color = '#00274C';
-      btn.textContent = 'Theme: Green';
-      page.dataset.mode = 'green';
-      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0c3b1e');
+    function setMSU() {
+      header.style.background = '#18453B'; // MSU green
+      header.style.color = '#ffffff';
+      btn.style.background = '#ffffff';
+      btn.style.color = '#18453B';
+      btn.textContent = 'Go Spartans!';
+      page.dataset.mode = 'msu';
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18453B');
     }
 
-    function applyBlue() {
-      document.querySelector('.hdr').style.background = '#00274C';
+    function setUM() {
+      header.style.background = '#00274C'; // UM blue
+      header.style.color = '#FFCB05';
       btn.style.background = '#FFCB05';
       btn.style.color = '#00274C';
-      btn.textContent = 'Theme: Blue';
-      page.dataset.mode = 'blue';
+      btn.textContent = 'Go Wolverines!';
+      page.dataset.mode = 'um';
       document.querySelector('meta[name="theme-color"]').setAttribute('content', '#00274C');
     }
 
     btn.addEventListener('click', () => {
-      page.dataset.mode === 'green' ? applyBlue() : applyGreen();
+      page.dataset.mode === 'msu' ? setUM() : setMSU();
     });
 
-    applyGreen();
+    setMSU();
   </script>
 </body>
 </html>
