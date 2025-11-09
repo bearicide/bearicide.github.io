@@ -6,7 +6,7 @@
   <title>Matt Baier – Personal Site & Resume</title>
   <style>
     :root{
-      --fg:#0c3b1e;          /* header bg: forest green (default) */
+      --fg:#0c3b1e;
       --accent:#0c3b1e;
       --text:#111;
       --muted:#555;
@@ -14,17 +14,68 @@
       --link:#0a5a32;
     }
 
-    html,body{ margin:0; padding:0; background:#2b2b2b; /* dark grey outside */ font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, "Noto Sans", "Liberation Sans", sans-serif; color:var(--text); }
-    .page{ max-width: 800px; margin: 36px auto; padding: 28px; border: 3px solid var(--fg); border-radius: 14px; box-shadow: 0 2px 14px rgba(0,0,0,.06); background:#e7d4aa; /* nudged richer cream */ }
+    html,body{
+      margin:0; padding:0;
+      background:#2b2b2b;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, "Noto Sans", sans-serif;
+      color:var(--text);
+    }
 
-    .hdr{ background: var(--fg); color:#fff; padding: 8px 14px; border-radius: 10px; display:flex; align-items:center; justify-content:space-between; gap:12px; }
-    .name{ font-size: 2.6rem; font-weight: 900; letter-spacing: .02rem; line-height:1.2; color:#fff; }
-    .contact{ font-size:1.08rem; opacity:.95; text-align:right; }
-    .contact a{ color:#fff; text-decoration: none; border-bottom:1px dotted rgba(255,255,255,.5) }
+    .page{
+      max-width: 800px;
+      margin: 36px auto;
+      padding: 28px;
+      border: 3px solid var(--fg);
+      border-radius: 14px;
+      box-shadow: 0 2px 14px rgba(0,0,0,.06);
+      background:#e7d4aa;
+    }
 
-    .btn{ appearance:none; border:2px solid #00274C; background:#FFCB05; color:#00274C; padding:10px 16px; border-radius:10px; font-size:1.1rem; cursor:pointer }
+    .hdr{
+      background: var(--fg);
+      color:#fff;
+      padding: 12px 16px;
+      border-radius: 10px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:12px;
+    }
 
-    h2{ font-size:1.25rem; font-weight:800; text-transform: uppercase; letter-spacing:.12rem; margin: 18px 0 6px; color:#000; }
+    .name{ font-size:2.2rem; font-weight:900; letter-spacing:.02rem; line-height:1.1; color:#fff; }
+    .tagline{ font-size:1rem; font-weight:600; color:#fff; }
+
+    .contact{
+      font-size:1rem;
+      opacity:.95;
+      text-align:right;
+      flex:1;
+      min-width:220px;
+    }
+    .contact a{ color:#fff; text-decoration:none; border-bottom:1px dotted rgba(255,255,255,.5) }
+
+    #themeBtn{
+      border:2px solid #00274C;
+      background:#FFCB05;
+      color:#00274C;
+      padding:8px 14px;
+      border-radius:10px;
+      font-size:1rem;
+      cursor:pointer;
+      white-space:nowrap;
+      transition:all .2s ease;
+    }
+
+    h2{
+      font-size:1.25rem;
+      font-weight:800;
+      text-transform: uppercase;
+      letter-spacing:.12rem;
+      margin: 18px 0 6px;
+      color:#000;
+    }
+
     .rule{ height:1px; background: var(--rule); margin: 10px 0 8px }
     ul{ margin:8px 0 0 1.1rem; padding:0 }
     li{ margin:2px 0 0 0 }
@@ -32,28 +83,62 @@
     .job .role{ font-weight:700 }
     .job .meta{ color:var(--muted); font-size:1.05rem }
 
+    footer{
+      margin-top:24px;
+      padding-top:12px;
+      border-top:2px solid var(--fg);
+      text-align:center;
+      font-size:1rem;
+      font-weight:600;
+      color:#333;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:18px;
+    }
+
+    @media(max-width:650px){
+      .hdr{
+        flex-direction:column;
+        align-items:flex-start;
+        text-align:left;
+      }
+      .contact{
+        order:3;
+        text-align:left;
+        font-size:.95rem;
+      }
+      #themeBtn{
+        order:2;
+        align-self:flex-start;
+        margin-top:6px;
+      }
+      .name{ font-size:1.9rem; }
+      .page{ margin:18px 12px; padding:20px; }
+    }
+
     @media print{
       .page{ border: none; box-shadow:none; margin:0; border-radius:0; }
-      .btn{ display:none }
+      #themeBtn{ display:none }
       a{ color: inherit; text-decoration: none }
     }
-  @keyframes shake{0%{transform:translateX(0);}20%{transform:translateX(-4px);}40%{transform:translateX(4px);}60%{transform:translateX(-3px);}80%{transform:translateX(3px);}100%{transform:translateX(0);}}
-@keyframes glowPulse{0%{text-shadow:0 0 0px rgba(255,255,0,0);}50%{text-shadow:0 0 10px rgba(255,255,0,0.9);}100%{text-shadow:0 0 0px rgba(255,255,0,0);}}
-</style>
+
+    @keyframes shake{0%{transform:translateX(0);}20%{transform:translateX(-4px);}40%{transform:translateX(4px);}60%{transform:translateX(-3px);}80%{transform:translateX(3px);}100%{transform:translateX(0);}}
+    @keyframes glowPulse{0%{text-shadow:0 0 0px rgba(255,255,0,0);}50%{text-shadow:0 0 10px rgba(255,255,0,0.9);}100%{text-shadow:0 0 0px rgba(255,255,0,0);}}
+  </style>
 </head>
+
 <body>
   <div class="page" id="page" data-mode="green">
-    <header class="hdr" style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+    <header class="hdr">
       <div style="display:flex; flex-direction:column; line-height:1.2;">
         <div class="name">Matt Baier</div>
-        <div style="font-size:1rem; font-weight:600; color:#fff;">Tech‑Enabled Growth</div>
+        <div class="tagline">Tech-Enabled Growth</div>
       </div>
-
-      <button id="themeBtn" style="appearance:none; border:2px solid #00274C; background:#FFCB05; color:#00274C; padding:6px 10px; border-radius:8px; font-size:0.9rem; cursor:pointer; white-space:nowrap;">theme</button>
-
+      <button id="themeBtn">theme</button>
       <div class="contact">
         Flushing, MI • <a href="mailto:matt.baier86@gmail.com">matt.baier86@gmail.com</a> • <a href="tel:+18109226736">810.922.6736</a><br>
-        <a href="https://github.com/bearicide/mattbaier-personalwebsite" style="color:#fff; text-decoration:underline;">Back to My GitHub</a>
+        <a href="https://github.com/bearicide/mattbaier-personalwebsite" style="color:#fff;text-decoration:underline;">Back to My GitHub</a>
       </div>
     </header>
 
@@ -63,16 +148,11 @@
       const page = document.getElementById('page');
 
       function applyGreen(){
-        // header + text back to green mode
         header.style.background = '#0c3b1e';
         header.style.color = '#fff';
-        const nameEl = document.querySelector('.name');
-        const contactEl = document.querySelector('.contact');
-        const contactLinks = document.querySelectorAll('.contact a');
-        nameEl.style.color = '#fff';
-        contactEl.style.color = '#fff';
-        contactLinks.forEach(link => link.style.color = '#fff');
-        // button back to maize + blue
+        document.querySelector('.name').style.color = '#fff';
+        document.querySelector('.contact').style.color = '#fff';
+        document.querySelectorAll('.contact a').forEach(link => link.style.color = '#fff');
         btn.style.background = '#FFCB05';
         btn.style.color = '#00274C';
         btn.style.borderColor = '#00274C';
@@ -82,15 +162,10 @@
 
       function applyBlueYellow(){
         header.style.background = '#00274C';
-        // change header text + links to yellow
         header.style.color = '#FFCB05';
-        const nameEl = document.querySelector('.name');
-        const contactEl = document.querySelector('.contact');
-        const contactLinks = document.querySelectorAll('.contact a');
-        nameEl.style.color = '#FFCB05';
-        contactEl.style.color = '#FFCB05';
-        contactLinks.forEach(link => link.style.color = '#FFCB05');
-        // change button
+        document.querySelector('.name').style.color = '#FFCB05';
+        document.querySelector('.contact').style.color = '#FFCB05';
+        document.querySelectorAll('.contact a').forEach(link => link.style.color = '#FFCB05');
         btn.style.background = '#ffffff';
         btn.style.color = '#0c3b1e';
         btn.style.borderColor = '#0c3b1e';
@@ -99,16 +174,10 @@
       }
 
       btn.onclick = () => {
-        const techText = document.querySelector('.hdr div div:nth-child(2)');
-        if(page.dataset.mode === 'green'){
-          applyBlueYellow();
-        } else {
-          applyGreen();
-        }
-        // shake button
+        const techText = document.querySelector('.tagline');
+        if(page.dataset.mode === 'green'){ applyBlueYellow(); } else { applyGreen(); }
         btn.style.animation = 'shake 0.4s';
         setTimeout(()=> btn.style.animation = '', 400);
-        // glow tech text
         techText.style.animation = 'glowPulse 1s';
         setTimeout(()=> techText.style.animation = '', 1000);
       };
@@ -119,13 +188,13 @@
     <section>
       <h2>About</h2>
       <div class="rule"></div>
-      <p style="margin-top:4px">I build order out of chaos. Fifteen years in restaurants forged me into someone who can take a noisy, stressful, fast‑moving environment and turn it into a system that produces speed, quality, and calm. I'm transitioning that experience into tech‑enabled operations and modern management. My background includes leadership, training, process design, and building predictable systems in unpredictable places. I'm here to make things run smoother, smarter, and more human.</p>
+      <p>I build order out of chaos. Fifteen years in restaurants forged me into someone who can take a noisy, stressful, fast-moving environment and turn it into a system that produces speed, quality, and calm. I'm transitioning that experience into tech-enabled operations and modern management. My background includes leadership, training, process design, and building predictable systems in unpredictable places. I'm here to make things run smoother, smarter, and more human.</p>
     </section>
 
     <section>
       <h2>Professional Summary</h2>
       <div class="rule"></div>
-      <p>Experienced food‑service manager with 15+ years in fast‑paced kitchen and front‑of‑house environments. Proven ability to lead teams, streamline operations, reduce waste, improve training standards, and deliver consistently strong customer service. Calm, results‑focused under rush pressure. Seeking to bring leadership, reliability, and hands‑on operational expertise to Taco Bell as a Restaurant Manager / Shift Leader.</p>
+      <p>Experienced food-service manager with 15+ years in fast-paced kitchen and front-of-house environments. Proven ability to lead teams, streamline operations, reduce waste, improve training standards, and deliver consistently strong customer service. Calm, results-focused under rush pressure. Seeking to bring leadership, reliability, and hands-on operational expertise to Taco Bell as a Restaurant Manager / Shift Leader.</p>
     </section>
 
     <section>
@@ -136,7 +205,7 @@
         <li>Training & onboarding</li>
         <li>Inventory & waste control</li>
         <li>Food safety & sanitation (ServSafe knowledge)</li>
-        <li>Fast‑paced line efficiency</li>
+        <li>Fast-paced line efficiency</li>
         <li>Guest service excellence</li>
         <li>POS systems & cash handling</li>
         <li>Team motivation & conflict resolution</li>
@@ -149,11 +218,11 @@
       <h2>Professional Experience</h2>
       <div class="rule"></div>
       <div class="job">
-        <div class="role">Manager / Back‑of‑House Lead</div>
+        <div class="role">Manager / Back-of-House Lead</div>
         <div class="meta">The Flushing A Diner — Flushing, MI • 2017–Present</div>
         <ul>
-          <li>Managed daily operations, training, and food prep in a high‑volume diner environment.</li>
-          <li>Led 6–12 staff per shift through peak drive‑in traffic periods.</li>
+          <li>Managed daily operations, training, and food prep in a high-volume diner environment.</li>
+          <li>Led 6–12 staff per shift through peak drive-in traffic periods.</li>
           <li>Trained new team members on food safety, service standards, and kitchen efficiency.</li>
           <li>Improved order accuracy via systemized prep and labeling; increased ticket speed ~15%.</li>
           <li>Handled supplier orders, inventory control, and waste reduction.</li>
@@ -162,9 +231,9 @@
       </div>
       <div class="job">
         <div class="role">Kitchen Lead / Line Cook</div>
-        <div class="meta">Multiple Food‑Service Locations (Metro Flint region)</div>
+        <div class="meta">Multiple Food-Service Locations (Metro Flint region)</div>
         <ul>
-          <li>Worked across fast‑casual, diner, and family dining concepts.</li>
+          <li>Worked across fast-casual, diner, and family dining concepts.</li>
           <li>Maintained consistency, food safety, and sanitation in fast environments.</li>
           <li>Assisted training and development of new staff across roles.</li>
           <li>Operated prep, grill, fry, plating, and window with efficiency.</li>
@@ -176,11 +245,11 @@
       <h2>Certifications & Additional Skills</h2>
       <div class="rule"></div>
       <ul>
-        <li>Food Safety & Sanitation (on‑the‑job training)</li>
+        <li>Food Safety & Sanitation (on-the-job training)</li>
         <li>Safety training</li>
         <li>Customer service & leadership</li>
         <li>Strong attention to cleanliness & organization</li>
-        <li>Fast learner, efficiency‑focused</li>
+        <li>Fast learner, efficiency-focused</li>
       </ul>
     </section>
 
@@ -200,7 +269,7 @@
     <section>
       <h2>Availability</h2>
       <div class="rule"></div>
-      <p>Full‑time • Flexible schedule • Able to start immediately.</p>
+      <p>Full-time • Flexible schedule • Able to start immediately.</p>
     </section>
 
     <section>
@@ -209,17 +278,13 @@
       <p>Available on request.</p>
     </section>
 
-    
-      <footer style="margin-top:24px; padding-top:12px; border-top:2px solid var(--fg); text-align:center; font-size:1rem; font-weight:600; color:#333; display:flex; align-items:center; justify-content:center; gap:18px;">
+    <footer>
       <span style="font-family:monospace; font-size:1.4rem; color:#0c3b1e;">[</span>
-      <a href="https://github.com/bearicide" style="text-decoration:none; font-family: 'Georgia', serif; font-size:1.2rem; color:#0c3b1e;">matt</a>
-      <a href="https://github.com/bearicide" style="text-decoration:none;">
-        <span style="font-size:3rem; line-height:1;">🐻</span>
-      </a>
+      <a href="https://github.com/bearicide" style="text-decoration:none; font-family:'Georgia', serif; font-size:1.2rem; color:#0c3b1e;">matt</a>
+      <a href="https://github.com/bearicide" style="text-decoration:none;"><span style="font-size:3rem; line-height:1;">🐻</span></a>
       <a href="https://github.com/bearicide" style="text-decoration:none; font-family:'Georgia', serif; font-size:1.2rem; color:#0c3b1e;">bear</a>
       <span style="font-family:monospace; font-size:1.4rem; color:#0c3b1e;">]</span>
     </footer>
   </div>
-
 </body>
 </html>
