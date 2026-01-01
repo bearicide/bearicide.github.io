@@ -1,132 +1,564 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
+  <title>Matt Baier – resume & portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Matt Baier – Resume & Portfolio</title>
-  <meta name="description" content="Professional portfolio and resume of Matt Baier – Manager, Designer, and Founder of The Comeback Kitchen Co." />
-  <meta name="theme-color" content="#18453B" />
-  <link rel="icon" href="https://bearicide.github.io/assets/favicon.ico" />
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;900&display=swap');
 
+  <style>
     :root {
-      --bg:#0c3b1e;
-      --cream:#f7f4ec;
-      --maize:#FFCB05;
-      --blue:#00274C;
-      --hover-accent:#fff8c2;
+      --bg: #0b0502;
+      --bg-alt: #151008;
+      --bg-card: #1f1609;
+      --accent-green: #96ff4f;
+      --accent-yellow: #ffd754;
+      --accent-soft: rgba(255, 215, 84, 0.24);
+      --text-main: #fdfcf8;
+      --text-muted: #c2b9a7;
+      --border-subtle: rgba(255, 255, 255, 0.12);
+      --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.7);
+      --radius-lg: 20px;
+      --radius-pill: 999px;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     html, body {
-      margin: 0; padding: 0; min-height: 100%; width: 100%;
-      background: var(--bg); color: var(--cream);
-      font-family: 'Raleway', system-ui, sans-serif;
-      display: flex; justify-content: center; align-items: center;
-      text-align: center; flex-direction: column;
-      animation: fadeIn 0.8s ease-in;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background:
+        radial-gradient(circle at top left, #2f1c07 0, transparent 55%),
+        radial-gradient(circle at bottom right, #3c240b 0, transparent 60%),
+        var(--bg);
+      color: var(--text-main);
     }
 
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 18px 12px 32px;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 960px;
+    }
+
+    /* HEADER / HERO */
+
+    header {
+      background:
+        linear-gradient(135deg, rgba(150, 255, 79, 0.18), transparent 40%),
+        linear-gradient(315deg, rgba(255, 215, 84, 0.2), transparent 50%),
+        linear-gradient(180deg, rgba(12, 7, 2, 0.95), rgba(20, 12, 4, 0.96));
+      border-radius: 26px;
+      padding: 1.75rem 1.75rem 1.5rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      inset: -20%;
+      background:
+        radial-gradient(circle at top right, rgba(255, 255, 255, 0.14), transparent 55%);
+      mix-blend-mode: soft-light;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .header-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.4fr);
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    @media (max-width: 720px) {
+      .header-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero-main h1 {
+      margin: 0 0 0.3rem;
+      font-size: clamp(2rem, 4vw, 2.6rem);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .hero-main h1 span {
+      color: var(--accent-green);
+      text-shadow: 0 0 18px rgba(150, 255, 79, 0.85);
+    }
+
+    .hero-title {
+      margin: 0;
+      font-size: 0.95rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-yellow);
+    }
+
+    .hero-about {
+      margin-top: 0.9rem;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      max-width: 32rem;
+    }
+
+    .hero-badges {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+    }
+
+    .badge {
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(5, 3, 1, 0.7);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--text-muted);
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-green);
+      box-shadow: 0 0 10px rgba(150, 255, 79, 0.9);
+    }
+
+    /* hero side card */
+
+    .hero-side {
+      background: rgba(14, 8, 2, 0.92);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      padding: 0.9rem 0.95rem 0.95rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .hero-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    .hero-email {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--accent-green);
+      word-break: break-all;
+    }
+
+    .hero-email a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .hero-email a:hover {
+      text-decoration: underline;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.4rem;
+    }
+
+    .nav-link {
+      flex: 1 1 auto;
+      text-align: center;
+      font-size: 0.85rem;
+      padding: 0.45rem 0.7rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(12, 6, 2, 0.9);
+      color: var(--text-main);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      white-space: nowrap;
+    }
+
+    .nav-link.primary {
+      background: linear-gradient(135deg, var(--accent-green), var(--accent-yellow));
+      color: #141008;
+      font-weight: 600;
+      border-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .nav-link:hover {
+      filter: brightness(1.05);
+    }
+
+    .hero-note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* MAIN */
 
     main {
-      width: 90%; max-width: 780px; background: rgba(255,255,255,0.07);
-      border: 3px solid var(--cream); border-radius: 20px; padding: 2.5rem;
-      box-shadow: 0 6px 25px rgba(0,0,0,0.3);
+      margin-top: 1.5rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
+      gap: 1rem;
     }
 
-    h1 {
-      font-size: clamp(2.4rem, 5vw, 3.4rem);
-      font-weight: 900; color: var(--maize);
-      margin-bottom: 0.3rem;
+    @media (max-width: 860px) {
+      main {
+        grid-template-columns: 1fr;
+      }
     }
 
-    h2 { color: var(--cream); font-size: 1.4rem; margin-top: 1rem; }
-    p { line-height: 1.7; margin: 0.6rem 0 1.2rem; }
+    section {
+      background: linear-gradient(180deg, rgba(21, 16, 8, 0.96), rgba(10, 6, 2, 0.98));
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      padding: 1.15rem 1.1rem 1.2rem;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.65);
+    }
 
-    .btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin: 1.4rem 0; }
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      align-items: baseline;
+      margin-bottom: 0.7rem;
+    }
 
-    .btn {
-      background: var(--maize); color: var(--blue);
-      padding: 0.8rem 1.3rem; border-radius: 12px;
-      font-weight: 700; position: relative; overflow: hidden;
-      transition: transform 0.25s ease, background 0.3s ease;
+    .section-title {
+      font-size: 0.9rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent-yellow);
+    }
+
+    .section-chip {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-muted);
+    }
+
+    .section-body {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .section-body p {
+      margin: 0 0 0.7rem;
+    }
+
+    /* lists */
+
+    .list {
+      list-style: none;
+      padding: 0;
+      margin: 0.5rem 0 0;
+    }
+
+    .list li + li {
+      margin-top: 0.45rem;
+    }
+
+    .item-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .item-meta {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    /* projects */
+
+    .project-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.3rem 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .project-card {
+      padding: 0.65rem 0.75rem;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: radial-gradient(circle at top left, rgba(255, 215, 84, 0.14), transparent 55%),
+                  rgba(10, 6, 2, 0.92);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at top, rgba(150, 255, 79, 0.18), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      pointer-events: none;
+    }
+
+    .project-card:hover::before {
+      opacity: 1;
+    }
+
+    .project-title-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
+      align-items: baseline;
+    }
+
+    .project-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .project-tag {
+      font-size: 0.72rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: var(--radius-pill);
+      background: rgba(0, 0, 0, 0.6);
+      color: var(--accent-green);
+      border: 1px solid rgba(150, 255, 79, 0.6);
+    }
+
+    .project-desc {
+      margin-top: 0.3rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .project-link {
+      margin-top: 0.4rem;
+      font-size: 0.8rem;
+    }
+
+    a {
+      color: var(--accent-green);
       text-decoration: none;
-      min-width: 150px;
     }
 
-    .btn::before {
-      content: ""; position: absolute; top: 0; left: -150%; width: 50%; height: 100%;
-      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.6), transparent);
-      transform: skewX(-20deg);
+    a:hover {
+      text-decoration: underline;
     }
 
-    .btn:hover { transform: scale(1.05); background: var(--hover-accent); }
-    .btn:hover::before { animation: shimmer 1.2s forwards; }
-
-    @keyframes shimmer { 0% { left: -150%; } 100% { left: 150%; } }
-
-    section { margin: 2rem 0; text-align: left; }
-    section h3 { color: var(--maize); font-size: 1.3rem; border-bottom: 2px solid var(--cream); padding-bottom: 0.4rem; }
-
-    ul { list-style: none; padding: 0; }
-    li { margin: 0.4rem 0; }
+    /* footer */
 
     footer {
-      font-size: 0.9rem; margin-top: 2rem; opacity: 0.9;
-      display: flex; justify-content: space-between; flex-wrap: wrap;
-      width: 100%; max-width: 600px; margin-left: auto; margin-right: auto;
+      margin-top: 1.2rem;
+      font-size: 0.75rem;
+      text-align: center;
+      color: var(--text-muted);
     }
 
-    footer a { color: var(--maize); text-decoration: none; }
-    footer a:hover { color: var(--hover-accent); }
-
-    @media (max-width:600px) {
-      main { padding: 1.5rem; }
-      section { text-align: center; }
-      footer { flex-direction: column; gap: 8px; text-align: center; }
+    footer span {
+      color: var(--accent-yellow);
     }
   </style>
 </head>
 <body>
-  <main>
-    <h1>Matt Baier</h1>
-    <h2>Manager • Designer • Founder, The Comeback Kitchen Co.</h2>
+  <div class="page">
+    <header>
+      <div class="header-inner">
+        <div class="hero-main">
+          <h1><span>Matt Baier</span></h1>
+          <p class="hero-title">
+            MANAGER · DESIGNER · FOUNDER, THE COMEBACK KITCHEN CO.
+          </p>
+          <p class="hero-about">
+            Fifteen years in restaurants forged me into someone who can take a noisy, stressful,
+            fast-moving environment and turn it into a system that produces speed, quality, and calm.
+            I'm transitioning that experience into tech-enabled operations and modern management.
+            My background includes leadership, training, process design, and building predictable
+            systems in unpredictable places.
+          </p>
 
-    <div class="btns">
-      <a href="mailto:matt.baier86@gmail.com" class="btn">Email Matt</a>
-      <a href="https://bearicide.github.io/theflushinga-dotcom/" class="btn">Back to Portal</a>
-      <a href="https://bearicide.github.io/theflushinga-dotcom/gallery.html" class="btn">View Gallery</a>
-    </div>
+          <div class="hero-badges">
+            <div class="badge">
+              <span class="badge-dot"></span>
+              <span>Hospitality ops · brand &amp; web</span>
+            </div>
+            <div class="badge">
+              <span>🍽</span>
+              <span>Independent restaurants &amp; local diners</span>
+            </div>
+            <div class="badge">
+              <span>⚙️</span>
+              <span>Systems, process, &amp; modern tools</span>
+            </div>
+          </div>
+        </div>
 
-    <section>
-      <h3>About</h3>
-      <p>Fifteen years in restaurants forged me into someone who can take a noisy, stressful, fast‑moving environment and turn it into a system that produces speed, quality, and calm. I'm transitioning that experience into tech‑enabled operations and modern management. My background includes leadership, training, process design, and building predictable systems in unpredictable places.</p>
-    </section>
+        <aside class="hero-side">
+          <div>
+            <div class="hero-label">Contact</div>
+            <div class="hero-email">
+              <a href="mailto:matt.baier86@gmail.com">matt.baier86@gmail.com</a>
+            </div>
+          </div>
 
-    <section>
-      <h3>Experience</h3>
-      <ul>
-        <li><strong>Manager</strong> – The Flushing A Diner, Flushing, MI</li>
-        <li><strong>Shift Leader</strong> – Domino’s Pizza</li>
-        <li><strong>Founder</strong> – The Comeback Kitchen Company</li>
-      </ul>
-    </section>
+          <div>
+            <div class="hero-label">Quick links</div>
+            <div class="nav-links">
+              <a class="nav-link primary" href="https://theflushinga.com/" target="_blank" rel="noopener">
+                CKC portal
+              </a>
+              <a class="nav-link" href="https://theflushinga.com/gallery.html" target="_blank" rel="noopener">
+                CKC gallery
+              </a>
+              <a class="nav-link" href="https://bearicide.github.io/pokemon/" target="_blank" rel="noopener">
+                Pokémon sale binder
+              </a>
+              <a class="nav-link" href="https://github.com/bearicide" target="_blank" rel="noopener">
+                GitHub profile
+              </a>
+            </div>
+          </div>
 
-    <section>
-      <h3>Projects</h3>
-      <ul>
-        <li><a href="https://bearicide.github.io/theflushinga-dotcom/" target="_blank" rel="noopener noreferrer">The Flushing A</a> – Brand modernization and digital relaunch</li>
-        <li><a href="https://bearicide.github.io/trackside-cafe/" target="_blank" rel="noopener noreferrer">Trackside Cafe</a> – Concept design and full web rebuild</li>
-        <li><a href="https://bearicide.github.io/" target="_blank" rel="noopener noreferrer">MattBear.Media</a> – Personal design and creative technology portfolio</li>
-      </ul>
-    </section>
+          <p class="hero-note">
+            Need a cleaner menu, sharper brand, or a small restaurant that behaves like it has a full ops team?
+            Start with an email and we’ll go from there.
+          </p>
+        </aside>
+      </div>
+    </header>
+
+    <main>
+      <!-- LEFT COLUMN: ABOUT / EXPERIENCE -->
+      <section>
+        <div class="section-header">
+          <h2 class="section-title">About &amp; experience</h2>
+          <span class="section-chip">operations · leadership</span>
+        </div>
+        <div class="section-body">
+          <p>
+            I specialize in taking loud, chaotic environments and turning them into calm,
+            predictable systems – without losing the human side that makes hospitality work.
+            Most of that has been in diners, pizza, and independent restaurants,
+            now pulled forward into digital tools and modern management.
+          </p>
+
+          <ul class="list">
+            <li>
+              <div class="item-title">Manager – The Flushing A Diner, Flushing, MI</div>
+              <div class="item-meta">
+                Daily operations, staff leadership, training, and process design in a busy hometown diner.
+              </div>
+            </li>
+            <li>
+              <div class="item-title">Shift Leader – Domino’s Pizza</div>
+              <div class="item-meta">
+                Frontline management in a high-volume pizza environment:
+                timing, quality control, and team pacing on the clock.
+              </div>
+            </li>
+            <li>
+              <div class="item-title">Founder – The Comeback Kitchen Company</div>
+              <div class="item-meta">
+                Helping independent spots modernize their look, their systems, and their online presence
+                without turning into copy-paste chains.
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- RIGHT COLUMN: PROJECTS -->
+      <section>
+        <div class="section-header">
+          <h2 class="section-title">Selected projects</h2>
+          <span class="section-chip">live work</span>
+        </div>
+        <div class="section-body">
+          <ul class="project-list">
+            <li class="project-card">
+              <div class="project-title-row">
+                <div class="project-title">The Flushing A</div>
+                <span class="project-tag">brand &amp; relaunch</span>
+              </div>
+              <p class="project-desc">
+                Brand modernization and digital relaunch work for a classic hometown diner,
+                focused on keeping the “regulars” energy while tightening up the way it looks and works.
+              </p>
+              <p class="project-link">
+                <a href="https://theflushinga.com/" target="_blank" rel="noopener">
+                  Visit the CKC portal for Flushing A&nbsp;→
+                </a>
+              </p>
+            </li>
+
+            <li class="project-card">
+              <div class="project-title-row">
+                <div class="project-title">Trackside Café – Flushing, MI</div>
+                <span class="project-tag">web &amp; storytelling</span>
+              </div>
+              <p class="project-desc">
+                Concept design and full web rebuild for a family-run breakfast spot.
+                The site centers on story, photos, and clarity: when they’re open,
+                what they serve, and why locals care.
+              </p>
+              <p class="project-link">
+                <a href="https://bearicide.github.io/trackside-cafe/" target="_blank" rel="noopener">
+                  View the Trackside Café site&nbsp;→
+                </a>
+              </p>
+            </li>
+
+            <li class="project-card">
+              <div class="project-title-row">
+                <div class="project-title">MattBear.Media</div>
+                <span class="project-tag">personal portfolio</span>
+              </div>
+              <p class="project-desc">
+                Ongoing personal design and creative technology work:
+                branding experiments, menu layouts, interactive bits, and other odd jobs
+                that tie back into restaurant and small-business work.
+              </p>
+              <p class="project-link">
+                <a href="https://bearicide.github.io/theflushinga-dotcom/gallery.html" target="_blank" rel="noopener">
+                  Browse the CKC / Feedbrain gallery&nbsp;→
+                </a>
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
 
     <footer>
-      <a href="https://theflushinga.com" target="_blank" rel="noopener noreferrer">Home</a>
-      <span>© 2025 Matt Baier</span>
-      <a href="https://github.com/bearicide" target="_blank" rel="noopener noreferrer">GitHub</a>
+      © <span>2025</span> Matt Baier · built on GitHub Pages · links above stay current even if the design changes again.
     </footer>
-  </main>
+  </div>
 </body>
 </html>
