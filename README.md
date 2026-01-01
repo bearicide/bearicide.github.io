@@ -1,38 +1,34 @@
-# bearicide - a personal journey.
+# bearicide.github.io – Comeback Kitchen Co. & Projects
 
-This site started as a plain resume and evolved into a living demonstration of:
-- systematic thinking and logical workflow
-- personality and humor
-- real-world operational discipline
-- front-end control and UI polish
-- transforming chaos into something engaging
-- proof of dedication and willingness to adapt
-- a showcase of some fun stuff
-- a reason to make hyphenated lists
+This is the home page for Matt Baier’s work:
+Comeback Kitchen Co. (CKC), side projects, and the live Pokémon sale binder.
 
-It's equal parts professional portfolio and personal calling card. Text only, please.
+## What’s here
 
-### What’s Inside (That's what counts...right?)
+• A clean, modern splash page  
+• Fast access to the Pokémon sale binder  
+• Contact email front and center  
+• A clear summary of CKC services:
+  – Service flow and station systems  
+  – Menu and basic branding support  
+  – On-site kitchen cleaning & degreasing
 
-- Clean resume layout with warm paper aesthetic  
-- Animated theme toggle switching between:
-  - **Spartan Mode** (green)
-  - **Wolverine Mode** (maize & blue)
-- Button shake animation on click
-- Glowing "Tech-Enabled Growth" tagline
-- Custom color palette, accented border, subtle shadow
-- Footer signature: `[ matt 🐻 bear ]`
+## Style & UX
 
-> If someone can manage a kitchen rush and animate a theme button, they can probably manage your workflows too.
+• Bright greens and yellows over rich dark tones  
+• Friendly typography and comfortable spacing  
+• Fully responsive for mobile users  
+• No images required to load fast everywhere
 
-### Live Demo
+## Publishing
 
-**🔗** https://bearicide.github.io/mattbaier-personalwebsite/ 
+Replace your existing `index.html`, commit to `main`,
+and GitHub Pages will update automatically.
 
-### Local Run (So far away...)
+## Future changes
 
-No build. No frameworks. No nonsense. No banana for scale. This isn't OnlyFans.  
+All future updates are delivered as **full page rebuilds**  
+for easy copy-paste deployment.
 
-```bash
-git clone https://github.com/bearicide/mattbaier-personalwebsite.git
-open index.html
+Thanks for visiting — and if your kitchen needs a reset,
+email **matt.baier86@gmail.com** and let’s talk real solutions.
