@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Brand Identity | MATTBEAR</title>
+<meta name="description" content="Brand identity systems that make businesses and projects look clear, usable, and memorable." />
+<style>
+:root{
+  --bg:#0b0d12;--panel:rgba(255,255,255,.08);--text:#f7f9ff;--muted:#c9d0e3;--line:rgba(255,255,255,.12);
+  --shadow:0 18px 40px rgba(0,0,0,.34);--glow:0 0 18px rgba(255,255,255,.10),0 0 30px rgba(53,217,255,.07),0 0 42px rgba(207,92,255,.06);
+  --r:#ff3a6d;--o:#ff9f1c;--y:#ffd93d;--g:#39ff92;--c:#35d9ff;--b:#5a7cff;--v:#cf5cff;
+  --grad:linear-gradient(90deg,var(--r),var(--o),var(--y),var(--g),var(--c),var(--b),var(--v));
+  --grad-soft:linear-gradient(135deg,rgba(255,58,109,.18),rgba(53,217,255,.14),rgba(57,255,146,.15));
+  --radius:24px;
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{
+  margin:0;font-family:Bahnschrift,"Arial Narrow",Arial,sans-serif;color:var(--text);
+  background:radial-gradient(circle at top left, rgba(53,217,255,.15), transparent 26%),
+             radial-gradient(circle at top right, rgba(207,92,255,.13), transparent 24%),
+             radial-gradient(circle at bottom left, rgba(57,255,146,.11), transparent 24%),
+             linear-gradient(180deg,#0b0d12 0%, #121722 48%, #0b0d12 100%);
+}
+a{color:inherit;text-decoration:none} img{display:block;max-width:100%}
+.wrap{width:min(1120px,calc(100% - 28px));margin:0 auto}
+.topbar{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(11,13,18,.88);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+.brand{display:flex;align-items:center;gap:12px;min-width:0;flex:1}
+.brand-badge{width:46px;height:46px;border-radius:16px;background:var(--grad);position:relative;box-shadow:0 0 24px rgba(255,255,255,.1)}
+.brand-badge::after{content:"MB";position:absolute;inset:2px;border-radius:14px;background:#10141c;display:grid;place-items:center;font-weight:800;letter-spacing:.05em}
+.brand-text{display:flex;flex-direction:column;line-height:1.02;min-width:0}
+.brand-text strong{font-size:1.03rem;letter-spacing:.08em}
+.brand-text span{margin-top:4px;color:var(--muted);font-size:.75rem;letter-spacing:.04em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav-toggle{display:none;width:46px;height:46px;align-items:center;justify-content:center;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.06);color:#fff;font-size:1.2rem;font-weight:900}
+.nav-links{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.nav-links a{padding:10px 12px;border-radius:12px;color:var(--muted);font-size:.95rem;transition:.18s ease}
+.nav-links a:hover,.nav-links a.active{color:#fff;background:rgba(255,255,255,.06);box-shadow:var(--glow)}
+.hero{padding:58px 0 26px}.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:18px;align-items:stretch}
+.panel,.card{position:relative;overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.05));border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.panel::before,.card::before{content:"";position:absolute;left:0;top:0;width:100%;height:4px;background:var(--grad)}
+.panel:hover,.card:hover{border-color:rgba(255,255,255,.20);box-shadow:var(--shadow),var(--glow)}
+.hero-card,.content-card,.detail-main,.detail-side,.quote-card{padding:28px}
+.kicker{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);color:var(--muted);font-size:.82rem;letter-spacing:.06em;text-transform:uppercase}
+h1,h2,h3{margin:0} h1{margin-top:16px;font-size:clamp(2.35rem,6vw,4.75rem);line-height:.94;letter-spacing:-.04em} h2{font-size:clamp(1.5rem,3vw,2.15rem);letter-spacing:-.02em} h3{font-size:1.18rem}
+.gradient{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead,.detail-main p,.detail-side p,.section-head p,.manifesto-intro{color:var(--muted);line-height:1.62;font-size:1.03rem}
+.lead{margin-top:16px;max-width:760px}
+.cta-row,.button-row,.meta-row,.back-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center}.cta-row,.button-row,.meta-row{margin-top:22px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 22px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.05);color:#fff;font-weight:900;font-size:1.03rem;letter-spacing:.02em;box-shadow:0 10px 20px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.08);transition:.18s ease;text-align:center}
+.btn:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.22);box-shadow:0 14px 26px rgba(0,0,0,.28),var(--glow),inset 0 1px 0 rgba(255,255,255,.10)}
+.btn.primary{background:var(--grad);color:#0d1017;border:none;box-shadow:0 0 18px rgba(255,255,255,.18)} .btn.small{min-height:46px;padding:0 16px;font-size:.95rem;border-radius:14px}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;padding:22px}
+.stat{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:20px;padding:20px;min-height:128px}
+.stat strong{display:block;font-size:1.85rem;margin-bottom:8px}.stat span{color:var(--muted);line-height:1.55}
+.section{padding:18px 0 28px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:18px}.section-head p{margin:0;max-width:760px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{padding:24px}
+.icon{width:50px;height:50px;border-radius:16px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.10);display:grid;place-items:center;font-size:1.4rem;margin-bottom:14px}
+.card p{margin:10px 0 14px;color:var(--muted);line-height:1.6;min-height:78px}.card ul,.detail-main ul{margin:0;padding-left:18px}
+.card li,.detail-main li{line-height:1.6}.card li+li,.detail-main li+li{margin-top:8px}
+.note{margin-top:14px;padding:16px 18px;border-radius:18px;background:var(--grad-soft);border:1px solid var(--line);color:#eef2ff;line-height:1.58}
+.manifesto-intro{margin:0 0 14px}.manifesto-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.manifesto-chip,.mini-card,.contact-item,.check{padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid var(--line)}
+.manifesto-chip:hover,.contact-item:hover,.check:hover{box-shadow:var(--glow)}
+.quote-card{text-align:center;font-size:clamp(1.18rem,3vw,1.9rem);font-weight:800;line-height:1.4}
+.contact-list{display:grid;gap:10px;margin-top:14px}
+.detail-wrap{padding:38px 0 24px}.detail-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px}
+.meta-pill{padding:9px 12px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.10);font-weight:800;font-size:.92rem}
+.mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.mini-card strong{display:block;margin-bottom:8px}
+.example-box{margin-top:18px;padding:18px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid var(--line);line-height:1.6}
+.checklist{display:grid;gap:10px}
+.footer{padding:34px 0 46px;color:var(--muted);text-align:center;font-size:.78rem}
+.footer .main{font-weight:700;color:#fff}.footer .quote{margin-top:6px;font-size:.85rem;opacity:.65;letter-spacing:.08em}.footer .sub{margin-top:4px;font-size:.75rem;opacity:.62}.footer .bear{margin-top:6px}.footer .bear a{opacity:.35;font-size:1rem;text-decoration:none}
+.floating-link{position:fixed;right:14px;bottom:14px;z-index:90;padding:11px 14px;border-radius:999px;background:rgba(18,23,34,.90);border:1px solid var(--line);box-shadow:var(--shadow);font-size:.84rem;font-weight:800;transition:.18s ease}
+.floating-link:hover{transform:translateY(-2px);box-shadow:var(--shadow),var(--glow)}
+.hero-image{border-radius:18px;border:1px solid var(--line);box-shadow:var(--shadow)}.hero-image-wrap{margin-top:16px}
+@media (max-width:1024px){.hero-grid,.grid,.detail-grid,.mini-grid,.manifesto-grid,.split-two{grid-template-columns:1fr}}
+@media (max-width:720px){
+  .wrap{width:min(100% - 20px,1120px)} .topbar{padding-top:env(safe-area-inset-top,0)} .nav{flex-wrap:wrap} .nav-toggle{display:inline-flex}
+  .nav-links{display:none;width:100%;flex-direction:column;align-items:stretch;gap:8px;padding:12px 0 4px} .nav-links.open{display:flex}
+  .nav-links a{width:100%;padding:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06)}
+  .hero{padding-top:24px} .hero-card,.content-card,.detail-main,.detail-side,.quote-card,.card,.stats{padding:18px} .stats{grid-template-columns:1fr}
+  .cta-row,.button-row,.back-row{flex-direction:column} .btn{width:100%;min-height:54px;font-size:1rem} .btn.small{min-height:46px}
+  h1{font-size:clamp(2rem,11vw,3.1rem);line-height:.98} .lead,.detail-main p,.detail-side p,.section-head p,.manifesto-intro{font-size:1rem}
+  .card p{min-height:0} .floating-link{left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px));text-align:center}
+  body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <div class="brand-badge"></div>
+      <div class="brand-text">
+        <strong>MATTBEAR</strong>
+        <span>freelance creative systems • chaos → signal</span>
+      </div>
+    </a>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">☰</button>
+    <nav class="nav-links" id="site-nav">
+      <a href="index.html" class="">home</a>
+<a href="brand-identity.html" class="active">brand identity</a>
+<a href="website-design.html" class="">website design</a>
+<a href="promo-design.html" class="">promo design</a>
+<a href="strategy-creative-direction.html" class="">strategy + direction</a>
+<a href="interactive-builds.html" class="">interactive builds</a>
+<a href="project-packages.html" class="">packages</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="detail-wrap">
+    <div class="wrap">
+      <div class="back-row">
+        <a class="btn small" href="index.html">← home</a>
+        <a class="btn small primary" href="https://bearicide.github.io/HiberNation/index.html" target="_blank" rel="noopener noreferrer">hibernation entrance</a>
+      </div>
+
+      <div class="detail-grid">
+        <div class="panel detail-main">
+          <div class="kicker">service page</div>
+          <h1>brand <span class="gradient">identity</span></h1>
+          <p>I build visual systems that make a business or project look intentional, recognizable, and ready to use across real-world touchpoints.</p>
+          <div class="meta-row"><span class="meta-pill">starting at $300</span><span class="meta-pill">logo + color + type</span><span class="meta-pill">built for actual use</span></div>
+        </div>
+        <div class="panel detail-side">
+          <h2>best for</h2>
+          <div class="checklist"><div class="check">new businesses that need a visual foundation</div><div class="check">existing brands that look inconsistent or forgettable</div><div class="check">owners tired of guessing what matches what</div></div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="detail-grid">
+          <div class="panel detail-main">
+            <h2>what’s included</h2>
+            <ul><li>primary logo direction and concept development</li><li>supporting color palette for web, print, and promo use</li><li>typography pairing that fits the work</li><li>simple usage guidance so the system stays usable</li></ul>
+            <div class="mini-grid">
+              <div class="mini-card"><strong>Outcome:</strong>Cleaner recognition, stronger trust, and less visual confusion.</div>
+              <div class="mini-card"><strong>Client Benefit:</strong>You stop reinventing your look every time you need a menu, flyer, or post.</div>
+            </div>
+            <div class="example-box"><strong>Example use:</strong> a restaurant, local service business, or creator brand that needs a logo system, usable colors, and type that works everywhere.</div>
+          </div>
+          <div class="panel detail-side">
+            <h2>why it matters</h2>
+            <p>People decide fast. If the visual system looks sloppy, trust drops before the offer gets a chance.</p>
+            <div class="cta-row">
+              <a class="btn primary" href="website-design.html">next: website design</a>
+              <a class="btn" href="index.html">home</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer wrap">
+  <div class="main">chaos → signal</div>
+  <div class="quote">“professionally annoying”</div>
+  <div class="sub">neondadaism × ameliorism • mattbear freelance creative systems • powered by bearicide</div>
+  <div class="bear"><a href="index-old.html">🐻</a></div>
+</footer>
+
+
+<a class="floating-link" href="https://bearicide.github.io/HiberNation/index.html" target="_blank" rel="noopener noreferrer">enter hibernation</a>
+<script>
+const navToggle = document.getElementById('nav-toggle');
+const siteNav = document.getElementById('site-nav');
+
+navToggle?.addEventListener('click', () => {
+  const open = siteNav.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', String(open));
+});
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 720) {
+    siteNav?.classList.remove('open');
+    navToggle?.setAttribute('aria-expanded', 'false');
+  }
+});
+
+</script>
+</body>
+</html>
