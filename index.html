@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>MATTBEAR | Freelance Creative Systems</title>
-<meta name="description" content="Freelance creative systems for design, websites, promotion, direction, and interactive builds." />
+<meta name="description" content="Freelance creative systems for design, websites, promotion, direction, interactive builds, and public GitHub projects." />
 <style>
 :root{
   --bg:#0b0d12;--panel:rgba(255,255,255,.08);--text:#f7f9ff;--muted:#c9d0e3;--line:rgba(255,255,255,.12);
@@ -64,18 +64,16 @@ h1,h2,h3{margin:0} h1{margin-top:16px;font-size:clamp(2.35rem,6vw,4.75rem);line-
 .manifesto-chip:hover,.contact-item:hover,.check:hover{box-shadow:var(--glow)}
 .quote-card{text-align:center;font-size:clamp(1.18rem,3vw,1.9rem);font-weight:800;line-height:1.4}
 .contact-list{display:grid;gap:10px;margin-top:14px}
-.detail-wrap{padding:38px 0 24px}.detail-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px}
-.meta-pill{padding:9px 12px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.10);font-weight:800;font-size:.92rem}
-.mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
-.mini-card strong{display:block;margin-bottom:8px}
-.example-box{margin-top:18px;padding:18px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid var(--line);line-height:1.6}
-.checklist{display:grid;gap:10px}
+.github-grid{grid-template-columns:repeat(3,1fr)}
+.github-card p{min-height:118px}
+.repo-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.repo-links .btn{flex:1;min-width:130px}
 .footer{padding:34px 0 46px;color:var(--muted);text-align:center;font-size:.78rem}
 .footer .main{font-weight:700;color:#fff}.footer .quote{margin-top:6px;font-size:.85rem;opacity:.65;letter-spacing:.08em}.footer .sub{margin-top:4px;font-size:.75rem;opacity:.62}.footer .bear{margin-top:6px}.footer .bear a{opacity:.35;font-size:1rem;text-decoration:none}
 .floating-link{position:fixed;right:14px;bottom:14px;z-index:90;padding:11px 14px;border-radius:999px;background:rgba(18,23,34,.90);border:1px solid var(--line);box-shadow:var(--shadow);font-size:.84rem;font-weight:800;transition:.18s ease}
 .floating-link:hover{transform:translateY(-2px);box-shadow:var(--shadow),var(--glow)}
 .hero-image{border-radius:18px;border:1px solid var(--line);box-shadow:var(--shadow)}.hero-image-wrap{margin-top:16px}
-@media (max-width:1024px){.hero-grid,.grid,.detail-grid,.mini-grid,.manifesto-grid,.split-two{grid-template-columns:1fr}}
+@media (max-width:1024px){.hero-grid,.grid,.detail-grid,.mini-grid,.manifesto-grid,.split-two,.github-grid{grid-template-columns:1fr}}
 @media (max-width:720px){
   .wrap{width:min(100% - 20px,1120px)} .topbar{padding-top:env(safe-area-inset-top,0)} .nav{flex-wrap:wrap} .nav-toggle{display:inline-flex}
   .nav-links{display:none;width:100%;flex-direction:column;align-items:stretch;gap:8px;padding:12px 0 4px} .nav-links.open{display:flex}
@@ -106,12 +104,13 @@ h1,h2,h3{margin:0} h1{margin-top:16px;font-size:clamp(2.35rem,6vw,4.75rem);line-
     <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">☰</button>
     <nav class="nav-links" id="site-nav">
       <a href="index.html" class="active">home</a>
-<a href="brand-identity.html" class="">brand identity</a>
-<a href="website-design.html" class="">website design</a>
-<a href="promo-design.html" class="">promo design</a>
-<a href="strategy-creative-direction.html" class="">strategy + direction</a>
-<a href="interactive-builds.html" class="">interactive builds</a>
-<a href="project-packages.html" class="">packages</a>
+      <a href="brand-identity.html">brand identity</a>
+      <a href="website-design.html">website design</a>
+      <a href="promo-design.html">promo design</a>
+      <a href="strategy-creative-direction.html">strategy + direction</a>
+      <a href="interactive-builds.html">interactive builds</a>
+      <a href="project-packages.html">packages</a>
+      <a href="#github-projects">github</a>
     </nav>
   </div>
 </header>
@@ -228,6 +227,374 @@ h1,h2,h3{margin:0} h1{margin-top:16px;font-size:clamp(2.35rem,6vw,4.75rem);line-
     </div>
   </section>
 
+  
+  <section class="section" id="github-projects">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>github projects</h2>
+          <p>Public MATTBEAR / Bearicide repositories, collected into one simple launch section. Links open the live GitHub Pages version when available, plus the source repo.</p>
+        </div>
+      </div>
+      <div class="grid github-grid">
+
+        <article class="card github-card">
+          <div class="icon">🔗</div>
+          <h3>The Choppa</h3>
+          <p>Browser-based auto-chop pad drummer / sampler with 16 pads, MIDI, touch, mouse, keyboard controls, FX knobs, and PWA packaging.</p>
+          <div class="repo-links">
+            <a class="btn small primary" href="https://bearicide.github.io/the-choppa/" target="_blank" rel="noopener noreferrer">open live page</a>
+            <a class="btn small" href="https://github.com/bearicide/the-choppa" target="_blank" rel="noopener noreferrer">view repo</a>
+          </div>
+        </article>
+
+        <article class="card github-card">
+          <div class="icon">🔗</div>
+          <h3>Main MATTBEAR Portal</h3>
+          <p>Primary GitHub Pages homepage and freelance creative systems portal.</p>
+          <div class="repo-links">
+            <a class="btn small primary" href="https://bearicide.github.io/" target="_blank" rel="noopener noreferrer">open live page</a>
+            <a class="btn small" href="https://github.com/bearicide/bearicide.github.io" target="_blank" rel="noopener noreferrer">view repo</a>
+          </div>
+        </article>
+
+        <article class="card github-card">
+          <div class="icon">🔗</div>
+          <h3>HiberNation</h3>
+          <p>Official MATTBEAR / HiberNation entrance, fan-facing portal, brand hub, and creative landing page.</p>
+          <div class="repo-links">
+            <a class="btn small primary" href="https://bearicide.github.io/HiberNation/" target="_blank" rel="noopener noreferrer">open live page</a>
+            <a class="btn small" href="https://github.com/bearicide/HiberNation" target="_blank" rel="noopener noreferrer">view repo</a>
+          </div>
+        </article>
+
+        <article class="card github-card">
+          <div class="icon">🔗</div>
+          <h3>NEONRITUAL</h3>
+          <p>Interactive neon ritual demo / creative web experience tied to the MATTBEAR visual system.</p>
+          <div class="repo-links">
+            <a class="btn small primary" href="https://bearicide.github.io/NEONRITUAL/" target="_blank" rel="noopener noreferrer">open live page</a>
+            <a class="btn small" href="https://github.com/bearicide/NEONRITUAL" target="_blank" rel="noopener noreferrer">view repo</a>
+          </div>
+        </article>
+
+        <article class="card github-card">
+          <div class="icon">🔗</div>
+          <h3>NEONRITUAL2</h3>
+          <p>Second Neon Ritual build / alternate interactive demo version.</p>
+          <div class="repo-links">
+            <a class="btn small primary" href="https://bearicide.github.io/NEONRITUAL2/" target="_blank" rel="noopener noreferrer">open live page</a>
+            <a class="btn small" href="https://github.com/bearicide/NEONRITUAL2" target="_blank" rel="noopener noreferrer">view repo</a>
+          </div>
+        </article>
+
+        <article class="card github-card">
+          <div class="icon">🔗</div>
+          <h3>Neon Ritual Machine</h3>
+          <p>Interactive browser music/visual machine concept, older cousin to the newer remix tools.</p>
+          <div class="repo-links">
+            <a class="btn small primary" href="https://bearicide.github.io/neon-ritual-machine/" target="_blank" rel="noopener noreferrer">open live page</a>
+            <a class="btn small" href="https://github.com/bearicide/neon-ritual-machine" target="_blank" rel="noopener noreferrer">view repo</a>
+          </div>
+        </article>
+
+        <article class="card github-card">
+          <div class="icon">🔗</div>
+          <h3>Neon Ritual Machine 2</h3>
+          <p>Second iteration of the Neon Ritual Machine concept.</p>
+          <div class="repo-links">
+            <a class="btn small primary" href="https://bearicide.github.io/neon-ritual-machine2/" target="_blank" rel="noopener noreferrer">open live page</a>
+            <a class="btn small" href="https://github.com/bearicide/neon-ritual-machine2" target="_blank" rel="noopener noreferrer">view repo</a>
+          </div>
+        </article>
+
+        <article class="card github-card">
+          <div class="icon">🔗</div>
+          <h3>Neon Funk Machine</h3>
+          <p>Small browser-based neon/funk machine experiment or music-tool sketch.</p>
+          <div class="repo-links">
+            <a class="btn small primary" href="https://bearicide.github.io/neonfunkmachine/" target="_blank" rel="noopener noreferrer">open live page</a>
+            <a class="btn small" href="https://github.com/bearicide/neonfunkmachine" target="_blank" rel="noopener noreferrer">view repo</a>
+          </div>
+        </article>
+
+        <article class="card github-card">
+          <div class="icon">🔗</div>
+          <h3>Matt’s MIDI Machine</h3>
+          <p>Browser MIDI music-machine build, likely tied to Launchkey/MIDI control experiments.</p>
+          <div class="repo-links">
+            <a class="btn small primary" href="https://bearicide.github.io/matts-midi-machine/" target="_blank" rel="noopener noreferrer">open live page</a>
+            <a class="btn small" href="https://github.com/bearicide/matts-midi-machine" target="_blank" rel="noopener noreferrer">view repo</a>
+          </div>
+        </article>
+
+        <article class="card github-card">
+          <div class="icon">🔗</div>
+          <h3>The Machine</h3>
+          <p>Main remix-machine concept repo placeholder / early project container.</p>
+          <div class="repo-links">
+            <a class="btn small primary" href="https://bearicide.github.io/the-machine/" target="_blank" rel="noopener noreferrer">open live page</a>
+            <a class="btn small" href="https://github.com/bearicide/the-machine" target="_blank" rel="noopener noreferrer">view repo</a>
+          </div>
+        </article>
+
+        <article class="card github-card">
+          <div class="icon">🔗</div>
+          <h3>MATTBEAR All Fall Down</h3>
+          <p>Album/artist promo site or materials for All Fall Down.</p>
+          <div class="repo-links">
+            <a class="btn small primary" href="https://bearicide.github.io/mattbear-allfalldown/" target="_blank" rel="noopener noreferrer">open live page</a>
+            <a class="btn small" href="https://github.com/bearicide/mattbear-allfalldown" target="_blank" rel="noopener noreferrer">view repo</a>
+          </div>
+        </article>
+
+        <article class="card github-card">
+          <div class="icon">🔗</div>
+          <h3>Easter 2026</h3>
+          <p>Interactive Easter project page / games concept build.</p>
+          <div class="repo-links">
+            <a class="btn small primary" href="https://bearicide.github.io/easter2026/" target="_blank" rel="noopener noreferrer">open live page</a>
+            <a class="btn small" href="https://github.com/bearicide/easter2026" target="_blank" rel="noopener noreferrer">view repo</a>
+          </div>
+        </article>
+
+        <article class="card github-card">
+          <div class="icon">🔗</div>
+          <h3>Trackside Café</h3>
+          <p>Restaurant/café website, menu, and local business materials.</p>
+          <div class="repo-links">
+            <a class="btn small primary" href="https://bearicide.github.io/trackside-cafe/" target="_blank" rel="noopener noreferrer">open live page</a>
+            <a class="btn small" href="https://github.com/bearicide/trackside-cafe" target="_blank" rel="noopener noreferrer">view repo</a>
+          </div>
+        </article>
+
+        <article class="card github-card">
+          <div class="icon">🔗</div>
+          <h3>Trackside Meeting Mar 8</h3>
+          <p>Trackside meeting notes / operations reference page.</p>
+          <div class="repo-links">
+            <a class="btn small primary" href="https://bearicide.github.io/trackside-meeting-mar8/" target="_blank" rel="noopener noreferrer">open live page</a>
+            <a class="btn small" href="https://github.com/bearicide/trackside-meeting-mar8" target="_blank" rel="noopener noreferrer">view repo</a>
+          </div>
+        </article>
+
+        <article class="card github-card">
+          <div class="icon">🔗</div>
+          <h3>Flushing A Website</h3>
+          <p>Early Flushing A website build.</p>
+          <div class="repo-links">
+            <a class="btn small primary" href="https://bearicide.github.io/flushing-a-website/" target="_blank" rel="noopener noreferrer">open live page</a>
+            <a class="btn small" href="https://github.com/bearicide/flushing-a-website" target="_blank" rel="noopener noreferrer">view repo</a>
+          </div>
+        </article>
+
+        <article class="card github-card">
+          <div class="icon">🔗</div>
+          <h3>TheFlushingA.com</h3>
+          <p>Main Flushing A portal / domain-targeted site package.</p>
+          <div class="repo-links">
+            <a class="btn small primary" href="https://bearicide.github.io/theflushinga-dotcom/" target="_blank" rel="noopener noreferrer">open live page</a>
+            <a class="btn small" href="https://github.com/bearicide/theflushinga-dotcom" target="_blank" rel="noopener noreferrer">view repo</a>
+          </div>
+        </article>
+
+        <article class="card github-card">
+          <div class="icon">🔗</div>
+          <h3>GroupMe GitHub Flushing A</h3>
+          <p>Flushing A GroupMe/GitHub integration or automation-related repo.</p>
+          <div class="repo-links">
+            <a class="btn small primary" href="https://bearicide.github.io/groupme-github-flushinga/" target="_blank" rel="noopener noreferrer">open live page</a>
+            <a class="btn small" href="https://github.com/bearicide/groupme-github-flushinga" target="_blank" rel="noopener noreferrer">view repo</a>
+          </div>
+        </article>
+
+        <article class="card github-card">
+          <div class="icon">🔗</div>
+          <h3>The Basement</h3>
+          <p>Experimental / concept repo, likely for a basement-themed page or project.</p>
+          <div class="repo-links">
+            <a class="btn small primary" href="https://bearicide.github.io/the-basement/" target="_blank" rel="noopener noreferrer">open live page</a>
+            <a class="btn small" href="https://github.com/bearicide/the-basement" target="_blank" rel="noopener noreferrer">view repo</a>
+          </div>
+        </article>
+
+        <article class="card github-card">
+          <div class="icon">🔗</div>
+          <h3>Bear Cave</h3>
+          <p>Experimental MATTBEAR / bear-themed project repo.</p>
+          <div class="repo-links">
+            <a class="btn small primary" href="https://bearicide.github.io/bear-cave/" target="_blank" rel="noopener noreferrer">open live page</a>
+            <a class="btn small" href="https://github.com/bearicide/bear-cave" target="_blank" rel="noopener noreferrer">view repo</a>
+          </div>
+        </article>
+
+        <article class="card github-card">
+          <div class="icon">🔗</div>
+          <h3>Would You Game</h3>
+          <p>Game concept repo, likely a simple choice/prompt-style browser game.</p>
+          <div class="repo-links">
+            <a class="btn small primary" href="https://bearicide.github.io/would-you-game/" target="_blank" rel="noopener noreferrer">open live page</a>
+            <a class="btn small" href="https://github.com/bearicide/would-you-game" target="_blank" rel="noopener noreferrer">view repo</a>
+          </div>
+        </article>
+
+        <article class="card github-card">
+          <div class="icon">🔗</div>
+          <h3>Sodas Giving Nightmare</h3>
+          <p>Halloween/holiday-themed Sodasgiving nightmare concept page.</p>
+          <div class="repo-links">
+            <a class="btn small primary" href="https://bearicide.github.io/sodas-giving-nightmare/" target="_blank" rel="noopener noreferrer">open live page</a>
+            <a class="btn small" href="https://github.com/bearicide/sodas-giving-nightmare" target="_blank" rel="noopener noreferrer">view repo</a>
+          </div>
+        </article>
+
+        <article class="card github-card">
+          <div class="icon">🔗</div>
+          <h3>Sodasgiving 2025</h3>
+          <p>Sodasgiving event / holiday page build.</p>
+          <div class="repo-links">
+            <a class="btn small primary" href="https://bearicide.github.io/sodasgiving-2025/" target="_blank" rel="noopener noreferrer">open live page</a>
+            <a class="btn small" href="https://github.com/bearicide/sodasgiving-2025" target="_blank" rel="noopener noreferrer">view repo</a>
+          </div>
+        </article>
+
+        <article class="card github-card">
+          <div class="icon">🔗</div>
+          <h3>Sodasgiving Retail</h3>
+          <p>Retail-facing Sodasgiving variant or promotional page.</p>
+          <div class="repo-links">
+            <a class="btn small primary" href="https://bearicide.github.io/sodasgiving-retail/" target="_blank" rel="noopener noreferrer">open live page</a>
+            <a class="btn small" href="https://github.com/bearicide/sodasgiving-retail" target="_blank" rel="noopener noreferrer">view repo</a>
+          </div>
+        </article>
+
+        <article class="card github-card">
+          <div class="icon">🔗</div>
+          <h3>Pokémon</h3>
+          <p>Pokémon-themed page / project experiment.</p>
+          <div class="repo-links">
+            <a class="btn small primary" href="https://bearicide.github.io/pokemon/" target="_blank" rel="noopener noreferrer">open live page</a>
+            <a class="btn small" href="https://github.com/bearicide/pokemon" target="_blank" rel="noopener noreferrer">view repo</a>
+          </div>
+        </article>
+
+        <article class="card github-card">
+          <div class="icon">🔗</div>
+          <h3>Walgreens Photo</h3>
+          <p>Photo-printing or Walgreens photo-related project placeholder.</p>
+          <div class="repo-links">
+            <a class="btn small primary" href="https://bearicide.github.io/walgreensphoto/" target="_blank" rel="noopener noreferrer">open live page</a>
+            <a class="btn small" href="https://github.com/bearicide/walgreensphoto" target="_blank" rel="noopener noreferrer">view repo</a>
+          </div>
+        </article>
+
+        <article class="card github-card">
+          <div class="icon">🔗</div>
+          <h3>Holiday Appetizers</h3>
+          <p>Holiday food/appetizer planning or presentation page.</p>
+          <div class="repo-links">
+            <a class="btn small primary" href="https://bearicide.github.io/holiday-appetizers/" target="_blank" rel="noopener noreferrer">open live page</a>
+            <a class="btn small" href="https://github.com/bearicide/holiday-appetizers" target="_blank" rel="noopener noreferrer">view repo</a>
+          </div>
+        </article>
+
+        <article class="card github-card">
+          <div class="icon">🔗</div>
+          <h3>Xmas 2025</h3>
+          <p>Christmas 2025 project page or seasonal build.</p>
+          <div class="repo-links">
+            <a class="btn small primary" href="https://bearicide.github.io/Xmas2025/" target="_blank" rel="noopener noreferrer">open live page</a>
+            <a class="btn small" href="https://github.com/bearicide/Xmas2025" target="_blank" rel="noopener noreferrer">view repo</a>
+          </div>
+        </article>
+
+        <article class="card github-card">
+          <div class="icon">🔗</div>
+          <h3>Lennon Café</h3>
+          <p>Lennon Café project repo / possible work schedule or café materials.</p>
+          <div class="repo-links">
+            <a class="btn small primary" href="https://bearicide.github.io/lennoncafe/" target="_blank" rel="noopener noreferrer">open live page</a>
+            <a class="btn small" href="https://github.com/bearicide/lennoncafe" target="_blank" rel="noopener noreferrer">view repo</a>
+          </div>
+        </article>
+
+        <article class="card github-card">
+          <div class="icon">🔗</div>
+          <h3>Lennon Café 2</h3>
+          <p>Second Lennon Café project repo or alternate build.</p>
+          <div class="repo-links">
+            <a class="btn small primary" href="https://bearicide.github.io/lennoncafe2/" target="_blank" rel="noopener noreferrer">open live page</a>
+            <a class="btn small" href="https://github.com/bearicide/lennoncafe2" target="_blank" rel="noopener noreferrer">view repo</a>
+          </div>
+        </article>
+
+        <article class="card github-card">
+          <div class="icon">🔗</div>
+          <h3>Ukelele</h3>
+          <p>Ukulele-related project placeholder or song/tool concept.</p>
+          <div class="repo-links">
+            <a class="btn small primary" href="https://bearicide.github.io/ukelele/" target="_blank" rel="noopener noreferrer">open live page</a>
+            <a class="btn small" href="https://github.com/bearicide/ukelele" target="_blank" rel="noopener noreferrer">view repo</a>
+          </div>
+        </article>
+
+        <article class="card github-card">
+          <div class="icon">🔗</div>
+          <h3>Sqwonchbox</h3>
+          <p>Experimental named project / compact creative web build.</p>
+          <div class="repo-links">
+            <a class="btn small primary" href="https://bearicide.github.io/sqwonchbox/" target="_blank" rel="noopener noreferrer">open live page</a>
+            <a class="btn small" href="https://github.com/bearicide/sqwonchbox" target="_blank" rel="noopener noreferrer">view repo</a>
+          </div>
+        </article>
+
+        <article class="card github-card">
+          <div class="icon">🔗</div>
+          <h3>Smokeworld Bowling Green</h3>
+          <p>Smoke World Bowling Green business or landing-page concept.</p>
+          <div class="repo-links">
+            <a class="btn small primary" href="https://bearicide.github.io/smokeworld-bowlinggreen/" target="_blank" rel="noopener noreferrer">open live page</a>
+            <a class="btn small" href="https://github.com/bearicide/smokeworld-bowlinggreen" target="_blank" rel="noopener noreferrer">view repo</a>
+          </div>
+        </article>
+
+        <article class="card github-card">
+          <div class="icon">🔗</div>
+          <h3>Happy Bday Jim</h3>
+          <p>Birthday page/project for Jim.</p>
+          <div class="repo-links">
+            <a class="btn small primary" href="https://bearicide.github.io/happy-bday-jim/" target="_blank" rel="noopener noreferrer">open live page</a>
+            <a class="btn small" href="https://github.com/bearicide/happy-bday-jim" target="_blank" rel="noopener noreferrer">view repo</a>
+          </div>
+        </article>
+
+        <article class="card github-card">
+          <div class="icon">🔗</div>
+          <h3>OC Court Reporting</h3>
+          <p>Court reporting business / placeholder site concept.</p>
+          <div class="repo-links">
+            <a class="btn small primary" href="https://bearicide.github.io/OCCourtReporting/" target="_blank" rel="noopener noreferrer">open live page</a>
+            <a class="btn small" href="https://github.com/bearicide/OCCourtReporting" target="_blank" rel="noopener noreferrer">view repo</a>
+          </div>
+        </article>
+
+        <article class="card github-card">
+          <div class="icon">🔗</div>
+          <h3>Seasonal Promotions</h3>
+          <p>Archived seasonal promotion repo / old campaign container. Archived.</p>
+          <div class="repo-links">
+            <a class="btn small primary" href="https://bearicide.github.io/seasonal-promotions/" target="_blank" rel="noopener noreferrer">open live page</a>
+            <a class="btn small" href="https://github.com/bearicide/seasonal-promotions" target="_blank" rel="noopener noreferrer">view repo</a>
+          </div>
+        </article>
+      </div>
+      <div class="note">
+        <strong>Quick note:</strong> Some repos are placeholders, experiments, archived builds, or works in progress. That is not a bug. That is called having ideas in public, because apparently folders can now have stage fright.
+      </div>
+    </div>
+  </section>
+
+
   <section class="section">
     <div class="wrap">
       <div class="panel content-card">
@@ -278,7 +645,6 @@ h1,h2,h3{margin:0} h1{margin-top:16px;font-size:clamp(2.35rem,6vw,4.75rem);line-
   <div class="sub">neondadaism × ameliorism • mattbear freelance creative systems • powered by bearicide</div>
   <div class="bear"><a href="index-old.html">🐻</a></div>
 </footer>
-
 
 <a class="floating-link" href="https://bearicide.github.io/HiberNation/index.html" target="_blank" rel="noopener noreferrer">enter hibernation</a>
 <script>
@@ -334,7 +700,6 @@ audioRestart?.addEventListener('click', async () => {
 });
 
 window.addEventListener('load', setAudioButton);
-
 </script>
 </body>
 </html>
