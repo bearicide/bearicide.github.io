@@ -1,0 +1,12 @@
+{
+  "name": "MATTBEAR | FREELANCE CREATIVE SYSTEMS",
+  "short_name": "MATTBEAR",
+  "description": "MATTBEAR freelance creative systems, projects, and public GitHub launch portal.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0b0d12",
+  "theme_color": "#0b0d12",
+  "orientation": "portrait-primary",
+  "icons": []
+}
