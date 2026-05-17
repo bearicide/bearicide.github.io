@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "1.0.0",
+  "updatedBy": "MATTBEAR admin shell",
+  "site": {
+    "name": "MATTBEAR",
+    "tagline": "Chaos → Signal",
+    "portalLabel": "Main Portal",
+    "heroKicker": "Chaos → Signal • music links • websites • music toys • games • album portals • promo systems",
+    "heroTitle": "I help build your ideas into real, usable things.",
+    "heroLead": "Design, websites, promo systems, creative direction, music-release links, album portals, and interactive builds for people who need clarity, momentum, and a cleaner way to present what they are making.",
+    "contactText": "Want something like one of the examples? Text, email, or send the rough idea and I’ll help shape it.",
+    "themeColor": "#0b0d12",
+    "accentMode": "rainbow-neon"
+  },
+  "links": {
+    "main": "https://bearicide.github.io/",
+    "soundcloud": "https://soundcloud.com/mattbear86",
+    "suno": "https://suno.com/@mattbear86",
+    "musicToys": "https://bearicide.github.io/music-toys/",
+    "examples": "https://bearicide.github.io/examples/",
+    "arcade": "https://bearicide.github.io/MATTBEARCADE/",
+    "packages": "https://bearicide.github.io/project-packages.html",
+    "email": "mailto:mattbear86@hotmail.com",
+    "sms": "sms:+18109226736",
+    "github": "https://github.com/bearicide"
+  },
+  "features": {
+    "adminPanel": true,
+    "miniPlayer": true,
+    "tracker": true,
+    "floatingListenButton": true,
+    "backendReady": true
+  },
+  "miniPlayer": {
+    "enabled": true,
+    "label": "MATTBEAR Mini-Player",
+    "source": "SoundCloud",
+    "profileUrl": "https://soundcloud.com/mattbear86",
+    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/mattbear86&color=%23ff3a6d&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false",
+    "compact": true
+  },
+  "tracker": {
+    "enabled": true,
+    "mode": "local-first",
+    "storageKey": "mattbear.pageCounters.v1",
+    "endpoint": "",
+    "privacy": "no cookies; local counter now; backend endpoint later"
+  },
+  "admin": {
+    "enabled": true,
+    "localSecretKey": "MATTBEAR_ADMIN_SECRET",
+    "unlockHint": "Static preview gate only. Real secrets belong in backend env variables later.",
+    "editableSections": [
+      "site",
+      "links",
+      "features",
+      "miniPlayer",
+      "tracker"
+    ]
+  }
+}
