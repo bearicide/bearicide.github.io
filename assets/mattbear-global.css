@@ -14,11 +14,14 @@
   --mb-v:#ff00f5;
   --mb-grad:linear-gradient(90deg,var(--mb-r),var(--mb-o),var(--mb-y),var(--mb-g),var(--mb-c),var(--mb-b),var(--mb-v));
 }
-@keyframes mb-bg-drift{0%{background-position:center top,center top}50%{background-position:center top,55% 4%}100%{background-position:center top,center top}}
+@keyframes mb-bg-drift{0%{background-position:center top,center top}25%{background-position:center top,54% 3%}50%{background-position:center top,60% 6%}75%{background-position:center top,47% 4%}100%{background-position:center top,center top}}
+@keyframes mb-light-orbit{0%{transform:translate3d(-2%,-1%,0) scale(1);opacity:.58}33%{transform:translate3d(2%,1%,0) scale(1.04);opacity:.82}66%{transform:translate3d(1%,-2%,0) scale(.98);opacity:.68}100%{transform:translate3d(-2%,-1%,0) scale(1);opacity:.58}}
 @keyframes mb-glow-pulse{0%,100%{filter:drop-shadow(0 0 8px rgba(0,229,255,.18)) drop-shadow(0 0 14px rgba(255,45,85,.12))}50%{filter:drop-shadow(0 0 14px rgba(0,229,255,.38)) drop-shadow(0 0 26px rgba(255,0,245,.24))}}
 @keyframes mb-border-flow{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 @keyframes mb-card-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
-@keyframes mb-shimmer{0%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+@keyframes mb-shimmer{0%{transform:translateX(-130%)}42%{transform:translateX(-130%)}68%{transform:translateX(130%)}100%{transform:translateX(130%)}}
+@keyframes mb-button-pop{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-1px) scale(1.018)}}
+@keyframes mb-button-sheen{0%{transform:translateX(-150%) skewX(-18deg)}45%{transform:translateX(-150%) skewX(-18deg)}75%{transform:translateX(170%) skewX(-18deg)}100%{transform:translateX(170%) skewX(-18deg)}}
 html{background:var(--mb-bg);}
 body{
   background-color:var(--mb-bg)!important;
@@ -29,7 +32,7 @@ body{
   background-position:center top,center top!important;
   background-attachment:fixed!important;
   color:var(--mb-text)!important;
-  animation:mb-bg-drift 28s ease-in-out infinite!important;
+  animation:mb-bg-drift 20s ease-in-out infinite!important;
 }
 body::before{
   background:repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 1px,transparent 1px 5px)!important;
@@ -38,16 +41,17 @@ body::before{
 body::after{
   content:"";
   position:fixed;
-  inset:-20%;
+  inset:-22%;
   z-index:0;
   pointer-events:none;
   background:
-    radial-gradient(circle at 20% 18%,rgba(255,45,85,.16),transparent 28%),
-    radial-gradient(circle at 78% 12%,rgba(0,229,255,.15),transparent 30%),
-    radial-gradient(circle at 48% 88%,rgba(57,255,20,.12),transparent 32%);
+    radial-gradient(circle at 18% 18%,rgba(255,45,85,.23),transparent 26%),
+    radial-gradient(circle at 78% 12%,rgba(0,229,255,.23),transparent 30%),
+    radial-gradient(circle at 48% 88%,rgba(57,255,20,.17),transparent 32%),
+    radial-gradient(circle at 72% 72%,rgba(255,0,245,.12),transparent 28%);
   mix-blend-mode:screen;
-  opacity:.7;
-  animation:mb-bg-drift 34s ease-in-out infinite reverse;
+  opacity:.78;
+  animation:mb-light-orbit 18s ease-in-out infinite;
 }
 body>*{position:relative;z-index:1}.topbar,.top{
   background:rgba(28,32,41,.86)!important;
@@ -88,29 +92,47 @@ h1 .gradient,h2 .gradient,.gradient,.rainbow-text{
   animation:mb-border-flow 8s linear infinite!important;
 }
 .btn,.links a,.footer-links a,.card-links a,.cardLinks a{
+  position:relative!important;
+  overflow:hidden!important;
   border-radius:14px!important;
-  border:1px solid var(--mb-line)!important;
-  background:rgba(255,255,255,.08)!important;
+  border:1px solid rgba(255,255,255,.28)!important;
+  background:linear-gradient(180deg,rgba(255,255,255,.15),rgba(255,255,255,.065))!important;
   color:#fff!important;
   min-height:44px;
   font-weight:900!important;
   letter-spacing:.055em!important;
   text-transform:uppercase!important;
-  box-shadow:0 0 18px rgba(0,229,255,.08)!important;
-  transition:transform .16s ease,box-shadow .16s ease,background .16s ease,border-color .16s ease;
+  box-shadow:0 8px 18px rgba(0,0,0,.18),0 0 22px rgba(0,229,255,.16),inset 0 1px 0 rgba(255,255,255,.22)!important;
+  transition:transform .14s ease,box-shadow .14s ease,background .14s ease,border-color .14s ease,filter .14s ease;
+  animation:mb-button-pop 4.8s ease-in-out infinite;
+}
+.btn::before,.links a::before,.footer-links a::before,.card-links a::before,.cardLinks a::before{
+  content:"";
+  position:absolute;
+  inset:-30% -45%;
+  pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),transparent);
+  transform:translateX(-150%) skewX(-18deg);
+  animation:mb-button-sheen 6.5s ease-in-out infinite;
 }
 .btn:hover,.links a:hover,.footer-links a:hover,.card-links a:hover,.cardLinks a:hover{
-  transform:translateY(-2px) scale(1.01);
-  background:rgba(255,255,255,.13)!important;
-  border-color:rgba(255,255,255,.34)!important;
-  box-shadow:0 0 28px rgba(0,229,255,.28),0 0 42px rgba(255,45,85,.16)!important;
+  transform:translateY(-4px) scale(1.045)!important;
+  background:linear-gradient(180deg,rgba(255,255,255,.22),rgba(255,255,255,.105))!important;
+  border-color:rgba(255,255,255,.48)!important;
+  filter:saturate(1.18) brightness(1.08);
+  box-shadow:0 14px 28px rgba(0,0,0,.26),0 0 34px rgba(0,229,255,.36),0 0 54px rgba(255,45,85,.20),inset 0 1px 0 rgba(255,255,255,.35)!important;
+}
+.btn:active,.links a:active,.footer-links a:active,.card-links a:active,.cardLinks a:active{
+  transform:translateY(0) scale(.98)!important;
+  box-shadow:0 5px 12px rgba(0,0,0,.24),0 0 18px rgba(0,229,255,.24)!important;
 }
 .btn.primary,.primary,.links a.primary,.footer-links a.primary{
   background:var(--mb-grad)!important;
   background-size:240% 240%!important;
   color:#121722!important;
   border-color:transparent!important;
-  animation:mb-border-flow 7s linear infinite!important;
+  animation:mb-border-flow 7s linear infinite,mb-button-pop 4.4s ease-in-out infinite!important;
+  box-shadow:0 10px 24px rgba(0,0,0,.24),0 0 30px rgba(255,45,85,.20),0 0 42px rgba(0,229,255,.22)!important;
 }
 .badge,.brand-badge,.mark{
   background:var(--mb-grad)!important;
@@ -128,4 +150,5 @@ h1 .gradient,h2 .gradient,.gradient,.rainbow-text{
 @media(max-width:900px){
   body{background-attachment:scroll!important;background-position:center top,center top!important;}
   .panel,.card,.hero-card,.heroCard,.console,.notice,.step{animation:none!important;}
+  .btn,.links a,.footer-links a,.card-links a,.cardLinks a{animation:none!important;}
 }
