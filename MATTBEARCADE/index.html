@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#080010" />
+  <title>MATTBEARCADE - Thread Full Sandbox</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="crt-overlay" aria-hidden="true"></div>
+  <header class="hero panel">
+    <p class="eyebrow">THREAD SANDBOX - NOT MAIN</p>
+    <h1>MATTBEARCADE</h1>
+    <p class="tagline">Neon browser arcade lab. Working prototypes isolated from the main build.</p>
+    <nav class="quick-nav" aria-label="Game navigation">
+      <a href="#wordslots">Word$lots</a>
+      <a href="#spellslots">Spell$lots</a>
+      <a href="#mindwarp">MindWarp</a>
+      <a href="#bubble">Bubble Moovin'</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="wordslots" class="game-shell panel">
+      <div class="game-head">
+        <div>
+          <p class="eyebrow">WORKING GAME</p>
+          <h2>Word$lots</h2>
+        </div>
+        <div class="meter"><span>Credits</span><strong id="wsCredits">50000</strong></div>
+      </div>
+      <div id="slotGrid" class="slot-grid" aria-live="polite"></div>
+      <div class="controls">
+        <button id="wsBetDown">Bet -</button>
+        <div class="readout">Bet: $<span id="wsBet">1.00</span></div>
+        <button id="wsBetUp">Bet +</button>
+        <button class="primary" id="wsSpin">SPIN</button>
+      </div>
+      <p id="wsStatus" class="status">Hit WORD, PLAY, bears, headphones, bonus, or clean letter runs.</p>
+    </section>
+
+    <section id="spellslots" class="game-shell panel">
+      <div class="game-head">
+        <div>
+          <p class="eyebrow">WORKING GAME</p>
+          <h2>Spell$lots</h2>
+        </div>
+        <div class="meter"><span>Score</span><strong id="spellScore">0</strong></div>
+      </div>
+      <div id="spellReels" class="spell-reels"></div>
+      <div class="controls">
+        <button class="primary" id="spellSpin">ROLL LETTERS</button>
+        <button id="spellClear">CLEAR</button>
+      </div>
+      <div id="spellWord" class="word-bank">_ _ _</div>
+      <p id="spellStatus" class="status">Tap letters to build approved words.</p>
+    </section>
+
+    <section id="mindwarp" class="game-shell panel">
+      <div class="game-head">
+        <div>
+          <p class="eyebrow">WORKING GAME</p>
+          <h2>MindWarp</h2>
+        </div>
+        <div class="meter"><span>Matches</span><strong id="mwMatches">0</strong></div>
+      </div>
+      <div id="memoryGrid" class="memory-grid"></div>
+      <div id="mwReel" class="reel-bonus">MATCH A PAIR TO SPIN</div>
+      <div class="controls">
+        <button class="primary" id="mwReset">RESET BOARD</button>
+      </div>
+      <p id="mwStatus" class="status">Find pairs. Each match triggers a bonus reel hit.</p>
+    </section>
+
+    <section id="bubble" class="game-shell panel">
+      <div class="game-head">
+        <div>
+          <p class="eyebrow">SCALING PASS</p>
+          <h2>Bubble Moovin'</h2>
+        </div>
+        <div class="meter"><span>Pops</span><strong id="bubbleScore">0</strong></div>
+      </div>
+      <div class="bubble-wrap">
+        <canvas id="bubbleCanvas" width="720" height="460" aria-label="Bubble shooter playfield"></canvas>
+      </div>
+      <div class="controls">
+        <button class="primary" id="bubbleShoot">SHOOT</button>
+        <button id="bubbleReset">RESET</button>
+      </div>
+      <p id="bubbleStatus" class="status">Scaled responsive canvas shell. Tap/click field to aim, shoot to pop clusters.</p>
+    </section>
+
+    <section class="grid-section panel">
+      <p class="eyebrow">THREAD GENERATED ASSET HOLDING</p>
+      <h2>Isolated Assets</h2>
+      <p>Generated assets from this thread stay quarantined here until Matt approves a merge into the main production build.</p>
+      <ul>
+        <li>Neon arcade background concept</li>
+        <li>Pious single/poster experiments</li>
+        <li>Thread-only source registry notes</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer panel">
+    <strong>MATTBEARCADE</strong>
+    <span>Thread sandbox build - prepared by assistant, not final, still needs editing.</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
