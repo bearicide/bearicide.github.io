@@ -48,7 +48,7 @@
   },
   "admin": {
     "enabled": true,
-    "localSecretKey": "MATTBEAR_ADMIN_SECRET",
+    "localSecretKey": "Demons123",
     "unlockHint": "Static preview gate only. Real secrets belong in backend env variables later.",
     "editableSections": [
       "site",
