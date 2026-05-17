@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 760" role="img" aria-labelledby="title desc">
+  <title id="title">MATTBEAR Approved Ribbon</title>
+  <desc id="desc">Transparent background merch ribbon logo reading MATTBEAR Approved.</desc>
+  <defs>
+    <linearGradient id="red" x1="0" x2="1"><stop offset="0" stop-color="#8b0007"/><stop offset=".45" stop-color="#ff1d22"/><stop offset="1" stop-color="#710005"/></linearGradient>
+    <linearGradient id="gold" x1="0" x2="1"><stop offset="0" stop-color="#8a5a00"/><stop offset=".45" stop-color="#ffe17a"/><stop offset="1" stop-color="#9f6500"/></linearGradient>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="130%"><feDropShadow dx="0" dy="22" stdDeviation="16" flood-color="#000" flood-opacity=".55"/></filter>
+  </defs>
+  <g filter="url(#shadow)">
+    <path d="M84 355 C225 255 384 242 520 275 L492 487 C340 452 206 495 84 598 L150 455 Z" fill="url(#red)" stroke="#050505" stroke-width="22"/>
+    <path d="M1516 355 C1375 255 1216 242 1080 275 L1108 487 C1260 452 1394 495 1516 598 L1450 455 Z" fill="url(#red)" stroke="#050505" stroke-width="22"/>
+    <path d="M88 356 C226 264 377 252 515 286" fill="none" stroke="url(#gold)" stroke-width="22"/>
+    <path d="M1512 356 C1374 264 1223 252 1085 286" fill="none" stroke="url(#gold)" stroke-width="22"/>
+    <path d="M324 197 C495 90 1105 90 1276 197 C1328 230 1308 542 1238 583 C1074 680 526 680 362 583 C292 542 272 230 324 197 Z" fill="url(#red)" stroke="#050505" stroke-width="26"/>
+    <path d="M333 206 C520 116 1080 116 1267 206" fill="none" stroke="url(#gold)" stroke-width="26"/>
+    <path d="M354 548 C548 640 1052 640 1246 548" fill="none" stroke="url(#gold)" stroke-width="22"/>
+    <text x="800" y="342" text-anchor="middle" font-family="Impact, Bahnschrift Condensed, Arial Black, sans-serif" font-size="182" font-weight="900" letter-spacing="8" fill="#fff2cf" stroke="#050505" stroke-width="18" paint-order="stroke">MATTBEAR</text>
+    <text x="800" y="485" text-anchor="middle" font-family="Brush Script MT, Segoe Script, cursive" font-size="154" font-weight="900" fill="#fff2cf" stroke="#050505" stroke-width="14" paint-order="stroke">Approved</text>
+  </g>
+</svg>
