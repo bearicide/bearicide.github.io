@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "1.0.1",
   "updatedBy": "MATTBEAR admin shell",
   "site": {
     "name": "MATTBEAR",
@@ -34,9 +34,14 @@
   "miniPlayer": {
     "enabled": true,
     "label": "MATTBEAR Mini-Player",
-    "source": "SoundCloud",
+    "source": "local-audio",
+    "trackTitle": "HiberNation Theme",
     "profileUrl": "https://soundcloud.com/mattbear86",
-    "embedUrl": "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/mattbear86&color=%23ff3a6d&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false",
+    "audioUrl": "/assets/audio/hibernation-theme.mp3",
+    "fallbackUrl": "https://soundcloud.com/mattbear86",
+    "startOnSiteJoin": true,
+    "loop": true,
+    "volume": 0.35,
     "compact": true
   },
   "tracker": {
