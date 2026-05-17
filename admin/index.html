@@ -5,73 +5,67 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MATTBEAR Admin</title>
 <style>
-body{margin:0;background:#0b0d12;color:#f5f7ff;font-family:Bahnschrift,Arial,sans-serif;padding:24px}*{box-sizing:border-box}.wrap{max-width:1200px;margin:auto}.panel{background:#141923;border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:22px;margin-bottom:20px;box-shadow:0 0 30px rgba(0,0,0,.35)}h1,h2{margin-top:0;text-transform:uppercase}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}textarea,input{width:100%;background:#0f131b;color:#fff;border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:12px}textarea{min-height:120px}button{background:linear-gradient(90deg,#ff3a6d,#35d9ff,#39ff92);border:none;border-radius:12px;padding:12px 18px;font-weight:900;cursor:pointer}.tiny{opacity:.7;font-size:.85rem}.good{color:#39ff92}.warn{color:#ffd93d}@media(max-width:900px){.grid{grid-template-columns:1fr}}
+:root{--bg:#0b0d12;--panel:#141923;--text:#f5f7ff;--muted:#bac4d6;--line:rgba(255,255,255,.12);--grad:linear-gradient(90deg,#ff3a6d,#35d9ff,#39ff92);--radius:22px}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 10% 0,rgba(53,217,255,.16),transparent 30%),radial-gradient(circle at 90% 0,rgba(255,58,109,.14),transparent 30%),var(--bg);color:var(--text);font-family:Bahnschrift,Arial,sans-serif;padding:24px}.wrap{max-width:1200px;margin:auto}.panel{background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.04));border:1px solid var(--line);border-radius:var(--radius);padding:22px;margin-bottom:20px;box-shadow:0 18px 44px rgba(0,0,0,.35);position:relative;overflow:hidden}.panel:before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--grad)}h1,h2{margin-top:0;text-transform:uppercase}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}textarea,input{width:100%;background:#0f131b;color:#fff;border:1px solid var(--line);border-radius:12px;padding:12px}textarea{min-height:360px;font-family:Consolas,monospace}button,.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--grad);color:#05070b;border:none;border-radius:12px;padding:12px 18px;font-weight:900;cursor:pointer;text-decoration:none;margin:4px 6px 4px 0}.ghost{background:rgba(255,255,255,.07);color:#fff;border:1px solid var(--line)}.tiny{opacity:.72;font-size:.86rem;color:var(--muted)}.good{color:#39ff92}.warn{color:#ffd93d}pre{white-space:pre-wrap;word-break:break-word;background:#0f131b;border:1px solid var(--line);border-radius:14px;padding:14px;max-height:320px;overflow:auto}@media(max-width:900px){.grid{grid-template-columns:1fr}body{padding:14px}}
 </style>
 </head>
 <body>
 <div class="wrap">
-<div class="panel">
-<h1>🐻 MATTBEAR Admin Panel</h1>
-<p>Frontend admin shell for connected pages. Backend-ready for future Supabase/Firebase integration.</p>
-</div>
-<div class="grid">
-<div class="panel">
-<h2>Unlock</h2>
-<input type="password" id="secret" placeholder="Admin Secret">
-<br><br>
-<button onclick="unlockAdmin()">Unlock Panel</button>
-<p class="tiny">Local preview gate only. Real auth comes later.</p>
-<p id="unlockStatus" class="warn">Locked</p>
-</div>
-<div class="panel">
-<h2>Live Tracker</h2>
-<div id="trackerData">No data yet.</div>
-</div>
-</div>
-<div class="panel">
-<h2>Site Variables</h2>
-<textarea id="settingsBox"></textarea>
-<br><br>
-<button onclick="saveLocalSettings()">Save Local Override</button>
-<button onclick="resetLocalSettings()">Reset Local Override</button>
-<p class="tiny">Changes save to localStorage for immediate testing. Backend sync later.</p>
-</div>
+  <div class="panel">
+    <h1>🐻 MATTBEAR Admin Panel</h1>
+    <p>Connected-page control shell. Local-first now; backend-ready for Supabase/Firebase later.</p>
+    <a class="btn ghost" href="/">Main Portal</a><a class="btn ghost" href="/examples/">Examples</a><a class="btn ghost" href="/music-toys/">Music Toys</a>
+  </div>
+  <div class="grid">
+    <div class="panel">
+      <h2>Unlock</h2>
+      <input type="password" id="secret" placeholder="Admin Secret">
+      <br><br>
+      <button onclick="unlockAdmin()">Unlock Panel</button>
+      <button class="ghost" onclick="lockAdmin()">Lock</button>
+      <p class="tiny">Static preview gate only. Real auth comes when backend is connected.</p>
+      <p id="unlockStatus" class="warn">Locked</p>
+    </div>
+    <div class="panel">
+      <h2>Live Tracker</h2>
+      <div id="trackerData">No data yet.</div>
+    </div>
+  </div>
+  <div class="panel">
+    <h2>Site Variables</h2>
+    <textarea id="settingsBox" spellcheck="false"></textarea>
+    <br><br>
+    <button onclick="saveLocalSettings()">Save Local Override</button>
+    <button class="ghost" onclick="resetLocalSettings()">Reset Local Override</button>
+    <button class="ghost" onclick="copySettings()">Copy JSON</button>
+    <p class="tiny">Local overrides immediately affect pages using <code>/assets/js/mattbear-connected.js</code>. Repo/backend sync comes later.</p>
+  </div>
 </div>
 <script>
 const SETTINGS_URL='/data/site-settings.json';
+const OVERRIDE_KEY='mattbear.site.override';
 let siteSettings=null;
+function isUnlocked(){return localStorage.getItem('mattbear.admin.unlocked')==='true'}
+function setStatus(){document.getElementById('unlockStatus').innerHTML=isUnlocked()?'<span class="good">Unlocked</span>':'Locked'}
 async function loadSettings(){
- const res=await fetch(SETTINGS_URL);
+ const res=await fetch(SETTINGS_URL,{cache:'no-store'});
  siteSettings=await res.json();
- document.getElementById('settingsBox').value=JSON.stringify(siteSettings,null,2);
- loadTracker();
+ const local=localStorage.getItem(OVERRIDE_KEY);
+ document.getElementById('settingsBox').value=local?JSON.stringify(JSON.parse(local),null,2):JSON.stringify(siteSettings,null,2);
+ loadTracker();setStatus();
 }
 function unlockAdmin(){
  const val=document.getElementById('secret').value;
- if(val==='MATTBEAR_ADMIN_SECRET'){
-  localStorage.setItem('mattbear.admin.unlocked','true');
-  document.getElementById('unlockStatus').innerHTML='<span class="good">Unlocked</span>';
- }else{
-  document.getElementById('unlockStatus').innerHTML='Wrong secret';
- }
+ const configured=siteSettings?.admin?.localSecretKey || 'Demons123';
+ if(val===configured){localStorage.setItem('mattbear.admin.unlocked','true');setStatus()}else{document.getElementById('unlockStatus').innerHTML='Wrong secret'}
 }
+function lockAdmin(){localStorage.removeItem('mattbear.admin.unlocked');setStatus()}
 function saveLocalSettings(){
- try{
-  const parsed=JSON.parse(document.getElementById('settingsBox').value);
-  localStorage.setItem('mattbear.site.override',JSON.stringify(parsed));
-  alert('Local override saved.');
- }catch(err){
-  alert('JSON invalid.');
- }
+ if(!isUnlocked()) return alert('Unlock admin first.');
+ try{const parsed=JSON.parse(document.getElementById('settingsBox').value);localStorage.setItem(OVERRIDE_KEY,JSON.stringify(parsed));alert('Local override saved.')}catch(err){alert('JSON invalid: '+err.message)}
 }
-function resetLocalSettings(){
- localStorage.removeItem('mattbear.site.override');
- alert('Local override removed.');
-}
-function loadTracker(){
- const data=JSON.parse(localStorage.getItem('mattbear.pageCounters.v1')||'{}');
- document.getElementById('trackerData').innerHTML='<pre>'+JSON.stringify(data,null,2)+'</pre>';
-}
+function resetLocalSettings(){if(!isUnlocked()) return alert('Unlock admin first.');localStorage.removeItem(OVERRIDE_KEY);alert('Local override removed.');loadSettings()}
+function copySettings(){navigator.clipboard?.writeText(document.getElementById('settingsBox').value);alert('Copied JSON.')}
+function loadTracker(){const data=JSON.parse(localStorage.getItem('mattbear.pageCounters.v1')||'{}');document.getElementById('trackerData').innerHTML='<pre>'+JSON.stringify(data,null,2)+'</pre>'}
 loadSettings();
 </script>
 </body>
