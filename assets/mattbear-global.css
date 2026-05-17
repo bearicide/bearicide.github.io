@@ -1,4 +1,4 @@
-/* MATTBEAR global ecosystem polish layer */
+/* MATTBEAR global ecosystem polish + motion layer */
 :root{
   --mb-bg:#252a33;
   --mb-panel:rgba(24,28,36,.82);
@@ -14,6 +14,11 @@
   --mb-v:#ff00f5;
   --mb-grad:linear-gradient(90deg,var(--mb-r),var(--mb-o),var(--mb-y),var(--mb-g),var(--mb-c),var(--mb-b),var(--mb-v));
 }
+@keyframes mb-bg-drift{0%{background-position:center top,center top}50%{background-position:center top,55% 4%}100%{background-position:center top,center top}}
+@keyframes mb-glow-pulse{0%,100%{filter:drop-shadow(0 0 8px rgba(0,229,255,.18)) drop-shadow(0 0 14px rgba(255,45,85,.12))}50%{filter:drop-shadow(0 0 14px rgba(0,229,255,.38)) drop-shadow(0 0 26px rgba(255,0,245,.24))}}
+@keyframes mb-border-flow{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes mb-card-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes mb-shimmer{0%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
 html{background:var(--mb-bg);}
 body{
   background-color:var(--mb-bg)!important;
@@ -21,70 +26,106 @@ body{
     linear-gradient(rgba(37,42,51,.50),rgba(37,42,51,.50)),
     url("main-background.svg")!important;
   background-size:cover!important;
-  background-position:center top!important;
+  background-position:center top,center top!important;
   background-attachment:fixed!important;
   color:var(--mb-text)!important;
+  animation:mb-bg-drift 28s ease-in-out infinite!important;
 }
 body::before{
   background:repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 1px,transparent 1px 5px)!important;
   opacity:.32!important;
 }
-.topbar,.top{
+body::after{
+  content:"";
+  position:fixed;
+  inset:-20%;
+  z-index:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 20% 18%,rgba(255,45,85,.16),transparent 28%),
+    radial-gradient(circle at 78% 12%,rgba(0,229,255,.15),transparent 30%),
+    radial-gradient(circle at 48% 88%,rgba(57,255,20,.12),transparent 32%);
+  mix-blend-mode:screen;
+  opacity:.7;
+  animation:mb-bg-drift 34s ease-in-out infinite reverse;
+}
+body>*{position:relative;z-index:1}.topbar,.top{
   background:rgba(28,32,41,.86)!important;
   border-bottom:1px solid var(--mb-line)!important;
   backdrop-filter:blur(14px)!important;
 }
 .panel,.card,.hero-card,.heroCard,.console,.notice,.step{
-  background:linear-gradient(180deg,rgba(255,255,255,.095),rgba(255,255,255,.045))!important;
+  background:linear-gradient(180deg,rgba(255,255,255,.105),rgba(255,255,255,.05))!important;
   border-color:var(--mb-line)!important;
-  box-shadow:0 18px 46px rgba(0,0,0,.32)!important;
+  box-shadow:0 18px 46px rgba(0,0,0,.32),0 0 36px rgba(0,229,255,.08)!important;
+  animation:mb-card-float 9s ease-in-out infinite;
 }
 .panel::before,.card::before,.hero-card::before,.heroCard::before{
   background:var(--mb-grad)!important;
+  background-size:240% 240%!important;
+  animation:mb-border-flow 7s linear infinite!important;
+}
+.card::after,.panel::after,.hero-card::after,.heroCard::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(105deg,transparent 0 38%,rgba(255,255,255,.10) 48%,transparent 58% 100%);
+  opacity:.35;
+  transform:translateX(-120%);
+  animation:mb-shimmer 10s ease-in-out infinite;
 }
 h1,h2,h3,.brand strong,.brand,.section-head h2,.sectionHead h2{
   letter-spacing:.02em;
+  text-shadow:0 0 18px rgba(0,229,255,.18),0 0 30px rgba(255,45,85,.12)!important;
 }
 h1 .gradient,h2 .gradient,.gradient,.rainbow-text{
   background:var(--mb-grad)!important;
+  background-size:240% 240%!important;
   -webkit-background-clip:text!important;
   background-clip:text!important;
   color:transparent!important;
+  animation:mb-border-flow 8s linear infinite!important;
 }
 .btn,.links a,.footer-links a,.card-links a,.cardLinks a{
   border-radius:14px!important;
   border:1px solid var(--mb-line)!important;
-  background:rgba(255,255,255,.075)!important;
+  background:rgba(255,255,255,.08)!important;
   color:#fff!important;
   min-height:44px;
   font-weight:900!important;
   letter-spacing:.055em!important;
   text-transform:uppercase!important;
-  box-shadow:0 0 0 rgba(0,0,0,0);
+  box-shadow:0 0 18px rgba(0,229,255,.08)!important;
   transition:transform .16s ease,box-shadow .16s ease,background .16s ease,border-color .16s ease;
 }
 .btn:hover,.links a:hover,.footer-links a:hover,.card-links a:hover,.cardLinks a:hover{
-  transform:translateY(-1px);
-  background:rgba(255,255,255,.12)!important;
-  border-color:rgba(255,255,255,.28)!important;
-  box-shadow:0 0 22px rgba(0,229,255,.18)!important;
+  transform:translateY(-2px) scale(1.01);
+  background:rgba(255,255,255,.13)!important;
+  border-color:rgba(255,255,255,.34)!important;
+  box-shadow:0 0 28px rgba(0,229,255,.28),0 0 42px rgba(255,45,85,.16)!important;
 }
 .btn.primary,.primary,.links a.primary,.footer-links a.primary{
   background:var(--mb-grad)!important;
+  background-size:240% 240%!important;
   color:#121722!important;
   border-color:transparent!important;
+  animation:mb-border-flow 7s linear infinite!important;
 }
 .badge,.brand-badge,.mark{
   background:var(--mb-grad)!important;
-  box-shadow:0 0 28px rgba(0,229,255,.16)!important;
+  background-size:240% 240%!important;
+  box-shadow:0 0 28px rgba(0,229,255,.26),0 0 46px rgba(255,45,85,.14)!important;
+  animation:mb-border-flow 8s linear infinite,mb-glow-pulse 5s ease-in-out infinite!important;
 }
 .note,.notice{
-  background:linear-gradient(135deg,rgba(255,45,85,.18),rgba(0,229,255,.15),rgba(57,255,20,.13))!important;
+  background:linear-gradient(135deg,rgba(255,45,85,.20),rgba(0,229,255,.17),rgba(57,255,20,.15))!important;
   border-color:var(--mb-line)!important;
+  box-shadow:0 0 26px rgba(0,229,255,.10)!important;
 }
-.footer{
-  border-top-color:var(--mb-line)!important;
-}
+.footer{border-top-color:var(--mb-line)!important;}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 @media(max-width:900px){
-  body{background-attachment:scroll!important;background-position:center top!important;}
+  body{background-attachment:scroll!important;background-position:center top,center top!important;}
+  .panel,.card,.hero-card,.heroCard,.console,.notice,.step{animation:none!important;}
 }
