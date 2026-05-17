@@ -1,1 +1,353 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>MATTBEAR - Music Toys</title><meta name="description" content="Browser instruments, remix toys, loop machines, and interactive music systems."><style>:root{--bg:#05070b;--panel:#101620;--ink:#f4f7ff;--muted:#a8b4c8;--line:rgba(255,255,255,.14);--grad:linear-gradient(90deg,#ff365f,#ffd166,#6cff9a,#2df7ff,#7b61ff,#ff3df2)}*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#05070b,#0d1119);color:var(--ink);font-family:Bahnschrift,"Arial Narrow",Arial,sans-serif}a{text-decoration:none;color:inherit}.wrap{width:min(1180px,calc(100% - 24px));margin:auto}.topbar{position:sticky;top:0;background:rgba(5,7,11,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}.nav{display:flex;justify-content:space-between;gap:12px;padding:12px 0;align-items:center;flex-wrap:wrap}.links,.actions{display:flex;gap:10px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 14px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.06);font-weight:900;text-transform:uppercase}.primary{background:var(--grad);color:#111;border:none}.hero{padding:48px 0 24px}.panel,.card,.toy{border:1px solid var(--line);border-radius:24px;background:rgba(255,255,255,.05)}.panel{padding:28px}.featured,.cards{display:grid;gap:16px}.featured{grid-template-columns:1.25fr .75fr}.cards{grid-template-columns:repeat(3,minmax(0,1fr))}.embed{height:620px;border-radius:18px;overflow:hidden;background:#000}.embed iframe{width:100%;height:100%;border:0}.toy,.card{padding:18px}.icon{height:82px;border-radius:18px;display:grid;place-items:center;font-size:2rem;background:linear-gradient(135deg,rgba(255,54,95,.24),rgba(45,247,255,.16),rgba(108,255,154,.12));margin-bottom:12px}.card p,.toy p{color:var(--muted);line-height:1.55}.footer{text-align:center;padding:32px 0;color:var(--muted)}@media(max-width:900px){.featured,.cards{grid-template-columns:1fr}}@media(max-width:620px){.links,.actions{display:grid}.btn{width:100%}.embed{height:440px}}</style></head><body><header class="topbar"><div class="wrap nav"><strong>MATTBEAR Music Toys</strong><nav class="links"><a class="btn" href="../">Main</a><a class="btn" href="../beargrid/">BearGrid</a><a class="btn" href="../the-choppa/">The Choppa</a></nav></div></header><main><section class="hero"><div class="wrap panel"><h1>Music Toys that actually play.</h1><p style="color:var(--muted);line-height:1.6">Browser instruments, remix tools, sampler toys, and controller-inspired systems.</p><div class="actions"><a class="btn primary" href="#the-choppa">Play The Choppa</a><a class="btn" href="../beargrid/">BearGrid</a></div></div></section><section id="the-choppa"><div class="wrap featured"><article class="toy"><div class="embed"><iframe src="../the-choppa/" title="The Choppa"></iframe></div></article><aside class="toy"><h2>The Choppa</h2><p>The featured playable module. Other devices support the ecosystem without stealing the focus.</p><div class="actions"><a class="btn" href="../the-loopa/">The Loopa</a><a class="btn" href="../the-sampla/">The Sampla</a><a class="btn" href="../the-launcha/">The Launcha</a></div></aside></div></section><section><div class="wrap cards"><article class="card"><div class="icon">🔁</div><h3>The Loopa</h3><p>Loop launcher with quantize and touch-friendly controls.</p><a class="btn primary" href="../the-loopa/">Open</a></article><article class="card"><div class="icon">🎛️</div><h3>The Sampla</h3><p>Sample-loading lane for organizing and triggering sounds.</p><a class="btn" href="../the-sampla/">Open</a></article><article class="card"><div class="icon">🐻</div><h3>BearGrid</h3><p>Quantized browser grid instrument with future remix expansion.</p><a class="btn primary" href="../beargrid/">Open</a></article></div></section></main><footer class="footer">MATTBEAR Music Toys · chaos → signal</footer></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>MATTBEAR - Music Toys</title>
+  <meta name="description" content="Browser instruments, remix toys, loop machines, and interactive music systems.">
+  <style>
+    :root{
+      --bg:#05070b;
+      --panel:#101620;
+      --ink:#f4f7ff;
+      --muted:#a8b4c8;
+      --line:rgba(255,255,255,.14);
+      --hot:#ff365f;
+      --cyan:#2df7ff;
+      --green:#6cff9a;
+      --gold:#ffd166;
+      --grad:linear-gradient(90deg,#ff365f,#ffd166,#6cff9a,#2df7ff,#7b61ff,#ff3df2);
+    }
+
+    *{box-sizing:border-box}
+
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      background:
+        radial-gradient(circle at top left,rgba(255,54,95,.18),transparent 34vw),
+        radial-gradient(circle at top right,rgba(45,247,255,.14),transparent 32vw),
+        linear-gradient(180deg,#05070b,#0d1119 55%,#05070b);
+      color:var(--ink);
+      font-family:Bahnschrift,"Arial Narrow",Arial,sans-serif;
+    }
+
+    a{text-decoration:none;color:inherit}
+
+    .wrap{
+      width:min(1440px,calc(100% - 32px));
+      margin:auto;
+    }
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(5,7,11,.92);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      padding:10px 0;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .brand{
+      font-size:clamp(1.05rem,2.2vw,1.45rem);
+      font-weight:1000;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+    }
+
+    .links,.actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:44px;
+      padding:10px 15px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.065);
+      font-weight:950;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+      box-shadow:0 0 0 1px rgba(255,255,255,.03) inset;
+    }
+
+    .btn:hover{transform:translateY(-1px);border-color:rgba(45,247,255,.46)}
+    .primary{background:var(--grad);color:#081014;border:none}
+
+    .hero{padding:28px 0 18px}
+
+    .panel,.card,.toy,.admin,.player{
+      border:1px solid var(--line);
+      border-radius:24px;
+      background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.035));
+      box-shadow:0 24px 70px rgba(0,0,0,.28);
+    }
+
+    .panel{padding:clamp(20px,3vw,34px)}
+
+    h1,h2,h3,p{margin-top:0}
+    h1{font-size:clamp(2.15rem,6vw,5.6rem);line-height:.92;margin-bottom:14px;letter-spacing:-.05em}
+    h2{font-size:clamp(1.65rem,3vw,3rem);line-height:1;margin-bottom:12px}
+    h3{font-size:clamp(1.25rem,2vw,1.65rem);margin-bottom:8px}
+    p{color:var(--muted);line-height:1.5;font-size:1.03rem}
+
+    .featured{
+      display:grid;
+      grid-template-columns:minmax(0,1.55fr) minmax(320px,.45fr);
+      gap:24px;
+      align-items:stretch;
+      margin-bottom:24px;
+    }
+
+    .toy{padding:18px}
+
+    .embed{
+      height:min(68vh,760px);
+      min-height:540px;
+      border-radius:18px;
+      overflow:hidden;
+      background:#000;
+      border:1px solid rgba(45,247,255,.24);
+    }
+
+    .embed iframe{width:100%;height:100%;border:0;display:block}
+
+    .sidebox{
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      min-height:100%;
+      gap:18px;
+    }
+
+    .sidebox .actions{display:grid;grid-template-columns:1fr;gap:10px}
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:18px;
+      padding-bottom:24px;
+    }
+
+    .card{
+      padding:20px;
+      min-height:230px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+
+    .icon{
+      height:78px;
+      border-radius:18px;
+      display:grid;
+      place-items:center;
+      font-size:2.15rem;
+      background:linear-gradient(135deg,rgba(255,54,95,.26),rgba(45,247,255,.18),rgba(108,255,154,.12));
+      margin-bottom:14px;
+      border:1px solid rgba(255,255,255,.1);
+    }
+
+    .meta{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin:12px 0 16px;
+    }
+
+    .chip{
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.2);
+      color:var(--muted);
+      font-size:.85rem;
+      font-weight:800;
+      text-transform:uppercase;
+    }
+
+    .below{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      padding-bottom:28px;
+    }
+
+    .player,.admin{padding:18px}
+    .admin summary{cursor:pointer;font-weight:950;text-transform:uppercase;letter-spacing:.04em}
+    .admin p,.player p{margin-bottom:0}
+
+    .footer{text-align:center;padding:28px 0;color:var(--muted)}
+
+    @media(max-width:980px){
+      .wrap{width:min(100% - 22px,860px)}
+      .featured{grid-template-columns:1fr;gap:16px}
+      .embed{height:560px;min-height:500px}
+      .below{grid-template-columns:1fr}
+    }
+
+    @media(max-width:620px){
+      .nav{align-items:stretch}
+      .brand{width:100%}
+      .links,.actions{display:grid;grid-template-columns:1fr;width:100%}
+      .btn{width:100%;min-height:48px}
+      .hero{padding-top:18px}
+      .panel,.toy,.card,.admin,.player{border-radius:18px;padding:15px}
+      .embed{height:72vh;min-height:430px;border-radius:14px}
+      .cards{grid-template-columns:1fr;gap:14px}
+      .icon{height:64px}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="./" aria-current="page">MATTBEAR Music Toys</a>
+      <nav class="links" aria-label="Music Toys navigation">
+        <a class="btn" href="../">Main</a>
+        <a class="btn" href="./" aria-current="page">Music Toys</a>
+        <a class="btn" href="../the-choppa/">The Choppa</a>
+        <a class="btn" href="../beargrid/">BearGrid</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap panel">
+        <h1>Music Toys that actually play.</h1>
+        <p>Browser instruments, remix tools, sampler toys, and controller-inspired systems — arranged big enough to use, clean enough to understand.</p>
+        <div class="actions">
+          <a class="btn primary" href="#the-choppa">Play The Choppa</a>
+          <a class="btn" href="#toy-grid">View All Toys</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="the-choppa" aria-label="Featured music toy">
+      <div class="wrap featured">
+        <article class="toy">
+          <div class="embed">
+            <iframe src="../the-choppa/" title="The Choppa"></iframe>
+          </div>
+        </article>
+        <aside class="toy sidebox">
+          <div>
+            <h2>The Choppa</h2>
+            <p>The featured playable module. It gets the big stage first so the page feels like an instrument, not a link dump.</p>
+            <div class="meta">
+              <span class="chip">Featured</span>
+              <span class="chip">Playable</span>
+              <span class="chip">Touch Ready</span>
+            </div>
+          </div>
+          <div class="actions">
+            <a class="btn primary" href="../the-choppa/">Open Fullscreen</a>
+            <a class="btn" href="../the-sampla/">The Sampla</a>
+            <a class="btn" href="../the-launcha/">The Launcha</a>
+            <a class="btn" href="../beargrid/">BearGrid</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="toy-grid" aria-label="All music toys">
+      <div class="wrap cards">
+        <article class="card">
+          <div>
+            <div class="icon">✂️</div>
+            <h3>The Choppa</h3>
+            <p>Cut-up performance toy and featured first-run module.</p>
+          </div>
+          <a class="btn primary" href="../the-choppa/">Open</a>
+        </article>
+
+        <article class="card">
+          <div>
+            <div class="icon">🎛️</div>
+            <h3>The Sampla</h3>
+            <p>Sample-loading lane for organizing and triggering sounds.</p>
+          </div>
+          <a class="btn" href="../the-sampla/">Open</a>
+        </article>
+
+        <article class="card">
+          <div>
+            <div class="icon">🎹</div>
+            <h3>The Launcha</h3>
+            <p>Controller-inspired Launchkey layout and performance controls.</p>
+          </div>
+          <a class="btn" href="../the-launcha/">Open</a>
+        </article>
+
+        <article class="card">
+          <div>
+            <div class="icon">🐻</div>
+            <h3>BearGrid</h3>
+            <p>Quantized browser grid instrument with length-aware loop logic.</p>
+          </div>
+          <a class="btn primary" href="../beargrid/">Open</a>
+        </article>
+
+        <article class="card">
+          <div>
+            <div class="icon">⚙️</div>
+            <h3>The Machine</h3>
+            <p>Remix machine lane for bigger stem and loop-system builds.</p>
+          </div>
+          <a class="btn" href="../the-machine/">Open</a>
+        </article>
+
+        <article class="card">
+          <div>
+            <div class="icon">🌀</div>
+            <h3>The Ritual</h3>
+            <p>Legacy neon ritual demo and older-cousin performance toy.</p>
+          </div>
+          <a class="btn" href="../the-ritual/">Open</a>
+        </article>
+
+        <article class="card">
+          <div>
+            <div class="icon">🔁</div>
+            <h3>The Loopa</h3>
+            <p>Loop launcher with quantize, tap tempo, touch, and keyboard support.</p>
+          </div>
+          <a class="btn primary" href="../the-loopa/">Open</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap below" aria-label="Site systems">
+      <div class="player">
+        <h3>Mini-player Hook</h3>
+        <p>Reserved for the small MATTBEAR SoundCloud player used across connected pages.</p>
+      </div>
+      <details class="admin">
+        <summary>Admin / Tracker Hooks</summary>
+        <p>Backend-ready panel placeholder. Future upload/manage tools and privacy-conscious counter hooks attach here without wrecking the layout.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">MATTBEAR Music Toys · chaos → signal · <a href="../">Back to Main</a></div>
+  </footer>
+</body>
+</html>
