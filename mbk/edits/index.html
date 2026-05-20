@@ -1,14 +1,110 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>MBK Edit Lab</title>
-<meta name="theme-color" content="#05060b">
+<title>MBK Edits - Choppa++</title>
 <style>
-:root{--bg:#05060b;--ink:#f5f8ff;--muted:#aab4c8;--line:rgba(255,255,255,.14);--grad:linear-gradient(90deg,#ff2f6d,#ffe047,#39ff14,#2df7ff,#8a5cff,#ff00f6)}*{box-sizing:border-box}body{margin:0;font-family:Bahnschrift,"Arial Narrow",Arial,sans-serif;background:radial-gradient(circle at top left,rgba(255,47,109,.22),transparent 34%),radial-gradient(circle at top right,rgba(45,247,255,.18),transparent 34%),linear-gradient(180deg,#05060b,#0d1320 55%,#05060b);color:var(--ink)}body:before{content:"";position:fixed;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 1px,transparent 1px 6px)}.wrap{width:min(1100px,calc(100% - 22px));margin:auto;position:relative;z-index:1}.hero{padding:24px 0}.panel{border:1px solid var(--line);border-radius:26px;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));padding:22px;box-shadow:0 22px 60px rgba(0,0,0,.42)}h1{margin:0 0 12px;font-size:clamp(2.5rem,10vw,6rem);line-height:.9;text-transform:uppercase;background:var(--grad);background-size:300%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:rainbow 5s linear infinite}.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:18px 0}.control{padding:14px;border-radius:18px;border:1px solid var(--line);background:rgba(0,0,0,.26)}label{display:block;font-size:.8rem;text-transform:uppercase;color:var(--muted);margin-bottom:8px;font-weight:900}input[type=range]{width:100%}.pads{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}.pad{min-height:120px;border-radius:22px;border:1px solid var(--line);background:linear-gradient(135deg,rgba(255,47,109,.18),rgba(45,247,255,.12));display:flex;align-items:center;justify-content:center;text-align:center;padding:14px;font-size:1rem;font-weight:1000;text-transform:uppercase;letter-spacing:.05em;box-shadow:0 0 22px rgba(45,247,255,.08)}.pad.active{outline:2px solid #2df7ff;box-shadow:0 0 30px rgba(45,247,255,.28)}.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 16px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.08);color:var(--ink);text-decoration:none;font-weight:950;text-transform:uppercase}.primary{background:var(--grad);background-size:300%;border:0;color:#081018;animation:rainbow 4s linear infinite}p{color:var(--muted);line-height:1.55}@keyframes rainbow{to{background-position:300% 50%}}@media(max-width:700px){.pads{grid-template-columns:1fr}}</style>
+:root{--bg:#07070e;--text:#f6f7ff;--muted:#aeb3d6;--hot:#ff3fb4;--cyan:#43f7ff;--green:#72ff72;--warn:#ffd24a;--bad:#ff5b6e;--line:rgba(255,255,255,.14)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;min-height:100vh;padding:14px;background:radial-gradient(circle at top,#191934,#07070e 55%,#020205);color:var(--text);font-family:system-ui,Segoe UI,Arial,sans-serif;overscroll-behavior:none;touch-action:manipulation}
+.wrap{max-width:980px;margin:auto}
+header{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:12px}
+h1{font-size:clamp(24px,6vw,46px);margin:0;line-height:.95;letter-spacing:.04em}
+.rainbow{background:linear-gradient(90deg,#ff3131,#ff9f1c,#fff44f,#72ff72,#43f7ff,#7a5cff,#ff3fb4);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub,.small{color:var(--muted);font-size:12px}
+.panel,.drop,.transport{background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.025));border:1px solid var(--line);border-radius:18px;box-shadow:0 14px 40px rgba(0,0,0,.35)}
+.transport{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px;margin-bottom:12px}
+@media(min-width:720px){.transport{grid-template-columns:1fr 1fr 1fr}.grid{grid-template-columns:repeat(4,1fr)!important}.row{grid-template-columns:1fr 1fr 1fr!important}}
+label{display:block;color:var(--muted);font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+input,select,button{font:inherit}
+input,select{width:100%;background:#0d0d1a;color:var(--text);border:1px solid var(--line);border-radius:12px;padding:11px;min-height:44px}
+.btn{border:1px solid var(--line);border-radius:14px;color:var(--text);background:#17172e;padding:11px 12px;min-height:44px;cursor:pointer;font-weight:900}
+.btn:active{transform:scale(.975)}
+.cyan{background:linear-gradient(135deg,#063b43,#191a44);border-color:rgba(67,247,255,.55)}
+.green{background:linear-gradient(135deg,#114319,#172a19);border-color:rgba(114,255,114,.55)}
+.bad{background:linear-gradient(135deg,#48131d,#26111b);border-color:rgba(255,91,110,.65)}
+.warn{background:linear-gradient(135deg,#4b3410,#271d10);border-color:rgba(255,210,74,.6)}
+.drop{padding:16px;margin-bottom:12px;text-align:center;border-style:dashed}
+.drop.drag{border-color:var(--cyan);box-shadow:0 0 24px rgba(67,247,255,.35)}
+.dropTitle{font-size:22px;font-weight:1000}
+.status{margin:12px 0;padding:10px 12px;border-radius:14px;background:rgba(255,255,255,.055);border:1px solid var(--line);color:var(--muted);font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.pad{display:flex;flex-direction:column;gap:8px;min-height:190px;padding:10px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(160deg,rgba(255,63,180,.08),rgba(67,247,255,.07));user-select:none;touch-action:manipulation}
+.pad.drag{border-color:var(--green);box-shadow:0 0 24px rgba(114,255,114,.35)}
+.pad.playing{box-shadow:0 0 22px rgba(67,247,255,.35);border-color:rgba(67,247,255,.65)}
+.pad.recording{box-shadow:0 0 28px rgba(255,91,110,.55);border-color:rgba(255,91,110,.8)}
+.pad.looping{border-color:rgba(114,255,114,.75)}
+.padhead{display:flex;justify-content:space-between;gap:8px}
+.num{font-weight:1000;font-size:20px}.name{font-size:13px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hit{flex:1;border:1px solid rgba(255,255,255,.17);border-radius:16px;background:radial-gradient(circle at 35% 20%,rgba(255,255,255,.18),rgba(255,255,255,.04) 55%,rgba(0,0,0,.12));color:var(--text);font-size:23px;font-weight:1000;letter-spacing:.05em;min-height:72px}
+.padBtns{display:grid;grid-template-columns:1fr 1fr;gap:7px}.padBtns .btn{padding:8px;min-height:40px;border-radius:12px;font-size:13px}
+.meter{height:7px;border-radius:999px;background:#070711;overflow:hidden;border:1px solid rgba(255,255,255,.08)}.meter span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--green),var(--cyan),var(--hot))}
+.panel{padding:12px;margin-top:12px}.row{display:grid;grid-template-columns:1fr;gap:10px}
+.recOn{animation:pulse .7s infinite alternate}@keyframes pulse{from{filter:brightness(1)}to{filter:brightness(1.45)}}
+</style>
 </head>
 <body>
-<section class="hero"><div class="wrap"><div class="panel"><h1>MBK Edit Lab</h1><p>Experimental loop and sampler branch. Safe place for metronome logic, overwrite recording, default loops, quantized triggering, and future mic capture.</p><div class="controls"><div class="control"><label>BPM</label><input type="range" min="60" max="180" value="120"></div><div class="control"><label>Metronome Volume</label><input type="range" min="0" max="100" value="50"></div><div class="control"><label>Master Volume</label><input type="range" min="0" max="100" value="85"></div></div><div class="row"><button class="btn primary">Metronome On</button><a class="btn" href="/mbk/">Back to Stable</a></div><div class="pads"><div class="pad active">16th Hat Loop</div><div class="pad">Shaker Loop</div><div class="pad">Kick Pattern</div><div class="pad">Record Pad<br><small>Overwrites Default</small></div></div></div></div></section>
+<div class="wrap">
+<header><div><h1><span class="rainbow">MBK</span> CHOPPA++</h1><div class="sub">drag/drop • transient chops • per-pad REC • tap trigger • hold loops only</div></div><button class="btn cyan" id="unlockBtn">UNLOCK AUDIO</button></header>
+<section class="transport">
+<div><label>BPM</label><input id="bpm" type="number" min="40" max="220" value="120"></div>
+<div><label>Loop Quantize</label><select id="quantize"><option value="0">Triggered / Free</option><option value="1">Next Beat</option><option value="4" selected>Next Bar</option></select></div>
+<div><label>Chop Sensitivity</label><select id="sensitivity"><option value="1.35">Loose</option><option value="1.7" selected>Normal</option><option value="2.15">Strict</option></select></div>
+</section>
+<section class="drop" id="dropzone"><div class="dropTitle">DROP AUDIO HERE</div><div class="small">MP3 / WAV / M4A → Choppa++ finds transients and fills pads. Drop onto a pad to load that pad only.</div></section>
+<div class="status" id="status">Tap UNLOCK AUDIO once. Drop a track to chop it. Tap pad to trigger. Hold pad to toggle loop.</div>
+<main class="grid" id="pads"></main>
+<section class="panel"><div class="row">
+<div><label>Import Audio</label><input id="fileImport" type="file" accept="audio/*" multiple></div>
+<div><label>Upload URL</label><input id="uploadUrl" type="text" value="https://script.google.com/macros/s/AKfycbwP7Ni0TsvdEdTFwkNaBD_Q4PN5VTROR6dEftnKox32JyV0qyrGmovPr-t8Sf9xnzAIsw/exec"></div>
+<div><label>Actions</label><button class="btn green" id="stopAll">STOP ALL LOOPS</button></div>
+</div></section>
+</div>
+<script>
+(()=>{
+const PAD_COUNT=8;
+let audioCtx, masterGain, mediaStream, recorder, recordingChunks=[], recordingPad=null;
+let padState=[], loopNodes=new Map(), holdTimers=new Map();
+const names=["KICK","SNARE","HAT","BASS","CHOP","FX","VOICE","OPEN"];
+const padsEl=document.getElementById("pads"), statusEl=document.getElementById("status");
+const bpmEl=document.getElementById("bpm"), quantizeEl=document.getElementById("quantize"), sensEl=document.getElementById("sensitivity");
+const setStatus=m=>statusEl.textContent=m;
+function init(){padState=Array.from({length:PAD_COUNT},(_,i)=>({id:i,name:names[i],buffer:null,loop:false,recUrl:null,mime:""}));render();}
+async function unlock(){if(!audioCtx){audioCtx=new (window.AudioContext||window.webkitAudioContext)();masterGain=audioCtx.createGain();masterGain.gain.value=.92;masterGain.connect(audioCtx.destination)}if(audioCtx.state!=="running")await audioCtx.resume();}
+function render(){padsEl.innerHTML="";padState.forEach((p,i)=>{let el=document.createElement("section");el.className=`pad ${p.loop?"looping":""}`;el.dataset.pad=i;el.innerHTML=`<div class="padhead"><div><div class="num">PAD ${i+1}</div><div class="name">${p.name}</div></div><div class="small">${p.loop?"LOOP":"ONE"}</div></div><button class="hit" data-hit="${i}">TRIGGER</button><div class="meter"><span id="meter-${i}"></span></div><div class="padBtns"><button class="btn bad" data-rec="${i}">REC</button><button class="btn green" data-loop="${i}">${p.loop?"LOOP ON":"LOOP OFF"}</button><button class="btn cyan" data-upload="${i}">UPLOAD</button><button class="btn warn" data-clear="${i}">CLEAR</button></div>`;padsEl.appendChild(el);});}
+const padEl=id=>document.querySelector(`.pad[data-pad="${id}"]`);
+function flash(id,cls,ms=130){let el=padEl(id);if(!el)return;el.classList.add(cls);setTimeout(()=>el.classList.remove(cls),ms);}
+function gridDelay(){let q=Number(quantizeEl.value);if(!q||!audioCtx)return 0;let beat=60/Number(bpmEl.value||120),grid=beat*q;return grid-(audioCtx.currentTime%grid);}
+function beep(id){let o=audioCtx.createOscillator(),g=audioCtx.createGain();o.frequency.value=120+id*55;o.type=id%2?"square":"sine";g.gain.setValueAtTime(.001,audioCtx.currentTime);g.gain.exponentialRampToValueAtTime(.2,audioCtx.currentTime+.01);g.gain.exponentialRampToValueAtTime(.001,audioCtx.currentTime+.12);o.connect(g).connect(masterGain);o.start();o.stop(audioCtx.currentTime+.14);flash(id,"playing");}
+function triggerPad(id){let p=padState[id];if(!p.buffer){beep(id);setStatus(`PAD ${id+1}: placeholder beep.`);return;}if(p.loop){if(loopNodes.has(id)){stopLoop(id);return;}setTimeout(()=>startLoop(id),gridDelay()*1000);setStatus(`PAD ${id+1}: loop queued.`);}else playBuffer(id);}
+function playBuffer(id){let s=audioCtx.createBufferSource();s.buffer=padState[id].buffer;s.connect(masterGain);s.start();flash(id,"playing");}
+function startLoop(id){if(loopNodes.has(id)||!padState[id].buffer)return;let s=audioCtx.createBufferSource();s.buffer=padState[id].buffer;s.loop=true;s.connect(masterGain);s.start();loopNodes.set(id,s);padEl(id)?.classList.add("playing","looping");}
+function stopLoop(id){let s=loopNodes.get(id);if(s){try{s.stop()}catch{}}loopNodes.delete(id);padEl(id)?.classList.remove("playing");}
+function sliceBuffer(buffer,startSec,endSec){let sr=buffer.sampleRate,start=Math.max(0,Math.floor(startSec*sr)),end=Math.min(buffer.length,Math.floor(endSec*sr)),len=Math.max(1,end-start),out=audioCtx.createBuffer(buffer.numberOfChannels,len,sr);for(let ch=0;ch<buffer.numberOfChannels;ch++)out.copyToChannel(buffer.getChannelData(ch).slice(start,end),ch);return out;}
+function findTransients(buffer){let data=buffer.getChannelData(0),sr=buffer.sampleRate,win=Math.floor(sr*.025),hop=Math.floor(sr*.012),env=[];for(let i=0;i<data.length-win;i+=hop){let sum=0;for(let j=0;j<win;j++){let v=data[i+j];sum+=v*v;}env.push(Math.sqrt(sum/win));}let sorted=[...env].sort((a,b)=>a-b),median=sorted[Math.floor(sorted.length*.55)]||.001,thresh=median*Number(sensEl.value||1.7),minGap=Math.floor(.18*sr/hop),hits=[];for(let i=2;i<env.length-2;i++){if(env[i]>thresh&&env[i]>env[i-1]*1.16&&env[i]>=env[i+1]){if(!hits.length||i-hits[hits.length-1]>minGap)hits.push(i);}}let times=hits.map(i=>Math.max(0,(i*hop)/sr-.015));if(!times.length)return Array.from({length:PAD_COUNT},(_,i)=>i*Math.min(2,buffer.duration/PAD_COUNT));return times.slice(0,64);}
+function chopToPads(buffer,base="CHOP"){let hits=findTransients(buffer),starts=hits.slice(0,PAD_COUNT);while(starts.length<PAD_COUNT)starts.push(starts.length*(buffer.duration/PAD_COUNT));for(let i=0;i<PAD_COUNT;i++){let start=starts[i]||0,next=starts[i+1]??Math.min(buffer.duration,start+2.5),end=Math.min(buffer.duration,Math.max(start+.12,next-.01));padState[i].buffer=sliceBuffer(buffer,start,end);padState[i].name=`${base} ${i+1}`;padState[i].loop=false;padState[i].mime="audio/chop";}render();setStatus(`Choppa++ loaded ${PAD_COUNT} transient chops into pads.`);}
+async function decodeFile(file){await unlock();let buf=await file.arrayBuffer();return await audioCtx.decodeAudioData(buf.slice(0));}
+async function loadFileToPad(file,id){let b=await decodeFile(file);padState[id].buffer=b;padState[id].name=file.name.replace(/\.[^/.]+$/," ").trim().slice(0,22);padState[id].mime=file.type;render();setStatus(`Loaded ${file.name} to PAD ${id+1}.`);}
+async function chopFile(file){let b=await decodeFile(file);chopToPads(b,file.name.replace(/\.[^/.]+$/," ").trim().slice(0,14)||"CHOP");}
+async function startRec(id){await unlock();if(recordingPad!==null)await stopRec();if(!mediaStream)mediaStream=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:false,noiseSuppression:false,autoGainControl:false}});recordingPad=id;recordingChunks=[];recorder=new MediaRecorder(mediaStream);recorder.ondataavailable=e=>{if(e.data.size)recordingChunks.push(e.data)};recorder.onstop=()=>finishRec(id);recorder.start();padEl(id)?.classList.add("recording");document.querySelector(`[data-rec="${id}"]`)?.classList.add("recOn");setStatus(`Recording into PAD ${id+1}. Tap REC again to stop.`);}
+async function stopRec(){if(recorder&&recorder.state!=="inactive")recorder.stop();}
+async function finishRec(id){let blob=new Blob(recordingChunks,{type:recorder.mimeType||"audio/webm"}),b=await audioCtx.decodeAudioData(await blob.arrayBuffer());padState[id].buffer=b;padState[id].name=`REC ${id+1}`;padState[id].mime=blob.type;recordingPad=null;render();setStatus(`PAD ${id+1}: recording saved locally.`);}
+document.addEventListener("click",async e=>{let hit=e.target.closest("[data-hit]"),rec=e.target.closest("[data-rec]"),loop=e.target.closest("[data-loop]"),clear=e.target.closest("[data-clear]");if(hit){await unlock();triggerPad(Number(hit.dataset.hit));}if(rec){let id=Number(rec.dataset.rec);recordingPad===id?await stopRec():await startRec(id);}if(loop){let id=Number(loop.dataset.loop);padState[id].loop=!padState[id].loop;if(!padState[id].loop)stopLoop(id);render();}if(clear){let id=Number(clear.dataset.clear);stopLoop(id);padState[id]={id,name:names[id],buffer:null,loop:false,recUrl:null,mime:""};render();}});
+document.addEventListener("pointerdown",e=>{let hit=e.target.closest("[data-hit]");if(!hit)return;let id=Number(hit.dataset.hit);holdTimers.set(id,setTimeout(()=>{padState[id].loop=!padState[id].loop;render();navigator.vibrate?.(25);setStatus(`PAD ${id+1}: hold toggled loop ${padState[id].loop?"ON":"OFF"}.`);},560));},{passive:true});
+document.addEventListener("pointerup",e=>{let hit=e.target.closest("[data-hit]");if(!hit)return;let id=Number(hit.dataset.hit);clearTimeout(holdTimers.get(id));holdTimers.delete(id);},{passive:true});
+let dz=document.getElementById("dropzone");
+["dragenter","dragover"].forEach(ev=>dz.addEventListener(ev,e=>{e.preventDefault();dz.classList.add("drag")}));
+["dragleave","drop"].forEach(ev=>dz.addEventListener(ev,e=>{e.preventDefault();dz.classList.remove("drag")}));
+dz.addEventListener("drop",async e=>{let files=[...e.dataTransfer.files].filter(f=>f.type.startsWith("audio"));if(files[0])await chopFile(files[0]);});
+padsEl.addEventListener("dragover",e=>{let p=e.target.closest(".pad");if(p){e.preventDefault();p.classList.add("drag");}});
+padsEl.addEventListener("dragleave",e=>e.target.closest(".pad")?.classList.remove("drag"));
+padsEl.addEventListener("drop",async e=>{let p=e.target.closest(".pad");if(!p)return;e.preventDefault();p.classList.remove("drag");let file=[...e.dataTransfer.files].find(f=>f.type.startsWith("audio"));if(file)await loadFileToPad(file,Number(p.dataset.pad));});
+document.getElementById("fileImport").addEventListener("change",async e=>{let f=[...e.target.files][0];if(f)await chopFile(f);});
+document.getElementById("unlockBtn").addEventListener("click",async()=>{await unlock();setStatus("Audio unlocked. Choppa++ ready.");});
+document.getElementById("stopAll").addEventListener("click",()=>{[...loopNodes.keys()].forEach(stopLoop);setStatus("All loops stopped.");});
+init();
+})();
+</script>
 </body>
 </html>
