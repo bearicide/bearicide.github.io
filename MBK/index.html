@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>MBK Sampla</title>
+<meta name="theme-color" content="#05060b">
+<style>
+:root{--bg:#05060b;--ink:#f7fbff;--muted:#a9b5c9;--line:rgba(255,255,255,.14);--hot:#ff2f6d;--cyan:#2df7ff;--green:#39ff14;--gold:#ffe047;--grad:linear-gradient(90deg,#ff2f6d,#ffe047,#39ff14,#2df7ff,#8a5cff,#ff00f6)}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-width:320px;font-family:Bahnschrift,"Arial Narrow",Arial,sans-serif;color:var(--ink);background:radial-gradient(circle at 20% 8%,rgba(255,47,109,.22),transparent 34%),radial-gradient(circle at 82% 16%,rgba(45,247,255,.2),transparent 34%),linear-gradient(180deg,#05060b,#0b101a 55%,#05060b)}body:before{content:"";position:fixed;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 1px,transparent 1px 7px);opacity:.6}.wrap{width:min(1040px,calc(100% - 24px));margin:auto;position:relative;z-index:1}.top{position:sticky;top:0;z-index:2;background:rgba(5,6,11,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}.nav{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 0;flex-wrap:wrap}.brand{font-weight:1000;text-transform:uppercase;letter-spacing:.08em;background:var(--grad);background-size:300%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:rainbow 5s linear infinite}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 16px;border-radius:15px;border:1px solid var(--line);background:rgba(255,255,255,.07);color:var(--ink);text-decoration:none;font-weight:950;text-transform:uppercase;letter-spacing:.045em;text-align:center;box-shadow:0 0 18px rgba(45,247,255,.1)}.btn:hover{border-color:rgba(45,247,255,.68);box-shadow:0 0 28px rgba(45,247,255,.24);transform:translateY(-1px)}.primary{background:var(--grad);background-size:300%;border:0;color:#071018;animation:rainbow 4s linear infinite}.hero{min-height:82vh;display:grid;align-items:center;padding:34px 0}.panel{border:1px solid var(--line);border-radius:26px;background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.035));padding:clamp(22px,5vw,54px);box-shadow:0 25px 70px rgba(0,0,0,.42)}h1{margin:0 0 14px;font-size:clamp(3rem,12vw,8rem);line-height:.85;text-transform:uppercase;letter-spacing:-.06em;text-shadow:0 0 22px rgba(45,247,255,.35)}p{color:var(--muted);line-height:1.55;font-size:1.05rem}.spacer{height:52vh}.edit-zone{padding:28px 0 58px}.edit-card{border:1px dashed rgba(255,255,255,.22);border-radius:24px;background:rgba(0,0,0,.28);padding:22px;text-align:center}.small{font-size:.88rem;color:var(--muted)}@keyframes rainbow{to{background-position:300% 50%}}@media(max-width:620px){.nav{align-items:stretch}.btn{width:100%}.hero{min-height:78vh}.spacer{height:38vh}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap nav"><a class="brand" href="./">MBK Sampla</a><a class="btn" href="../">Main Site</a></div></header>
+<main>
+<section class="hero"><div class="wrap"><div class="panel"><h1>MBK<br>Sampla</h1><p>Stable mobile sampler lane. This page stays clean while the edit lab gets the risky timing, loop, metronome, and recording logic.</p><a class="btn primary" href="#edit-link">Scroll to Edit Link</a></div></div></section>
+<div class="spacer" aria-hidden="true"></div>
+<section id="edit-link" class="edit-zone"><div class="wrap"><div class="edit-card"><p class="small">Experimental branch. Separate on purpose.</p><a class="btn primary" href="./edits/">Enter MBK Edit Lab</a></div></div></section>
+</main>
+</body>
+</html>
