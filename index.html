@@ -3,318 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>MATTBEAR | Main Portal</title>
-  <meta name="description" content="Connected MATTBEAR ecosystem portal for games, music tools, experiments, releases, and creative systems.">
+  <title>MAIN | MATTBEAR</title>
+  <meta name="description" content="MAIN hub for the MATTBEAR ecosystem: MATTBEARCADE, music machines, MB Casino, client examples, and live repo branches.">
   <meta name="theme-color" content="#090909">
   <link rel="stylesheet" href="/industrial-luxury-theme/theme-v2.css">
   <style>
-    :root {
-      --mb-bg: #050505;
-      --mb-panel: rgba(17, 17, 17, .82);
-      --mb-text: #f4efe4;
-      --mb-muted: #b8b0a4;
-      --mb-gold: #caa96b;
-      --mb-cyan: #7fd7ff;
-      --mb-magenta: #ff5fd2;
-      --mb-green: #7dff9f;
-      --mb-amber: #ffbf5f;
-      --mb-red: #ff5b5b;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      min-width: 320px;
-      background:
-        radial-gradient(circle at 18% 8%, rgba(127, 215, 255, .14), transparent 28%),
-        radial-gradient(circle at 84% 18%, rgba(255, 95, 210, .10), transparent 24%),
-        linear-gradient(180deg, #050505, #101010 50%, #070707);
-      color: var(--mb-text);
-      font-family: Bahnschrift, Arial, sans-serif;
-    }
-
-    a { color: inherit; }
-
-    .wrap {
-      width: min(1240px, calc(100% - 18px));
-      margin: auto;
-    }
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(7, 7, 7, .92);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255, 255, 255, .14);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      padding: 7px 0;
-      flex-wrap: wrap;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      text-transform: uppercase;
-      font-weight: 1000;
-      letter-spacing: .08em;
-      color: var(--mb-text);
-    }
-
-    .mark {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      background: linear-gradient(135deg, var(--mb-gold), #1b1b1b 45%, var(--mb-cyan));
-      box-shadow: 0 0 18px rgba(202, 169, 107, .22);
-    }
-
-    small, p { color: var(--mb-muted); }
-
-    .links,
-    .actions,
-    .footer-links,
-    .mini-links {
-      display: flex;
-      gap: 7px;
-      flex-wrap: wrap;
-    }
-
-    .hero { padding: 38px 0 18px; }
-    .section { padding: 18px 0; }
-
-    .panel,
-    .card {
-      border: 1px solid rgba(255, 255, 255, .13);
-      background: linear-gradient(180deg, rgba(24, 24, 24, .90), rgba(9, 9, 9, .88));
-      box-shadow: 0 24px 80px rgba(0, 0, 0, .38), inset 0 1px 0 rgba(255, 255, 255, .08);
-    }
-
-    .panel {
-      padding: clamp(18px, 3vw, 38px);
-      border-radius: 12px;
-    }
-
-    .card {
-      padding: 18px;
-      min-height: 250px;
-      display: flex;
-      flex-direction: column;
-      border-radius: 10px;
-      position: relative;
-      overflow: hidden;
-      transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
-    }
-
-    .card:hover,
-    .card:focus-within {
-      transform: translateY(-3px);
-      border-color: rgba(202, 169, 107, .36);
-      box-shadow: 0 18px 50px rgba(0, 0, 0, .5);
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent, var(--mb-gold)), transparent);
-    }
-
-    h1, h2, h3 {
-      margin: 0;
-      text-transform: uppercase;
-      font-weight: 1000;
-    }
-
-    h1 {
-      font-size: clamp(2.5rem, 6vw, 6.5rem);
-      line-height: .88;
-      letter-spacing: -.05em;
-    }
-
-    h2 {
-      font-size: clamp(1.5rem, 3vw, 2.5rem);
-      margin-bottom: 8px;
-    }
-
-    .gold {
-      color: var(--mb-gold);
-      text-shadow: 0 0 20px rgba(202, 169, 107, .18);
-    }
-
-    .tag,
-    .district {
-      text-transform: uppercase;
-      letter-spacing: .14em;
-      font-weight: 800;
-    }
-
-    .tag {
-      color: var(--mb-cyan);
-      font-size: .76rem;
-      margin-bottom: 10px;
-    }
-
-    .district {
-      font-size: .7rem;
-      color: var(--accent, var(--mb-cyan));
-      margin-bottom: 8px;
-    }
-
-    .card h3 {
-      margin-bottom: 10px;
-      font-size: 1.15rem;
-    }
-
-    .card p {
-      flex: 1;
-      line-height: 1.45;
-      margin-bottom: 14px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 18px;
-    }
-
-    .button,
-    .mb-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 38px;
-      padding: 8px 12px;
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, .16);
-      background: linear-gradient(180deg, rgba(255, 255, 255, .09), rgba(255, 255, 255, .03));
-      color: var(--mb-text);
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: .09em;
-      font-size: .74rem;
-      font-weight: 900;
-      transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
-    }
-
-    .button:hover,
-    .button:focus-visible,
-    .mb-button:hover,
-    .mb-button:focus-visible {
-      transform: translateY(-1px);
-      filter: brightness(1.08);
-      box-shadow: 0 0 22px rgba(127, 215, 255, .16);
-      outline: none;
-    }
-
-    .primary {
-      border-color: rgba(202, 169, 107, .42);
-      box-shadow: inset 0 0 0 1px rgba(202, 169, 107, .12);
-    }
-
-    .mini-links .button {
-      font-size: .68rem;
-      padding: 6px 8px;
-      min-height: 32px;
-    }
-
-    .status {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 10px;
-      margin-top: 16px;
-    }
-
-    .stat {
-      padding: 12px;
-      border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, .12);
-      background: rgba(255, 255, 255, .04);
-    }
-
-    .stat strong {
-      display: block;
-      color: var(--mb-gold);
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      font-size: .72rem;
-      margin-bottom: 4px;
-    }
-
-    .footer {
-      padding: 28px 0 38px;
-      text-align: center;
-    }
-
-    @media (max-width: 1050px) {
-      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .status { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
-
-    @media (max-width: 820px) {
-      .links,
-      .actions,
-      .footer-links,
-      .mini-links {
-        display: grid;
-        width: 100%;
-        grid-template-columns: 1fr 1fr;
-        gap: 6px;
-      }
-
-      .grid,
-      .status { grid-template-columns: 1fr; }
-
-      .button,
-      .mb-button {
-        width: 100%;
-        min-height: 35px;
-        padding: 7px 8px;
-        font-size: .73rem;
-      }
-
-      .mark {
-        width: 30px;
-        height: 30px;
-        border-radius: 6px;
-      }
-    }
-
-    @media (max-width: 520px) {
-      .links,
-      .actions,
-      .footer-links,
-      .mini-links { grid-template-columns: 1fr; }
-      .wrap { width: min(1120px, calc(100% - 12px)); }
-    }
+    :root{--bg:#050505;--panel:rgba(17,17,17,.86);--text:#f4efe4;--muted:#b8b0a4;--gold:#caa96b;--cyan:#7fd7ff;--mag:#ff5fd2;--green:#7dff9f;--amber:#ffbf5f;--red:#ff5b5b;--line:rgba(255,255,255,.14)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-width:320px;background:radial-gradient(circle at 18% 8%,rgba(127,215,255,.14),transparent 28%),radial-gradient(circle at 84% 18%,rgba(255,95,210,.1),transparent 24%),linear-gradient(180deg,#050505,#101010 52%,#070707);color:var(--text);font-family:Bahnschrift,Arial,sans-serif}a{color:inherit}.wrap{width:min(1240px,calc(100% - 18px));margin:auto}.topbar{position:sticky;top:0;z-index:20;background:rgba(7,7,7,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}.nav{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:7px 0;flex-wrap:wrap}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;text-transform:uppercase;font-weight:1000;letter-spacing:.08em}.mark{width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,var(--gold),#1b1b1b 45%,var(--cyan));box-shadow:0 0 18px rgba(202,169,107,.22)}small,p{color:var(--muted)}.links,.actions,.mini-links,.footer-links{display:flex;gap:7px;flex-wrap:wrap}.hero{padding:38px 0 18px}.section{padding:18px 0}.panel,.card{border:1px solid var(--line);background:linear-gradient(180deg,rgba(24,24,24,.92),rgba(9,9,9,.9));box-shadow:0 24px 80px rgba(0,0,0,.38),inset 0 1px 0 rgba(255,255,255,.08)}.panel{padding:clamp(18px,3vw,38px);border-radius:12px}.card{padding:18px;min-height:238px;display:flex;flex-direction:column;border-radius:10px;position:relative;overflow:hidden;transition:.22s ease}.card:hover,.card:focus-within{transform:translateY(-3px);border-color:rgba(202,169,107,.36);box-shadow:0 18px 50px rgba(0,0,0,.5)}.card:before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--accent,var(--gold)),transparent)}h1,h2,h3{margin:0;text-transform:uppercase;font-weight:1000}h1{font-size:clamp(3rem,7vw,7rem);line-height:.84;letter-spacing:-.055em}h2{font-size:clamp(1.55rem,3vw,2.65rem);margin-bottom:8px}.gold{color:var(--gold);text-shadow:0 0 20px rgba(202,169,107,.18)}.tag,.district{text-transform:uppercase;letter-spacing:.14em;font-weight:900}.tag{color:var(--cyan);font-size:.76rem;margin-bottom:10px}.district{font-size:.7rem;color:var(--accent,var(--cyan));margin-bottom:8px}.card h3{margin-bottom:10px;font-size:1.15rem}.card p{flex:1;line-height:1.45;margin-bottom:14px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:18px}.button{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:8px 12px;border-radius:8px;border:1px solid rgba(255,255,255,.16);background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.03));color:var(--text);text-decoration:none;text-transform:uppercase;letter-spacing:.09em;font-size:.74rem;font-weight:900;transition:.18s ease}.button:hover,.button:focus-visible{transform:translateY(-1px);filter:brightness(1.08);box-shadow:0 0 22px rgba(127,215,255,.16);outline:none}.primary{border-color:rgba(202,169,107,.42);box-shadow:inset 0 0 0 1px rgba(202,169,107,.12)}.mini-links .button{font-size:.68rem;padding:6px 8px;min-height:32px}.map{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:16px}.map div{padding:12px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.04)}.map strong{display:block;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;margin-bottom:4px}.footer{padding:28px 0 38px;text-align:center}@media(max-width:1050px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.map{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:820px){.links,.actions,.footer-links,.mini-links{display:grid;width:100%;grid-template-columns:1fr 1fr;gap:6px}.grid,.map{grid-template-columns:1fr}.button{width:100%;min-height:35px;padding:7px 8px;font-size:.73rem}.mark{width:30px;height:30px;border-radius:6px}}@media(max-width:520px){.links,.actions,.footer-links,.mini-links{grid-template-columns:1fr}.wrap{width:min(1120px,calc(100% - 12px))}}
   </style>
 </head>
 <body>
   <header class="topbar">
     <div class="wrap nav">
-      <a class="brand" href="/" aria-label="MATTBEAR main portal home">
-        <span class="mark"></span>
-        <span><span class="gold">MATTBEAR</span><br><small>Transit Hub</small></span>
-      </a>
+      <a class="brand" href="/" aria-label="MAIN home"><span class="mark"></span><span><span class="gold">MAIN</span><br><small>MATTBEAR Hub</small></span></a>
       <nav class="links" aria-label="Primary navigation">
-        <a class="button" href="#projects">Projects</a>
-        <a class="button" href="/examples/">Examples</a>
-        <a class="button" href="/music-toys/">Music Toys</a>
-        <a class="button" href="/retrocade-/">RETROCADE</a>
+        <a class="button" href="#mattbearcade">MATTBEARCADE</a>
+        <a class="button" href="#music">Music</a>
+        <a class="button" href="#casino">MB Casino</a>
+        <a class="button" href="#examples">Examples</a>
       </nav>
     </div>
   </header>
@@ -323,169 +29,98 @@
     <section class="hero">
       <div class="wrap">
         <div class="panel">
-          <p class="tag">connected ecosystem • archived experiments • active portals</p>
+          <p class="tag">MAIN • front door • ecosystem map</p>
           <h1><span class="gold">MATTBEAR</span><br>Your Idea. Our Solution.</h1>
-          <p>Games, music systems, neon experiments, portals, releases, arcade concepts, client mockups, and weird internet machinery connected back into one hub again.</p>
+          <p>MAIN is the front door. MATTBEARCADE is the game ecosystem. RETROCADE lives under MATTBEARCADE as the play-to-unlock arcade floor. Music machines live under Music. WORD$LOTS belongs under MB Casino. Examples are examples, not the whole damn map.</p>
           <div class="actions">
-            <a class="button primary" href="#projects">Open Project Grid</a>
-            <a class="button" href="https://github.com/bearicide">GitHub</a>
-            <a class="button" href="https://suno.com/@mattbear86">Suno</a>
+            <a class="button primary" href="https://bearicide.github.io/MATTBEARCADE/">Enter MATTBEARCADE</a>
+            <a class="button" href="https://bearicide.github.io/mb-casino/">Open MB Casino</a>
+            <a class="button" href="/music-toys/">Music Toys</a>
+            <a class="button" href="/examples/">Examples</a>
+          </div>
+          <div class="map" aria-label="Current ecosystem hierarchy">
+            <div><strong>MAIN</strong><span>Front door / directory</span></div>
+            <div><strong>MATTBEARCADE</strong><span>Game ecosystem</span></div>
+            <div><strong>Music</strong><span>Machines, samplers, tracks</span></div>
+            <div><strong>MB Casino</strong><span>Slots + future Debt Relief</span></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="projects">
+    <section class="section" id="mattbearcade">
       <div class="wrap">
         <div class="panel">
-          <p class="tag">main routes restored</p>
-          <h2>Project Links</h2>
-          <p>Primary live pages and repo districts. No more empty lobby pretending to be a control center.</p>
-
+          <p class="tag">game ecosystem</p>
+          <h2>MATTBEARCADE</h2>
+          <p>MATTBEARCADE is the main game layer. RETROCADE is inside it and should work as the unlock/progression arcade floor for opening more MATTBEARCADE stuff by playing games.</p>
           <div class="grid">
-            <article class="card" style="--accent: var(--mb-cyan);">
-              <p class="district">Core Portal</p>
-              <h3>Examples Showcase</h3>
-              <p>Portfolio/demo district for connected public-facing examples and creative builds.</p>
-              <div class="mini-links">
-                <a class="button" href="/examples/">Open</a>
-                <a class="button" href="https://github.com/bearicide/bearicide.github.io/tree/main/examples">Repo Folder</a>
-              </div>
+            <article class="card" style="--accent:var(--mb-green,var(--green));--accent:var(--green)">
+              <p class="district">Primary Game Hub</p><h3>MATTBEARCADE</h3>
+              <p>Neon browser arcade hub for games, music toys, interactive machines, and playable web experiments.</p>
+              <div class="mini-links"><a class="button" href="https://bearicide.github.io/MATTBEARCADE/">Open</a><a class="button" href="https://github.com/bearicide/MATTBEARCADE">Repo</a></div>
             </article>
-
-            <article class="card" style="--accent: var(--mb-magenta);">
-              <p class="district">Music / Media</p>
-              <h3>Music Toys</h3>
-              <p>Audio toys, samplers, pads, noise machines, experiments, and future mini-player systems.</p>
-              <div class="mini-links">
-                <a class="button" href="/music-toys/">Open</a>
-                <a class="button" href="https://github.com/bearicide/bearicide.github.io/tree/main/music-toys">Repo Folder</a>
-              </div>
+            <article class="card" style="--accent:var(--cyan)">
+              <p class="district">Unlock Floor</p><h3>RETROCADE</h3>
+              <p>The arcade floor under MATTBEARCADE. Playing these games should unlock more MATTBEARCADE content.</p>
+              <div class="mini-links"><a class="button" href="https://bearicide.github.io/retrocade-/">Open</a><a class="button" href="https://github.com/bearicide/retrocade-">Repo</a></div>
             </article>
-
-            <article class="card" style="--accent: var(--mb-green);">
-              <p class="district">Arcade</p>
-              <h3>RETROCADE</h3>
-              <p>Multi-cabinet playable arcade with mobile controls, progression, PWA shell, and neon cabinet identity.</p>
-              <div class="mini-links">
-                <a class="button" href="/retrocade-/">Open</a>
-                <a class="button" href="https://github.com/bearicide/retrocade-">Repo</a>
-              </div>
-            </article>
-
-            <article class="card" style="--accent: var(--mb-green);">
-              <p class="district">Arcade</p>
-              <h3>MATTBEARCADE</h3>
-              <p>Arcade launcher / cabinet hub for MATTBEAR game experiments and related builds.</p>
-              <div class="mini-links">
-                <a class="button" href="/MATTBEARCADE/">Open</a>
-                <a class="button" href="https://github.com/bearicide/MATTBEARCADE">Repo</a>
-              </div>
-            </article>
-
-            <article class="card" style="--accent: var(--mb-amber);">
-              <p class="district">Games</p>
-              <h3>WORD$LOTS</h3>
-              <p>Word-slot branch and slot/wordplay experiment family.</p>
-              <div class="mini-links">
-                <a class="button" href="/wordslots/">Open</a>
-                <a class="button" href="https://github.com/bearicide/wordslots">Repo</a>
-              </div>
-            </article>
-
-            <article class="card" style="--accent: var(--mb-amber);">
-              <p class="district">Games</p>
-              <h3>All Fall Down</h3>
-              <p>Interactive/demo branch linked into the broader showcase ecosystem.</p>
-              <div class="mini-links">
-                <a class="button" href="/all-fall-down/">Open</a>
-                <a class="button" href="https://github.com/bearicide/all-fall-down">Repo</a>
-              </div>
-            </article>
-
-            <article class="card" style="--accent: var(--mb-cyan);">
-              <p class="district">Client / Local</p>
-              <h3>Trackside Cafe</h3>
-              <p>Local diner/client site branch with food-service presentation and public-facing layout.</p>
-              <div class="mini-links">
-                <a class="button" href="/trackside-cafe/">Open</a>
-                <a class="button" href="https://github.com/bearicide/trackside-cafe">Repo</a>
-              </div>
-            </article>
-
-            <article class="card" style="--accent: var(--mb-cyan);">
-              <p class="district">Client / Local</p>
-              <h3>The Flushing A</h3>
-              <p>Restaurant/site archive and domain project branch.</p>
-              <div class="mini-links">
-                <a class="button" href="/theflushinga-dotcom/">Open</a>
-                <a class="button" href="https://github.com/bearicide/theflushinga-dotcom">Repo</a>
-              </div>
-            </article>
-
-            <article class="card" style="--accent: var(--mb-magenta);">
-              <p class="district">Showcase</p>
-              <h3>Britni Rosa - Illustrator</h3>
-              <p>Illustration/tattoo artist showcase branch.</p>
-              <div class="mini-links">
-                <a class="button" href="/rosa-tattoos-2/">Open</a>
-                <a class="button" href="https://github.com/bearicide/rosa-tattoos-2">Repo</a>
-              </div>
-            </article>
-
-            <article class="card" style="--accent: var(--mb-red);">
-              <p class="district">Showcase</p>
-              <h3>Cannibal Steakhouse</h3>
-              <p>Experimental showcase/client-style concept page.</p>
-              <div class="mini-links">
-                <a class="button" href="/cannibal/">Open</a>
-                <a class="button" href="https://github.com/bearicide/cannibal">Repo</a>
-              </div>
-            </article>
-
-            <article class="card" style="--accent: var(--mb-green);">
-              <p class="district">Showcase</p>
-              <h3>KARIMEF</h3>
-              <p>Showcase district / experimental public page branch.</p>
-              <div class="mini-links">
-                <a class="button" href="/karimef/">Open</a>
-                <a class="button" href="https://github.com/bearicide/karimef">Repo</a>
-              </div>
-            </article>
-
-            <article class="card" style="--accent: var(--mb-amber);">
-              <p class="district">Tools / Sales</p>
-              <h3>Pokemon Cards</h3>
-              <p>Simple sales/listing page branch for cards and collectible inventory.</p>
-              <div class="mini-links">
-                <a class="button" href="/pokemon/">Open</a>
-                <a class="button" href="https://github.com/bearicide/pokemon">Repo</a>
-              </div>
+            <article class="card" style="--accent:var(--amber)">
+              <p class="district">Future Path</p><h3>Unlocks / Rewards</h3>
+              <p>Badges, cabinets, hidden pages, themes, player progress, and future locked MATTBEARCADE sections.</p>
+              <div class="mini-links"><a class="button" href="https://bearicide.github.io/retrocade-/">Start in RETROCADE</a></div>
             </article>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="music">
       <div class="wrap">
         <div class="panel">
-          <p class="tag">fast access</p>
-          <h2>More Repo Doors</h2>
-          <div class="footer-links">
-            <a class="button" href="https://github.com/bearicide/flushing-a-website">Flushing A Website</a>
-            <a class="button" href="https://github.com/bearicide/lennoncafe">Lennon Cafe</a>
-            <a class="button" href="https://github.com/bearicide/the-basement">The Basement</a>
-            <a class="button" href="https://github.com/bearicide/bear-cave">Bear Cave</a>
-            <a class="button" href="https://github.com/bearicide/would-you-game">Would You Game</a>
-            <a class="button" href="https://github.com/bearicide/Xmas2025">Xmas 2025</a>
+          <p class="tag">music / machines / releases</p>
+          <h2>Music Systems</h2>
+          <p>All Fall Down lives here. This is the audio side: releases, samplers, loop tools, noise machines, grids, and performance toys.</p>
+          <div class="grid">
+            <article class="card" style="--accent:var(--mag)"><p class="district">Music Hub</p><h3>Music Toys</h3><p>Browser instruments, remix toys, loop machines, and interactive music systems.</p><div class="mini-links"><a class="button" href="/music-toys/">Open</a><a class="button" href="https://github.com/bearicide/bearicide.github.io/tree/main/music-toys">Folder</a></div></article>
+            <article class="card" style="--accent:var(--mag)"><p class="district">Release / Music</p><h3>All Fall Down</h3><p>Music-side project, not arcade/casino. Keep it under Music.</p><div class="mini-links"><a class="button" href="https://bearicide.github.io/mattbear-allfalldown/">Open</a><a class="button" href="https://github.com/bearicide/mattbear-allfalldown">Repo</a></div></article>
+            <article class="card" style="--accent:var(--green)"><p class="district">Sampler</p><h3>The Sampla</h3><p>Playable sampler banks and browser pad machine.</p><div class="mini-links"><a class="button" href="https://bearicide.github.io/the-sampla/">Open</a><a class="button" href="https://github.com/bearicide/the-sampla">Repo</a></div></article>
+            <article class="card" style="--accent:var(--cyan)"><p class="district">Music Machine</p><h3>BearGrid</h3><p>Grid of MATTBEAR music-machine tiles and machine-specific pages.</p><div class="mini-links"><a class="button" href="https://bearicide.github.io/beargrid/">Open</a><a class="button" href="https://github.com/bearicide/beargrid">Repo</a></div></article>
+            <article class="card" style="--accent:var(--green)"><p class="district">Synth / Noise</p><h3>Noise Generator</h3><p>Expanded industrial browser synth and glitch/noise machine.</p><div class="mini-links"><a class="button" href="https://bearicide.github.io/noisegenerator/">Open</a><a class="button" href="https://github.com/bearicide/noisegenerator">Repo</a></div></article>
+            <article class="card" style="--accent:var(--amber)"><p class="district">Tools</p><h3>Choppa / Machines</h3><p>Chopping, MIDI, MattMachine, and related audio-tool branches.</p><div class="mini-links"><a class="button" href="https://bearicide.github.io/the-choppa/">Choppa</a><a class="button" href="https://bearicide.github.io/mattmachine/">MattMachine</a><a class="button" href="https://bearicide.github.io/matts-midi-machine/">MIDI</a></div></article>
           </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="status" aria-label="Portal status summary">
-            <div class="stat"><strong>Status</strong><span>Links restored</span></div>
-            <div class="stat"><strong>Scope</strong><span>Main hub only</span></div>
-            <div class="stat"><strong>Risk</strong><span>Non-destructive</span></div>
-            <div class="stat"><strong>Next</strong><span>Verify live routes</span></div>
+    <section class="section" id="casino">
+      <div class="wrap">
+        <div class="panel">
+          <p class="tag">slots / money satire / future branch</p>
+          <h2>MB Casino</h2>
+          <p>WORD$LOTS goes here. MB Casino is the casino/slot branch. Debt Relief is a coming-soon branch under this broader money/casino/satire area until it earns its own front-door spot.</p>
+          <div class="grid">
+            <article class="card" style="--accent:var(--gold)"><p class="district">Casino Hub</p><h3>MB Casino</h3><p>Free-play casino hub and slot-machine project shell.</p><div class="mini-links"><a class="button" href="https://bearicide.github.io/mb-casino/">Open</a><a class="button" href="https://github.com/bearicide/mb-casino">Repo</a></div></article>
+            <article class="card" style="--accent:var(--amber)"><p class="district">Slots</p><h3>WORD$LOTS</h3><p>WORD$LOTS, Wordplay slots, official versions, Mom slots, and related slot branches belong under MB Casino.</p><div class="mini-links"><a class="button" href="https://bearicide.github.io/wordslots/">Wordslots</a><a class="button" href="https://github.com/bearicide/wordslots-official">Official Repo</a></div></article>
+            <article class="card" style="--accent:var(--red)"><p class="district">Coming Soon</p><h3>Debt Relief</h3><p>Future money/service branch. Placeholder only until the real repo/page exists.</p><div class="mini-links"><a class="button" href="https://github.com/bearicide/mb-casino">Hold Under MB Casino</a></div></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="examples">
+      <div class="wrap">
+        <div class="panel">
+          <p class="tag">examples / client demos / public pages</p>
+          <h2>Examples + Client Work</h2>
+          <p>Everything here is showcase, client, local, archive, or example material. Useful, but not the primary game/music/casino hierarchy.</p>
+          <div class="grid">
+            <article class="card" style="--accent:var(--cyan)"><p class="district">Showcase</p><h3>Examples</h3><p>Main examples showcase page.</p><div class="mini-links"><a class="button" href="/examples/">Open</a><a class="button" href="https://github.com/bearicide/bearicide.github.io/tree/main/examples">Folder</a></div></article>
+            <article class="card" style="--accent:var(--cyan)"><p class="district">Client / Local</p><h3>Trackside Cafe</h3><p>Restaurant/client site branch.</p><div class="mini-links"><a class="button" href="https://bearicide.github.io/trackside-cafe/">Open</a><a class="button" href="https://github.com/bearicide/trackside-cafe">Repo</a></div></article>
+            <article class="card" style="--accent:var(--cyan)"><p class="district">Archive / Local</p><h3>The Flushing A</h3><p>Flushing A domain/site/archive branch.</p><div class="mini-links"><a class="button" href="https://bearicide.github.io/theflushinga-dotcom/">Open</a><a class="button" href="https://github.com/bearicide/theflushinga-dotcom">Repo</a></div></article>
+            <article class="card" style="--accent:var(--mag)"><p class="district">Artist</p><h3>Britni Rosa</h3><p>Illustrator/tattoo artist showcase branch.</p><div class="mini-links"><a class="button" href="https://bearicide.github.io/rosa-tattoos-2/">Open</a><a class="button" href="https://github.com/bearicide/rosa-tattoos-2">Repo</a></div></article>
+            <article class="card" style="--accent:var(--red)"><p class="district">Concept</p><h3>Cannibal Steakhouse</h3><p>Experimental showcase/client-style concept page.</p><div class="mini-links"><a class="button" href="https://bearicide.github.io/cannibal/">Open</a><a class="button" href="https://github.com/bearicide/cannibal">Repo</a></div></article>
+            <article class="card" style="--accent:var(--green)"><p class="district">Showcase</p><h3>KARIMEF / TKCookies</h3><p>Experimental showcase districts and public example pages.</p><div class="mini-links"><a class="button" href="https://bearicide.github.io/karimef/">KARIMEF</a><a class="button" href="https://bearicide.github.io/tkcookies/">TKCookies</a></div></article>
           </div>
         </div>
       </div>
@@ -495,9 +130,10 @@
   <footer class="footer">
     <div class="wrap">
       <div class="footer-links">
-        <a class="button" href="/">Main Portal</a>
+        <a class="button" href="/">MAIN</a>
         <a class="button" href="https://github.com/bearicide">GitHub</a>
         <a class="button" href="https://suno.com/@mattbear86">suno.com/@mattbear86</a>
+        <a class="button" href="/ECOSYSTEM-MAP.md">Ecosystem Map</a>
       </div>
       <p>MATTBEAR — Technology is quietly human. I am loudly not.</p>
     </div>
