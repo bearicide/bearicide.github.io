@@ -1,0 +1,105 @@
+name: HOME normalize once
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/home-normalize-once.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  normalize-home:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Normalize HOME labels in links, buttons, titles, and footers
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          root = Path('.')
+          files = [p for p in root.rglob('*.html') if '.git' not in p.parts]
+
+          replacements = [
+              ('MAIN | MATTBEAR', 'HOME | MATTBEAR'),
+              ('MAIN hub', 'HOME hub'),
+              ('MAIN Hub', 'HOME Hub'),
+              ('MAIN home', 'HOME'),
+              ('MAIN •', 'HOME •'),
+              ('MAIN VISITOR COUNTER', 'HOME VISITOR COUNTER'),
+              ('MAIN VISITS', 'HOME VISITS'),
+              ('MAIN%20VISITS', 'HOME%20VISITS'),
+              ('Real public MAIN visitor', 'Real public HOME visitor'),
+              ('MATTBEAR main portal', 'MATTBEAR HOME'),
+              ('Main ecosystem hub', 'HOME ecosystem hub'),
+              ('main ecosystem hub', 'HOME ecosystem hub'),
+              ('Main Portal', 'HOME'),
+              ('main portal', 'HOME'),
+              ('Back to Main', 'Back to HOME'),
+              ('back to Main', 'back to HOME'),
+              ('Return to Main', 'Return to HOME'),
+              ('return to Main', 'return to HOME'),
+              ('Go back to Main', 'Go back to HOME'),
+              ('Main Repo', 'HOME Repo'),
+              ('Main Website', 'HOME Website'),
+              ('Main Site', 'HOME Site'),
+              ('Main hub', 'HOME hub'),
+              ('main hub', 'HOME hub'),
+              ('Main home', 'HOME'),
+              ('main home', 'HOME'),
+          ]
+
+          changed = []
+          for path in files:
+              text = path.read_text(encoding='utf-8', errors='ignore')
+              original = text
+
+              for old, new in replacements:
+                  text = text.replace(old, new)
+
+              # Link/button text only: convert standalone visible Main/MAIN/main to HOME.
+              def link_repl(match):
+                  open_tag, label, close_tag = match.groups()
+                  return f'{open_tag}HOME{close_tag}'
+
+              text = re.sub(r'(<a\b[^>]*>\s*)(MAIN|Main|main)(\s*</a>)', link_repl, text)
+              text = re.sub(r'(<button\b[^>]*>\s*)(MAIN|Main|main)(\s*</button>)', link_repl, text)
+
+              # Button/link text phrases that include MAIN as the destination.
+              text = re.sub(r'(<a\b[^>]*>\s*)Back to (MAIN|Main|main)(\s*</a>)', r'\1Back to HOME\3', text)
+              text = re.sub(r'(<a\b[^>]*>\s*)Go HOME to (MAIN|Main|main)(\s*</a>)', r'\1Go HOME\3', text)
+
+              # Footer visible text cleanup, preserving project names like MATTBEARCADE.
+              text = text.replace(' · Back to HOME', ' · Back to HOME')
+
+              if text != original:
+                  path.write_text(text, encoding='utf-8')
+                  changed.append(str(path))
+
+          print('Changed files:')
+          for item in changed:
+              print('-', item)
+          PY
+
+      - name: Remove one-time workflow
+        run: rm -f .github/workflows/home-normalize-once.yml
+
+      - name: Commit normalized HOME labels
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo "No HOME label changes needed."
+            exit 0
+          fi
+          git config user.name "MATTBEAR Repo Maintenance"
+          git config user.email "actions@github.com"
+          git add -A
+          git commit -m "Normalize HOME labels across site links and footers"
+          git push
