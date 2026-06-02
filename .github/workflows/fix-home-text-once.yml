@@ -1,0 +1,45 @@
+name: Fix HOME text once
+
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-home-text-once.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fix accidental visible text
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          changed = []
+          for path in Path('.').rglob('*.html'):
+              if '.git' in path.parts:
+                  continue
+              text = path.read_text(encoding='utf-8', errors='ignore')
+              original = text
+              text = text.replace('do__HOME_DASH__facing', 'domain-facing')
+              text = text.replace('__HOME_DASH__', 'main-')
+              text = text.replace('__MAIN_DASH__', 'main-')
+              text = text.replace('doHOME-facing', 'domain-facing')
+              if text != original:
+                  path.write_text(text, encoding='utf-8')
+                  changed.append(str(path))
+          print('\n'.join(changed))
+          PY
+      - name: Remove this workflow
+        run: rm -f .github/workflows/fix-home-text-once.yml
+      - name: Commit fixes
+        run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name "MATTBEAR Repo Maintenance"
+          git config user.email "actions@github.com"
+          git add -A
+          git commit -m "Fix HOME visible text cleanup artifact"
+          git push
