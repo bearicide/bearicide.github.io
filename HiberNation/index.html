@@ -2,13 +2,228 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>HiberNation | MATTBEAR</title>
-<meta http-equiv="refresh" content="0; url=https://bearicide.github.io/HiberNation/">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HiberNation | MATTBEAR Music Hub</title>
+<meta name="description" content="HiberNation is the movement, ideals, and collaboration behind MATTBEAR: the brand, artist, and maker. Suno, SoundCloud, music machines, release worlds, and creative audio experiments.">
+<meta name="theme-color" content="#050505">
 <link rel="canonical" href="https://bearicide.github.io/HiberNation/">
-<style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#050505;color:#f7f0df;font-family:system-ui,sans-serif;padding:24px}a{color:#7fd7ff}</style>
+<style>
+:root{--text:#f7f0df;--muted:#d4c5b1;--line:rgba(255,255,255,.15);--cyan:#7fd7ff;--mag:#ff5fd2;--green:#7dff9f;--gold:#caa96b;--amber:#ffbf5f}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-width:320px;background:
+radial-gradient(circle at 18% 0,rgba(127,215,255,.25),transparent 30%),
+radial-gradient(circle at 82% 8%,rgba(255,95,210,.22),transparent 30%),
+radial-gradient(circle at 50% 106%,rgba(125,255,159,.15),transparent 38%),
+linear-gradient(180deg,#050505,#111,#050505);color:var(--text);font-family:Bahnschrift,Arial,sans-serif}
+.wrap{width:min(1120px,calc(100% - 24px));margin:auto}
+.top{position:sticky;top:0;background:rgba(5,5,5,.92);border-bottom:1px solid var(--line);padding:10px 0;z-index:5;backdrop-filter:blur(14px)}
+.nav{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}
+.brand{text-decoration:none;color:var(--text);font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.rainbow{background:linear-gradient(90deg,#ff4747,#ffbf5f,#ffef65,#7dff9f,#7fd7ff,#8b6dff,#ff5fd2);-webkit-background-clip:text;background-clip:text;color:transparent}
+.links,.actions,.footer-links{display:flex;gap:8px;flex-wrap:wrap}
+.btn{color:var(--text);text-decoration:none;border:1px solid var(--line);border-radius:8px;padding:9px 12px;text-transform:uppercase;font-size:.75rem;font-weight:900;letter-spacing:.08em;background:rgba(255,255,255,.05);display:inline-flex;align-items:center;justify-content:center}
+.btn:hover{filter:brightness(1.12);box-shadow:0 0 18px rgba(127,215,255,.16)}
+section{padding:24px 0}
+.panel,.card{background:linear-gradient(180deg,rgba(24,24,24,.95),rgba(9,9,9,.92));border:1px solid var(--line);border-radius:16px;box-shadow:0 24px 70px rgba(0,0,0,.35)}
+.panel{padding:clamp(20px,4vw,44px)}
+h1,h2,h3{margin:0;text-transform:uppercase;font-weight:1000}
+h1{font-size:clamp(2.6rem,8vw,7rem);line-height:.88;letter-spacing:-.05em}
+h1 span{display:block;font-size:clamp(1.35rem,4vw,4rem);letter-spacing:-.02em;margin-top:10px}
+h2{font-size:clamp(1.6rem,4vw,3rem);line-height:1}
+p{color:var(--muted);line-height:1.58}
+.lead{font-size:clamp(1.06rem,2.2vw,1.35rem);max-width:940px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
+.card{padding:18px;min-height:195px;position:relative;overflow:hidden}
+.card:before{content:"";position:absolute;left:0;top:0;width:100%;height:2px;background:linear-gradient(90deg,var(--accent,var(--gold)),transparent)}
+.tag,.label{text-transform:uppercase;letter-spacing:.14em;font-weight:900;color:var(--cyan);font-size:.75rem}
+.label{color:var(--gold);font-size:.68rem}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.chip{border:1px solid var(--line);border-radius:999px;padding:7px 10px;color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;background:rgba(255,255,255,.05)}
+.quote{margin-top:18px;padding:15px 16px;border-left:4px solid var(--green);background:rgba(125,255,159,.08);border-radius:0 12px 12px 0;color:var(--text);font-size:clamp(1rem,2vw,1.2rem);line-height:1.45}
+.machine-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
+.machine{border:1px solid var(--line);border-radius:12px;padding:13px;background:rgba(255,255,255,.045)}
+.machine strong{display:block;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;margin-bottom:5px}
+.identity{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.identity .card{min-height:170px}
+footer{text-align:center;padding:30px 0 42px}
+@media(max-width:900px){.grid,.identity{grid-template-columns:1fr}.machine-row{grid-template-columns:1fr 1fr}.links,.actions,.footer-links{display:grid;grid-template-columns:1fr 1fr;width:100%}.btn{text-align:center;width:100%}}
+@media(max-width:520px){.links,.actions,.footer-links,.machine-row{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
-<p>Opening HiberNation. <a href="https://bearicide.github.io/HiberNation/">Continue</a></p>
+<header class="top">
+  <div class="wrap nav">
+    <a class="brand" href="/"><span class="rainbow">MATTBEAR</span> / HiberNation Music Hub</a>
+    <nav class="links">
+      <a class="btn" href="#identity">Identity</a>
+      <a class="btn" href="#listen">Listen</a>
+      <a class="btn" href="#machines">Machines</a>
+      <a class="btn" href="#releases">Releases</a>
+      <a class="btn" href="https://bearicide.github.io/mattbear-allfalldown/">All Fall Down</a>
+      <a class="btn" href="/music-toys/">Tools</a>
+      <a class="btn" href="/">HOME</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section>
+  <div class="wrap">
+    <div class="panel">
+      <p class="tag">MATTBEAR Music / Suno / SoundCloud / Machines</p>
+      <h1><span class="rainbow">MATTBEAR</span><span>HiberNation Music Hub</span></h1>
+      <p class="lead">MATTBEAR is the brand, the artist, and the maker at the front of the room. HiberNation is the movement behind it: the ideals, collaboration, shared weirdness, community energy, and creative shelter that lets the work grow into something bigger than one song or one page.</p>
+      <p class="lead">This hub starts with music because the music is the pulse: Suno experiments, SoundCloud drops, browser instruments, samplers, noise machines, release worlds, lyrics, promo pages, and all the little sound creatures that need somewhere to live.</p>
+      <div class="quote">your ideas. our solutions. MATTBEAR makes the sound. HiberNation keeps the fire lit around it.</div>
+      <div class="actions" style="margin-top:18px">
+        <a class="btn" href="https://suno.com/@mattbear86">suno.com/@mattbear86</a>
+        <a class="btn" href="https://soundcloud.com/mattbear86">SoundCloud</a>
+        <a class="btn" href="https://bearicide.github.io/mattbear-allfalldown/">All Fall Down</a>
+        <a class="btn" href="/music-toys/">Music Machines</a>
+        <a class="btn" href="/about/">About MATTBEAR</a>
+      </div>
+      <div class="chips">
+        <span class="chip">MATTBEAR = brand / artist</span><span class="chip">HiberNation = movement</span><span class="chip">Suno</span><span class="chip">SoundCloud</span><span class="chip">music machines</span><span class="chip">collaboration</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="identity">
+  <div class="wrap">
+    <div class="panel">
+      <p class="tag">identity split</p>
+      <h2>Brand in front. Movement underneath.</h2>
+      <p class="lead">This is the clean shape: MATTBEAR is what people see, hear, follow, and recognize. HiberNation is the reason it has roots. It is the collaborative layer: the people, principles, experiments, encouragement, trades, tools, and shared momentum behind the artist.</p>
+      <div class="identity">
+        <article class="card" style="--accent:var(--mag)">
+          <p class="label">MATTBEAR</p>
+          <h3>The brand / artist</h3>
+          <p>The name on the songs, visuals, pages, machines, posts, experiments, and public-facing creative work. Loud, weird, useful, musical, visual, and unmistakably human.</p>
+        </article>
+        <article class="card" style="--accent:var(--green)">
+          <p class="label">HiberNation</p>
+          <h3>The movement / ideals</h3>
+          <p>The shared den behind it: collaboration, community, creative shelter, practical help, nonconformist energy, and the belief that strange ideas deserve real structure.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="listen">
+  <div class="wrap">
+    <div class="panel">
+      <p class="tag">listen first</p>
+      <h2>The main music doors.</h2>
+      <p class="lead">Suno is where the songs get born fast: weird, emotional, funny, heavy, broken, rebuilt, and pushed into shape. SoundCloud is where the public-facing pile becomes easier to share, revisit, and send to people without explaining the entire laboratory.</p>
+      <div class="grid">
+        <article class="card" style="--accent:var(--mag)">
+          <p class="label">Suno</p>
+          <h3>Song engine / idea forge</h3>
+          <p>Drafts, experiments, lyrics, genre collisions, voice ideas, strange hooks, serious tracks, joke tracks, and the fast-moving song lab.</p>
+          <p><a class="btn" href="https://suno.com/@mattbear86">Open Suno</a></p>
+        </article>
+        <article class="card" style="--accent:var(--cyan)">
+          <p class="label">SoundCloud</p>
+          <h3>Public listening shelf</h3>
+          <p>Finished or shared tracks, public demos, drops, playlists, and the easiest place to send somebody when they ask what MATTBEAR sounds like.</p>
+          <p><a class="btn" href="https://soundcloud.com/mattbear86">Open SoundCloud</a></p>
+        </article>
+        <article class="card" style="--accent:var(--green)">
+          <p class="label">Release Worlds</p>
+          <h3>Every song can have a room</h3>
+          <p>Single pages, album-cover concepts, promo copy, visuals, lyric blocks, posts, and little themed worlds around the music.</p>
+          <p><a class="btn" href="/examples/">View Examples</a></p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="machines">
+  <div class="wrap">
+    <div class="panel">
+      <p class="tag">music machines</p>
+      <h2>Browser tools, toys, and sound gadgets.</h2>
+      <p class="lead">The machines are the hands-on side: samplers, noise generators, loop toys, MIDI pages, pad grids, and anything that makes the browser feel less like a document and more like a busted spaceship with rhythm.</p>
+      <div class="machine-row">
+        <div class="machine"><strong>The Sampla</strong><span>Pad-based sampler and performance toy.</span></div>
+        <div class="machine"><strong>Noise Generator</strong><span>Industrial noise, texture, drone, and chaos box.</span></div>
+        <div class="machine"><strong>The Choppa</strong><span>Chop, trigger, map, and play with controller energy.</span></div>
+        <div class="machine"><strong>BearGrid</strong><span>Grid-style music machine hub and tile system.</span></div>
+      </div>
+      <p style="margin-top:18px"><a class="btn" href="/music-toys/">Open Music Tools</a> <a class="btn" href="https://bearicide.github.io/the-sampla/">The Sampla</a> <a class="btn" href="https://bearicide.github.io/noisegenerator/">Noise Generator</a> <a class="btn" href="https://bearicide.github.io/the-choppa/">The Choppa</a></p>
+    </div>
+  </div>
+</section>
+
+<section id="releases">
+  <div class="wrap">
+    <div class="panel">
+      <p class="tag">releases / concepts</p>
+      <h2>Not just songs. Little universes.</h2>
+      <p class="lead">A MATTBEAR track can be a joke, a confession, a warning label, a fake ministry, a glitchy prayer, a trap opera, a garage-sale prophecy, or a three-minute emotional crime scene. HiberNation gives those songs somewhere to land and someone to stand next to them.</p>
+      <div class="grid">
+        <article class="card" style="--accent:var(--green)">
+          <p class="label">Featured Release World</p>
+          <h3>All Fall Down</h3>
+          <p>The All Fall Down page is part of the HiberNation music spine now: a release-world branch that should always be reachable from the hub.</p>
+          <p><a class="btn" href="https://bearicide.github.io/mattbear-allfalldown/">Open All Fall Down</a></p>
+        </article>
+        <article class="card" style="--accent:var(--gold)">
+          <p class="label">Song Pages</p>
+          <h3>One track, one world</h3>
+          <p>Cover art, links, lyrics, story, credits, promo copy, and a clear path to listen or share.</p>
+        </article>
+        <article class="card" style="--accent:var(--mag)">
+          <p class="label">Promo Kits</p>
+          <h3>Posts without the cringe</h3>
+          <p>Facebook and Instagram copy, short blurbs, hashtags, captions, and direct music links that sound human.</p>
+        </article>
+        <article class="card" style="--accent:var(--cyan)">
+          <p class="label">Music Identity</p>
+          <h3>The sound has a face</h3>
+          <p>Album-cover direction, recurring characters, visual themes, song-series pages, and brand-consistent weirdness.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="movement">
+  <div class="wrap">
+    <div class="panel">
+      <p class="tag">hibernation behind the music</p>
+      <h2>The wider den starts here.</h2>
+      <p class="lead">HiberNation starts as the music hub because music is the easiest doorway in. From there, it can branch into the bigger movement: collaboration, web builds, games, community ideas, visual art, trades, experiments, and practical creative help.</p>
+      <p class="lead">The order matters: MATTBEAR is the artist making the noise. HiberNation is the movement that says the noise can become a place, a tool, a collaboration, and a signal fire for the people who needed one.</p>
+    </div>
+  </div>
+</section>
+
+<section id="start">
+  <div class="wrap">
+    <div class="panel">
+      <p class="tag">start here</p>
+      <h2>Press play. Then build around it.</h2>
+      <p class="lead">Start with a song, a sound, a phrase, a hook, a beat, a weird voice, or a broken little machine. It does not need to be polished before it matters. It needs a place to grow.</p>
+      <p><a class="btn" href="mailto:mattbear86@hotmail.com">Email MATTBEAR</a> <a class="btn" href="https://suno.com/@mattbear86">Suno</a> <a class="btn" href="https://soundcloud.com/mattbear86">SoundCloud</a> <a class="btn" href="https://bearicide.github.io/mattbear-allfalldown/">All Fall Down</a> <a class="btn" href="/">Back to HOME</a></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><span class="rainbow">MATTBEAR</span> is the brand / artist. HiberNation is the movement behind it. your ideas. our solutions.</p>
+  </div>
+</footer>
+
+<script>
+window.MATTBEAR_HIBERNATION={name:'HiberNation',system:'MATTBEAR Music Hub',mattbear:'brand-artist-maker',hibernation:'movement-ideals-collaboration',slogan:'your ideas. our solutions.',primaryFocus:'suno-soundcloud-music-machines-all-fall-down',adminReady:true};
+</script>
+<script src="/assets/mattbear-sitewide.js" defer data-mb-page="HiberNation" data-mb-section="Music hub / movement" data-mb-artist="MATTBEAR" data-mb-movement="HiberNation"></script>
 </body>
 </html>
