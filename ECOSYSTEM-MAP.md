@@ -29,4 +29,5 @@ Primary portal: https://bearicide.github.io
 - Technology is quietly human. I am loudly not.
 - Make it loud. Make it useful.
 - Useful first. Weird on purpose.
+- Your Idea. Our Solution.
 - MATTBEAR Media // Bearicide Productions // HiberNation
