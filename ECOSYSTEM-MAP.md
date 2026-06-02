@@ -22,10 +22,11 @@ Primary portal: https://bearicide.github.io
 3. Keep a cohesive footer matching the page theme.
 4. Keep public links accurate and avoid promoting unverified project identities.
 5. Include backend-ready / analytics-ready hooks where practical.
-6. Preserve mobile readability before visual chaos.
+6. Preserve mobile readability before visual noise.
 
 ## Brand lines
 
 - Technology is quietly human. I am loudly not.
-- Chaos into signal.
+- Make it loud. Make it useful.
+- Useful first. Weird on purpose.
 - MATTBEAR Media // Bearicide Productions // HiberNation
