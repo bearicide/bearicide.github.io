@@ -1,36 +1,37 @@
 // BUTTON ANIMAL pad label helper
 // Keeps visible pad labels matched to the selected bank.
-// Imported samples still win: any pad marked NOTE=sample keeps its sample filename label.
+// Imported samples/chops still win: any pad marked NOTE=sample or NOTE=chop keeps its loaded-file label.
 (() => {
   const $ = (s) => document.querySelector(s);
 
   const labels = {
-    drums: ['Kick','Snare','Closed Hat','Open Hat','Clap','Perc','Tom Low','Tom High','Sub Hit','Zap','Noise Pop','Metal Tick','Riser','Reverse','Impact','FX Hit'],
-    bass: ['Bass Root','Bass 2nd','Bass Min3','Bass 4th','Bass 5th','Bass Min6','Bass Min7','Bass Oct','Bass Low','Bass Walk','Bass Jump','Bass Slide','Bass Pulse','Bass Drone','Bass Bite','Bass Drop'],
-    glitch: ['Glitch 1','Glitch 2','Bit Click','Data Snap','Tape Skip','Static Pop','Shard','Error Bell','Stutter A','Stutter B','Buffer','Scrape','Zaplet','Crackle','Glass Bug','Crash FX'],
-    choir: ['Pad I','Pad II','Pad III','Pad IV','Fifth Pad','Wide Pad','Soft Vox','Ghost Vox','Chord Low','Chord Mid','Chord High','Air Bed','Drone I','Drone II','Bloom','Heaven FX'],
-    arcade: ['Coin','Jump','Laser','Power Up','Chip Bass','Chip Lead','Square 1','Square 2','Bonus','Menu Blip','8bit Tom','Pixel Bell','Boss Hit','Life Up','Warp','Game Over'],
-    doom: ['Doom Root','Doom Fifth','Dark Chord','Low Drone','Grave Hit','Iron Bell','Rumble','Void Pad','Sub Crush','Black Lead','Worm Note','Ash Chord','Cave Rise','Bone Click','Final Hit','Abyss FX'],
-    sparkle: ['Bell 1','Bell 2','Glass 1','Glass 2','Pluck 1','Pluck 2','Star Note','Shimmer','Tiny Lead','Dream Hit','Twinkle','Chime','Bright Pad','Glow','Dust','Magic FX']
+    drums: ['Kick 2','Snare 2','Hat 2','Hat 2B','Synth 1','Synth 2','Pad 3','Pad 4','Kick','Snare','Hat','Hat B','Bass 1','Bass 2','FX 1','FX 4'],
+    bass: ['Kick 2','Snare 2','Hat 2','Hat 2B','Synth 1','Synth 2','Pad 3','Pad 4','Kick','Snare','Hat','Hat B','Bass 1','Bass 2','FX 1','FX 4'],
+    glitch: ['Kick 2','Snare 2','Hat 2','Hat 2B','Synth 1','Synth 2','Pad 3','Pad 4','Kick','Snare','Hat','Hat B','Bass 1','Bass 2','FX 1','FX 4'],
+    choir: ['Kick 2','Snare 2','Hat 2','Hat 2B','Synth 1','Synth 2','Pad 3','Pad 4','Kick','Snare','Hat','Hat B','Bass 1','Bass 2','FX 1','FX 4'],
+    arcade: ['Kick 2','Snare 2','Hat 2','Hat 2B','Synth 1','Synth 2','Pad 3','Pad 4','Kick','Snare','Hat','Hat B','Bass 1','Bass 2','FX 1','FX 4'],
+    doom: ['Kick 2','Snare 2','Hat 2','Hat 2B','Synth 1','Synth 2','Pad 3','Pad 4','Kick','Snare','Hat','Hat B','Bass 1','Bass 2','FX 1','FX 4'],
+    sparkle: ['Kick 2','Snare 2','Hat 2','Hat 2B','Synth 1','Synth 2','Pad 3','Pad 4','Kick','Snare','Hat','Hat B','Bass 1','Bass 2','FX 1','FX 4']
   };
 
   function currentBank() {
     return $('#bankSelect')?.value || 'drums';
   }
 
-  function isSamplePad(pad) {
-    return (pad.querySelector('.note')?.textContent || '').trim().toLowerCase() === 'sample';
+  function isLoadedPad(pad) {
+    const note = (pad.querySelector('.note')?.textContent || '').trim().toLowerCase();
+    return note === 'sample' || note === 'chop';
   }
 
   function updatePadLabels() {
     const bank = currentBank();
     const set = labels[bank] || labels.drums;
     document.querySelectorAll('.pad').forEach((pad, i) => {
-      if (isSamplePad(pad)) return;
+      if (isLoadedPad(pad)) return;
       const name = pad.querySelector('.name');
       const note = pad.querySelector('.note');
       if (name) name.textContent = set[i] || `Pad ${i + 1}`;
-      if (note) note.textContent = bank;
+      if (note) note.textContent = i < 8 ? 'top row' : 'bottom row';
     });
 
     const selected = $('#selName');
