@@ -1,54 +1,61 @@
-/* Human keyboard pad layout override
-   Pads follow the actual keyboard shortcuts:
-   1 2 3 4 / Q W E R / A S D F / Z X C V
+/* Launchkey physical pad layout override
+   NOTE: this file keeps the old name for compatibility with index.html.
+   Actual behavior is Launchkey-style: 8 knobs across, 16 pads in two rows of eight.
 */
 .machineTitle,
 .toprail,
 .pads,
 .cols,
 .viz{
-  min-width:560px;
-}
-
-.machineTitle span:first-child::after{
-  content:"";
+  min-width:720px;
 }
 
 .toprail{
   grid-template-columns:repeat(8,minmax(0,1fr));
-  max-width:680px;
+  max-width:720px;
   margin-inline:auto;
 }
 
 .pads{
-  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
-  max-width:560px;
+  grid-template-columns:repeat(8,minmax(0,1fr)) !important;
+  max-width:720px;
   margin-inline:auto;
-  gap:10px;
+  gap:9px;
 }
 
 .pad{
-  aspect-ratio:1 / .78;
-  min-height:96px;
+  aspect-ratio:1 / 1;
+  min-height:0;
+  border-radius:14px;
 }
 
 .pad .name{
-  font-size:clamp(14px,1.6vw,18px);
-  bottom:31px;
+  font-size:clamp(11px,1.05vw,14px);
+  bottom:28px;
+}
+
+.pad .num,
+.pad .key{
+  font-size:8px;
+}
+
+.pad .note,
+.pad .midi{
+  font-size:7px;
 }
 
 .cols{
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  max-width:560px;
+  grid-template-columns:repeat(8,minmax(0,1fr));
+  max-width:720px;
   margin-inline:auto;
 }
 
 .cols span:nth-child(n+5){
-  display:none;
+  display:block;
 }
 
 .viz{
-  max-width:560px;
+  max-width:720px;
   margin-inline:auto;
   grid-template-columns:repeat(16,minmax(0,1fr));
 }
@@ -59,29 +66,13 @@
   .pads,
   .cols,
   .viz{
-    min-width:460px;
+    min-width:640px;
   }
   .pads{
-    max-width:460px;
+    max-width:640px;
     gap:8px;
   }
-  .pad{
-    min-height:82px;
-  }
   .pad .name{
-    font-size:12px;
-  }
-}
-
-@media(max-width:520px){
-  .machineTitle,
-  .toprail,
-  .pads,
-  .cols,
-  .viz{
-    min-width:390px;
-  }
-  .pads{
-    max-width:390px;
+    font-size:11px;
   }
 }
