@@ -1,0 +1,80 @@
+/* Launchkey physical pad layout override
+   Hardware-style surface:
+   8 knobs across the top
+   16 pads in two rows of eight
+   Keyboard shortcuts remain printed on the pads.
+*/
+.machineTitle,
+.toprail,
+.pads,
+.cols,
+.viz{
+  min-width:720px;
+}
+
+.toprail{
+  grid-template-columns:repeat(8,minmax(0,1fr));
+  max-width:720px;
+  margin-inline:auto;
+}
+
+.pads{
+  grid-template-columns:repeat(8,minmax(0,1fr)) !important;
+  max-width:720px;
+  margin-inline:auto;
+  gap:9px;
+}
+
+.pad{
+  aspect-ratio:1 / 1;
+  min-height:0;
+  border-radius:14px;
+}
+
+.pad .name{
+  font-size:clamp(11px,1.05vw,14px);
+  bottom:28px;
+}
+
+.pad .num,
+.pad .key{
+  font-size:8px;
+}
+
+.pad .note,
+.pad .midi{
+  font-size:7px;
+}
+
+.cols{
+  grid-template-columns:repeat(8,minmax(0,1fr));
+  max-width:720px;
+  margin-inline:auto;
+}
+
+.cols span:nth-child(n+5){
+  display:block;
+}
+
+.viz{
+  max-width:720px;
+  margin-inline:auto;
+  grid-template-columns:repeat(16,minmax(0,1fr));
+}
+
+@media(max-width:760px){
+  .machineTitle,
+  .toprail,
+  .pads,
+  .cols,
+  .viz{
+    min-width:640px;
+  }
+  .pads{
+    max-width:640px;
+    gap:8px;
+  }
+  .pad .name{
+    font-size:11px;
+  }
+}
