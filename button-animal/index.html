@@ -4,9 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>BUTTON ANIMAL | MATTBEAR</title>
-  <meta name="description" content="BUTTON ANIMAL is a Launchkey-style browser MIDI instrument with 8 knobs, 2x8 pads, sample import, project presets, sequencer, arp, and flashy visuals.">
+  <meta name="description" content="BUTTON ANIMAL is a browser MIDI instrument with human keyboard pads, 8 knobs, sample import, project presets, sequencer, arp, and flashy visuals.">
   <meta name="theme-color" content="#07050b">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/human-pads.css">
 </head>
 <body>
   <div class="bursts" id="bursts"></div>
@@ -16,7 +17,7 @@
   <div class="wrap">
     <header class="head">
       <h1><span class="rainbow">BUTTON</span> ANIMAL</h1>
-      <p class="tag">Launchkey-style browser instrument: 8 knobs over 2×8 pads, useful sound engine, MIDI, sample import, project presets.</p>
+      <p class="tag">Browser instrument: human keyboard 4×4 pads, 8 knobs, useful sound engine, MIDI, sample import, project presets.</p>
       <div class="status">
         <span class="pill" id="audioStatus">audio asleep</span>
         <span class="pill" id="midiStatus">midi off</span>
@@ -29,7 +30,7 @@
       <div class="card">
         <h3>Start</h3>
         <div class="big">Wake. Pick. Play.</div>
-        <div class="small">Surface stays Launchkey-style. Small screens scroll sideways. ESC kills everything.</div>
+        <div class="small">Pads now follow the human keyboard rows. ESC kills everything.</div>
       </div>
       <div class="card">
         <h3>Bank</h3>
@@ -72,16 +73,16 @@
     </section>
 
     <main class="layout">
-      <section class="machine" aria-label="Launchkey-style control surface">
+      <section class="machine" aria-label="Human keyboard pad surface">
         <div class="machineTitle">
-          <span>Launchkey Surface · 8 knobs / 2×8 pads</span>
+          <span>Human Pad Surface · 1 2 3 4 / Q W E R / A S D F / Z X C V</span>
           <span id="themeLabel">NEON</span>
         </div>
         <div class="toprail" id="toprail" aria-label="Eight FX knobs"></div>
         <div class="pads" id="pads" aria-label="Sixteen performance pads"></div>
         <div class="cols" aria-hidden="true">
-          <span>Col 1</span><span>Col 2</span><span>Col 3</span><span>Col 4</span>
-          <span>Col 5</span><span>Col 6</span><span>Col 7</span><span>Col 8</span>
+          <span>1 2 3 4</span><span>Q W E R</span><span>A S D F</span><span>Z X C V</span>
+          <span></span><span></span><span></span><span></span>
         </div>
         <div class="viz" id="viz" aria-hidden="true"></div>
       </section>
