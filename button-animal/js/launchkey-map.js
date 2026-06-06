@@ -1,14 +1,16 @@
 // BUTTON ANIMAL Launchkey Mini hardware map override
-// Launchkey Components layout:
-// top row pads 1-8  => MIDI 44-51
-// bottom row pads 9-16 => MIDI 36-43
+// Copied from /the-launcha/ layout:
+// top row pads 1-8    => MIDI 40,41,42,43,48,49,50,51
+// bottom row pads 9-16 => MIDI 36,37,38,39,44,45,46,47
 (() => {
   const $ = (s) => document.querySelector(s);
+  const noteMap = {
+    40:0, 41:1, 42:2, 43:3, 48:4, 49:5, 50:6, 51:7,
+    36:8, 37:9, 38:10, 39:11, 44:12, 45:13, 46:14, 47:15
+  };
 
   function noteToPadIndex(note) {
-    if (note >= 44 && note <= 51) return note - 44;       // visual top row: pads 1-8
-    if (note >= 36 && note <= 43) return 8 + (note - 36);  // visual bottom row: pads 9-16
-    return -1;
+    return Number.isInteger(noteMap[note]) ? noteMap[note] : -1;
   }
 
   function log(text) {
@@ -58,7 +60,7 @@
           }
         };
       }
-      log('LAUNCHKEY MAP // top 44-51, bottom 36-43');
+      log('LAUNCHKEY MAP // Launcha notes active');
     } catch (err) {
       log('LAUNCHKEY MAP // blocked');
     }
