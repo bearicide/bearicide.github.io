@@ -5,13 +5,13 @@
   const $ = (s) => document.querySelector(s);
 
   const labels = {
-    drums: ['Kick 2','Snare 2','Hat 2','Hat 2B','Synth 1','Synth 2','Pad 3','Pad 4','Kick','Snare','Hat','Hat B','Bass 1','Bass 2','FX 1','FX 4'],
-    bass: ['Kick 2','Snare 2','Hat 2','Hat 2B','Synth 1','Synth 2','Pad 3','Pad 4','Kick','Snare','Hat','Hat B','Bass 1','Bass 2','FX 1','FX 4'],
-    glitch: ['Kick 2','Snare 2','Hat 2','Hat 2B','Synth 1','Synth 2','Pad 3','Pad 4','Kick','Snare','Hat','Hat B','Bass 1','Bass 2','FX 1','FX 4'],
-    choir: ['Kick 2','Snare 2','Hat 2','Hat 2B','Synth 1','Synth 2','Pad 3','Pad 4','Kick','Snare','Hat','Hat B','Bass 1','Bass 2','FX 1','FX 4'],
-    arcade: ['Kick 2','Snare 2','Hat 2','Hat 2B','Synth 1','Synth 2','Pad 3','Pad 4','Kick','Snare','Hat','Hat B','Bass 1','Bass 2','FX 1','FX 4'],
-    doom: ['Kick 2','Snare 2','Hat 2','Hat 2B','Synth 1','Synth 2','Pad 3','Pad 4','Kick','Snare','Hat','Hat B','Bass 1','Bass 2','FX 1','FX 4'],
-    sparkle: ['Kick 2','Snare 2','Hat 2','Hat 2B','Synth 1','Synth 2','Pad 3','Pad 4','Kick','Snare','Hat','Hat B','Bass 1','Bass 2','FX 1','FX 4']
+    drums: ['Kick 2','Snare 2','Hat 2','Hat 2B','Synth 1','Synth 2','Pad 3','Pad 4','Kick','Snare','Hat','Hat B','Bass 1','Bass 2','FX 1','FX 2'],
+    bass: ['Kick 2','Snare 2','Hat 2','Hat 2B','Synth 1','Synth 2','Pad 3','Pad 4','Kick','Snare','Hat','Hat B','Bass 1','Bass 2','FX 1','FX 2'],
+    glitch: ['Kick 2','Snare 2','Hat 2','Hat 2B','Synth 1','Synth 2','Pad 3','Pad 4','Kick','Snare','Hat','Hat B','Bass 1','Bass 2','FX 1','FX 2'],
+    choir: ['Kick 2','Snare 2','Hat 2','Hat 2B','Synth 1','Synth 2','Pad 3','Pad 4','Kick','Snare','Hat','Hat B','Bass 1','Bass 2','FX 1','FX 2'],
+    arcade: ['Kick 2','Snare 2','Hat 2','Hat 2B','Synth 1','Synth 2','Pad 3','Pad 4','Kick','Snare','Hat','Hat B','Bass 1','Bass 2','FX 1','FX 2'],
+    doom: ['Kick 2','Snare 2','Hat 2','Hat 2B','Synth 1','Synth 2','Pad 3','Pad 4','Kick','Snare','Hat','Hat B','Bass 1','Bass 2','FX 1','FX 2'],
+    sparkle: ['Kick 2','Snare 2','Hat 2','Hat 2B','Synth 1','Synth 2','Pad 3','Pad 4','Kick','Snare','Hat','Hat B','Bass 1','Bass 2','FX 1','FX 2']
   };
 
   function currentBank() {
