@@ -1,0 +1,11 @@
+{
+  "name": "The Choppa",
+  "short_name": "Choppa",
+  "description": "MATTBEAR loop chopper with Launchkey pads, MIDI, FX, and touch controls.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#050505",
+  "icons": []
+}
