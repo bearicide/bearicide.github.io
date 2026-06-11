@@ -1,114 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>HiberNation | MATTBEAR Movement Hub</title>
-<meta name="description" content="HiberNation is the MATTBEAR movement hub for All Fall Down, music portals, connected release worlds, games, and Bearicide project routes.">
-<meta name="theme-color" content="#050506">
-<meta property="og:title" content="HiberNation | MATTBEAR">
-<meta property="og:description" content="Music-first movement hub connecting All Fall Down, SoundCloud, Suno, games, and Bearicide project branches.">
-<meta property="og:type" content="website">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>MATTBEAR | HiberNation Main Portal</title>
+<meta name="description" content="MATTBEAR HiberNation main portal: music, games, website examples, interactive systems, KARIMEF electronics blueprint lab, and creative proof-of-work.">
+<meta name="theme-color" content="#05060b">
 <style>
-:root{
-  --bg:#050506;--panel:#101014;--panel2:#17171d;--text:#fff7e8;--muted:#c9bfac;
-  --gold:#d4ad63;--cyan:#70d8ff;--mag:#ff5cd6;--green:#7cff9b;--amber:#ffbf5c;--red:#ff5757;
-  --line:rgba(255,255,255,.15);--soft:rgba(255,255,255,.065);--wrap:1160px;
-  --shadow:0 30px 90px rgba(0,0,0,.55);--radius:24px;
-}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-width:320px;background:radial-gradient(circle at 15% -10%,rgba(124,255,155,.20),transparent 32%),radial-gradient(circle at 86% 0%,rgba(255,92,214,.13),transparent 30%),radial-gradient(circle at 50% 110%,rgba(212,173,99,.16),transparent 38%),linear-gradient(180deg,#050506,#10100e 52%,#050506);color:var(--text);font-family:Bahnschrift,Inter,"Segoe UI",system-ui,sans-serif;overflow-x:hidden}body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.15;background:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px);background-size:100% 4px}body:after{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.5));}a{color:inherit;text-decoration:none}.wrap{width:min(var(--wrap),calc(100% - 24px));margin:auto;position:relative;z-index:1}.grade{background:linear-gradient(90deg,#7cff9b,#70d8ff,#d4ad63,#ff5cd6);background-size:220%;-webkit-background-clip:text;background-clip:text;color:transparent}.topbar{position:sticky;top:0;z-index:50;background:rgba(5,5,6,.89);border-bottom:1px solid var(--line);backdrop-filter:blur(16px);box-shadow:0 10px 35px rgba(0,0,0,.34)}.nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 0;flex-wrap:wrap}.brand{display:flex;align-items:center;gap:12px;font-weight:1000;text-transform:uppercase;letter-spacing:.08em;line-height:1}.mark{width:48px;height:48px;border-radius:17px;display:grid;place-items:center;background:linear-gradient(135deg,var(--green),var(--cyan),var(--gold));box-shadow:0 0 28px rgba(124,255,155,.22);position:relative}.mark:before{content:"🐻";position:absolute;inset:2px;border-radius:15px;background:#08080b;display:grid;place-items:center;font-size:24px}.brand small{display:block;margin-top:5px;color:var(--muted);font-size:.68rem;letter-spacing:.16em}.links,.actions,.footer-links{display:flex;gap:9px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:11px 14px;border-radius:14px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.078),rgba(255,255,255,.028));color:var(--text);font-weight:1000;font-size:.76rem;text-transform:uppercase;letter-spacing:.055em;text-align:center;box-shadow:inset 0 1px 0 rgba(255,255,255,.06);transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}.btn:hover{transform:translateY(-1px);border-color:rgba(124,255,155,.62);box-shadow:0 0 25px rgba(124,255,155,.14)}.btn.primary{border-color:rgba(124,255,155,.62);background:linear-gradient(135deg,rgba(124,255,155,.94),rgba(112,216,255,.82));color:#050806}.btn.gold{border-color:rgba(212,173,99,.62)}.btn.mag{border-color:rgba(255,92,214,.55)}.hero{padding:34px 0 18px}.panel,.card,.console{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg,rgba(23,23,29,.96),rgba(8,8,10,.96));box-shadow:var(--shadow),inset 0 1px 0 rgba(255,255,255,.08)}.panel:before,.card:before,.console:before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--accent,var(--green)),transparent 82%)}.panel{padding:clamp(20px,4vw,48px)}.hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(310px,.92fr);gap:16px;align-items:stretch}.kicker,.label{display:inline-flex;align-items:center;gap:8px;text-transform:uppercase;font-weight:1000;letter-spacing:.1em}.kicker{font-size:.78rem;color:var(--green);margin-bottom:13px}.label{font-size:.72rem;color:var(--gold)}h1,h2,h3{margin:0;text-transform:uppercase;font-weight:1000}h1{font-size:clamp(3rem,9vw,7.6rem);line-height:.78;letter-spacing:-.075em;max-width:820px}h1 .sub{display:block;margin-top:16px;font-size:clamp(1rem,2.65vw,2.25rem);line-height:1.02;letter-spacing:.07em;color:var(--text)}h2{font-size:clamp(1.55rem,3.4vw,3rem);line-height:.95;letter-spacing:-.035em}h3{font-size:1.08rem;letter-spacing:.04em}p{margin:13px 0 0;color:var(--muted);line-height:1.58}.lead{font-size:clamp(1.02rem,1.7vw,1.22rem);max-width:820px}.actions{margin-top:20px}.note{margin-top:18px;padding:15px 16px;border:1px solid rgba(124,255,155,.24);border-radius:18px;background:linear-gradient(135deg,rgba(124,255,155,.10),rgba(112,216,255,.08),rgba(212,173,99,.07));color:var(--muted)}.signal-card{min-height:100%;display:grid;gap:14px;align-content:space-between}.dial{aspect-ratio:1;border-radius:50%;display:grid;place-items:center;text-align:center;background:radial-gradient(circle,rgba(124,255,155,.20) 0 17%,rgba(0,0,0,.25) 18% 29%,rgba(212,173,99,.18) 30% 32%,rgba(0,0,0,.20) 33% 49%,rgba(255,92,214,.15) 50% 52%,rgba(0,0,0,.38) 53% 100%);border:1px solid rgba(124,255,155,.34);box-shadow:0 0 35px rgba(124,255,155,.18),inset 0 0 48px rgba(0,0,0,.58)}.dial b{font-size:clamp(1.38rem,4vw,3rem);line-height:.82}.meters{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.meter{padding:13px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.045)}.meter b{display:block;font-size:1.5rem}.section{padding:18px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:14px;margin-bottom:14px}.section-head p{max-width:650px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card{min-height:224px;padding:18px;display:flex;flex-direction:column;justify-content:space-between;gap:16px}.card p{flex:1}.icon{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;font-size:1.65rem;border:1px solid rgba(255,255,255,.12);background:radial-gradient(circle at 30% 20%,var(--glow,rgba(124,255,155,.22)),transparent 55%),rgba(255,255,255,.055)}.listen{display:grid;grid-template-columns:1fr 1fr;gap:14px}.embed{padding:14px;border-radius:18px;border:1px solid var(--line);background:rgba(0,0,0,.28)}.embed iframe{display:block;width:100%;height:430px;border:0;border-radius:14px;background:#000}.console{padding:16px}.gamebar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}canvas{display:block;width:100%;height:min(54vh,520px);border-radius:16px;background:#050403;border:1px solid rgba(212,173,99,.25);touch-action:none}.padrow{display:none;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}.padrow button{min-height:54px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.06);color:var(--text);font-weight:1000}.footer{padding:28px 0 42px;text-align:center;color:var(--muted);border-top:1px solid rgba(255,255,255,.1);margin-top:14px}.footer-links{justify-content:center;margin-top:14px}@media(max-width:940px){.hero-grid,.grid,.listen{grid-template-columns:1fr}.links,.actions,.footer-links{display:grid;grid-template-columns:1fr 1fr;width:100%}.btn{width:100%}.section-head{display:block}.padrow{display:grid}.meters{grid-template-columns:repeat(3,1fr)}}@media(max-width:560px){.wrap{width:calc(100% - 14px)}.panel,.card,.console{border-radius:20px}.panel,.console{padding:17px}.links,.actions,.footer-links,.meters{grid-template-columns:1fr}h1{font-size:clamp(3.1rem,17vw,5.1rem)}.embed iframe{height:350px}.card{min-height:auto}canvas{height:440px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+:root{--ink:#f7fbff;--muted:#aeb9d6;--line:rgba(255,255,255,.16);--r:#ff2f6d;--o:#ff8a00;--y:#ffe047;--g:#39ff14;--c:#00e5ff;--b:#0077ff;--v:#a82be2;--p:#ff00f6;--grad:linear-gradient(90deg,var(--r),var(--o),var(--y),var(--g),var(--c),var(--b),var(--v),var(--p));--wrap:1180px;--radius:24px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-width:320px;font-family:Bahnschrift,"Arial Narrow",Arial,sans-serif;color:var(--ink);background:radial-gradient(circle at 18% 10%,rgba(255,0,246,.24),transparent 28%),radial-gradient(circle at 84% 12%,rgba(0,229,255,.22),transparent 28%),radial-gradient(circle at 65% 86%,rgba(57,255,20,.12),transparent 30%),linear-gradient(180deg,#03040a,#080b14 48%,#05060b);overflow-x:hidden}body:before{content:"";position:fixed;inset:0;pointer-events:none;background:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px);background-size:100% 4px;opacity:.18}a{color:inherit;text-decoration:none}.wrap{width:min(var(--wrap),calc(100% - 18px));margin:auto}.topbar{position:sticky;top:0;z-index:20;background:rgba(3,4,10,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.nav{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:7px 0;flex-wrap:wrap}.brand{display:flex;align-items:center;gap:10px;font-weight:1000;text-transform:uppercase;letter-spacing:.08em}.bear{width:40px;height:40px;border-radius:14px;background:var(--grad);box-shadow:0 0 26px rgba(0,229,255,.22)}.brand-word,.gradient{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}.links,.actions,.footer-links{display:flex;gap:6px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:8px 10px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.06);font-size:.8rem;font-weight:950;text-transform:uppercase;letter-spacing:.03em;text-align:center}.btn:hover{border-color:rgba(0,229,255,.55);box-shadow:0 0 22px rgba(0,229,255,.16)}.primary{background:var(--grad);color:#05060b;border:0}.hero{padding:36px 0 18px}.panel,.card{border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.035));box-shadow:0 22px 60px rgba(0,0,0,.42)}.panel{padding:clamp(18px,3vw,36px)}h1,h2,h3{margin:0;text-transform:uppercase;font-weight:1000}h1{margin-top:14px;font-size:clamp(2.2rem,6vw,6.4rem);line-height:.9}p{color:var(--muted);line-height:1.52}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:18px}.card{padding:20px;min-height:220px;display:flex;flex-direction:column}.icon{height:82px;border-radius:16px;display:grid;place-items:center;font-size:2rem;margin-bottom:12px;background:rgba(255,255,255,.055)}.card p{flex:1}.footer{padding:28px 0 38px;text-align:center;color:var(--muted)}.footer-links{justify-content:center;margin-top:12px}@media(max-width:1100px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:900px){.grid{grid-template-columns:1fr}.links,.actions,.footer-links{display:grid;width:100%;grid-template-columns:1fr 1fr;gap:5px}.btn{width:100%;min-height:35px;padding:6px 8px;font-size:.74rem}.nav{padding:5px 0}.bear{width:32px;height:32px}}@media(max-width:520px){.links,.actions,.footer-links{grid-template-columns:1fr}.wrap{width:min(var(--wrap),calc(100% - 12px))}.panel{padding:16px}.hero{padding-top:24px}}
 </style>
 </head>
 <body>
-<header class="topbar">
-  <div class="wrap nav">
-    <a class="brand" href="/HiberNation/" aria-label="HiberNation home"><span class="mark"></span><span><span class="grade">HiberNation</span><small>MATTBEAR movement hub</small></span></a>
-    <nav class="links" aria-label="HiberNation navigation">
-      <a class="btn primary" href="#music">Music</a>
-      <a class="btn" href="#routes">Routes</a>
-      <a class="btn" href="#descent">Descent</a>
-      <a class="btn" href="https://bearicide.github.io/">Main</a>
-    </nav>
-  </div>
-</header>
+<header class="topbar"><div class="wrap nav"><a class="brand" href="/"><span class="bear"></span><span><span class="brand-word">MATTBEAR</span><br><small>HiberNation</small></span></a><nav class="links"><a class="btn primary" href="/">Main</a><a class="btn" href="https://bearicide.github.io/mattmachine/">MATTMACHINE</a><a class="btn" href="/music-toys/">Music Toys</a><a class="btn" href="/MATTBEARCADE/">Arcade</a><a class="btn" href="/examples/">Examples</a><a class="btn" href="/karimef/">KARIMEF</a></nav></div></header>
 <main>
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div class="panel" style="--accent:var(--green)">
-        <div class="kicker">Official MATTBEAR movement layer</div>
-        <h1><span class="grade">Hiber</span>Nation<span class="sub">make your voice heard</span></h1>
-        <p class="lead">MATTBEAR is the brand, artist, and maker. HiberNation is the movement hub: music-first worlds, release pages, interactive toys, community links, and project routes across the Bearicide stack.</p>
-        <div class="actions">
-          <a class="btn primary" href="#music">Listen Now</a>
-          <a class="btn gold" href="https://bearicide.github.io/mattbear-allfalldown/">All Fall Down</a>
-          <a class="btn" href="https://soundcloud.com/mattbear86">SoundCloud</a>
-          <a class="btn mag" href="https://suno.com/@mattbear86">Suno</a>
-        </div>
-        <div class="note"><strong>USM layout pass:</strong> centered containers, cleaner text rhythm, less cramped cards, mobile button stacks, bigger tap targets, and enough contrast for actual human eyeballs.</div>
-      </div>
-      <aside class="panel signal-card" style="--accent:var(--cyan)">
-        <div class="dial"><b class="grade">HIBER<br>NATION</b></div>
-        <p>One hub for the music, the message, the pages, and the playable weirdness. Still strange. Now readable. Minor miracle.</p>
-        <div class="meters">
-          <div class="meter"><b>01</b><span>Music</span></div>
-          <div class="meter"><b>02</b><span>Worlds</span></div>
-          <div class="meter"><b>03</b><span>Play</span></div>
-        </div>
-      </aside>
-    </div>
-  </section>
-
-  <section id="music" class="section">
-    <div class="wrap panel" style="--accent:var(--mag)">
-      <div class="section-head"><div><div class="kicker">Music spine</div><h2>SoundCloud + Suno portals.</h2></div><p>All Fall Down stays featured, but HiberNation is bigger than one release. This page is the signal hub.</p></div>
-      <div class="listen">
-        <div class="embed"><p class="label">All Fall Down / SoundCloud</p><iframe title="All Fall Down SoundCloud set" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/mattbear86/sets/allfalldown&color=%237cff9b&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></div>
-        <div class="embed"><p class="label">MATTBEAR / Suno</p><iframe title="MATTBEAR Suno" src="https://suno.com/@mattbear86"></iframe></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="routes" class="section">
-    <div class="wrap">
-      <div class="section-head"><div><div class="kicker">Connected routes</div><h2>Release-world system.</h2></div><p>Separate doors, same world. The revolutionary concept of labels. Humanity may yet recover.</p></div>
-      <div class="grid">
-        <a class="card" style="--accent:var(--green);--glow:rgba(124,255,155,.20)" href="https://bearicide.github.io/mattbear-allfalldown/"><div><div class="icon">📡</div><h3>All Fall Down</h3><p>Featured release-world branch with SoundCloud, child-page routing, and HiberNation framing.</p></div><span class="btn primary">Open</span></a>
-        <a class="card" style="--accent:var(--mag);--glow:rgba(255,92,214,.20)" href="https://bearicide.github.io/music-toys/"><div><div class="icon">🎛️</div><h3>Music Toys</h3><p>Browser instruments, samplers, noise tools, pads, and playable audio experiments.</p></div><span class="btn primary">Launch</span></a>
-        <a class="card" style="--accent:var(--red);--glow:rgba(255,87,87,.20)" href="https://bearicide.github.io/retrocade-/"><div><div class="icon">🕹️</div><h3>RETROCADE</h3><p>Playable cabinet network with mobile controls, save systems, and neon arcade UI.</p></div><span class="btn primary">Play</span></a>
-        <a class="card" style="--accent:var(--cyan);--glow:rgba(112,216,255,.20)" href="https://bearicide.github.io/the-choppa/"><div><div class="icon">✂️</div><h3>Loop Lab</h3><p>Performance-focused sample slicing and pad-control direction for the music stack.</p></div><span class="btn">Open</span></a>
-        <a class="card" style="--accent:var(--gold);--glow:rgba(212,173,99,.20)" href="https://bearicide.github.io/examples/"><div><div class="icon">🌐</div><h3>Examples</h3><p>Showcase pages, client-style layouts, art direction samples, and working builds.</p></div><span class="btn">View</span></a>
-        <a class="card" style="--accent:var(--amber);--glow:rgba(255,191,92,.20)" href="https://github.com/bearicide"><div><div class="icon">⚙️</div><h3>GitHub</h3><p>The public repo network behind Bearicide pages, projects, toys, and arcade systems.</p></div><span class="btn">Repo</span></a>
-      </div>
-    </div>
-  </section>
-
-  <section id="descent" class="section">
-    <div class="wrap panel" style="--accent:var(--gold)">
-      <div class="section-head"><div><div class="kicker">Interactive piece</div><h2>DESCENT: signal shard run.</h2></div><p>Use WASD / arrows, or mobile controls. Collect all 25 shards.</p></div>
-      <div class="console">
-        <div class="gamebar"><span class="label" id="hud">SIGNAL SHARDS: 0/25</span><button class="btn" id="resetBtn" type="button">Reset</button></div>
-        <canvas id="game" width="1200" height="620"></canvas>
-        <div class="padrow"><button data-dir="up">▲</button><button data-dir="left">◀</button><button data-dir="right">▶</button><button data-dir="down">▼</button><button id="pulseBtn">PULSE</button><button data-dir="stop">■</button></div>
-      </div>
-    </div>
-  </section>
+<section class="hero"><div class="wrap"><div class="panel"><p class="gradient"><strong>Official rainbow main portal</strong></p><h1><span class="gradient">MATTBEAR</span><br>turns chaos into signal.</h1><p>A neon HiberNation hub for music releases, browser instruments, arcade builds, website examples, electronics blueprint labs, branding systems, and useful creative tools.</p><div class="actions"><a class="btn primary" href="https://bearicide.github.io/mattmachine/">Launch MATTMACHINE</a><a class="btn" href="/karimef/">KARIMEF Lab</a><a class="btn" href="/music-toys/">Music Toys</a><a class="btn" href="/MATTBEARCADE/">Arcade</a><a class="btn" href="https://soundcloud.com/mattbear86">SoundCloud</a><a class="btn" href="/HiberNation/">HiberNation</a></div></div></div></section>
+<section class="wrap grid"><a class="card" href="/HiberNation/"><div class="icon">🐻</div><h3>HiberNation</h3><p>Community, music, project routes, release worlds, and the soft riot layer.</p><span class="btn primary">Enter</span></a><a class="card" href="/music-toys/"><div class="icon">🎛️</div><h3>Music Toys</h3><p>Browser instruments, samplers, loop tools, pads, and noise machines.</p><span class="btn">Open</span></a><a class="card" href="/MATTBEARCADE/"><div class="icon">🕹️</div><h3>Arcade</h3><p>Playable cabinets, casino branches, game experiments, and neon nonsense.</p><span class="btn">Play</span></a><a class="card" href="/examples/"><div class="icon">🌐</div><h3>Examples</h3><p>Website examples, client-style layouts, previews, and proof-of-work builds.</p><span class="btn">View</span></a></section>
 </main>
-<footer class="footer wrap">
-  <strong class="grade">HIBERNATION // MATTBEAR // MAKE YOUR VOICE HEARD</strong>
-  <div class="footer-links"><a class="btn primary" href="https://bearicide.github.io/">Main Portal</a><a class="btn" href="https://bearicide.github.io/mattbear-allfalldown/">All Fall Down</a><a class="btn" href="https://bearicide.github.io/music-toys/">Music Toys</a><a class="btn" href="https://bearicide.github.io/MATTBEARCADE/">Arcade</a><a class="btn" href="https://soundcloud.com/mattbear86">SoundCloud</a></div>
-</footer>
-<script>
-const canvas=document.getElementById('game'),ctx=canvas.getContext('2d'),hud=document.getElementById('hud');
-const player={x:600,y:310,r:16,vx:0,vy:0};let keys={},score=0,won=false,shards=[];
-function reset(){score=0;won=false;player.x=600;player.y=310;shards=Array.from({length:25},()=>({x:30+Math.random()*1140,y:30+Math.random()*560,a:1}));hud.textContent='SIGNAL SHARDS: 0/25'}
-function press(d,on){if(d==='up')keys.ArrowUp=on;if(d==='down')keys.ArrowDown=on;if(d==='left')keys.ArrowLeft=on;if(d==='right')keys.ArrowRight=on;if(d==='stop'&&!on){keys={}}}
-document.addEventListener('keydown',e=>{keys[e.key]=1});document.addEventListener('keyup',e=>{keys[e.key]=0});
-document.querySelectorAll('[data-dir]').forEach(b=>{b.addEventListener('pointerdown',e=>{e.preventDefault();press(b.dataset.dir,1)});b.addEventListener('pointerup',e=>{e.preventDefault();press(b.dataset.dir,0)});b.addEventListener('pointerleave',()=>press(b.dataset.dir,0))});
-document.getElementById('resetBtn').onclick=reset;document.getElementById('pulseBtn').onclick=()=>{player.r=26;setTimeout(()=>player.r=16,170)};
-function loop(){ctx.clearRect(0,0,1200,620);ctx.fillStyle='#050403';ctx.fillRect(0,0,1200,620);for(let i=0;i<90;i++){ctx.fillStyle='rgba(255,255,255,.035)';ctx.fillRect((i*73+performance.now()/32)%1200,(i*47)%620,2,2)}
-let sp=keys.Shift?6:4;if(keys.w||keys.ArrowUp)player.y-=sp;if(keys.s||keys.ArrowDown)player.y+=sp;if(keys.a||keys.ArrowLeft)player.x-=sp;if(keys.d||keys.ArrowRight)player.x+=sp;player.x=Math.max(18,Math.min(1182,player.x));player.y=Math.max(18,Math.min(602,player.y));
-shards.forEach(s=>{if(!s.a)return;ctx.beginPath();ctx.arc(s.x,s.y,6+Math.sin(performance.now()/190+s.x)*2,0,Math.PI*2);ctx.fillStyle='#d4ad63';ctx.shadowColor='#d4ad63';ctx.shadowBlur=14;ctx.fill();ctx.shadowBlur=0;let dx=player.x-s.x,dy=player.y-s.y;if(Math.hypot(dx,dy)<player.r+10){s.a=0;score++;hud.textContent='SIGNAL SHARDS: '+score+'/25';if(score===25)won=true}});
-ctx.beginPath();ctx.arc(player.x,player.y,player.r,0,Math.PI*2);ctx.fillStyle='#fff7e8';ctx.shadowColor='#70d8ff';ctx.shadowBlur=20;ctx.fill();ctx.shadowBlur=0;if(won){ctx.fillStyle='#fff7e8';ctx.font='700 56px Georgia,serif';ctx.textAlign='center';ctx.fillText('STILL HERE.',600,310);ctx.textAlign='left'}requestAnimationFrame(loop)}reset();loop();
-</script>
-</body>
-</html>
+<footer class="footer wrap"><strong class="gradient">MATTBEAR • WAKE UP. STAY UP.</strong><div class="footer-links"><a class="btn primary" href="https://bearicide.github.io/mattmachine/">MATTMACHINE</a><a class="btn" href="/karimef/">KARIMEF</a><a class="btn" href="/music-toys/">Music Toys</a><a class="btn" href="/MATTBEARCADE/">Arcade</a><a class="btn" href="/examples/">Examples</a></div></footer>
+</body></html>
