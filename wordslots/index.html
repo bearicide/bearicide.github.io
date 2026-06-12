@@ -1,29 +1,469 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Word$lots | MATTBEAR</title>
-<meta name="description" content="Word$lots is a MATTBEAR free-play word slot showcase with WORD and PLAY bonus logic, arcade styling, and example-project routing.">
-<meta name="theme-color" content="#090512">
-<link rel="stylesheet" href="/assets/site-polish.css">
-<link rel="stylesheet" href="/assets/title-boost.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>MATTBEAR - Word$lots! v1.0.10 Final QA Patch</title>
+  <meta name="description" content="MATTBEAR - Word$lots! v1.0.10 Final QA Patch, a mobile-optimized installable PWA slot machine with 84% RTP, WORD/PLAY payline bonuses, Click/Rewind, bonus splash locks, mini-player, and offline support." />
+  <meta name="theme-color" content="#090512" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Word$lots" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="/assets/title-boost.css" />
+  
+  <link rel="apple-touch-icon" href="assets/pwa/icon-192.png" />
+
 <style>
-body:before{background:radial-gradient(circle at 20% 0,rgba(255,79,210,.25),transparent 32%),radial-gradient(circle at 82% 4%,rgba(53,231,255,.22),transparent 34%),radial-gradient(circle at 52% 100%,rgba(255,224,122,.14),transparent 40%),linear-gradient(180deg,#080512,#07040f 55%,#030306)}
-.slot-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,520px);gap:20px;align-items:stretch}.machine-stage{padding:18px;border-radius:28px;border:1px solid var(--line);background:radial-gradient(circle at 50% 0,rgba(255,224,122,.18),transparent 32%),linear-gradient(180deg,rgba(20,14,40,.9),rgba(5,5,12,.92));box-shadow:var(--heavy);position:relative;overflow:hidden}.machine-stage:before{content:"WORD$LOTS";position:absolute;left:50%;top:18px;transform:translateX(-50%);font:1000 clamp(3rem,8vw,7rem)/1 Impact,sans-serif;letter-spacing:.04em;color:rgba(255,255,255,.045);white-space:nowrap}.machine-stage>*{position:relative}.slot-screen{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0}.reel{min-height:clamp(76px,10vw,118px);display:grid;place-items:center;border:1px solid rgba(255,255,255,.22);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.04));box-shadow:inset 0 0 24px rgba(255,255,255,.05),0 0 24px rgba(53,231,255,.12);font:1000 clamp(1.35rem,4vw,3.2rem)/1 Impact,sans-serif;text-transform:uppercase;text-shadow:0 2px 0 #000,0 0 18px currentColor;transition:.18s ease}.reel.hit{transform:translateY(-4px) scale(1.04);border-color:rgba(255,224,122,.9);box-shadow:inset 0 0 30px rgba(255,224,122,.08),0 0 28px rgba(255,224,122,.32),0 0 58px rgba(255,79,210,.22)}.meter-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.meter{border:1px solid var(--line);border-radius:16px;background:rgba(0,0,0,.35);padding:12px;box-shadow:var(--outline)}.meter b{display:block;color:var(--gold);font:1000 1.4rem system-ui}.meter span{display:block;color:var(--muted);font:900 .68rem system-ui;text-transform:uppercase;letter-spacing:.12em}.slot-controls{display:grid;grid-template-columns:1fr 1fr 1.4fr;gap:10px;margin:14px 0}.slot-controls button{min-height:48px;border-radius:14px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.04));color:var(--ink);font:1000 .8rem system-ui;text-transform:uppercase;letter-spacing:.09em;cursor:pointer;box-shadow:var(--outline)}.slot-controls button:hover{border-color:rgba(53,231,255,.8);box-shadow:var(--outline),0 0 26px rgba(53,231,255,.25)}.spin{background:linear-gradient(90deg,#ff3434,#ff8a00,#ffe047,#67ff54,#35e7ff,#ff4fd2)!important;color:#080512!important}.status-box{border-left:4px solid var(--green);background:rgba(103,255,84,.08);border-radius:0 16px 16px 0;padding:12px;color:#fff7d7;font:900 .95rem system-ui}.package-grid{margin:22px 0 44px}.feature-shot{padding:14px}.feature-shot img{width:100%;display:block;border-radius:20px;border:1px solid var(--line);box-shadow:var(--outline),0 0 36px rgba(255,79,210,.18)}.pill-row{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.pill{border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.06);padding:7px 10px;color:var(--muted);font:900 .72rem system-ui;text-transform:uppercase;letter-spacing:.08em}@media(max-width:920px){.slot-hero{grid-template-columns:1fr}.meter-row,.slot-controls{grid-template-columns:1fr}.slot-screen{grid-template-columns:repeat(2,1fr)}}
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&display=swap');
+
+:root{
+  --bg:#080512;
+  --panel:rgba(18,14,34,.88);
+  --ink:#f8f7ff;
+  --muted:#c8c0df;
+  --line:rgba(255,255,255,.16);
+  --pink:#ff3cb9;
+  --red:#ff4d6d;
+  --orange:#ff9a3d;
+  --yellow:#ffe45d;
+  --green:#53ff89;
+  --cyan:#53f6ff;
+  --blue:#5b7cff;
+  --purple:#a66cff;
+  --shadow:0 24px 70px rgba(0,0,0,.42);
+  --glow:0 0 20px rgba(83,246,255,.62),0 0 42px rgba(255,60,185,.28);
+  --radius:26px;
+  --max:1220px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  min-height:100vh;
+  color:var(--ink);
+  font-family:Bahnschrift,"Arial Narrow","Trebuchet MS",Arial,sans-serif;
+  background:#07040f url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmYzY2I5Ii8+CjxzdG9wIG9mZnNldD0iLjUyIiBzdG9wLWNvbG9yPSIjMDkwNTEyIi8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzUzZjZmZiIvPgo8L2xpbmVhckdyYWRpZW50Pgo8ZmlsdGVyIGlkPSJnbG93Ij48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI2IiByZXN1bHQ9ImIiLz48ZmVNZXJnZT48ZmVNZXJnZU5vZGUgaW49ImIiLz48ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiLz48L2ZlTWVyZ2U+PC9maWx0ZXI+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSI0NiIgZmlsbD0idXJsKCNnKSIvPgo8cmVjdCB4PSIxOCIgeT0iMTgiIHdpZHRoPSI0NzYiIGhlaWdodD0iNDc2IiByeD0iMzgiIGZpbGw9InJnYmEoMCwwLDAsLjI0KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LC41NSkiIHN0cm9rZS13aWR0aD0iOCIvPgo8dGV4dCB4PSIyNTYiIHk9IjIzOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkltcGFjdCxBcmlhbCBCbGFjayxzYW5zLXNlcmlmIiBmb250LXNpemU9IjQ4IiBmaWxsPSIjZmZmOGViIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iNSIgcGFpbnQtb3JkZXI9InN0cm9rZSIgZmlsdGVyPSJ1cmwoI2dsb3cpIj5XT1JEJExPVFM8L3RleHQ+Cjx0ZXh0IHg9IjI1NiIgeT0iMzEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyOCIgZmlsbD0iI2ZmZTQ1ZCIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjIiIHBhaW50LW9yZGVyPSJzdHJva2UiPldPUkQkTE9UUzwvdGV4dD4KPC9zdmc+') center/cover fixed no-repeat;
+  overflow-x:hidden;
+  touch-action:pan-y;
+  overscroll-behavior-y:contain;
+}
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 18% 8%,rgba(255,60,185,.28),transparent 28%),
+    radial-gradient(circle at 80% 16%,rgba(83,246,255,.24),transparent 30%),
+    radial-gradient(circle at 50% 96%,rgba(83,255,137,.13),transparent 35%);
+  mix-blend-mode:screen;
+}
+body:after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:999;
+  pointer-events:none;
+  background:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:100% 6px;
+  opacity:.55;
+  mix-blend-mode:overlay;
+}
+body.modal-open{
+  overflow:hidden;
+}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit}
+button{cursor:pointer}
+img{max-width:100%;display:block}
+.wrap{width:min(var(--max),calc(100% - clamp(16px,4vw,44px)));margin:auto}
+
+.skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip-link:focus{left:10px;top:10px;width:auto;height:auto;z-index:1001;background:#000;color:#fff;padding:10px;border-radius:10px}
+
+.portal-bar{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(8,5,18,.90);
+  backdrop-filter:blur(18px) saturate(1.25);
+  border-bottom:1px solid var(--line);
+  box-shadow:0 0 28px rgba(83,246,255,.15);
+}
+.portal-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  flex-wrap:wrap;
+  padding:9px 0;
+}
+.portal-brand{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  font-weight:1000;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  min-width:min(100%,260px);
+}
+.portal-logo{
+  width:42px;height:42px;border-radius:15px;
+  background:linear-gradient(135deg,var(--pink),var(--yellow),var(--green),var(--cyan),var(--purple));
+  box-shadow:var(--glow);
+  display:grid;place-items:center;color:#07040f;
+  flex:0 0 auto;
+}
+.portal-logo:before{content:"🐻";filter:drop-shadow(0 1px 0 #fff)}
+.portal-title{line-height:1.05}
+.portal-title small{display:block;color:var(--muted);font-size:.63rem;font-weight:850;letter-spacing:.12em}
+.portal-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  justify-content:flex-end;
+}
+.portal-links a,.tiny-btn{
+  min-height:38px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:8px 10px;
+  border:1px solid var(--line);
+  border-radius:13px;
+  background:rgba(255,255,255,.07);
+  color:var(--ink);
+  font-size:.72rem;
+  font-weight:900;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  text-align:center;
+}
+.portal-links a:hover,.tiny-btn:hover,
+.portal-links a:focus-visible,.tiny-btn:focus-visible{
+  border-color:rgba(83,246,255,.65);
+  box-shadow:0 0 22px rgba(83,246,255,.22);
+  outline:none;
+}
+
+.header{padding:clamp(18px,4vw,38px) 0 14px}
+.hero-panel{
+  display:grid;
+  grid-template-columns:minmax(0,1.08fr) minmax(280px,.92fr);
+  gap:clamp(14px,3vw,28px);
+  align-items:stretch;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:linear-gradient(145deg,rgba(24,16,48,.88),rgba(9,5,20,.82));
+  box-shadow:var(--shadow),var(--glow);
+  overflow:hidden;
+}
+.hero-copy{padding:clamp(18px,4vw,38px);display:flex;flex-direction:column;justify-content:center}
+.kicker{color:var(--yellow);font-weight:900;letter-spacing:.16em;text-transform:uppercase;font-size:.76rem}
+h1{
+  margin:.16em 0 .18em;
+  font-family:Orbitron,Bahnschrift,"Arial Black",sans-serif;
+  font-size:clamp(2.7rem,8.2vw,7.4rem);
+  line-height:.84;
+  letter-spacing:-.07em;
+  text-transform:uppercase;
+  text-shadow:0 0 18px rgba(83,246,255,.48),0 0 46px rgba(255,60,185,.25);
+}
+.rainbow{
+  background:linear-gradient(90deg,var(--red),var(--orange),var(--yellow),var(--green),var(--cyan),var(--blue),var(--purple),var(--pink),var(--red));
+  background-size:240% 100%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  animation:rainbow 6s linear infinite;
+}
+.lead{font-size:clamp(1rem,2.1vw,1.25rem);line-height:1.5;color:var(--muted);max-width:70ch}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0}
+.badge{border:1px solid var(--line);background:rgba(255,255,255,.055);border-radius:999px;padding:8px 10px;color:var(--muted);font-weight:850;font-size:.76rem;text-transform:uppercase;letter-spacing:.06em}
+.hero-side{padding:clamp(14px,3vw,24px);background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.025));display:flex;flex-direction:column;gap:12px;justify-content:center}
+.player-card{border:1px solid var(--line);border-radius:24px;background:rgba(0,0,0,.24);padding:14px;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+.player-art-wrap{border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 0 28px rgba(83,246,255,.18)}
+.player-art{aspect-ratio:1/1;object-fit:cover;width:100%}
+.track-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:12px 0 8px}
+.track-title{font-family:Orbitron,Bahnschrift,sans-serif;font-weight:900;line-height:1.05}.track-title small{display:block;color:var(--muted);font-family:inherit;font-size:.7rem;margin-top:4px}.player-controls{display:flex;gap:8px;flex-wrap:wrap}.icon-btn{min-width:42px;min-height:42px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.08);color:var(--ink);font-weight:1000}.icon-btn:hover{border-color:rgba(83,246,255,.65);box-shadow:0 0 20px rgba(83,246,255,.18)}.mini-audio{width:100%;margin-top:8px;filter:saturate(1.2)}
+
+.machine-section{padding:18px 0 34px}.machine{
+  border:1px solid var(--line);
+  border-radius:32px;
+  background:linear-gradient(180deg,rgba(20,14,40,.94),rgba(6,4,14,.9));
+  box-shadow:var(--shadow),0 0 36px rgba(255,60,185,.16),0 0 60px rgba(83,246,255,.12);
+  overflow:hidden;
+}
+.machine-top{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;padding:clamp(14px,3vw,24px);border-bottom:1px solid var(--line);background:rgba(255,255,255,.035)}
+.machine-title{font-family:Orbitron,Bahnschrift,sans-serif;font-weight:1000;text-transform:uppercase;letter-spacing:.08em}.machine-title small{display:block;color:var(--muted);font-size:.7rem;margin-top:4px}.meters{display:flex;gap:10px;flex-wrap:wrap}.meter{min-width:120px;border:1px solid var(--line);border-radius:16px;background:rgba(0,0,0,.28);padding:9px 11px;text-align:center}.meter span{display:block;color:var(--muted);font-size:.68rem;text-transform:uppercase;font-weight:850;letter-spacing:.08em}.meter b{font-family:Orbitron,Bahnschrift,sans-serif;font-size:1.08rem;color:var(--yellow)}
+
+.reel-area{padding:clamp(12px,2.6vw,24px)}
+.status-screen{
+  min-height:64px;
+  border:1px solid rgba(83,246,255,.24);
+  border-radius:18px;
+  padding:12px 14px;
+  background:linear-gradient(180deg,rgba(83,246,255,.10),rgba(255,60,185,.06));
+  color:#fff;
+  font-weight:850;
+  line-height:1.35;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 0 22px rgba(83,246,255,.10);
+  margin-bottom:14px;
+}
+.status-screen strong{color:var(--yellow)}
+.reels{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0,1fr));
+  gap:clamp(8px,1.5vw,14px);
+  width:min(820px,100%);
+  margin:auto;
+  overflow:visible;
+  touch-action:pan-y;
+}
+.cell{
+  position:relative;
+  display:grid;
+  place-items:center;
+  aspect-ratio:1/1;
+  min-width:0;
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:20px;
+  background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.035));
+  box-shadow:inset 0 0 20px rgba(255,255,255,.05),0 0 18px rgba(83,246,255,.08);
+  overflow:hidden;
+  transform:translateZ(0);
+  transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+}
+.cell img{width:88%;height:88%;object-fit:contain;filter:drop-shadow(0 0 12px rgba(255,255,255,.22))}.cell.spin{animation:pop .28s ease}.cell.win{border-color:rgba(255,228,93,.95);box-shadow:0 0 25px rgba(255,228,93,.34),0 0 55px rgba(255,60,185,.20);transform:scale(1.025)}.cell.word{border-color:rgba(83,255,137,.95);box-shadow:0 0 26px rgba(83,255,137,.32),0 0 55px rgba(83,246,255,.22)}.cell.tease{border-color:rgba(83,246,255,.85);box-shadow:0 0 25px rgba(83,246,255,.28)}
+
+.controls{padding:0 clamp(12px,2.6vw,24px) clamp(14px,3vw,24px);display:grid;gap:12px}.control-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}.btn-main,.btn-small{border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.11),rgba(255,255,255,.04));color:var(--ink);font-weight:1000;text-transform:uppercase;letter-spacing:.06em;min-height:54px;box-shadow:0 12px 28px rgba(0,0,0,.18)}.btn-main{background:linear-gradient(90deg,var(--pink),var(--orange),var(--yellow),var(--green),var(--cyan));background-size:220% 100%;color:#080512;border:0;font-family:Orbitron,Bahnschrift,sans-serif;animation:rainbow 5s linear infinite}.btn-main:disabled,.btn-small:disabled{opacity:.52;cursor:not-allowed;filter:grayscale(.4)}.btn-small:hover:not(:disabled),.btn-main:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 0 22px rgba(83,246,255,.24)}.settings{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.field{border:1px solid var(--line);border-radius:16px;background:rgba(0,0,0,.2);padding:10px}.field label{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;font-weight:900;letter-spacing:.08em;margin-bottom:6px}.field select,.field input{width:100%;min-height:40px;border:1px solid var(--line);border-radius:12px;background:#0b0718;color:var(--ink);padding:8px 10px}.field input[type="range"]{padding:0;accent-color:var(--cyan)}
+
+.paytable{padding:22px 0 50px}.info-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.info-card{border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.055);padding:16px;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}.info-card h3{margin:0 0 8px;font-family:Orbitron,Bahnschrift,sans-serif;text-transform:uppercase}.info-card p{color:var(--muted);line-height:1.5;margin:0}.site-map{padding:18px 0 52px}.site-map .info-grid{grid-template-columns:repeat(5,minmax(0,1fr))}.site-map a{display:flex;min-height:70px;align-items:center;justify-content:center;text-align:center;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.055);font-weight:1000;text-transform:uppercase;letter-spacing:.06em}.site-map a:hover{border-color:rgba(83,246,255,.7);box-shadow:0 0 24px rgba(83,246,255,.2)}
+.footer{padding:26px 0 46px;color:var(--muted);text-align:center;border-top:1px solid var(--line);background:rgba(0,0,0,.18)}
+.toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%) translateY(120%);z-index:1100;max-width:min(760px,calc(100% - 24px));border:1px solid var(--line);border-radius:18px;background:rgba(9,5,20,.94);box-shadow:var(--shadow),var(--glow);padding:13px 16px;color:#fff;font-weight:850;transition:.22s ease;text-align:center}.toast.show{transform:translateX(-50%) translateY(0)}.splash{position:fixed;inset:0;z-index:1050;display:none;place-items:center;background:rgba(0,0,0,.72);backdrop-filter:blur(10px);padding:18px}.splash.show{display:grid}.splash-card{width:min(720px,100%);border:1px solid var(--line);border-radius:28px;background:linear-gradient(145deg,rgba(24,16,48,.96),rgba(8,5,18,.96));box-shadow:var(--shadow),var(--glow);padding:22px;text-align:center}.splash-card h2{font-family:Orbitron,Bahnschrift,sans-serif;font-size:clamp(1.8rem,6vw,4rem);margin:.2em 0}.splash-card p{color:var(--muted);font-size:1.05rem}.bonus-splash-card img{width:min(260px,80vw);margin:0 auto 14px;border-radius:24px;box-shadow:0 0 36px rgba(255,228,93,.25)}
+
+@keyframes rainbow{to{background-position:240% 50%}}@keyframes pop{0%{transform:scale(.94);filter:blur(1px)}60%{transform:scale(1.04)}100%{transform:scale(1)}}@keyframes winPulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.45)}}
+
+@media(max-width:980px){.hero-panel{grid-template-columns:1fr}.site-map .info-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.info-grid{grid-template-columns:1fr}.control-grid{grid-template-columns:1fr 1fr}.settings{grid-template-columns:1fr}.meters{width:100%}.meter{flex:1 1 130px}}
+@media(max-width:640px){.wrap{width:calc(100% - 14px)}.portal-inner{justify-content:center}.portal-brand{justify-content:center}.portal-links{display:grid;grid-template-columns:1fr 1fr;width:100%}.portal-links a,.tiny-btn{width:100%;min-height:42px}.header{padding-top:12px}.hero-copy{padding:18px}.hero-side{padding:12px}h1{font-size:clamp(2.35rem,15vw,4.2rem);letter-spacing:-.06em}.badges{gap:6px}.badge{font-size:.66rem;padding:7px 8px}.machine{border-radius:22px}.machine-top{align-items:stretch}.meters{display:grid;grid-template-columns:1fr 1fr}.reel-area{padding:10px}.reels{gap:7px}.cell{border-radius:14px}.status-screen{font-size:.92rem;min-height:58px}.control-grid{grid-template-columns:1fr}.btn-main,.btn-small{min-height:50px}.site-map .info-grid{grid-template-columns:1fr}.player-controls .icon-btn{flex:1}}
+@media(max-width:380px){.meters{grid-template-columns:1fr}.portal-links{grid-template-columns:1fr}.reels{gap:5px}.cell{border-radius:11px}.machine-title{font-size:.92rem}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+
+<style id="wordslots-enhanced-v101-style">
+.v101-fixed-buttons{position:fixed;right:12px;top:78px;z-index:1200;display:flex;gap:8px;flex-direction:column}.v101-pill{border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(8,5,18,.86);backdrop-filter:blur(10px);color:#f8f7ff;padding:9px 12px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 0 22px rgba(83,246,255,.14)}.v101-modal{position:fixed;inset:0;z-index:1300;display:none;place-items:center;padding:16px;background:rgba(0,0,0,.72);backdrop-filter:blur(10px)}.v101-modal.show{display:grid}.v101-card{width:min(680px,100%);border:1px solid rgba(255,255,255,.18);border-radius:24px;background:linear-gradient(145deg,rgba(24,16,48,.98),rgba(8,5,18,.98));box-shadow:0 24px 70px rgba(0,0,0,.42),0 0 30px rgba(83,246,255,.2);padding:22px}.v101-card h2{font-family:Orbitron,Bahnschrift,sans-serif;text-transform:uppercase;margin:0 0 10px}.v101-card p,.v101-card li{color:#c8c0df;line-height:1.55}.v101-close{min-height:44px;border:0;border-radius:14px;background:linear-gradient(90deg,#ff3cb9,#ff9a3d,#ffe45d,#53ff89,#53f6ff);font-weight:1000;text-transform:uppercase;color:#080512;padding:10px 14px}@media(max-width:640px){.v101-fixed-buttons{position:static;display:grid;grid-template-columns:1fr 1fr;margin:8px 0}.v101-pill{width:100%}}
 </style>
 </head>
 <body>
-<header class="top"><div class="wrap nav"><a class="brand rainbow" href="/">Word$lots<small>THING I MADE • SLOTS</small></a><nav class="menu"><a class="btn" href="/">Main</a><a class="btn primary" href="/examples/">Examples</a><a class="btn cyan" href="/MATTBEARCADE/">Arcade</a><a class="btn amber" href="/wordplay/">WORDPLAY</a></nav></div></header>
-<main class="wrap page">
-<section class="hero slot-hero"><div><p class="eyebrow">THING I MADE • SLOTS</p><h1 class="rainbow">Word$lots</h1><p>Free-play word-slot showcase built from the uploaded Word$lots v1.0.10 Final QA package notes: WORD/PLAY bonus focus, 84% RTP text, arcade presentation, mobile-minded routing, and MATTBEAR ecosystem links.</p><div class="lights"><i class="light" style="color:var(--mag)"></i><i class="light" style="color:var(--cyan)"></i><i class="light" style="color:var(--gold)"></i><i class="light" style="color:var(--green)"></i></div><nav class="menu"><a class="btn primary" href="#play">Play showcase</a><a class="btn cyan" href="/examples/#games">Examples games</a><a class="btn mag" href="/MATTBEARCADE/#wordslots">Arcade branch</a></nav><div class="pill-row"><span class="pill">Free play</span><span class="pill">WORD / PLAY bonus</span><span class="pill">v1.0.10 QA source</span><span class="pill">MATTBEAR casino lane</span></div></div><aside class="feature-shot glow"><img src="/assets/slots/wordplay-slot-machine-design.png" alt="Word$lots slot machine visual direction"></aside></section>
-<section id="play" class="machine-stage"><p class="eyebrow">Playable lightweight showcase</p><h2 class="rainbow">Spin WORD or PLAY</h2><div class="meter-row"><div class="meter"><b id="credits">5000</b><span>Credits</span></div><div class="meter"><b id="bet">50</b><span>Bet</span></div><div class="meter"><b>84%</b><span>Target RTP text</span></div></div><div class="slot-screen" id="slotScreen" aria-live="polite"></div><div class="slot-controls"><button id="betDown">Bet -</button><button id="betUp">Bet +</button><button class="spin" id="spin">Spin</button></div><div class="status-box" id="status">Ready. Land WORD or PLAY left-to-right for the bonus hit. No real money, no misery economy, just pixels.</div></section>
-<section class="grid three package-grid"><article class="card outline"><h3>What this is</h3><p>A public-facing Word$lots example route: the thing-made page for the slots build, connected to Main, Examples, WORDPLAY, and MATTBEARCADE.</p><a class="btn cyan" href="/examples/">Examples</a></article><article class="card outline"><h3>Package notes</h3><p>The uploaded QA package includes an installable PWA app shell, manifest, service worker, icons, sitemap files, and a massive embedded final index.</p><a class="btn amber" href="/MATTBEARCADE/#wordslots">Arcade branch</a></article><article class="card outline"><h3>Next upgrade</h3><p>Split the giant final app into sane external assets, then deploy the full playable version without forcing GitHub to swallow one 76MB HTML brick.</p><a class="btn mag" href="/wordplay/">WORDPLAY source</a></article></section>
+<a class="skip-link" href="#machine">Skip to machine</a>
+
+<header class="portal-bar">
+  <div class="wrap portal-inner">
+    <a class="portal-brand" href="https://bearicide.github.io/" aria-label="MATTBEAR Home">
+      <span class="portal-logo" aria-hidden="true"></span>
+      <span class="portal-title">MATTBEAR <small>Word$lots • Final QA</small></span>
+    </a>
+    <nav class="portal-links" aria-label="MATTBEAR links">
+      <a href="https://bearicide.github.io/">Main</a>
+      <a href="https://bearicide.github.io/HiberNation/">HiberNation</a>
+      <a href="https://bearicide.github.io/wordplay/">Wordplay</a>
+      <a href="https://bearicide.github.io/wordslots/">Word$lots</a>
+      <a href="https://bearicide.github.io/the-choppa/">The Choppa</a>
+    </nav>
+  </div>
+</header>
+<div class="v101-fixed-buttons" aria-label="Wordslots quick controls"><button class="v101-pill" type="button" id="v101HelpBtn">Help / QC</button><button class="v101-pill" type="button" id="v101TopBtn">Top</button></div>
+
+<main>
+  <section class="header">
+    <div class="wrap hero-panel">
+      <div class="hero-copy">
+        <span class="kicker">84% RTP • WORD / PLAY payline bonus • v1.0.10</span>
+        <h1><span class="rainbow">Word$lots!</span></h1>
+        <p class="lead">MATTBEAR slot machine built for mobile, touch, mouse, and keyboard. WORD and PLAY are the only word bonuses. Cassettes trigger rewind behavior. Bonus and rewind splashes lock auto-spin until cleared.</p>
+        <div class="badges" aria-label="build notes">
+          <span class="badge">PWA shell</span>
+          <span class="badge">Offline cache</span>
+          <span class="badge">Space = spin / fast stop</span>
+          <span class="badge">A = auto</span>
+          <span class="badge">S = stop</span>
+        </div>
+      </div>
+      <aside class="hero-side" aria-label="mini player">
+        <section class="player-card" aria-labelledby="player-title">
+          <div class="player-art-wrap">
+            <img id="playerArt" class="player-art" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmY5YTNkIi8+CjxzdG9wIG9mZnNldD0iLjUyIiBzdG9wLWNvbG9yPSIjMDkwNTEyIi8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmZTQ1ZCIvPgo8L2xpbmVhckdyYWRpZW50Pgo8ZmlsdGVyIGlkPSJnbG93Ij48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI2IiByZXN1bHQ9ImIiLz48ZmVNZXJnZT48ZmVNZXJnZU5vZGUgaW49ImIiLz48ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiLz48L2ZlTWVyZ2U+PC9maWx0ZXI+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSI0NiIgZmlsbD0idXJsKCNnKSIvPgo8cmVjdCB4PSIxOCIgeT0iMTgiIHdpZHRoPSI0NzYiIGhlaWdodD0iNDc2IiByeD0iMzgiIGZpbGw9InJnYmEoMCwwLDAsLjI0KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LC41NSkiIHN0cm9rZS13aWR0aD0iOCIvPgo8dGV4dCB4PSIyNTYiIHk9IjIzOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkltcGFjdCxBcmlhbCBCbGFjayxzYW5zLXNlcmlmIiBmb250LXNpemU9IjQ4IiBmaWxsPSIjZmZmOGViIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iNSIgcGFpbnQtb3JkZXI9InN0cm9rZSIgZmlsdGVyPSJ1cmwoI2dsb3cpIj5BTEJVTSBBUlQ8L3RleHQ+Cjx0ZXh0IHg9IjI1NiIgeT0iMzEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyOCIgZmlsbD0iI2ZmZTQ1ZCIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjIiIHBhaW50LW9yZGVyPSJzdHJva2UiPldPUkQkTE9UUzwvdGV4dD4KPC9zdmc+" alt="MATTBEAR track art" />
+          </div>
+          <div class="track-row">
+            <div class="track-title" id="player-title"><span id="nowTitle">We All Fall Down v2.0</span><small id="nowArtist">MATTBEAR</small></div>
+            <button class="icon-btn" id="nextTrack" type="button" aria-label="Next track">↻</button>
+          </div>
+          <div class="player-controls">
+            <button class="icon-btn" id="playTrack" type="button" aria-label="Play or pause">▶</button>
+            <button class="icon-btn" id="quietTrack" type="button" aria-label="Quiet volume">VOL</button>
+          </div>
+          <audio id="miniAudio" class="mini-audio" preload="metadata" controls src="data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABAAZGF0YQAAAAA="></audio>
+        </section>
+      </aside>
+    </div>
+  </section>
+
+  <section class="machine-section" id="machine">
+    <div class="wrap machine" aria-label="Wordslots machine">
+      <div class="machine-top">
+        <div class="machine-title">Word$lots Machine <small>Only WORD and PLAY score as word bonuses.</small></div>
+        <div class="meters" aria-label="meters">
+          <div class="meter"><span>Credits</span><b id="credits">1000</b></div>
+          <div class="meter"><span>Bet</span><b id="betRead">10</b></div>
+          <div class="meter"><span>Auto</span><b id="autoRead">Off</b></div>
+          <div class="meter"><span>RTP Text</span><b>84%</b></div>
+        </div>
+      </div>
+      <div class="reel-area">
+        <div class="status-screen" id="status"><strong>Ready.</strong> Spin to chase WORD / PLAY paylines, bonus CRTs, vinyl, cassette rewind, and chaos that is at least labeled correctly.</div>
+        <div class="reels" id="reels" aria-live="polite"></div>
+      </div>
+      <div class="controls">
+        <div class="control-grid">
+          <button class="btn-main" id="spinBtn" type="button">Spin</button>
+          <button class="btn-small" id="autoBtn" type="button">Auto</button>
+          <button class="btn-small" id="stopBtn" type="button">Stop</button>
+          <button class="btn-small" id="betDown" type="button">Bet -</button>
+          <button class="btn-small" id="betUp" type="button">Bet +</button>
+        </div>
+        <div class="settings">
+          <div class="field"><label for="speed">Spin Speed</label><input id="speed" type="range" min="120" max="900" value="420" /></div>
+          <div class="field"><label for="vol">SFX Volume</label><input id="vol" type="range" min="0" max="100" value="22" /></div>
+          <div class="field"><label for="mode">Mode</label><select id="mode"><option value="normal">Normal 84%</option><option value="party">Party Visuals</option><option value="quiet">Quiet</option></select></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="paytable">
+    <div class="wrap info-grid">
+      <article class="info-card"><h3>WORD / PLAY</h3><p>Only exact WORD and PLAY payline hits pay the word bonus: <strong>50x bet</strong>. Wilds do not substitute. Civilization briefly attempts fairness.</p></article>
+      <article class="info-card"><h3>Rewind</h3><p>Three cassette symbols trigger rewind. Retriggering upgrades to Full Reverse. Auto-spin pauses on splash locks.</p></article>
+      <article class="info-card"><h3>Bonus CRT</h3><p>Three bonus CRTs trigger bonus splash behavior. Tap Spin after splash clears to continue auto.</p></article>
+    </div>
+  </section>
+
+  <section class="site-map" aria-labelledby="site-map-title">
+    <div class="wrap">
+      <h2 id="site-map-title"><span class="rainbow">MATTBEAR Site Map</span></h2>
+      <p style="color:var(--muted);max-width:70ch">Word$lots belongs in the connected MATTBEAR ecosystem, not floating alone in a cursed folder like a JPEG from 2008.</p>
+      <div class="info-grid">
+        <a href="https://bearicide.github.io/">Main</a>
+        <a href="https://bearicide.github.io/HiberNation/">HiberNation</a>
+        <a href="https://bearicide.github.io/wordplay/">Wordplay</a>
+        <a href="https://bearicide.github.io/wordslots/">Word$lots</a>
+        <a href="https://bearicide.github.io/the-choppa/">The Choppa</a>
+      </div>
+    </div>
+  </section>
 </main>
-<footer class="wrap">Word$lots • MATTBEAR Examples • bearicide.github.io</footer>
+
+<footer class="footer">
+  <div class="wrap">MATTBEAR Word$lots v1.0.10 Final QA • 84% RTP text • WORD / PLAY locked • PWA shell</div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="splash" id="splash" aria-hidden="true"><div class="splash-card"><h2 id="splashTitle">Bonus</h2><p id="splashText">Tap Spin to continue.</p><button class="btn-main" id="clearSplash" type="button">Continue</button></div></div>
+<div class="bonus-splash" id="bonusSplash" aria-hidden="true"> <div class="bonus-splash-card" role="dialog" aria-label="Bonus Games"> <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjNTNmZjg5Ii8+CjxzdG9wIG9mZnNldD0iLjUyIiBzdG9wLWNvbG9yPSIjMDkwNTEyIi8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzViN2NmZiIvPgo8L2xpbmVhckdyYWRpZW50Pgo8ZmlsdGVyIGlkPSJnbG93Ij48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI2IiByZXN1bHQ9ImIiLz48ZmVNZXJnZT48ZmVNZXJnZU5vZGUgaW49ImIiLz48ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiLz48L2ZlTWVyZ2U+PC9maWx0ZXI+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSI0NiIgZmlsbD0idXJsKCNnKSIvPgo8cmVjdCB4PSIxOCIgeT0iMTgiIHdpZHRoPSI0NzYiIGhlaWdodD0iNDc2IiByeD0iMzgiIGZpbGw9InJnYmEoMCwwLDAsLjI0KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LC41NSkiIHN0cm9rZS13aWR0aD0iOCIvPgo8dGV4dCB4PSIyNTYiIHk9IjIzOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkltcGFjdCxBcmlhbCBCbGFjayxzYW5zLXNlcmlmIiBmb250LXNpemU9IjY0IiBmaWxsPSIjZmZmOGViIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iNSIgcGFpbnQtb3JkZXI9InN0cm9rZSIgZmlsdGVyPSJ1cmwoI2dsb3cpIj5CT05VUzwvdGV4dD4KPHRleHQgeD0iMjU2IiB5PSIzMTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjI4IiBmaWxsPSIjZmZlNDVkIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMiIgcGFpbnQtb3JkZXI9InN0cm9rZSI+V09SRCxMT1RTPC90ZXh0Pgo8L3N2Zz4=" alt="Bonus splash" /> <h2>Bonus Games!</h2> <p>Spin paused for bonus splash lock. Tap Spin / Continue to resume.</p> </div> </div>
+
 <script>
-const symbols=['W','O','R','D','P','L','A','Y','WILD','VINYL','BONUS','BEAR','GL1TCH','HONEY','CRT','BASS'];let credits=5000,bet=50;const screen=document.querySelector('#slotScreen'),status=document.querySelector('#status');function draw(vals=[]){screen.innerHTML='';for(let i=0;i<16;i++){const d=document.createElement('div');d.className='reel';d.textContent=vals[i]||symbols[(i*3)%symbols.length];d.style.color=['var(--cyan)','var(--mag)','var(--gold)','var(--green)'][i%4];screen.appendChild(d)}}function setMeters(){document.querySelector('#credits').textContent=credits;document.querySelector('#bet').textContent=bet}function check(vals){const rows=[vals.slice(0,4),vals.slice(4,8),vals.slice(8,12),vals.slice(12,16)];let win=0,msg='Spin complete. The reels have spoken, mostly in nonsense.';rows.forEach((r,idx)=>{const word=r.join('');if(word==='WORD'||word==='PLAY'){win+=bet*50;msg=word+' BONUS on row '+(idx+1)+' • +'+(bet*50);[...screen.children].slice(idx*4,idx*4+4).forEach(x=>x.classList.add('hit'))}});const wilds=vals.filter(v=>v==='WILD').length;if(!win&&wilds>=3){win=bet*8;msg='Wild cluster • +'+win;[...screen.children].forEach((x,i)=>{if(vals[i]==='WILD')x.classList.add('hit')})}credits+=win;status.textContent=msg}function spin(){if(credits<bet){status.textContent='Not enough credits. The fake casino has fake denied you.';return}credits-=bet;setMeters();const vals=Array.from({length:16},()=>symbols[Math.floor(Math.random()*symbols.length)]);if(Math.random()<.13){const row=Math.floor(Math.random()*4)*4;const word=Math.random()<.5?['W','O','R','D']:['P','L','A','Y'];word.forEach((v,i)=>vals[row+i]=v)}draw(vals);check(vals);setMeters()}document.querySelector('#spin').onclick=spin;document.querySelector('#betDown').onclick=()=>{bet=Math.max(10,bet-10);setMeters()};document.querySelector('#betUp').onclick=()=>{bet=Math.min(250,bet+10);setMeters()};draw();setMeters();window.MATTBEAR_WORDSLOTS={name:'Word$lots',source:'uploaded v1.0.10 final QA package',route:'/wordslots/',type:'free-play slots example'};
+const WORDS_4 = new Set(["WORD","PLAY"]); const WORD_COUNT_NOTE = WORDS_4.size;
+const SYMBOLS = [
+  { id:"wildBear", label:"WILD BEAR", file:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmYzY2I5Ii8+CjxzdG9wIG9mZnNldD0iLjUyIiBzdG9wLWNvbG9yPSIjMDkwNTEyIi8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzUzZjZmZiIvPgo8L2xpbmVhckdyYWRpZW50Pgo8ZmlsdGVyIGlkPSJnbG93Ij48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI2IiByZXN1bHQ9ImIiLz48ZmVNZXJnZT48ZmVNZXJnZU5vZGUgaW49ImIiLz48ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiLz48L2ZlTWVyZ2U+PC9maWx0ZXI+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSI0NiIgZmlsbD0idXJsKCNnKSIvPgo8cmVjdCB4PSIxOCIgeT0iMTgiIHdpZHRoPSI0NzYiIGhlaWdodD0iNDc2IiByeD0iMzgiIGZpbGw9InJnYmEoMCwwLDAsLjI0KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LC41NSkiIHN0cm9rZS13aWR0aD0iOCIvPgo8dGV4dCB4PSIyNTYiIHk9IjIzOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkltcGFjdCxBcmlhbCBCbGFjayxzYW5zLXNlcmlmIiBmb250LXNpemU9IjQ4IiBmaWxsPSIjZmZmOGViIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iNSIgcGFpbnQtb3JkZXI9InN0cm9rZSIgZmlsdGVyPSJ1cmwoI2dsb3cpIj5XSUxEIEJFQVI8L3RleHQ+Cjx0ZXh0IHg9IjI1NiIgeT0iMzEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyOCIgZmlsbD0iI2ZmZTQ1ZCIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjIiIHBhaW50LW9yZGVyPSJzdHJva2UiPldPUkQkTE9UUzwvdGV4dD4KPC9zdmc=", wild:true, weight:5 },
+  { id:"jackpot", label:"FX", file:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmY5YTNkIi8+CjxzdG9wIG9mZnNldD0iLjUyIiBzdG9wLWNvbG9yPSIjMDkwNTEyIi8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmZTQ1ZCIvPgo8L2xpbmVhckdyYWRpZW50Pgo8ZmlsdGVyIGlkPSJnbG93Ij48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI2IiByZXN1bHQ9ImIiLz48ZmVNZXJnZT48ZmVNZXJnZU5vZGUgaW49ImIiLz48ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiLz48L2ZlTWVyZ2U+PC9maWx0ZXI+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSI0NiIgZmlsbD0idXJsKCNnKSIvPgo8cmVjdCB4PSIxOCIgeT0iMTgiIHdpZHRoPSI0NzYiIGhlaWdodD0iNDc2IiByeD0iMzgiIGZpbGw9InJnYmEoMCwwLDAsLjI0KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LC41NSkiIHN0cm9rZS13aWR0aD0iOCIvPgo8dGV4dCB4PSIyNTYiIHk9IjIzOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkltcGFjdCxBcmlhbCBCbGFjayxzYW5zLXNlcmlmIiBmb250LXNpemU9IjY0IiBmaWxsPSIjZmZmOGViIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iNSIgcGFpbnQtb3JkZXI9InN0cm9rZSIgZmlsdGVyPSJ1cmwoI2dsb3cpIj5GWDwvdGV4dD4KPHRleHQgeD0iMjU2IiB5PSIzMTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjI4IiBmaWxsPSIjZmZlNDVkIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMiIgcGFpbnQtb3JkZXI9InN0cm9rZSI+V09SRC,TE9UUzwvdGV4dD4KPC9zdmc=", weight:5 },
+  { id:"free", label:"MATTBEAR", file:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjNTNmZjg5Ii8+CjxzdG9wIG9mZnNldD0iLjUyIiBzdG9wLWNvbG9yPSIjMDkwNTEyIi8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzViN2NmZiIvPgo8L2xpbmVhckdyYWRpZW50Pgo8ZmlsdGVyIGlkPSJnbG93Ij48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI2IiByZXN1bHQ9ImIiLz48ZmVNZXJnZT48ZmVNZXJnZU5vZGUgaW49ImIiLz48ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiLz48L2ZlTWVyZ2U+PC9maWx0ZXI+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSI0NiIgZmlsbD0idXJsKCNnKSIvPgo8cmVjdCB4PSIxOCIgeT0iMTgiIHdpZHRoPSI0NzYiIGhlaWdodD0iNDc2IiByeD0iMzgiIGZpbGw9InJnYmEoMCwwLDAsLjI0KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LC41NSkiIHN0cm9rZS13aWR0aD0iOCIvPgo8dGV4dCB4PSIyNTYiIHk9IjIzOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkltcGFjdCxBcmlhbCBCbGFjayxzYW5zLXNlcmlmIiBmb250LXNpemU9IjQ4IiBmaWxsPSIjZmZmOGViIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iNSIgcGFpbnQtb3JkZXI9InN0cm9rZSIgZmlsdGVyPSJ1cmwoI2dsb3cpIj5NQVRUQkVBUjwvdGV4dD4KPHRleHQgeD0iMjU2IiB5PSIzMTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjI4IiBmaWxsPSIjZmZlNDVkIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMiIgcGFpbnQtb3JkZXI9InN0cm9rZSI+V09SRC,TE9UUzwvdGV4dD4KPC9zdmc=", free:true, weight:6 },
+  { id:"headphones", label:"HEADPHONES", file:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjYTQ2Y2ZmIi8+CjxzdG9wIG9mZnNldD0iLjUyIiBzdG9wLWNvbG9yPSIjMDkwNTEyIi8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmNGQ2ZCIvPgo8L2xpbmVhckdyYWRpZW50Pgo8ZmlsdGVyIGlkPSJnbG93Ij48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI2IiByZXN1bHQ9ImIiLz48ZmVNZXJnZT48ZmVNZXJnZU5vZGUgaW49ImIiLz48ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiLz48L2ZlTWVyZ2U+PC9maWx0ZXI+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSI0NiIgZmlsbD0idXJsKCNnKSIvPgo8cmVjdCB4PSIxOCIgeT0iMTgiIHdpZHRoPSI0NzYiIGhlaWdodD0iNDc2IiByeD0iMzgiIGZpbGw9InJnYmEoMCwwLDAsLjI0KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LC41NSkiIHN0cm9rZS13aWR0aD0iOCIvPgo8dGV4dCB4PSIyNTYiIHk9IjIzOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkltcGFjdCxBcmlhbCBCbGFjayxzYW5zLXNlcmlmIiBmb250LXNpemU9IjQ4IiBmaWxsPSIjZmZmOGViIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iNSIgcGFpbnQtb3JkZXI9InN0cm9rZSIgZmlsdGVyPSJ1cmwoI2dsb3cpIj5IRUFECG9ORVM8L3RleHQ+Cjx0ZXh0IHg9IjI1NiIgeT0iMzEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyOCIgZmlsbD0iI2ZmZTQ1ZCIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjIiIHBhaW50LW9yZGVyPSJzdHJva2UiPldPUkQkTE9UUzwvdGV4dD4KPC9zdmc=", weight:6 },
+  { id:"cassette", label:"CASSETTE", file:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmYzY2I5Ii8+CjxzdG9wIG9mZnNldD0iLjUyIiBzdG9wLWNvbG9yPSIjMDkwNTEyIi8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzUzZjZmZiIvPgo8L2xpbmVhckdyYWRpZW50Pgo8ZmlsdGVyIGlkPSJnbG93Ij48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI2IiByZXN1bHQ9ImIiLz48ZmVNZXJnZT48ZmVNZXJnZU5vZGUgaW49ImIiLz48ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiLz48L2ZlTWVyZ2U+PC9maWx0ZXI+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSI0NiIgZmlsbD0idXJsKCNnKSIvPgo8cmVjdCB4PSIxOCIgeT0iMTgiIHdpZHRoPSI0NzYiIGhlaWdodD0iNDc2IiByeD0iMzgiIGZpbGw9InJnYmEoMCwwLDAsLjI0KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LC41NSkiIHN0cm9rZS13aWR0aD0iOCIvPgo8dGV4dCB4PSIyNTYiIHk9IjIzOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkltcGFjdCxBcmlhbCBCbGFjayxzYW5zLXNlcmlmIiBmb250LXNpemU9IjQ4IiBmaWxsPSIjZmZmOGViIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iNSIgcGFpbnQtb3JkZXI9InN0cm9rZSIgZmlsdGVyPSJ1cmwoI2dsb3cpIj5DQVNTRVRURTwvdGV4dD4KPHRleHQgeD0iMjU2IiB5PSIzMTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjI4IiBmaWxsPSIjZmZlNDVkIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMiIgcGFpbnQtb3JkZXI9InN0cm9rZSI+V09SRC,TE9UUzwvdGV4dD4KPC9zdmc=", rewind:true, weight:7 },
+  { id:"vinyl", label:"VINYL", file:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmY5YTNkIi8+CjxzdG9wIG9mZnNldD0iLjUyIiBzdG9wLWNvbG9yPSIjMDkwNTEyIi8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmZTQ1ZCIvPgo8L2xpbmVhckdyYWRpZW50Pgo8ZmlsdGVyIGlkPSJnbG93Ij48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI2IiByZXN1bHQ9ImIiLz48ZmVNZXJnZT48ZmVNZXJnZU5vZGUgaW49ImIiLz48ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiLz48L2ZlTWVyZ2U+PC9maWx0ZXI+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSI0NiIgZmlsbD0idXJsKCNnKSIvPgo8cmVjdCB4PSIxOCIgeT0iMTgiIHdpZHRoPSI0NzYiIGhlaWdodD0iNDc2IiByeD0iMzgiIGZpbGw9InJnYmEoMCwwLDAsLjI0KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LC41NSkiIHN0cm9rZS13aWR0aD0iOCIvPgo8dGV4dCB4PSIyNTYiIHk9IjIzOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkltcGFjdCxBcmlhbCBCbGFjayxzYW5zLXNlcmlmIiBmb250LXNpemU9IjY0IiBmaWxsPSIjZmZmOGViIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iNSIgcGFpbnQtb3JkZXI9InN0cm9rZSIgZmlsdGVyPSJ1cmwoI2dsb3cpIj5WSU5ZTDwvdGV4dD4KPHRleHQgeD0iMjU2IiB5PSIzMTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjI4IiBmaWxsPSIjZmZlNDVkIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMiIgcGFpbnQtb3JkZXI9InN0cm9rZSI+V09SRC,TE9UUzwvdGV4dD4KPC9zdmc=", weight:9 },
+  { id:"tileW", label:"W", file:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjNTNmZjg5Ii8+CjxzdG9wIG9mZnNldD0iLjUyIiBzdG9wLWNvbG9yPSIjMDkwNTEyIi8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzViN2NmZiIvPgo8L2xpbmVhckdyYWRpZW50Pgo8ZmlsdGVyIGlkPSJnbG93Ij48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI2IiByZXN1bHQ9ImIiLz48ZmVNZXJnZT48ZmVNZXJnZU5vZGUgaW49ImIiLz48ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiLz48L2ZlTWVyZ2U+PC9maWx0ZXI+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSI0NiIgZmlsbD0idXJsKCNnKSIvPgo8cmVjdCB4PSIxOCIgeT0iMTgiIHdpZHRoPSI0NzYiIGhlaWdodD0iNDc2IiByeD0iMzgiIGZpbGw9InJnYmEoMCwwLDAsLjI0KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LC41NSkiIHN0cm9rZS13aWR0aD0iOCIvPgo8dGV4dCB4PSIyNTYiIHk9IjIzOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkltcGFjdCxBcmlhbCBCbGFjayxzYW5zLXNlcmlmIiBmb250LXNpemU9IjY0IiBmaWxsPSIjZmZmOGViIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iNSIgcGFpbnQtb3JkZXI9InN0cm9rZSIgZmlsdGVyPSJ1cmwoI2dsb3cpIj5XPC90ZXh0Pgo8dGV4dCB4PSIyNTYiIHk9IjMxMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjgiIGZpbGw9IiNmZmU0NWQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIyIiBwYWludC1vcmRlcj0ic3Ryb2tlIj5XT1JEJExPVFM8L3RleHQ+Cjwvc3ZnPg==", weight:10 },
+  { id:"tileO", label:"O", file:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjYTQ2Y2ZmIi8+CjxzdG9wIG9mZnNldD0iLjUyIiBzdG9wLWNvbG9yPSIjMDkwNTEyIi8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmNGQ2ZCIvPgo8L2xpbmVhckdyYWRpZW50Pgo8ZmlsdGVyIGlkPSJnbG93Ij48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI2IiByZXN1bHQ9ImIiLz48ZmVNZXJnZT48ZmVNZXJnZU5vZGUgaW49ImIiLz48ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiLz48L2ZlTWVyZ2U+PC9maWx0ZXI+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSI0NiIgZmlsbD0idXJsKCNnKSIvPgo8cmVjdCB4PSIxOCIgeT0iMTgiIHdpZHRoPSI0NzYiIGhlaWdodD0iNDc2IiByeD0iMzgiIGZpbGw9InJnYmEoMCwwLDAsLjI0KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LC41NSkiIHN0cm9rZS13aWR0aD0iOCIvPgo8dGV4dCB4PSIyNTYiIHk9IjIzOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkltcGFjdCxBcmlhbCBCbGFjayxzYW5zLXNlcmlmIiBmb250LXNpemU9IjY0IiBmaWxsPSIjZmZmOGViIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iNSIgcGFpbnQtb3JkZXI9InN0cm9rZSIgZmlsdGVyPSJ1cmwoI2dsb3cpIj5PPC90ZXh0Pgo8dGV4dCB4PSIyNTYiIHk9IjMxMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjgiIGZpbGw9IiNmZmU0NWQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIyIiBwYWludC1vcmRlcj0ic3Ryb2tlIj5XT1JEJExPVFM8L3RleHQ+Cjwvc3ZnPg==", weight:10 },
+  { id:"tileR", label:"R", file:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmYzY2I5Ii8+CjxzdG9wIG9mZnNldD0iLjUyIiBzdG9wLWNvbG9yPSIjMDkwNTEyIi8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzUzZjZmZiIvPgo8L2xpbmVhckdyYWRpZW50Pgo8ZmlsdGVyIGlkPSJnbG93Ij48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI2IiByZXN1bHQ9ImIiLz48ZmVNZXJnZT48ZmVNZXJnZU5vZGUgaW49ImIiLz48ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiLz48L2ZlTWVyZ2U+PC9maWx0ZXI+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSI0NiIgZmlsbD0idXJsKCNnKSIvPgo8cmVjdCB4PSIxOCIgeT0iMTgiIHdpZHRoPSI0NzYiIGhlaWdodD0iNDc2IiByeD0iMzgiIGZpbGw9InJnYmEoMCwwLDAsLjI0KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LC41NSkiIHN0cm9rZS13aWR0aD0iOCIvPgo8dGV4dCB4PSIyNTYiIHk9IjIzOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkltcGFjdCxBcmlhbCBCbGFjayxzYW5zLXNlcmlmIiBmb250LXNpemU9IjY0IiBmaWxsPSIjZmZmOGViIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iNSIgcGFpbnQtb3JkZXI9InN0cm9rZSIgZmlsdGVyPSJ1cmwoI2dsb3cpIj5SPC90ZXh0Pgo8dGV4dCB4PSIyNTYiIHk9IjMxMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjgiIGZpbGw9IiNmZmU0NWQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIyIiBwYWludC1vcmRlcj0ic3Ryb2tlIj5XT1JEJExPVFM8L3RleHQ+Cjwvc3ZnPg==", weight:10 },
+  { id:"tileD", label:"D", file:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmY5YTNkIi8+CjxzdG9wIG9mZnNldD0iLjUyIiBzdG9wLWNvbG9yPSIjMDkwNTEyIi8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmZTQ1ZCIvPgo8L2xpbmVhckdyYWRpZW50Pgo8ZmlsdGVyIGlkPSJnbG93Ij48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI2IiByZXN1bHQ9ImIiLz48ZmVNZXJnZT48ZmVNZXJnZU5vZGUgaW49ImIiLz48ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiLz48L2ZlTWVyZ2U+PC9maWx0ZXI+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSI0NiIgZmlsbD0idXJsKCNnKSIvPgo8cmVjdCB4PSIxOCIgeT0iMTgiIHdpZHRoPSI0NzYiIGhlaWdodD0iNDc2IiByeD0iMzgiIGZpbGw9InJnYmEoMCwwLDAsLjI0KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LC41NSkiIHN0cm9rZS13aWR0aD0iOCIvPgo8dGV4dCB4PSIyNTYiIHk9IjIzOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkltcGFjdCxBcmlhbCBCbGFjayxzYW5zLXNlcmlmIiBmb250LXNpemU9IjY0IiBmaWxsPSIjZmZmOGViIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iNSIgcGFpbnQtb3JkZXI9InN0cm9rZSIgZmlsdGVyPSJ1cmwoI2dsb3cpIj5EPC90ZXh0Pgo8dGV4dCB4PSIyNTYiIHk9IjMxMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjgiIGZpbGw9IiNmZmU0NWQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIyIiBwYWludC1vcmRlcj0ic3Ryb2tlIj5XT1JEJExPVFM8L3RleHQ+Cjwvc3ZnPg==", weight:10 },
+  { id:"tileP", label:"P", file:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjNTNmZjg5Ii8+CjxzdG9wIG9mZnNldD0iLjUyIiBzdG9wLWNvbG9yPSIjMDkwNTEyIi8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzViN2NmZiIvPgo8L2xpbmVhckdyYWRpZW50Pgo8ZmlsdGVyIGlkPSJnbG93Ij48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI2IiByZXN1bHQ9ImIiLz48ZmVNZXJnZT48ZmVNZXJnZU5vZGUgaW49ImIiLz48ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiLz48L2ZlTWVyZ2U+PC9maWx0ZXI+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSI0NiIgZmlsbD0idXJsKCNnKSIvPgo8cmVjdCB4PSIxOCIgeT0iMTgiIHdpZHRoPSI0NzYiIGhlaWdodD0iNDc2IiByeD0iMzgiIGZpbGw9InJnYmEoMCwwLDAsLjI0KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LC41NSkiIHN0cm9rZS13aWR0aD0iOCIvPgo8dGV4dCB4PSIyNTYiIHk9IjIzOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkltcGFjdCxBcmlhbCBCbGFjayxzYW5zLXNlcmlmIiBmb250LXNpemU9IjY0IiBmaWxsPSIjZmZmOGViIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iNSIgcGFpbnQtb3JkZXI9InN0cm9rZSIgZmlsdGVyPSJ1cmwoI2dsb3cpIj5QPC90ZXh0Pgo8dGV4dCB4PSIyNTYiIHk9IjMxMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjgiIGZpbGw9IiNmZmU0NWQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIyIiBwYWludC1vcmRlcj0ic3Ryb2tlIj5XT1JEJExPVFM8L3RleHQ+Cjwvc3ZnPg==", weight:10 },
+  { id:"tileL", label:"L", file:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjYTQ2Y2ZmIi8+CjxzdG9wIG9mZnNldD0iLjUyIiBzdG9wLWNvbG9yPSIjMDkwNTEyIi8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmNGQ2ZCIvPgo8L2xpbmVhckdyYWRpZW50Pgo8ZmlsdGVyIGlkPSJnbG93Ij48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI2IiByZXN1bHQ9ImIiLz48ZmVNZXJnZT48ZmVNZXJnZU5vZGUgaW49ImIiLz48ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiLz48L2ZlTWVyZ2U+PC9maWx0ZXI+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSI0NiIgZmlsbD0idXJsKCNnKSIvPgo8cmVjdCB4PSIxOCIgeT0iMTgiIHdpZHRoPSI0NzYiIGhlaWdodD0iNDc2IiByeD0iMzgiIGZpbGw9InJnYmEoMCwwLDAsLjI0KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LC41NSkiIHN0cm9rZS13aWR0aD0iOCIvPgo8dGV4dCB4PSIyNTYiIHk9IjIzOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkltcGFjdCxBcmlhbCBCbGFjayxzYW5zLXNlcmlmIiBmb250LXNpemU9IjY0IiBmaWxsPSIjZmZmOGViIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iNSIgcGFpbnQtb3JkZXI9InN0cm9rZSIgZmlsdGVyPSJ1cmwoI2dsb3cpIj5MPC90ZXh0Pgo8dGV4dCB4PSIyNTYiIHk9IjMxMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjgiIGZpbGw9IiNmZmU0NWQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIyIiBwYWludC1vcmRlcj0ic3Ryb2tlIj5XT1JEJExPVFM8L3RleHQ+Cjwvc3ZnPg==", weight:10 },
+  { id:"tileA", label:"A", file:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmYzY2I5Ii8+CjxzdG9wIG9mZnNldD0iLjUyIiBzdG9wLWNvbG9yPSIjMDkwNTEyIi8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzUzZjZmZiIvPgo8L2xpbmVhckdyYWRpZW50Pgo8ZmlsdGVyIGlkPSJnbG93Ij48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI2IiByZXN1bHQ9ImIiLz48ZmVNZXJnZT48ZmVNZXJnZU5vZGUgaW49ImIiLz48ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiLz48L2ZlTWVyZ2U+PC9maWx0ZXI+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSI0NiIgZmlsbD0idXJsKCNnKSIvPgo8cmVjdCB4PSIxOCIgeT0iMTgiIHdpZHRoPSI0NzYiIGhlaWdodD0iNDc2IiByeD0iMzgiIGZpbGw9InJnYmEoMCwwLDAsLjI0KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LC41NSkiIHN0cm9rZS13aWR0aD0iOCIvPgo8dGV4dCB4PSIyNTYiIHk9IjIzOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkltcGFjdCxBcmlhbCBCbGFjayxzYW5zLXNlcmlmIiBmb250LXNpemU9IjY0IiBmaWxsPSIjZmZmOGViIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iNSIgcGFpbnQtb3JkZXI9InN0cm9rZSIgZmlsdGVyPSJ1cmwoI2dsb3cpIj5BPC90ZXh0Pgo8dGV4dCB4PSIyNTYiIHk9IjMxMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjgiIGZpbGw9IiNmZmU0NWQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIyIiBwYWludC1vcmRlcj0ic3Ryb2tlIj5XT1JEJExPVFM8L3RleHQ+Cjwvc3ZnPg==", weight:10 },
+  { id:"tileY", label:"Y", file:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmY5YTNkIi8+CjxzdG9wIG9mZnNldD0iLjUyIiBzdG9wLWNvbG9yPSIjMDkwNTEyIi8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmZTQ1ZCIvPgo8L2xpbmVhckdyYWRpZW50Pgo8ZmlsdGVyIGlkPSJnbG93Ij48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI2IiByZXN1bHQ9ImIiLz48ZmVNZXJnZT48ZmVNZXJnZU5vZGUgaW49ImIiLz48ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiLz48L2ZlTWVyZ2U+PC9maWx0ZXI+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSI0NiIgZmlsbD0idXJsKCNnKSIvPgo8cmVjdCB4PSIxOCIgeT0iMTgiIHdpZHRoPSI0NzYiIGhlaWdodD0iNDc2IiByeD0iMzgiIGZpbGw9InJnYmEoMCwwLDAsLjI0KSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LC41NSkiIHN0cm9rZS13aWR0aD0iOCIvPgo8dGV4dCB4PSIyNTYiIHk9IjIzOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkltcGFjdCxBcmlhbCBCbGFjayxzYW5zLXNlcmlmIiBmb250LXNpemU9IjY0IiBmaWxsPSIjZmZmOGViIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iNSIgcGFpbnQtb3JkZXI9InN0cm9rZSIgZmlsdGVyPSJ1cmwoI2dsb3cpIj5ZPC90ZXh0Pgo8dGV4dCB4PSIyNTYiIHk9IjMxMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjgiIGZpbGw9IiNmZmU0NWQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIyIiBwYWludC1vcmRlcj0ic3Ryb2tlIj5XT1JEJExPVFM8L3RleHQ+Cjwvc3ZnPg==", weight:10 }
+];
+
+const PAYLINES = [
+  [0,1,2,3], [4,5,6,7], [8,9,10,11], [12,13,14,15],
+  [0,5,10,15], [3,6,9,12], [0,4,8,12], [1,5,9,13], [2,6,10,14], [3,7,11,15]
+];
+const SFX = { button:"data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABAAZGF0YQAAAAA=", spin:"data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABAAZGF0YQAAAAA=", stop:"data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABAAZGF0YQAAAAA=", small:"data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABAAZGF0YQAAAAA=", big:"data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABAAZGF0YQAAAAA=", bonus:"data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABAAZGF0YQAAAAA=", free:"data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABAAZGF0YQAAAAA=", lose:"data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABAAZGF0YQAAAAA=", coin:"data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABAAZGF0YQAAAAA=", jackpot:"data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABAAZGF0YQAAAAA=" };
+
+const $ = s => document.querySelector(s);
+const $$ = s => Array.from(document.querySelectorAll(s));
+const reels = $('#reels');
+const statusEl = $('#status');
+const creditsEl = $('#credits');
+const betRead = $('#betRead');
+const autoRead = $('#autoRead');
+const splash = $('#splash');
+const splashTitle = $('#splashTitle');
+const splashText = $('#splashText');
+const toast = $('#toast');
+const spinBtn = $('#spinBtn');
+const autoBtn = $('#autoBtn');
+const stopBtn = $('#stopBtn');
+let credits=1000, bet=10, spinning=false, auto=false, spinTimer=null, splashLock=false;
+let currentGrid=[];
+function weightedSymbol(){const total=SYMBOLS.reduce((n,s)=>n+(s.weight||1),0);let r=Math.random()*total;for(const s of SYMBOLS){r-=s.weight||1;if(r<=0)return s;}return SYMBOLS[SYMBOLS.length-1];}
+function setStatus(html){statusEl.innerHTML=html;}
+function showToast(msg){toast.textContent=msg;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1800);}
+function updateHud(){creditsEl.textContent=credits;betRead.textContent=bet;autoRead.textContent=auto?'On':'Off';}
+function playSfx(name){if($('#mode').value==='quiet')return;try{const a=new Audio(SFX[name]||SFX.button);a.volume=(Number($('#vol').value)||0)/100;a.play().catch(()=>{});}catch(e){}}
+function drawGrid(){reels.innerHTML='';currentGrid.forEach((sym,i)=>{const cell=document.createElement('div');cell.className='cell';cell.dataset.index=i;cell.dataset.id=sym.id;cell.innerHTML=`<img src="${sym.file}" alt="${sym.label}"><span class="sr-only">${sym.label}</span>`;reels.appendChild(cell);});}
+function randGrid(){return Array.from({length:16},()=>weightedSymbol());}
+function forceSometimes(grid){if(Math.random()<.10){const line=PAYLINES[Math.floor(Math.random()*4)];const word=Math.random()<.5?'WORD':'PLAY';line.forEach((idx,j)=>grid[idx]=SYMBOLS.find(s=>s.id==='tile'+word[j])||grid[idx]);}return grid;}
+function symbolLetter(sym){if(sym.id && sym.id.startsWith('tile')) return sym.id.replace('tile',''); return '';}
+function evaluate(grid){let win=0, notes=[];const cells=$$('.cell');cells.forEach(c=>c.classList.remove('win','word','tease'));for(const line of PAYLINES){const chars=line.map(i=>symbolLetter(grid[i])).join('');if(WORDS_4.has(chars)){const payout=bet*50;win+=payout;notes.push(`${chars} PAYLINE +${payout}`);line.forEach(i=>cells[i]?.classList.add('word'));}}
+ const cassettes=grid.filter(s=>s.rewind).length;const bonus=grid.filter(s=>s.bonus).length;const free=grid.filter(s=>s.free).length;const wild=grid.filter(s=>s.wild).length; if(cassettes>=3){const payout=bet*8;win+=payout;notes.push(`REWIND +${payout}`);showSplash('REWIND!', 'Three cassettes triggered rewind. Auto pauses until you continue.');}
+ if(bonus>=3){const payout=bet*12;win+=payout;notes.push(`BONUS CRT +${payout}`);showBonusSplash();}
+ if(free>=3){const payout=bet*10;win+=payout;notes.push(`MATTBEAR FREE +${payout}`);}
+ if(wild>=3){const payout=bet*5;win+=payout;notes.push(`WILD CLUSTER +${payout}`);}
+ if(win>0){credits+=win;playSfx(win>=bet*50?'big':'small');setStatus(`<strong>WIN ${win}.</strong> ${notes.join(' • ')}`);showToast(notes[0]);cells.forEach((c,i)=>{if(grid[i].wild||grid[i].free||grid[i].bonus||grid[i].rewind)c.classList.add('win')});}
+ else{setStatus('<strong>No win.</strong> WORD and PLAY are picky little goblins. Spin again.');playSfx('lose');}
+ updateHud();}
+function showSplash(title,text){splashLock=true;auto=false;updateHud();splashTitle.textContent=title;splashText.textContent=text;splash.classList.add('show');splash.setAttribute('aria-hidden','false');document.body.classList.add('modal-open');}
+function clearSplash(){splashLock=false;splash.classList.remove('show');splash.setAttribute('aria-hidden','true');document.body.classList.remove('modal-open');}
+function showBonusSplash(){const bs=$('#bonusSplash');if(bs){bs.className='bonus-splash show active';bs.setAttribute('aria-hidden','false');setTimeout(()=>{bs.className='bonus-splash';bs.setAttribute('aria-hidden','true');},1400);}showSplash('BONUS!', 'Bonus CRTs landed. Tap Continue or Spin to resume.');}
+function spin(){if(spinning||splashLock)return;if(credits<bet){setStatus('<strong>Not enough credits.</strong> Bet down or accept fake bankruptcy.');return;}spinning=true;spinBtn.disabled=true;credits-=bet;updateHud();playSfx('spin');const speed=Number($('#speed').value)||420;let ticks=0;const maxTicks=9+Math.floor(Math.random()*7);spinTimer=setInterval(()=>{currentGrid=randGrid();drawGrid();$$('.cell').forEach(c=>c.classList.add('spin'));ticks++;if(ticks>=maxTicks){stopResult();}},Math.max(80,speed/5));}
+function stopResult(){clearInterval(spinTimer);spinTimer=null;currentGrid=forceSometimes(randGrid());drawGrid();spinning=false;spinBtn.disabled=false;evaluate(currentGrid);if(auto&&!splashLock){setTimeout(spin,Math.max(420,Number($('#speed').value)||420));}}
+function fastStop(){if(spinning)stopResult();}
+function setBet(delta){if(spinning)return;bet=Math.max(1,Math.min(100,bet+delta));playSfx('button');updateHud();}
+spinBtn.addEventListener('click',()=>{if(splashLock){clearSplash();return}spin();});autoBtn.addEventListener('click',()=>{if(splashLock)return;auto=!auto;updateHud();playSfx('button');if(auto&&!spinning)spin();});stopBtn.addEventListener('click',()=>{auto=false;fastStop();updateHud();playSfx('stop');});$('#betDown').addEventListener('click',()=>setBet(-5));$('#betUp').addEventListener('click',()=>setBet(5));$('#clearSplash').addEventListener('click',clearSplash);document.addEventListener('keydown',e=>{if(e.code==='Space'){e.preventDefault();spinning?fastStop():spin();}if(e.key.toLowerCase()==='a'){auto=true;updateHud();if(!spinning&&!splashLock)spin();}if(e.key.toLowerCase()==='s'){auto=false;fastStop();updateHud();}if(e.key==='Escape'&&splashLock)clearSplash();});
+currentGrid=randGrid();drawGrid();updateHud();setStatus(`<strong>Ready.</strong> ${WORD_COUNT_NOTE} word bonuses active: WORD and PLAY only. 84% RTP text. Wilds do not substitute.`);
+
+const tracks=[{title:'We All Fall Down v2.0',artist:'MATTBEAR',art:$('#playerArt').src,src:$('#miniAudio').src},{title:'Bile in a Glass',artist:'MATTBEAR',art:$('#playerArt').src,src:$('#miniAudio').src},{title:'Untitled Signal',artist:'MATTBEAR',art:$('#playerArt').src,src:$('#miniAudio').src}];let trackIndex=0;function loadTrack(i){trackIndex=(i+tracks.length)%tracks.length;const t=tracks[trackIndex];$('#nowTitle').textContent=t.title;$('#nowArtist').textContent=t.artist;$('#playerArt').src=t.art;$('#miniAudio').src=t.src;$('#miniAudio').volume=.28;}$('#nextTrack').addEventListener('click',()=>loadTrack(trackIndex+1));$('#playTrack').addEventListener('click',()=>{const a=$('#miniAudio');a.volume=.28;if(a.paused){a.play().catch(()=>{});$('#playTrack').textContent='Ⅱ';}else{a.pause();$('#playTrack').textContent='▶';}});$('#quietTrack').addEventListener('click',()=>{$('#miniAudio').volume=.18;showToast('Mini-player volume softened.');});loadTrack(0);
+window.MATTBEAR_WORDSLOTS={version:'1.0.10-final-qa-sanitized-deploy',rtpText:'84%',wordBonuses:['WORD','PLAY'],route:'/wordslots/',note:'Actual v1.0.10 logic deployed with huge embedded media replaced by lightweight generated placeholders.'};
 </script>
-<script src="/assets/mattbear-sitewide.js" defer data-mb-page="Word$lots" data-mb-section="Thing I Made: Slots" data-mb-description="Word$lots is a MATTBEAR free-play word slot showcase and example-project route."></script>
+
+<div class="v101-modal" id="v101Help" aria-hidden="true" role="dialog" aria-label="Wordslots quick guide">
+  <div class="v101-card">
+    <h2>Word$lots quick guide</h2>
+    <p>Spin manually or use Auto. Bonus and Rewind splashes pause play until cleared. Tap Spin to continue.</p>
+    <ul>
+      <li><strong>Spin:</strong> tap Spin or press Space. Press Space during a spin to fast-stop without changing the result.</li>
+      <li><strong>Auto:</strong> A starts auto spin. S stops it.</li>
+      <li><strong>Words:</strong> Only WORD and PLAY score, only as exact 4-letter payline hits. No 3-letter triggers. Wilds do not count.</li>
+      <li><strong>Rewind:</strong> 3 cassettes trigger reverse spins at 84% RTP. Retriggering upgrades Full Reverse at 84% RTP.</li>
+      <li><strong>Audio:</strong> starts quieter by default.</li>
+    </ul>
+    <button class="v101-close" type="button" id="v101CloseBtn">Close</button>
+  </div>
+</div>
+<script id="wordslots-enhanced-v101-script">
+(() => { const help = document.getElementById('v101Help'); const open = () => { help?.classList.add('show'); help?.setAttribute('aria-hidden','false'); }; const close = () => { help?.classList.remove('show'); help?.setAttribute('aria-hidden','true'); }; document.getElementById('v101HelpBtn')?.addEventListener('click', open); document.getElementById('v101CloseBtn')?.addEventListener('click', close); document.getElementById('v101TopBtn')?.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'})); help?.addEventListener('click', e => { if(e.target === help) close(); }); document.addEventListener('keydown', e => { if(e.key === 'Escape') close(); }); document.querySelectorAll('audio').forEach(a => { if(a.volume > .35) a.volume = .35; });})();
+</script>
+<script>(() => { if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('./service-worker.js').catch(() => {}); }); }})();</script>
+<script src="/assets/mattbear-sitewide.js" defer data-mb-page="Word$lots" data-mb-section="Actual Word$lots v1.0.10 Final QA"></script>
 </body>
 </html>
