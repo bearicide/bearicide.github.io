@@ -1,0 +1,122 @@
+[
+  {
+    "target": "assets/interactive/mattbear-ecosystem-city-interactive.png",
+    "title": "MATTBEAR Ecosystem City Interactive Background",
+    "category": "interactive",
+    "usage": "Interactive landing/portal background concept",
+    "original_file": "MATTBEAR - image [ (113).png",
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGBA"
+  },
+  {
+    "target": "assets/cards/trading/001-mattbear.png",
+    "title": "Trading Card 001 - MATTBEAR",
+    "category": "trading-cards",
+    "usage": "Individual trading card",
+    "original_file": "001-mattbear.png",
+    "width": 422,
+    "height": 496,
+    "mode": "RGB"
+  },
+  {
+    "target": "assets/cards/trading/002-hibernation.png",
+    "title": "Trading Card 002 - HiberNation",
+    "category": "trading-cards",
+    "usage": "Individual trading card",
+    "original_file": "002-hibernation.png",
+    "width": 436,
+    "height": 496,
+    "mode": "RGB"
+  },
+  {
+    "target": "assets/cards/trading/003-gl1tche.png",
+    "title": "Trading Card 003 - GL1TCHE$",
+    "category": "trading-cards",
+    "usage": "Individual trading card",
+    "original_file": "003-gl1tche.png",
+    "width": 424,
+    "height": 496,
+    "mode": "RGB"
+  },
+  {
+    "target": "assets/cards/trading/004-overlord.png",
+    "title": "Trading Card 004 - OVERLORD",
+    "category": "trading-cards",
+    "usage": "Individual trading card",
+    "original_file": "004-overlord.png",
+    "width": 422,
+    "height": 478,
+    "mode": "RGB"
+  },
+  {
+    "target": "assets/cards/trading/005-milk-and-honey.png",
+    "title": "Trading Card 005 - Milk and Honey",
+    "category": "trading-cards",
+    "usage": "Individual trading card",
+    "original_file": "005-milk-and-honey.png",
+    "width": 436,
+    "height": 478,
+    "mode": "RGB"
+  },
+  {
+    "target": "assets/cards/trading/006-summerfest-bear.png",
+    "title": "Trading Card 006 - Summerfest Bear",
+    "category": "trading-cards",
+    "usage": "Individual trading card",
+    "original_file": "006-summerfest-bear.png",
+    "width": 424,
+    "height": 478,
+    "mode": "RGB"
+  },
+  {
+    "target": "assets/cards/trading/source-six-card-sheet.png",
+    "title": "Trading Card Six-Card Sheet",
+    "category": "trading-cards",
+    "usage": "Printable/contact sheet source",
+    "original_file": "source-six-card-sheet.png",
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGBA"
+  },
+  {
+    "target": "assets/slots/wordplay-letter-symbol-sheet.png",
+    "title": "WORDPLAY Letter/Symbol Sheet",
+    "category": "slot-machine",
+    "usage": "Slot machine reel symbol source",
+    "original_file": "MATTBEAR - image [ (116).png",
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGBA"
+  },
+  {
+    "target": "assets/music/album-most-things-single.png",
+    "title": "MATTBEAR - Most Things Album Art",
+    "category": "music",
+    "usage": "Music page album cover art / single artwork",
+    "original_file": "MATTBEAR - Most Things [] Album Art.png",
+    "width": 1254,
+    "height": 1254,
+    "mode": "RGBA"
+  },
+  {
+    "target": "assets/slots/wordplay-slot-machine-design.png",
+    "title": "WORDPLAY Slot Machine UI Design",
+    "category": "slot-machine",
+    "usage": "Slot machine page/interface design reference",
+    "original_file": "MATTBEAR - image [ (72).png",
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGBA"
+  },
+  {
+    "target": "assets/music/album-all-fall-down-bubble.png",
+    "title": "All Fall Down Bubble Art",
+    "category": "music",
+    "usage": "Secondary music/album cover asset",
+    "original_file": "bubble-afd.png",
+    "width": 512,
+    "height": 512,
+    "mode": "RGBA"
+  }
+]
