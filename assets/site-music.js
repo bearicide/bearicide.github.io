@@ -10,6 +10,14 @@
   if (window.__MATTBEAR_MUSIC_LOADED__) return;
   window.__MATTBEAR_MUSIC_LOADED__ = true;
 
+  const isMain = location.pathname === '/' || location.pathname.endsWith('/index.html');
+  if (isMain && !document.querySelector('link[href="/assets/main-mobile.css"]')) {
+    const mobile = document.createElement('link');
+    mobile.rel = 'stylesheet';
+    mobile.href = '/assets/main-mobile.css';
+    document.head.appendChild(mobile);
+  }
+
   if ('serviceWorker' in navigator && location.protocol === 'https:') {
     navigator.serviceWorker.register('/site-music-sw.js', { scope: '/' }).catch(() => {});
   }
