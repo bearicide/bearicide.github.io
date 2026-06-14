@@ -10,6 +10,10 @@
   if (window.__MATTBEAR_MUSIC_LOADED__) return;
   window.__MATTBEAR_MUSIC_LOADED__ = true;
 
+  if ('serviceWorker' in navigator && location.protocol === 'https:') {
+    navigator.serviceWorker.register('/site-music-sw.js', { scope: '/' }).catch(() => {});
+  }
+
   const saved = (() => {
     try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
     catch { return {}; }
