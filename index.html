@@ -211,7 +211,16 @@ body{margin:0;overflow-x:hidden}
 </main>
 </div>
 <script>
-const stage=document.getElementById('mapStage');const title=document.getElementById('hudTitle');const desc=document.getElementById('hudDesc');document.querySelectorAll('.zone').forEach(z=>{z.addEventListener('mouseenter',()=>{title.textContent=z.dataset.title;desc.textContent=z.dataset.desc;});z.addEventListener('focus',()=>{title.textContent=z.dataset.title;desc.textContent=z.dataset.desc;});});document.getElementById('debugToggle').addEventListener('click',e=>{stage.classList.toggle('show-zones');e.currentTarget.textContent=stage.classList.contains('show-zones')?'hide zones':'show zones'});
+const stage=document.getElementById('mapStage');
+const title=document.getElementById('hudTitle');
+const desc=document.getElementById('hudDesc');
+document.querySelectorAll('.zone').forEach(z=>{
+  const setHud=()=>{title.textContent=z.dataset.title;desc.textContent=z.dataset.desc;document.querySelectorAll('.zone.active').forEach(a=>a.classList.remove('active'));z.classList.add('active');};
+  z.addEventListener('mouseenter',setHud);
+  z.addEventListener('focus',setHud);
+  z.addEventListener('touchstart',setHud,{passive:true});
+});
+document.getElementById('debugToggle').addEventListener('click',e=>{stage.classList.toggle('show-zones');e.currentTarget.textContent=stage.classList.contains('show-zones')?'hide zones':'show zones'});
 </script>
 <script src="/assets/mattbear-sitewide.js" defer data-mb-page="MATTBEARCADE Interactive Map" data-mb-section="Spatial ecosystem launcher"></script>
 <link rel="stylesheet" href="/admin/admin.css"><script src="/admin/admin.js" defer></script>
