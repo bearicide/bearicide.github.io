@@ -2,30 +2,267 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>MATTBEAR | Client Examples</title>
-<meta name="description" content="Selected client and local examples by MATTBEAR, including restaurant websites, artist portfolio work, retail prototypes, Asian Store, WardAway, Karime Fernandez, and public-facing service pages.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MATTBEAR | Work Examples</title>
+<meta name="description" content="Selected MATTBEAR work examples, including restaurant websites, local business pages, artist portfolio concepts, retail prototypes, and project landing pages.">
 <meta name="theme-color" content="#ffffff">
 <style>
-:root{--bg:#fff;--ink:#121212;--muted:#5f6368;--soft:#f6f6f6;--line:#d8d8d8;--line-dark:#202124;--max:1120px}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;font-size:16px;line-height:1.55}a{color:inherit;text-decoration:none}a:visited{color:inherit}p{color:var(--muted);margin:0 0 1rem}.wrap{width:min(var(--max),calc(100% - 32px));margin:0 auto}.top{border-bottom:1px solid var(--line);background:#fff}.nav{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:18px 0}.brand{font-weight:700;letter-spacing:.03em;text-transform:uppercase}.brand small{display:block;font-size:.72rem;font-weight:400;letter-spacing:.04em;color:var(--muted);margin-top:2px}.menu{display:flex;gap:8px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line-dark);padding:9px 14px;background:#fff;color:var(--ink);font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.045em}.btn:visited{color:var(--ink)}.btn.primary{background:#111;color:#fff}.btn.primary:visited{color:#fff}.eyebrow{font-size:.74rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 10px}.hero{padding:64px 0 38px;border-bottom:1px solid var(--line)}.hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);gap:48px;align-items:start}.hero h1{font-size:clamp(2.8rem,7vw,5.6rem);line-height:.98;margin:0 0 22px;letter-spacing:-.055em;font-weight:650}.hero-copy p{max-width:740px;font-size:1.08rem}.summary-panel{border:1px solid var(--line);background:#fff}.summary-panel h2{font-size:1rem;font-weight:650;margin:0;padding:14px 16px;border-bottom:1px solid var(--line);background:var(--soft)}.summary-list{display:grid}.summary-item{display:grid;grid-template-columns:52px 1fr;border-top:1px solid var(--line)}.summary-item:first-child{border-top:0}.summary-num{display:grid;place-items:center;border-right:1px solid var(--line);font-size:.8rem;color:var(--muted)}.summary-copy{padding:12px 14px}.summary-copy strong{display:block;font-weight:650}.summary-copy span{display:block;color:var(--muted);font-size:.74rem;text-transform:uppercase;letter-spacing:.04em;margin-top:2px}.section{padding:44px 0;border-bottom:1px solid var(--line)}.section-head{display:grid;grid-template-columns:minmax(0,.9fr) minmax(280px,.7fr);gap:32px;align-items:end;margin-bottom:24px}.section h2{font-size:clamp(1.9rem,3.6vw,2.8rem);line-height:1.05;margin:0;letter-spacing:-.04em;font-weight:650}.section-head p{margin:0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,310px),1fr));gap:18px}.case-card{border:1px solid var(--line);background:#fff;display:flex;flex-direction:column;min-height:335px}.case-head{padding:18px 18px 14px;border-bottom:1px solid var(--line);background:#fff}.case-head .eyebrow{margin-bottom:8px}.case-card h3{font-size:clamp(1.45rem,2.4vw,2.1rem);line-height:1.05;margin:0;letter-spacing:-.035em;font-weight:650}.case-body{padding:18px;display:flex;flex-direction:column;flex:1}.case-body p{margin-top:0}.tags{display:flex;flex-wrap:wrap;gap:7px;margin:4px 0 16px}.tags span{border:1px solid var(--line);padding:5px 8px;font-size:.68rem;font-weight:500;text-transform:uppercase;letter-spacing:.04em;color:#333;background:#fff}.details{display:grid;gap:10px;margin:8px 0 18px}.detail{border-left:3px solid var(--line-dark);padding-left:12px}.detail strong{display:block;font-size:.78rem;font-weight:650;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}.detail span{display:block;color:var(--muted)}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}.actions .btn{min-width:132px;text-align:center}.service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:18px}.service-card{border:1px solid var(--line);background:#fff;display:flex;flex-direction:column}.service-card h3{margin:0;padding:16px 18px;border-bottom:1px solid var(--line);font-size:1.2rem;font-weight:650}.service-card p{padding:18px;margin:0}.service-card .btn{margin:0 18px 18px}.note{border:1px solid var(--line);background:var(--soft);padding:18px;color:var(--muted)}.note strong{color:var(--ink);font-weight:650}.cta{text-align:center;padding:46px 0}.cta h2{font-size:clamp(1.9rem,3.6vw,2.8rem);line-height:1.05;margin:0 0 14px;letter-spacing:-.04em;font-weight:650}.cta p{max-width:720px;margin:0 auto 18px}.footer{padding:28px 0 42px;color:var(--muted);font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;text-align:center}@media(max-width:900px){.hero-grid,.section-head{grid-template-columns:1fr}.nav{align-items:flex-start;flex-direction:column}.menu{width:100%}.btn{flex:1}.actions .btn{flex:1}}@media(max-width:560px){.menu,.actions{flex-direction:column}.btn,.actions .btn{width:100%}.hero{padding-top:42px}.hero h1{font-size:clamp(2.6rem,17vw,4.4rem)}}
+:root{
+  --bg:#ffffff;
+  --ink:#111111;
+  --muted:#5d626a;
+  --soft:#f6f4ef;
+  --paper:#fbfaf7;
+  --line:#d8d2c7;
+  --dark:#171717;
+  --max:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:linear-gradient(180deg,var(--bg),var(--paper));
+  color:var(--ink);
+  font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  font-size:16px;
+  line-height:1.55;
+}
+a{color:inherit;text-decoration:none}
+p{margin:0 0 1rem;color:var(--muted)}
+.wrap{width:min(var(--max),calc(100% - 32px));margin:0 auto}
+.top{
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:16px 0}
+.brand{font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+.brand small{display:block;font-size:.72rem;font-weight:500;color:var(--muted);letter-spacing:.04em;margin-top:2px}
+.menu{display:flex;gap:8px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:40px;
+  border:1px solid var(--dark);
+  padding:9px 14px;
+  background:#fff;
+  color:var(--ink);
+  font-size:.76rem;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.055em;
+}
+.btn.primary{background:var(--dark);color:#fff}
+.btn.soft{border-color:var(--line);background:var(--soft)}
+.eyebrow{font-size:.74rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin:0 0 10px}
+.hero{padding:64px 0 36px;border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(280px,.9fr);gap:42px;align-items:start}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;color:var(--ink);font-weight:700}
+.hero h1{font-size:clamp(3rem,8vw,6rem);line-height:.94;margin:0 0 22px;letter-spacing:-.06em}
+.hero-copy p:not(.eyebrow){max-width:760px;font-size:1.08rem}
+.stat-panel{border:1px solid var(--line);background:#fff;box-shadow:0 16px 40px rgba(0,0,0,.05)}
+.stat-panel h2{font-family:ui-sans-serif,system-ui,sans-serif;font-size:1rem;margin:0;padding:14px 16px;border-bottom:1px solid var(--line);background:var(--soft)}
+.summary-list{display:grid}
+.summary-item{display:grid;grid-template-columns:52px 1fr;border-top:1px solid var(--line)}
+.summary-item:first-child{border-top:0}
+.summary-num{display:grid;place-items:center;border-right:1px solid var(--line);font-size:.78rem;color:var(--muted);font-weight:800}
+.summary-copy{padding:12px 14px}
+.summary-copy strong{display:block;font-weight:800}
+.summary-copy span{display:block;color:var(--muted);font-size:.73rem;text-transform:uppercase;letter-spacing:.045em;margin-top:2px}
+.section{padding:44px 0;border-bottom:1px solid var(--line)}
+.section-head{display:grid;grid-template-columns:minmax(0,.9fr) minmax(280px,.7fr);gap:32px;align-items:end;margin-bottom:24px}
+.section h2{font-size:clamp(2rem,4vw,3.1rem);line-height:1.02;margin:0;letter-spacing:-.045em}
+.section-head p{margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:18px}
+.case-card{border:1px solid var(--line);background:#fff;display:flex;flex-direction:column;min-height:370px;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.case-card:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(0,0,0,.07);border-color:#b8afa2}
+.case-head{padding:18px 18px 14px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff,var(--paper))}
+.case-head .eyebrow{margin-bottom:8px}
+.case-card h3{font-size:clamp(1.55rem,2.6vw,2.25rem);line-height:1.03;margin:0;letter-spacing:-.035em}
+.case-body{padding:18px;display:flex;flex-direction:column;flex:1}
+.status-row{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 14px}
+.pill{border:1px solid var(--line);padding:5px 8px;background:#fff;font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:#333}
+.pill.dark{background:#171717;color:#fff;border-color:#171717}
+.details{display:grid;gap:10px;margin:4px 0 18px}
+.detail{border-left:3px solid var(--dark);padding-left:12px}
+.detail strong{display:block;font-size:.76rem;font-weight:800;text-transform:uppercase;letter-spacing:.055em;margin-bottom:2px}
+.detail span{display:block;color:var(--muted)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}
+.actions .btn{min-width:150px;text-align:center}
+.service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:18px}
+.service-card{border:1px solid var(--line);background:#fff;display:flex;flex-direction:column}
+.service-card h3{font-family:ui-sans-serif,system-ui,sans-serif;margin:0;padding:16px 18px;border-bottom:1px solid var(--line);font-size:1.1rem;font-weight:850;letter-spacing:-.01em}
+.service-card p{padding:18px;margin:0}
+.service-card .btn{margin:0 18px 18px}
+.note{border:1px solid var(--line);background:var(--soft);padding:18px;color:var(--muted)}
+.note strong{color:var(--ink);font-weight:850}
+.cta{text-align:center;padding:46px 0}
+.cta h2{font-size:clamp(2rem,4vw,3.1rem);line-height:1.02;margin:0 0 14px;letter-spacing:-.045em}
+.cta p{max-width:720px;margin:0 auto 18px}
+.footer{padding:28px 0 42px;color:var(--muted);font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;text-align:center}
+@media(max-width:900px){.hero-grid,.section-head{grid-template-columns:1fr}.nav{align-items:flex-start;flex-direction:column}.menu{width:100%}.btn{flex:1}.actions .btn{flex:1}}
+@media(max-width:560px){.menu,.actions{flex-direction:column}.btn,.actions .btn{width:100%}.hero{padding-top:42px}.hero h1{font-size:clamp(2.7rem,17vw,4.6rem)}}
 </style>
 </head>
 <body>
-<header class="top"><div class="wrap nav"><a class="brand" href="/">MATTBEAR<small>client examples</small></a><nav class="menu"><a class="btn primary" href="#work">Selected Work</a><a class="btn" href="#services">Services</a><a class="btn" href="/project-packages.html">Packages</a><a class="btn" href="/">Main</a></nav></div></header>
+<header class="top">
+  <div class="wrap nav">
+    <a class="brand" href="/">MATTBEAR<small>selected work examples</small></a>
+    <nav class="menu" aria-label="Primary navigation">
+      <a class="btn primary" href="#work">Work</a>
+      <a class="btn" href="#services">Services</a>
+      <a class="btn" href="/project-packages.html">Packages</a>
+      <a class="btn" href="/">Main</a>
+    </nav>
+  </div>
+</header>
 <main>
-<section class="hero"><div class="wrap hero-grid"><div class="hero-copy"><p class="eyebrow">Selected client and project work</p><h1>Client Examples</h1><p>A focused portfolio index for public-facing websites, local business builds, artist portfolio work, retail prototypes, and project pages. The current page includes seven selected examples and is structured to expand only when real work is ready.</p><nav class="menu"><a class="btn primary" href="#work">View examples</a><a class="btn" href="/website-design.html">Website design</a><a class="btn" href="/promo-design.html">Promo design</a></nav></div><aside class="summary-panel"><h2>7 selected examples</h2><div class="summary-list"><div class="summary-item"><div class="summary-num">01</div><div class="summary-copy"><strong>Trackside Cafe</strong><span>restaurant website</span></div></div><div class="summary-item"><div class="summary-num">02</div><div class="summary-copy"><strong>The Flushing A</strong><span>local business site</span></div></div><div class="summary-item"><div class="summary-num">03</div><div class="summary-copy"><strong>Asian Store</strong><span>retail concept page</span></div></div><div class="summary-item"><div class="summary-num">04</div><div class="summary-copy"><strong>Britney Rosa Tattoos</strong><span>artist portfolio</span></div></div><div class="summary-item"><div class="summary-num">05</div><div class="summary-copy"><strong>Smoke World Bowling Green</strong><span>retail prototype</span></div></div><div class="summary-item"><div class="summary-num">06</div><div class="summary-copy"><strong>WardAway</strong><span>project example</span></div></div><div class="summary-item"><div class="summary-num">07</div><div class="summary-copy"><strong>Karime Fernandez</strong><span>personal brand page</span></div></div></div></aside></div></section>
-<section class="section" id="work"><div class="wrap"><div class="section-head"><div><p class="eyebrow">Selected work</p><h2>Client + Local Examples</h2></div><p>Seven current examples are listed below. Each example uses the same card format so the paid-work side of the site reads consistently.</p></div><div class="grid">
-<article class="case-card"><div class="case-head"><p class="eyebrow">01 / Restaurant website</p><h3>Trackside Cafe</h3></div><div class="case-body"><p>Local cafe and diner website example for presenting restaurant identity, menu direction, hours, story, and public-facing business information.</p><div class="tags"><span>Restaurant</span><span>Local business</span><span>Website</span></div><div class="details"><div class="detail"><strong>Scope</strong><span>Restaurant website structure, content presentation, navigation, and public layout.</span></div><div class="detail"><strong>Focus</strong><span>Make the business easy to understand quickly.</span></div></div><div class="actions"><a class="btn primary" href="https://bearicide.github.io/trackside-cafe/" target="_blank" rel="noopener">View live site</a></div></div></article>
-<article class="case-card"><div class="case-head"><p class="eyebrow">02 / Local business site</p><h3>The Flushing A</h3></div><div class="case-body"><p>Restaurant and local business website example with public information flow, identity presentation, and public domain deployment.</p><div class="tags"><span>Restaurant</span><span>Business</span><span>Website</span></div><div class="details"><div class="detail"><strong>Scope</strong><span>Business-facing website lane for local restaurant information and presentation.</span></div><div class="detail"><strong>Focus</strong><span>Clear navigation, business context, and public-facing credibility.</span></div></div><div class="actions"><a class="btn primary" href="https://theflushinga.com/theflushinga-index.html" target="_blank" rel="noopener">View live site</a></div></div></article>
-<article class="case-card"><div class="case-head"><p class="eyebrow">03 / Retail concept page</p><h3>Asian Store</h3></div><div class="case-body"><p>Retail concept example for a specialty store page, useful for showing local shop structure, category presentation, and direct business layout.</p><div class="tags"><span>Retail</span><span>Concept</span><span>Business</span></div><div class="details"><div class="detail"><strong>Scope</strong><span>Single-page retail concept with business-focused content structure.</span></div><div class="detail"><strong>Focus</strong><span>Show how a local store can present categories, location context, and customer direction clearly.</span></div></div><div class="actions"><a class="btn primary" href="https://theflushinga.com/asianstore-index.html" target="_blank" rel="noopener">View live site</a></div></div></article>
-<article class="case-card"><div class="case-head"><p class="eyebrow">04 / Artist portfolio</p><h3>Britney Rosa Tattoos</h3></div><div class="case-body"><p>Artist portfolio site lane focused on visual presentation, booking interest, and clean client-facing credibility.</p><div class="tags"><span>Artist</span><span>Portfolio</span><span>Client-facing</span></div><div class="details"><div class="detail"><strong>Scope</strong><span>Portfolio-style website for presenting tattoo work and artist identity.</span></div><div class="detail"><strong>Focus</strong><span>Strong visual impression, simple structure, and a direct viewer path.</span></div></div><div class="actions"><a class="btn primary" href="https://bearicide.github.io/rosa-tattoos-2/" target="_blank" rel="noopener">View live site</a></div></div></article>
-<article class="case-card"><div class="case-head"><p class="eyebrow">05 / Retail prototype</p><h3>Smoke World Bowling Green</h3></div><div class="case-body"><p>Small business retail prototype useful for showing storefront structure, category presentation, and local business layout direction.</p><div class="tags"><span>Retail</span><span>Prototype</span><span>Business</span></div><div class="details"><div class="detail"><strong>Scope</strong><span>Prototype/candidate site for small retail business presentation.</span></div><div class="detail"><strong>Focus</strong><span>Storefront clarity, product/category organization, and business-first layout.</span></div></div><div class="actions"><a class="btn primary" href="https://bearicide.github.io/smokeworld-bowlinggreen/" target="_blank" rel="noopener">View live site</a></div></div></article>
-<article class="case-card"><div class="case-head"><p class="eyebrow">06 / Project example</p><h3>WardAway</h3></div><div class="case-body"><p>Public project example selected from the WardAway repository. Included as an additional example route as the portfolio expands.</p><div class="tags"><span>Project</span><span>Web app</span><span>Public repo</span></div><div class="details"><div class="detail"><strong>Scope</strong><span>Project-facing page or app example from the WardAway repository.</span></div><div class="detail"><strong>Focus</strong><span>Shows expandable project work beyond restaurant, retail, and portfolio pages.</span></div></div><div class="actions"><a class="btn primary" href="https://bearicide.github.io/wardaway/" target="_blank" rel="noopener">View live site</a></div></div></article>
-<article class="case-card"><div class="case-head"><p class="eyebrow">07 / Personal brand page</p><h3>Karime Fernandez</h3></div><div class="case-body"><p>Personal brand and project landing page for Karime Fernandez, structured for profile content, hobby work, future portfolio sections, and public-facing links.</p><div class="tags"><span>Personal brand</span><span>Project page</span><span>Portfolio starter</span></div><div class="details"><div class="detail"><strong>Scope</strong><span>Polished personal landing page with expandable project, profile, and content sections.</span></div><div class="detail"><strong>Focus</strong><span>Present a simple public identity while leaving room for future content growth.</span></div></div><div class="actions"><a class="btn primary" href="https://bearicide.github.io/karimef/" target="_blank" rel="noopener">View live site</a></div></div></article>
-</div></div></section>
-<section class="section" id="services"><div class="wrap"><div class="section-head"><div><p class="eyebrow">Connected services</p><h2>Hireable Work Types</h2></div><p>These service pages explain what the examples point toward: websites, promo design, and bundled project systems.</p></div><div class="service-grid"><article class="service-card"><h3>Website Design</h3><p>Mobile-first pages for small businesses, creators, restaurants, portfolios, and project hubs.</p><a class="btn" href="/website-design.html">View service</a></article><article class="service-card"><h3>Promo Design</h3><p>Flyers, posters, social graphics, campaign materials, and readable local promotion assets.</p><a class="btn" href="/promo-design.html">View service</a></article><article class="service-card"><h3>Project Packages</h3><p>Bundled brand, web, promo, and direction work when the project needs multiple pieces to match.</p><a class="btn" href="/project-packages.html">View packages</a></article></div></div></section>
-<section class="section"><div class="wrap"><div class="note"><strong>Note:</strong> Internal MATTBEAR games, music tools, and lab builds still exist in the project portal. This page stays focused on examples that support client conversations and outside-facing work.</div></div></section>
-<section class="cta"><div class="wrap"><p class="eyebrow">Need something similar?</p><h2>Start With The Page You Need</h2><p>Send the business or project name, current links, goals, rough content, images, and deadline. The first step is turning the project into a clear scope.</p><nav class="menu"><a class="btn primary" href="mailto:matt.baier86@hotmail.com?subject=Website%20or%20Promo%20Project%20Request">Start a project</a><a class="btn" href="/project-packages.html">View packages</a><a class="btn" href="/projects.html">All projects</a></nav></div></section>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Public-facing work and prototypes</p>
+        <h1>Examples</h1>
+        <p>A clean index of selected sites, staged concepts, and local-business builds. Live work is labeled. Concept work is labeled. Because confusing prospects before they click anything is not actually a sales strategy.</p>
+        <nav class="menu" aria-label="Example shortcuts">
+          <a class="btn primary" href="#work">View examples</a>
+          <a class="btn soft" href="/website-design.html">Website design</a>
+          <a class="btn soft" href="/promo-design.html">Promo design</a>
+        </nav>
+      </div>
+      <aside class="stat-panel" aria-label="Example summary">
+        <h2>7 selected examples</h2>
+        <div class="summary-list">
+          <div class="summary-item"><div class="summary-num">01</div><div class="summary-copy"><strong>Trackside Café</strong><span>restaurant website</span></div></div>
+          <div class="summary-item"><div class="summary-num">02</div><div class="summary-copy"><strong>The Flushing A</strong><span>local business site</span></div></div>
+          <div class="summary-item"><div class="summary-num">03</div><div class="summary-copy"><strong>Asian Grocery Guide</strong><span>retail concept</span></div></div>
+          <div class="summary-item"><div class="summary-num">04</div><div class="summary-copy"><strong>Britni Rosa Illustration</strong><span>artist portfolio</span></div></div>
+          <div class="summary-item"><div class="summary-num">05</div><div class="summary-copy"><strong>Green Leaf BG</strong><span>retail prototype</span></div></div>
+          <div class="summary-item"><div class="summary-num">06</div><div class="summary-copy"><strong>WardAway Security</strong><span>services concept</span></div></div>
+          <div class="summary-item"><div class="summary-num">07</div><div class="summary-copy"><strong>KARIMEF</strong><span>personal brand page</span></div></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" id="work">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Selected work</p>
+          <h2>Client, local, and concept examples</h2>
+        </div>
+        <p>Each card explains what the page is, why it exists, and where it points. No mystery meat portfolio. Humanity may yet recover.</p>
+      </div>
+      <div class="grid">
+        <article class="case-card">
+          <div class="case-head"><p class="eyebrow">01 / Restaurant website</p><h3>Trackside Café</h3></div>
+          <div class="case-body">
+            <div class="status-row"><span class="pill dark">Live example</span><span class="pill">Restaurant</span><span class="pill">Local business</span></div>
+            <p>A public-facing café site built around hours, story, menu direction, pies, gallery, reviews, and contact basics.</p>
+            <div class="details"><div class="detail"><strong>Use</strong><span>Show how a small restaurant can present the essentials quickly on mobile.</span></div><div class="detail"><strong>Focus</strong><span>Clear identity, readable sections, direct customer path.</span></div></div>
+            <div class="actions"><a class="btn primary" href="https://bearicide.github.io/trackside-cafe/" target="_blank" rel="noopener">Open example</a></div>
+          </div>
+        </article>
+
+        <article class="case-card">
+          <div class="case-head"><p class="eyebrow">02 / Local business site</p><h3>The Flushing A</h3></div>
+          <div class="case-body">
+            <div class="status-row"><span class="pill dark">Live domain</span><span class="pill">Restaurant</span><span class="pill">Business</span></div>
+            <p>A local restaurant site example using an external public domain, simple sections, brand framing, and customer-facing information.</p>
+            <div class="details"><div class="detail"><strong>Use</strong><span>Demonstrates a practical small-business web presence.</span></div><div class="detail"><strong>Focus</strong><span>Fast recognition, simple navigation, public credibility.</span></div></div>
+            <div class="actions"><a class="btn primary" href="https://theflushinga.com/theflushinga-index.html" target="_blank" rel="noopener">Open example</a></div>
+          </div>
+        </article>
+
+        <article class="case-card">
+          <div class="case-head"><p class="eyebrow">03 / Retail concept</p><h3>Asian Grocery Guide</h3></div>
+          <div class="case-body">
+            <div class="status-row"><span class="pill dark">Concept</span><span class="pill">Retail</span><span class="pill">Guide page</span></div>
+            <p>A specialty retail concept showing category organization, product education, flavor filters, and quick scanning for customers.</p>
+            <div class="details"><div class="detail"><strong>Use</strong><span>Shows how a shop can turn inventory into a helpful browsing experience.</span></div><div class="detail"><strong>Focus</strong><span>Category clarity, filtering, customer direction.</span></div></div>
+            <div class="actions"><a class="btn primary" href="https://theflushinga.com/asianstore-index.html" target="_blank" rel="noopener">Open example</a></div>
+          </div>
+        </article>
+
+        <article class="case-card">
+          <div class="case-head"><p class="eyebrow">04 / Artist portfolio</p><h3>Britni Rosa Illustration</h3></div>
+          <div class="case-body">
+            <div class="status-row"><span class="pill dark">Staged page</span><span class="pill">Artist</span><span class="pill">Portfolio</span></div>
+            <p>An artist and illustrator portfolio lane built to frame visual work, booking interest, personal style, and future gallery expansion.</p>
+            <div class="details"><div class="detail"><strong>Use</strong><span>Shows a clean landing page for creative work before the full gallery is ready.</span></div><div class="detail"><strong>Focus</strong><span>Visual identity, simple page flow, booking-ready structure.</span></div></div>
+            <div class="actions"><a class="btn primary" href="https://bearicide.github.io/rosa-tattoos-2/" target="_blank" rel="noopener">Open example</a></div>
+          </div>
+        </article>
+
+        <article class="case-card">
+          <div class="case-head"><p class="eyebrow">05 / Retail prototype</p><h3>Green Leaf BG</h3></div>
+          <div class="case-body">
+            <div class="status-row"><span class="pill dark">Prototype</span><span class="pill">Retail</span><span class="pill">21+ info</span></div>
+            <p>A retail prototype with age-gate flow, editable deal sections, product browsing structure, legal notes, FAQ, and location basics.</p>
+            <div class="details"><div class="detail"><strong>Use</strong><span>Shows how a regulated storefront can present information without online sales.</span></div><div class="detail"><strong>Focus</strong><span>Compliance-minded copy, useful sections, fast updates.</span></div></div>
+            <div class="actions"><a class="btn primary" href="https://bearicide.github.io/smokeworld-bowlinggreen/" target="_blank" rel="noopener">Open example</a></div>
+          </div>
+        </article>
+
+        <article class="case-card">
+          <div class="case-head"><p class="eyebrow">06 / Services concept</p><h3>WardAway Security</h3></div>
+          <div class="case-body">
+            <div class="status-row"><span class="pill dark">Concept</span><span class="pill">Services</span><span class="pill">Readiness</span></div>
+            <p>A service-business concept page for security, readiness, assessment flow, professional standards, and intake direction.</p>
+            <div class="details"><div class="detail"><strong>Use</strong><span>Shows a serious services layout without fake authority language.</span></div><div class="detail"><strong>Focus</strong><span>Service clarity, trust signals, intake structure.</span></div></div>
+            <div class="actions"><a class="btn primary" href="https://bearicide.github.io/wardaway/" target="_blank" rel="noopener">Open example</a></div>
+          </div>
+        </article>
+
+        <article class="case-card">
+          <div class="case-head"><p class="eyebrow">07 / Personal brand</p><h3>KARIMEF</h3></div>
+          <div class="case-body">
+            <div class="status-row"><span class="pill dark">Concept</span><span class="pill">Repair studio</span><span class="pill">Brand page</span></div>
+            <p>A calm personal-brand page for electronics repair, restoration, creative studio presentation, and expandable portfolio content.</p>
+            <div class="details"><div class="detail"><strong>Use</strong><span>Shows how a small personal brand can feel polished before a full business buildout.</span></div><div class="detail"><strong>Focus</strong><span>Profile, services, tone, and future expansion.</span></div></div>
+            <div class="actions"><a class="btn primary" href="https://bearicide.github.io/karimef/" target="_blank" rel="noopener">Open example</a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <div><p class="eyebrow">Connected services</p><h2>What these examples support</h2></div>
+        <p>The examples point toward practical paid work: websites, promo materials, and connected project packages.</p>
+      </div>
+      <div class="service-grid">
+        <article class="service-card"><h3>Website Design</h3><p>Mobile-first pages for small businesses, restaurants, creators, portfolios, local services, and project hubs.</p><a class="btn" href="/website-design.html">View service</a></article>
+        <article class="service-card"><h3>Promo Design</h3><p>Readable flyers, social graphics, posters, campaign pieces, table inserts, and launch materials.</p><a class="btn" href="/promo-design.html">View service</a></article>
+        <article class="service-card"><h3>Project Packages</h3><p>Bundled brand, website, promo, content, and direction work when the pieces need to match.</p><a class="btn" href="/project-packages.html">View packages</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="note"><strong>Note:</strong> Internal games, music tools, experiments, and lab builds still live in the project portal. This page stays focused on examples that make sense in client and public-work conversations.</div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <p class="eyebrow">Need something similar?</p>
+      <h2>Start with the page you need</h2>
+      <p>Send the business or project name, current links, goals, rough content, images, and deadline. The first step is turning the mess into a usable scope.</p>
+      <nav class="menu" aria-label="Project actions">
+        <a class="btn primary" href="mailto:matt.baier86@hotmail.com?subject=Website%20or%20Promo%20Project%20Request">Start a project</a>
+        <a class="btn" href="/project-packages.html">View packages</a>
+        <a class="btn" href="/projects.html">All projects</a>
+      </nav>
+    </div>
+  </section>
 </main>
 <footer class="wrap footer">MATTBEAR Examples • 7 selected examples • bearicide.github.io</footer>
 </body>
