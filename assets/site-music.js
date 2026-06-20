@@ -22,6 +22,72 @@
     navigator.serviceWorker.register('/site-music-sw.js', { scope: '/' }).catch(() => {});
   }
 
+  function initTranslator() {
+    if (document.querySelector('.mb-translate')) return;
+
+    const languages = [
+      ['en', 'English'],
+      ['es', 'Español'],
+      ['ru', 'Русский'],
+      ['uk', 'Українська'],
+      ['sr', 'Српски'],
+      ['bg', 'Български'],
+      ['mk', 'Македонски'],
+      ['be', 'Беларуская'],
+      ['pl', 'Polski'],
+      ['de', 'Deutsch'],
+      ['fr', 'Français'],
+      ['pt', 'Português'],
+      ['it', 'Italiano'],
+      ['tr', 'Türkçe'],
+      ['ar', 'العربية'],
+      ['hi', 'हिन्दी'],
+      ['zh-CN', '中文'],
+      ['ja', '日本語'],
+      ['ko', '한국어']
+    ];
+
+    const box = document.createElement('aside');
+    box.className = 'mb-translate';
+    box.setAttribute('aria-label', 'Translate this site');
+    box.innerHTML = `
+      <button class="mb-translate-toggle" type="button" aria-expanded="false">🌐 <span>Translate</span></button>
+      <div class="mb-translate-panel" hidden>
+        <strong>The signal is broadcasting worldwide.</strong>
+        <label for="mb-translate-select">Read this site in another language.</label>
+        <select id="mb-translate-select">
+          <option value="">Choose language</option>
+          ${languages.map(([code, name]) => `<option value="${code}">${name}</option>`).join('')}
+        </select>
+        <small>Opens a translated version of this page.</small>
+      </div>
+    `;
+
+    const toggle = box.querySelector('.mb-translate-toggle');
+    const panel = box.querySelector('.mb-translate-panel');
+    const select = box.querySelector('#mb-translate-select');
+
+    toggle.addEventListener('click', () => {
+      const open = panel.hasAttribute('hidden');
+      panel.toggleAttribute('hidden', !open);
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+
+    select.addEventListener('change', () => {
+      const lang = select.value;
+      if (!lang) return;
+      if (lang === 'en') {
+        window.location.href = window.location.origin + window.location.pathname + window.location.search + window.location.hash;
+        return;
+      }
+      const url = encodeURIComponent(window.location.href);
+      window.open(`https://translate.google.com/translate?sl=auto&tl=${encodeURIComponent(lang)}&u=${url}`, '_blank', 'noopener,noreferrer');
+      select.value = '';
+    });
+
+    document.body.appendChild(box);
+  }
+
   const saved = (() => {
     try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
     catch { return {}; }
@@ -92,6 +158,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', () => {
+    initTranslator();
     document.body.appendChild(player);
     document.body.appendChild(audio);
     const toggle = player.querySelector('.mb-music-toggle');
