@@ -191,7 +191,7 @@ body{margin:0;overflow-x:hidden}
 <body>
 <div class="map-shell">
 <header class="top"><div class="wrap nav"><a class="brand rainbow" href="/">MATTBEAR<small>Interactive Map</small></a><nav class="menu"><a class="btn" href="/examples/">Examples</a><a class="btn cyan" href="/music/">Music</a><a class="btn green" href="/HiberNation/">HiberNation</a><a class="btn amber" href="/map/">Map</a></nav></div></header>
-<main class="map-stage" id="mapStage" aria-label="MATTBEAR interactive map">
+<main class="map-stage" id="mapStage" aria-label="MATTBEARCADE interactive map">
 <button class="debug" id="debugToggle" type="button">show zones</button>
 <a class="zone sidebar-music" href="/music/" data-title="Music District" data-desc="Suno, SoundCloud, MechaniMuzik, Choppa"><span class="tag">Music</span></a>
 <a class="zone sidebar-games" href="/MATTBEARCADE/" data-title="Games District" data-desc="Arcades, casino experiments, playable junk humans insist on enjoying"><span class="tag">Games</span></a>
@@ -213,7 +213,7 @@ body{margin:0;overflow-x:hidden}
 <script>
 const stage=document.getElementById('mapStage');const title=document.getElementById('hudTitle');const desc=document.getElementById('hudDesc');document.querySelectorAll('.zone').forEach(z=>{z.addEventListener('mouseenter',()=>{title.textContent=z.dataset.title;desc.textContent=z.dataset.desc;});z.addEventListener('focus',()=>{title.textContent=z.dataset.title;desc.textContent=z.dataset.desc;});});document.getElementById('debugToggle').addEventListener('click',e=>{stage.classList.toggle('show-zones');e.currentTarget.textContent=stage.classList.contains('show-zones')?'hide zones':'show zones'});
 </script>
-<script src="/assets/mattbear-sitewide.js" defer data-mb-page="MATTBEAR Interactive Map" data-mb-section="Spatial ecosystem launcher"></script>
+<script src="/assets/mattbear-sitewide.js" defer data-mb-page="MATTBEARCADE Interactive Map" data-mb-section="Spatial ecosystem launcher"></script>
 <link rel="stylesheet" href="/admin/admin.css"><script src="/admin/admin.js" defer></script>
 </body>
 </html>
