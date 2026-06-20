@@ -3,56 +3,138 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>MATTBEARCADE Interactive Map</title>
-<meta name="description" content="Clickable MATTBEARCADE ecosystem map for music, games, creation, community, Midwest Made, and HiberNation routes.">
+<title>MATTBEARCADE</title>
+<meta name="description" content="A clean clickable MATTBEARCADE map for games, music, community, creation, and local routes.">
 <meta name="theme-color" content="#050507">
 <link rel="stylesheet" href="/assets/site-polish.css">
 <style>
 :root{
   --map:url('/assets/interactive/mattbear-ecosystem-city-interactive.png');
-  --page-max:1180px;
-  --edge:clamp(14px,2.4vw,28px);
-  --hud-w:420px;
-  --top-h:68px;
+  --page-max:1120px;
+  --edge:clamp(14px,2.5vw,30px);
+  --ink:rgba(255,255,255,.88);
+  --muted:rgba(255,255,255,.68);
 }
 *{box-sizing:border-box}
 html,body{min-height:100%;background:#020204;color:#fff}
-body{margin:0;overflow-x:hidden}
-.map-shell{
+body{
+  margin:0;
+  overflow-x:hidden;
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:
+    radial-gradient(circle at 50% -10%,rgba(53,217,255,.19),transparent 32%),
+    radial-gradient(circle at 18% 88%,rgba(255,79,216,.14),transparent 28%),
+    linear-gradient(180deg,#050507,#020204 72%);
+}
+a{color:inherit}
+.page{
   min-height:100svh;
-  display:grid;
-  grid-template-rows:auto 1fr;
-  background:radial-gradient(circle at 50% 0,rgba(53,217,255,.18),transparent 34%),#020204;
-}
-.top{
-  position:relative;
-  z-index:20;
-  background:linear-gradient(180deg,rgba(0,0,0,.88),rgba(0,0,0,.5));
-  backdrop-filter:blur(10px);
-}
-.top .wrap{
   width:min(var(--page-max),calc(100% - var(--edge)*2));
   margin-inline:auto;
-  min-height:var(--top-h);
+  padding:clamp(14px,2vw,24px) 0 clamp(18px,3vw,34px);
+  display:grid;
+  grid-template-rows:auto 1fr;
+  gap:clamp(14px,2vw,22px);
+}
+.top{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:16px;
+}
+.brand-block{min-width:0}
+.brand{
+  display:inline-grid;
+  gap:2px;
+  text-decoration:none;
+  line-height:.9;
+}
+.brand strong{
+  font-size:clamp(2rem,6vw,5.4rem);
+  letter-spacing:-.09em;
+  text-transform:uppercase;
+}
+.brand small{
+  color:var(--muted);
+  font-weight:850;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-size:.72rem;
+}
+.kicker{
+  margin:.65rem 0 0;
+  max-width:620px;
+  color:var(--muted);
+  font-size:clamp(.9rem,1.7vw,1rem);
+}
+.menu{
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  gap:14px;
+  justify-content:flex-end;
+  gap:8px;
+  flex-wrap:wrap;
 }
-.top .menu{display:flex;align-items:center;justify-content:flex-end;gap:8px;flex-wrap:wrap}
+.menu a{
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:999px;
+  background:rgba(255,255,255,.065);
+  color:var(--ink);
+  padding:9px 12px;
+  text-decoration:none;
+  font-weight:900;
+  font-size:.78rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.07);
+}
+.menu a:hover,.menu a:focus-visible{
+  outline:0;
+  border-color:rgba(255,255,255,.42);
+  background:rgba(255,255,255,.12);
+}
+.stage-wrap{
+  display:grid;
+  align-content:center;
+  min-height:0;
+}
 .map-stage{
   position:relative;
-  min-height:calc(100svh - var(--top-h));
+  width:100%;
+  aspect-ratio:16/9;
+  max-height:calc(100svh - 190px);
+  min-height:420px;
+  margin-inline:auto;
   overflow:hidden;
-  background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.42)),var(--map) center/cover no-repeat;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:clamp(22px,3vw,34px);
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.03),rgba(0,0,0,.38)),
+    var(--map) center/cover no-repeat;
+  box-shadow:
+    0 28px 90px rgba(0,0,0,.62),
+    0 0 0 1px rgba(0,0,0,.44),
+    inset 0 1px 0 rgba(255,255,255,.12);
+  isolation:isolate;
+}
+.map-stage:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.38),transparent 16%,transparent 78%,rgba(0,0,0,.4)),
+    radial-gradient(circle at 50% 80%,rgba(255,224,122,.14),transparent 34%),
+    linear-gradient(180deg,rgba(255,255,255,.05),transparent 24%,rgba(0,0,0,.36));
 }
 .map-stage:after{
   content:"";
   position:absolute;
-  inset:0;
+  inset:12px;
+  z-index:2;
   pointer-events:none;
-  background:linear-gradient(90deg,rgba(0,0,0,.35),transparent 18%,transparent 76%,rgba(0,0,0,.42)),radial-gradient(circle at 50% 75%,rgba(255,224,122,.16),transparent 30%);
-  mix-blend-mode:screen;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:clamp(16px,2.4vw,26px);
 }
 .zone{
   position:absolute;
@@ -102,7 +184,6 @@ body{margin:0;overflow-x:hidden}
   transition:.18s ease;
 }
 .zone:hover .tag,.zone:focus-visible .tag,.zone.active .tag{opacity:1;transform:translateX(-50%) translateY(0)}
-/* transparent zones, tuned to the uploaded map image. No dumb giant blocks on the bottom-left because apparently rectangles have betrayed us. */
 .sidebar-music{left:3.2%;top:22.5%;width:24.5%;height:8.8%;color:#ff4fd8}
 .sidebar-games{left:3.2%;top:31.8%;width:24.5%;height:8.7%;color:#35d9ff}
 .sidebar-create{left:3.2%;top:41.2%;width:24.5%;height:8.7%;color:#ffe07a}
@@ -117,112 +198,94 @@ body{margin:0;overflow-x:hidden}
 .bottom-community{left:55.5%;bottom:6.8%;width:8.7%;height:10.5%;color:#5dff93}
 .bottom-midwest{left:66%;bottom:6.8%;width:10%;height:10.5%;color:#ff9d3c}
 .secret-admin{right:24.4%;top:43%;width:4.8%;height:7%;color:#fff}
-.hud{
-  position:absolute;
-  z-index:10;
-  left:50%;
-  right:auto;
-  bottom:clamp(12px,2vw,24px);
-  width:min(var(--page-max),calc(100% - var(--edge)*2));
-  transform:translateX(-50%);
+.route-strip{
   display:flex;
-  justify-content:flex-start;
-  align-items:flex-end;
-  pointer-events:none;
+  gap:8px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-top:12px;
 }
-.hud-card{
-  width:min(var(--hud-w),100%);
-  border:1px solid rgba(255,255,255,.18);
-  border-radius:22px;
-  background:rgba(0,0,0,.72);
-  backdrop-filter:blur(12px);
-  box-shadow:0 18px 50px rgba(0,0,0,.48);
-  padding:14px 16px;
-  pointer-events:auto;
-}
-.hud-card h1{margin:0;font-size:clamp(1.35rem,3vw,2.6rem);line-height:.9}
-.hud-card p{margin:.45rem 0 0;color:rgba(255,255,255,.82);font-size:.92rem}
-.debug{
-  position:absolute;
-  right:max(var(--edge),calc((100% - var(--page-max))/2 + var(--edge)));
-  top:calc(var(--top-h) + 18px);
-  z-index:25;
-  border:1px solid rgba(255,255,255,.24);
+.route-strip a{
+  border:1px solid rgba(255,255,255,.14);
   border-radius:999px;
-  background:rgba(0,0,0,.58);
-  color:#fff;
-  padding:8px 11px;
-  font:850 .72rem system-ui;
-  cursor:pointer;
+  color:rgba(255,255,255,.76);
+  padding:7px 10px;
+  text-decoration:none;
+  text-transform:uppercase;
+  letter-spacing:.09em;
+  font-size:.7rem;
+  font-weight:900;
+  background:rgba(0,0,0,.28);
 }
-.map-stage.show-zones .zone:before{border-color:rgba(255,255,255,.36);background:rgba(255,255,255,.055)}
-.mobile-routes{display:none}
-.drawer{display:none;position:fixed;z-index:40;left:10px;right:10px;bottom:10px;border:1px solid rgba(255,255,255,.18);border-radius:22px;background:rgba(0,0,0,.9);box-shadow:0 20px 70px rgba(0,0,0,.72);padding:14px}
-.drawer h2{margin:0 0 6px;font-size:1.2rem}
-.drawer p{margin:0 0 12px;color:rgba(255,255,255,.75)}
-.drawer .menu{display:flex;gap:8px;flex-wrap:wrap}
-.drawer .close{float:right;border:0;background:transparent;color:#fff;font-size:1.2rem;cursor:pointer}
+.route-strip a:hover,.route-strip a:focus-visible{color:#fff;border-color:rgba(255,255,255,.36);outline:0}
 @media(max-width:760px){
-  :root{--top-h:auto;--edge:14px}
-  body{overflow:auto}
-  .map-shell{display:block;min-height:100svh}
-  .top .wrap{width:calc(100% - var(--edge)*2);min-height:0;padding:10px 0;align-items:flex-start}
-  .top .menu{justify-content:flex-start}
-  .map-stage{min-height:70svh;background-position:center top}
-  .hud{
-    position:relative;
-    left:auto;
-    right:auto;
-    bottom:auto;
-    transform:none;
-    width:100%;
-    padding:14px;
-    display:block;
-    background:#050507;
-  }
-  .hud-card{width:100%;max-width:none;margin-inline:auto}
-  .debug{display:none}
+  .page{width:calc(100% - 24px);padding-top:12px;display:block}
+  .top{display:block}
+  .menu{justify-content:flex-start;margin-top:12px}
+  .map-stage{margin-top:16px;min-height:360px;aspect-ratio:10/13;background-position:center top}
   .zone{display:none}
-  .mobile-routes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:12px}
-  .mobile-routes a{border:1px solid rgba(255,255,255,.18);border-radius:14px;background:rgba(255,255,255,.07);padding:11px;text-align:center;color:#fff;text-decoration:none;font-weight:900;text-transform:uppercase;font-size:.78rem}
+  .route-strip{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:10px}
+  .route-strip a{text-align:center;padding:11px 10px}
+}
+@media(max-width:430px){
+  .brand strong{font-size:2.45rem;letter-spacing:-.08em}
+  .kicker{font-size:.88rem}
+  .map-stage{min-height:330px}
 }
 </style>
 </head>
 <body>
-<div class="map-shell">
-<header class="top"><div class="wrap nav"><a class="brand rainbow" href="/">MATTBEAR<small>Arcade Map</small></a><nav class="menu"><a class="btn" href="/examples/">Examples</a><a class="btn cyan" href="/music/">Music</a><a class="btn green" href="/HiberNation/">HiberNation</a><a class="btn amber" href="/map/">Map</a></nav></div></header>
-<main class="map-stage" id="mapStage" aria-label="MATTBEARCADE interactive map">
-<button class="debug" id="debugToggle" type="button">show zones</button>
-<a class="zone sidebar-music" href="/music/" data-title="Music District" data-desc="Suno, SoundCloud, MechaniMuzik, Choppa"><span class="tag">Music</span></a>
-<a class="zone sidebar-games" href="/MATTBEARCADE/" data-title="Games District" data-desc="Arcades, casino experiments, playable junk humans insist on enjoying"><span class="tag">Games</span></a>
-<a class="zone sidebar-create" href="/projects.html" data-title="Creation District" data-desc="Projects, tools, graphics, ideas"><span class="tag">Creation</span></a>
-<a class="zone sidebar-community" href="/HiberNation/" data-title="Community District" data-desc="HiberNation, Discord, shared projects"><span class="tag">Community</span></a>
-<a class="zone sidebar-midwest" href="/midwest-made/" data-title="Midwest Made" data-desc="Local work, Trackside, Flushing routes"><span class="tag">Midwest Made</span></a>
-<a class="zone tower-hibernation" href="/HiberNation/" data-title="HiberNation Tower" data-desc="Community signal, groups, events, weird civic electricity"><span class="tag">HiberNation</span></a>
-<a class="zone billboard-main" href="/" data-title="Main Portal" data-desc="Back to the main MATTBEAR hub"><span class="tag">Main Portal</span></a>
-<a class="zone diner-local" href="/midwest-made/" data-title="Local / Diner Route" data-desc="Trackside, Flushing, local business work"><span class="tag">Local</span></a>
-<a class="zone bottom-music" href="/music/" data-title="Music" data-desc="Audio and releases"><span class="tag">Music</span></a>
-<a class="zone bottom-games" href="/MATTBEARCADE/" data-title="Games" data-desc="Browser games and arcade routes"><span class="tag">Games</span></a>
-<a class="zone bottom-create" href="/projects.html" data-title="Creation" data-desc="Builds, art, project systems"><span class="tag">Create</span></a>
-<a class="zone bottom-community" href="/HiberNation/" data-title="Community" data-desc="Connected human noise, but organized"><span class="tag">Community</span></a>
-<a class="zone bottom-midwest" href="/midwest-made/" data-title="Midwest Made" data-desc="Real-world/local route"><span class="tag">Midwest</span></a>
-<a class="zone secret-admin" href="/admin/" data-title="Admin" data-desc="Suspiciously tiny door"><span class="tag">Admin</span></a>
-<section class="hud" aria-live="polite"><div class="hud-card"><p class="eyebrow">Click a district</p><h1 class="rainbow" id="hudTitle">MATTBEARCADE</h1><p id="hudDesc">The city image is the menu. Hover or tap the map zones. Shocking: navigation can be spatial instead of a list of sad blue links.</p><div class="mobile-routes"><a href="/music/">Music</a><a href="/MATTBEARCADE/">Games</a><a href="/projects.html">Creation</a><a href="/HiberNation/">Community</a><a href="/midwest-made/">Midwest</a><a href="/examples/">Examples</a></div></div></section>
-</main>
+<div class="page">
+  <header class="top">
+    <div class="brand-block">
+      <a class="brand rainbow" href="/" aria-label="MATTBEAR home"><strong>MATTBEARCADE</strong><small>Clickable ecosystem map</small></a>
+      <p class="kicker">A cleaner arcade launch map. Tap a district, dodge the clutter, pretend websites were always this reasonable. 🕹️</p>
+    </div>
+    <nav class="menu" aria-label="Main routes">
+      <a href="/">Home</a>
+      <a href="/examples/">Examples</a>
+      <a href="/music/">Music</a>
+      <a href="/HiberNation/">HiberNation</a>
+    </nav>
+  </header>
+
+  <main class="stage-wrap" aria-label="MATTBEARCADE interactive map">
+    <section class="map-stage" id="mapStage">
+      <a class="zone sidebar-music" href="/music/" data-title="Music District"><span class="tag">Music</span></a>
+      <a class="zone sidebar-games" href="/MATTBEARCADE/" data-title="Games District"><span class="tag">Games</span></a>
+      <a class="zone sidebar-create" href="/projects.html" data-title="Creation District"><span class="tag">Creation</span></a>
+      <a class="zone sidebar-community" href="/HiberNation/" data-title="Community District"><span class="tag">Community</span></a>
+      <a class="zone sidebar-midwest" href="/midwest-made/" data-title="Midwest Made"><span class="tag">Midwest Made</span></a>
+      <a class="zone tower-hibernation" href="/HiberNation/" data-title="HiberNation Tower"><span class="tag">HiberNation</span></a>
+      <a class="zone billboard-main" href="/" data-title="Main Portal"><span class="tag">Main Portal</span></a>
+      <a class="zone diner-local" href="/midwest-made/" data-title="Local Route"><span class="tag">Local</span></a>
+      <a class="zone bottom-music" href="/music/" data-title="Music"><span class="tag">Music</span></a>
+      <a class="zone bottom-games" href="/MATTBEARCADE/" data-title="Games"><span class="tag">Games</span></a>
+      <a class="zone bottom-create" href="/projects.html" data-title="Creation"><span class="tag">Create</span></a>
+      <a class="zone bottom-community" href="/HiberNation/" data-title="Community"><span class="tag">Community</span></a>
+      <a class="zone bottom-midwest" href="/midwest-made/" data-title="Midwest Made"><span class="tag">Midwest</span></a>
+      <a class="zone secret-admin" href="/admin/" data-title="Admin"><span class="tag">Admin</span></a>
+    </section>
+    <nav class="route-strip" aria-label="Fallback routes">
+      <a href="/music/">Music</a>
+      <a href="/MATTBEARCADE/">Games</a>
+      <a href="/projects.html">Creation</a>
+      <a href="/HiberNation/">Community</a>
+      <a href="/midwest-made/">Midwest</a>
+      <a href="/examples/">Examples</a>
+    </nav>
+  </main>
 </div>
 <script>
-const stage=document.getElementById('mapStage');
-const title=document.getElementById('hudTitle');
-const desc=document.getElementById('hudDesc');
 document.querySelectorAll('.zone').forEach(z=>{
-  const setHud=()=>{title.textContent=z.dataset.title;desc.textContent=z.dataset.desc;document.querySelectorAll('.zone.active').forEach(a=>a.classList.remove('active'));z.classList.add('active');};
-  z.addEventListener('mouseenter',setHud);
-  z.addEventListener('focus',setHud);
-  z.addEventListener('touchstart',setHud,{passive:true});
+  const setActive=()=>{
+    document.querySelectorAll('.zone.active').forEach(a=>a.classList.remove('active'));
+    z.classList.add('active');
+  };
+  z.addEventListener('mouseenter',setActive);
+  z.addEventListener('focus',setActive);
+  z.addEventListener('touchstart',setActive,{passive:true});
 });
-document.getElementById('debugToggle').addEventListener('click',e=>{stage.classList.toggle('show-zones');e.currentTarget.textContent=stage.classList.contains('show-zones')?'hide zones':'show zones'});
 </script>
-<script src="/assets/mattbear-sitewide.js" defer data-mb-page="MATTBEARCADE Interactive Map" data-mb-section="Spatial ecosystem launcher"></script>
-<link rel="stylesheet" href="/admin/admin.css"><script src="/admin/admin.js" defer></script>
 </body>
 </html>
