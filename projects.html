@@ -3,25 +3,285 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>MATTBEAR | Project Focus</title>
-<meta name="description" content="Focused MATTBEAR project map: active priorities, public routes, arcade, music tools, HiberNation, examples, and cleanup queue.">
+<title>MATTBEAR | Projects</title>
+<meta name="description" content="A clear project map for the MATTBEAR ecosystem: client-ready examples, games, music tools, community routes, experiments, and cleanup rules.">
 <meta name="theme-color" content="#050507">
 <link rel="stylesheet" href="/assets/site-polish.css">
 <style>
-body:before{background:radial-gradient(circle at 12% 4%,rgba(53,231,255,.22),transparent 28%),radial-gradient(circle at 86% 10%,rgba(255,79,210,.20),transparent 30%),radial-gradient(circle at 50% 105%,rgba(255,224,122,.10),transparent 34%),linear-gradient(180deg,#101018,#050507 58%,#020203)}.hero{padding-bottom:14px}.focus-hero{padding:clamp(20px,4vw,34px);display:grid;gap:18px}.focus-hero h1{max-width:980px}.focus-copy{max-width:850px;color:var(--muted);font:700 clamp(1rem,2vw,1.18rem)/1.55 system-ui}.section-title{margin:28px 0 12px;display:flex;justify-content:space-between;gap:18px;align-items:end;flex-wrap:wrap}.section-title h2{margin:0;font:1000 clamp(1.65rem,3vw,3rem)/.95 Impact,Haettenschweiler,"Arial Black",sans-serif;text-transform:uppercase;letter-spacing:.06em}.section-title p{max-width:620px;margin:0;color:var(--muted);font:700 .96rem/1.5 system-ui}.card{min-height:224px;display:flex;flex-direction:column}.card h3{font-size:1rem}.card p{font:700 .94rem/1.48 system-ui}.card .menu{margin-top:auto}.lane{display:inline-flex;width:max-content;max-width:100%;margin-bottom:10px;border:1px solid var(--line);border-radius:999px;padding:6px 10px;background:rgba(0,0,0,.28);color:var(--gold);font:1000 .68rem system-ui;letter-spacing:.12em;text-transform:uppercase}.priority{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.priority .meta{min-height:110px}.clean-list{margin:0;padding-left:1.1rem;color:var(--muted);font:700 .95rem/1.55 system-ui}.clean-list strong{color:var(--ink)}.footer-menu{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px}@media(max-width:1100px){.priority{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:640px){.priority{grid-template-columns:1fr}.section-title{display:block}.section-title p{margin-top:8px}}
+body:before{background:radial-gradient(circle at 10% 4%,rgba(53,231,255,.22),transparent 27%),radial-gradient(circle at 88% 8%,rgba(255,79,210,.2),transparent 29%),radial-gradient(circle at 50% 105%,rgba(255,224,122,.11),transparent 34%),linear-gradient(180deg,#11111c,#050507 58%,#020203)}
+.hero{padding-bottom:18px}
+.projects-hero{padding:clamp(20px,4vw,38px);display:grid;gap:18px}
+.projects-hero h1{max-width:1050px}
+.focus-copy{max-width:900px;color:var(--muted);font:800 clamp(1rem,2vw,1.16rem)/1.55 system-ui}
+.route-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.route-card{min-height:126px;padding:14px;border:1px solid var(--line);border-radius:18px;background:rgba(0,0,0,.30);box-shadow:var(--outline),0 0 20px rgba(53,231,255,.08)}
+.route-card b{display:block;font:1000 .78rem system-ui;text-transform:uppercase;letter-spacing:.12em;color:var(--ink)}
+.route-card span{display:block;margin-top:7px;color:var(--muted);font:750 .9rem/1.45 system-ui}
+.section-title{margin:30px 0 12px;display:flex;justify-content:space-between;gap:18px;align-items:end;flex-wrap:wrap}
+.section-title h2{margin:0;font:1000 clamp(1.7rem,3vw,3rem)/.95 Impact,Haettenschweiler,"Arial Black",sans-serif;text-transform:uppercase;letter-spacing:.06em}
+.section-title p{max-width:650px;margin:0;color:var(--muted);font:750 .96rem/1.5 system-ui}
+.project-card{min-height:238px;display:flex;flex-direction:column;gap:10px}
+.project-card .menu{margin-top:auto}
+.card h3{font-size:1rem}
+.card p{font:750 .94rem/1.5 system-ui}
+.kicker{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:2px}
+.lane{display:inline-flex;width:max-content;max-width:100%;border:1px solid var(--line);border-radius:999px;padding:6px 10px;background:rgba(0,0,0,.30);color:var(--gold);font:1000 .66rem system-ui;letter-spacing:.12em;text-transform:uppercase}
+.status{display:inline-flex;width:max-content;max-width:100%;border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:5px 8px;background:rgba(255,255,255,.055);color:var(--cyan);font:1000 .62rem system-ui;letter-spacing:.12em;text-transform:uppercase}
+.status.live{color:var(--green)}
+.status.clean{color:var(--gold)}
+.status.lab{color:var(--mag)}
+.matrix{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;align-items:stretch}
+.clean-list{margin:0;padding-left:1.1rem;color:var(--muted);font:750 .95rem/1.55 system-ui}
+.clean-list strong{color:var(--ink)}
+.note-panel{padding:18px}
+.footer-menu{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+@media(max-width:1100px){.route-strip{grid-template-columns:repeat(2,minmax(0,1fr))}.matrix{grid-template-columns:1fr}}
+@media(max-width:900px){.project-card{min-height:auto}.section-title{display:block}.section-title p{margin-top:8px}}
+@media(max-width:640px){.route-strip{grid-template-columns:1fr}.projects-hero{padding:18px}.kicker{display:block}.status{margin-top:8px}.card p{font-size:.92rem}}
 </style>
 </head>
 <body>
-<header class="top"><div class="wrap nav"><a class="brand rainbow" href="/">MATTBEAR<small>Project Focus</small></a><nav class="menu" aria-label="Primary routes"><a class="btn primary" href="/">Main</a><a class="btn cyan" href="/HiberNation/">HiberNation</a><a class="btn green" href="/MATTBEARCADE/">Arcade</a><a class="btn mag" href="/examples/">Examples Hub</a><a class="btn amber" href="/music/">Music</a><a class="btn" href="https://github.com/bearicide/bearicide.github.io" target="_blank" rel="noopener">Repo</a></nav></div></header>
+<header class="top">
+  <div class="wrap nav">
+    <a class="brand rainbow" href="/">MATTBEAR<small>Projects</small></a>
+    <nav class="menu" aria-label="Primary routes">
+      <a class="btn primary" href="/">Main</a>
+      <a class="btn mag" href="/examples/">Examples</a>
+      <a class="btn green" href="/MATTBEARCADE/">Arcade</a>
+      <a class="btn cyan" href="/HiberNation/">HiberNation</a>
+      <a class="btn amber" href="/music/">Music</a>
+      <a class="btn" href="https://github.com/bearicide/bearicide.github.io" target="_blank" rel="noopener">Repo</a>
+    </nav>
+  </div>
+</header>
+
 <main class="wrap">
-<section class="hero"><div class="panel glow focus-hero"><p class="eyebrow">repo focus board</p><h1 class="rainbow">Focus the repo.</h1><p class="focus-copy">This is the command map for the public MATTBEAR ecosystem: what matters first, what connects where, and what stays in cleanup instead of multiplying like damp basement CSS. Main is the front door. Examples Hub is proof. Projects is routing. Everything else plugs into those lanes.</p><div class="menu"><a class="btn primary" href="/examples/">Open Examples Hub</a><a class="btn cyan" href="/HiberNation/">Community</a><a class="btn green" href="/MATTBEARCADE/">Arcade</a><a class="btn mag" href="/music/">Music</a><a class="btn" href="https://github.com/bearicide/bearicide.github.io/blob/main/REPO-FOCUS.md" target="_blank" rel="noopener">Focus Doc</a></div></div></section>
-<section aria-labelledby="active-focus-title"><div class="section-title"><h2 id="active-focus-title" class="rainbow">Active focus</h2><p>Stop adding new doors until these four doors are clean. A tragic blow to humanity’s sacred tradition of making another repo.</p></div><div class="priority"><div class="meta"><b>01 Main</b><span>Public front door. Clear identity, fastest routes, strongest first impression.</span></div><div class="meta"><b>02 Examples Hub</b><span>Professional proof. Client-facing work and service routes stay readable and easy to explain.</span></div><div class="meta"><b>03 Project map</b><span>This page. One route board instead of visitors spelunking through GitHub sediment.</span></div><div class="meta"><b>04 Shared shell</b><span>Consistent nav, footer, mobile spacing, buttons, and page purpose.</span></div></div></section>
-<section id="sites" aria-labelledby="sites-title"><div class="section-title"><h2 id="sites-title">Professional proof</h2><p>Pages that explain capability without requiring a decoder ring or an emotional support spreadsheet.</p></div><div class="grid three"><article class="card" style="--accent:rgba(53,231,255,.22)"><span class="lane">first stop</span><h3>Examples Hub</h3><p>Selected websites, portfolio, retail, service routes, packages, and client-facing examples. This is the cleaner public proof hub.</p><div class="menu"><a class="btn primary" href="/examples/">Live</a></div></article><article class="card" style="--accent:rgba(255,224,122,.20)"><span class="lane">main</span><h3>MATTBEAR Main</h3><p>The front door for creative systems, music, games, tools, community, and local work.</p><div class="menu"><a class="btn primary" href="/">Live</a><a class="btn" href="https://github.com/bearicide/bearicide.github.io" target="_blank" rel="noopener">Repo</a></div></article><article class="card" style="--accent:rgba(103,255,84,.18)"><span class="lane">restaurant</span><h3>Trackside Cafe</h3><p>Local cafe site and restaurant presentation route.</p><div class="menu"><a class="btn primary" href="https://bearicide.github.io/trackside-cafe/" target="_blank" rel="noopener">Live</a><a class="btn" href="https://github.com/bearicide/trackside-cafe" target="_blank" rel="noopener">Repo</a></div></article><article class="card" style="--accent:rgba(255,79,210,.18)"><span class="lane">artist</span><h3>Britni Rosa - Illustrator</h3><p>Artist and booking-focused portfolio example.</p><div class="menu"><a class="btn primary" href="https://bearicide.github.io/rosa-tattoos-2/" target="_blank" rel="noopener">Live</a><a class="btn" href="https://github.com/bearicide/rosa-tattoos-2" target="_blank" rel="noopener">Repo</a></div></article><article class="card" style="--accent:rgba(255,181,63,.18)"><span class="lane">business</span><h3>The Flushing A</h3><p>Restaurant/business example on the public domain route.</p><div class="menu"><a class="btn primary" href="https://theflushinga.com/theflushinga-index.html" target="_blank" rel="noopener">Live</a><a class="btn" href="https://github.com/bearicide/theflushinga-dotcom" target="_blank" rel="noopener">Repo</a></div></article><article class="card" style="--accent:rgba(157,103,255,.18)"><span class="lane">showcase</span><h3>Karime Fernandez</h3><p>Personal brand and project showcase lane.</p><div class="menu"><a class="btn primary" href="/karimef/">Live</a><a class="btn" href="https://github.com/bearicide/karimef" target="_blank" rel="noopener">Repo</a></div></article></div></section>
-<section id="games" aria-labelledby="games-title"><div class="section-title"><h2 id="games-title">Arcade + games</h2><p>Playable work, cabinet systems, word games, slot mechanics, and the part where buttons finally do something useful.</p></div><div class="grid four"><article class="card" style="--accent:rgba(103,255,84,.22)"><span class="lane">modern arcade</span><h3>MATTBEARCADE</h3><p>Active browser arcade and game-system district.</p><div class="menu"><a class="btn primary" href="/MATTBEARCADE/">Live</a></div></article><article class="card" style="--accent:rgba(53,231,255,.22)"><span class="lane">classic arcade</span><h3>RETROCADE</h3><p>Preservation-flavored arcade lane and multi-cabinet route.</p><div class="menu"><a class="btn primary" href="https://bearicide.github.io/retrocade-/" target="_blank" rel="noopener">Live</a><a class="btn" href="https://github.com/bearicide/retrocade-" target="_blank" rel="noopener">Repo</a></div></article><article class="card" style="--accent:rgba(255,181,63,.20)"><span class="lane">casino</span><h3>WORD$LOTS</h3><p>Core public slot-machine project and randomness engine.</p><div class="menu"><a class="btn primary" href="https://bearicide.github.io/wordslots/" target="_blank" rel="noopener">Live</a><a class="btn" href="https://github.com/bearicide/wordslots" target="_blank" rel="noopener">Repo</a></div></article><article class="card" style="--accent:rgba(255,79,210,.18)"><span class="lane">word game</span><h3>WORDPLAY</h3><p>Letter tiles, word visuals, cabinet identity, and word-game direction.</p><div class="menu"><a class="btn primary" href="https://bearicide.github.io/wordplay/" target="_blank" rel="noopener">Live</a><a class="btn" href="https://github.com/bearicide/wordplay" target="_blank" rel="noopener">Repo</a></div></article></div></section>
-<section id="music" aria-labelledby="music-title"><div class="section-title"><h2 id="music-title">Music + community</h2><p>Audio routes, shared projects, release pages, tools, and the softer riot infrastructure.</p></div><div class="grid three"><article class="card" style="--accent:rgba(53,231,255,.22)"><span class="lane">community</span><h3>HiberNation</h3><p>Community portal for groups, music, events, archives, and shared projects.</p><div class="menu"><a class="btn primary" href="/HiberNation/">Live</a><a class="btn" href="https://github.com/bearicide/HiberNation" target="_blank" rel="noopener">Repo</a></div></article><article class="card" style="--accent:rgba(255,79,210,.22)"><span class="lane">music</span><h3>MATTBEAR Music</h3><p>Singles, covers, audio tools, release panels, and related visuals.</p><div class="menu"><a class="btn primary" href="/music/">Live</a><a class="btn mag" href="https://soundcloud.com/mattbear86" target="_blank" rel="noopener">SoundCloud</a></div></article><article class="card" style="--accent:rgba(103,255,84,.20)"><span class="lane">sampler</span><h3>The Choppa</h3><p>Browser pad, sampler, MIDI, and drum-performance tool.</p><div class="menu"><a class="btn primary" href="/the-choppa/">Live</a><a class="btn" href="https://github.com/bearicide/the-choppa" target="_blank" rel="noopener">Repo</a></div></article><article class="card" style="--accent:rgba(255,224,122,.18)"><span class="lane">tools</span><h3>Music Toys</h3><p>Browser audio toys, mechanics, and experimental instrument routes.</p><div class="menu"><a class="btn primary" href="/music-toys/">Live</a></div></article><article class="card" style="--accent:rgba(157,103,255,.18)"><span class="lane">release world</span><h3>All Fall Down</h3><p>Music-release and promo route connected to the broader audio lane.</p><div class="menu"><a class="btn primary" href="/mattbear-allfalldown/">Live</a></div></article><article class="card" style="--accent:rgba(255,181,63,.16)"><span class="lane">experimental</span><h3>Fallen Earth</h3><p>Atmospheric experimental district. Keep it strange, but still navigable. Civilization is fragile.</p><div class="menu"><a class="btn primary" href="/fallen-earth/">Live</a></div></article></div></section>
-<section id="lab" aria-labelledby="lab-title"><div class="section-title"><h2 id="lab-title">Lab + archive</h2><p>Experiments stay visible, but they do not get to hijack the front door like raccoons in a pantry.</p></div><div class="grid three"><article class="card" style="--accent:rgba(53,231,255,.22)"><span class="lane">launcher</span><h3>Interactive Map</h3><p>Clickable ecosystem map and project launcher.</p><div class="menu"><a class="btn primary" href="/interactive/">Live</a></div></article><article class="card" style="--accent:rgba(255,224,122,.20)"><span class="lane">print</span><h3>Trading Cards</h3><p>Printable project cards, characters, events, and promo pieces.</p><div class="menu"><a class="btn primary" href="/trading-cards/">Live</a></div></article><article class="card" style="--accent:rgba(255,79,210,.20)"><span class="lane">visual</span><h3>NEONRITUAL</h3><p>Visual identity and interactive showcase lane.</p><div class="menu"><a class="btn primary" href="/NEONRITUAL/">Live</a><a class="btn" href="https://github.com/bearicide/NEONRITUAL" target="_blank" rel="noopener">Repo</a></div></article></div><div class="panel" style="margin-top:16px;padding:18px"><p class="eyebrow">cleanup doctrine</p><ul class="clean-list"><li><strong>Do not add new repos</strong> unless the route cannot live inside an existing district.</li><li><strong>Every public page needs:</strong> clear purpose, home link, related route, readable mobile layout, and footer.</li><li><strong>Archive duplicates</strong> after the best public version is selected.</li><li><strong>Use shared assets</strong> before generating another pile of beautiful nonsense.</li></ul></div></section>
+  <section class="hero">
+    <div class="panel glow projects-hero">
+      <p class="eyebrow">project map</p>
+      <h1 class="rainbow">Projects that actually go somewhere.</h1>
+      <p class="focus-copy">This page is the public route board for the MATTBEAR ecosystem. It separates client-ready work, games, music tools, community pages, and experimental builds so visitors do not have to spelunk through link soup like it’s a cursed basement archive.</p>
+      <div class="menu">
+        <a class="btn primary" href="/examples/">Start with Examples</a>
+        <a class="btn green" href="/MATTBEARCADE/">Play Arcade</a>
+        <a class="btn cyan" href="/HiberNation/">Open Community</a>
+        <a class="btn amber" href="/music/">Music + Releases</a>
+      </div>
+      <div class="route-strip" aria-label="Project route summary">
+        <div class="route-card"><b>Client proof</b><span>Clean examples, local business pages, portfolios, and service-ready presentation.</span></div>
+        <div class="route-card"><b>Interactive work</b><span>Arcade, slots, word games, playable prototypes, and browser experiments.</span></div>
+        <div class="route-card"><b>Music systems</b><span>Release pages, audio toys, sampler tools, and shared media routes.</span></div>
+        <div class="route-card"><b>Lab + cleanup</b><span>Experimental routes stay visible, but priority stays clear. Imagine discipline. Horrifying.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="priority-title">
+    <div class="section-title">
+      <h2 id="priority-title" class="rainbow">Use these first</h2>
+      <p>The main paths. These should stay polished before another gorgeous unfinished thing crawls out of the repo swamp.</p>
+    </div>
+    <div class="grid four">
+      <article class="card project-card" style="--accent:rgba(255,224,122,.22)">
+        <div class="kicker"><span class="lane">front door</span><span class="status live">public</span></div>
+        <h3>MATTBEAR Main</h3>
+        <p>The central entrance for identity, featured work, current routes, and whatever strange civilization this is becoming.</p>
+        <div class="menu"><a class="btn primary" href="/">Live</a><a class="btn" href="https://github.com/bearicide/bearicide.github.io" target="_blank" rel="noopener">Repo</a></div>
+      </article>
+      <article class="card project-card" style="--accent:rgba(53,231,255,.22)">
+        <div class="kicker"><span class="lane">best proof</span><span class="status live">priority</span></div>
+        <h3>Examples Hub</h3>
+        <p>Client-facing work, packages, site examples, and the cleanest proof that this is not merely neon chaos wearing shoes.</p>
+        <div class="menu"><a class="btn primary" href="/examples/">Live</a></div>
+      </article>
+      <article class="card project-card" style="--accent:rgba(103,255,84,.20)">
+        <div class="kicker"><span class="lane">playable</span><span class="status live">active</span></div>
+        <h3>MATTBEARCADE</h3>
+        <p>The browser arcade district for playable builds, game systems, and interactive experiments that deserve actual buttons.</p>
+        <div class="menu"><a class="btn primary" href="/MATTBEARCADE/">Live</a></div>
+      </article>
+      <article class="card project-card" style="--accent:rgba(255,79,210,.20)">
+        <div class="kicker"><span class="lane">community</span><span class="status clean">connect</span></div>
+        <h3>HiberNation</h3>
+        <p>Community hub for groups, events, projects, shared work, and the broader MATTBEAR network.</p>
+        <div class="menu"><a class="btn primary" href="/HiberNation/">Live</a><a class="btn" href="https://github.com/bearicide/HiberNation" target="_blank" rel="noopener">Repo</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="client-work" aria-labelledby="client-title">
+    <div class="section-title">
+      <h2 id="client-title">Client-ready + local work</h2>
+      <p>Business, portfolio, and service examples. These should read clearly to normal people, a demographic history has unfortunately produced.</p>
+    </div>
+    <div class="grid three">
+      <article class="card project-card" style="--accent:rgba(103,255,84,.18)">
+        <div class="kicker"><span class="lane">restaurant</span><span class="status live">local</span></div>
+        <h3>Trackside Cafe</h3>
+        <p>Local cafe site route with restaurant presentation, family traffic, and room for kids-game/table-tent expansion.</p>
+        <div class="menu"><a class="btn primary" href="https://bearicide.github.io/trackside-cafe/" target="_blank" rel="noopener">Live</a><a class="btn" href="https://github.com/bearicide/trackside-cafe" target="_blank" rel="noopener">Repo</a></div>
+      </article>
+      <article class="card project-card" style="--accent:rgba(255,181,63,.18)">
+        <div class="kicker"><span class="lane">restaurant</span><span class="status clean">example</span></div>
+        <h3>The Flushing A</h3>
+        <p>Restaurant/business example route. Keep it useful as proof, not as a haunted filing cabinet.</p>
+        <div class="menu"><a class="btn primary" href="https://theflushinga.com/theflushinga-index.html" target="_blank" rel="noopener">Live</a><a class="btn" href="https://github.com/bearicide/theflushinga-dotcom" target="_blank" rel="noopener">Repo</a></div>
+      </article>
+      <article class="card project-card" style="--accent:rgba(255,79,210,.18)">
+        <div class="kicker"><span class="lane">artist</span><span class="status live">portfolio</span></div>
+        <h3>Britni Rosa - Illustrator</h3>
+        <p>Artist portfolio and booking-style example with stronger visual identity than a beige brochure apology.</p>
+        <div class="menu"><a class="btn primary" href="https://bearicide.github.io/rosa-tattoos-2/" target="_blank" rel="noopener">Live</a><a class="btn" href="https://github.com/bearicide/rosa-tattoos-2" target="_blank" rel="noopener">Repo</a></div>
+      </article>
+      <article class="card project-card" style="--accent:rgba(157,103,255,.18)">
+        <div class="kicker"><span class="lane">brand</span><span class="status clean">showcase</span></div>
+        <h3>Karime Fernandez</h3>
+        <p>Personal brand and project showcase lane. Good for portfolio structure and polished one-person site direction.</p>
+        <div class="menu"><a class="btn primary" href="/karimef/">Live</a><a class="btn" href="https://github.com/bearicide/karimef" target="_blank" rel="noopener">Repo</a></div>
+      </article>
+      <article class="card project-card" style="--accent:rgba(53,231,255,.18)">
+        <div class="kicker"><span class="lane">retail</span><span class="status clean">concept</span></div>
+        <h3>Smoke World Bowling Green</h3>
+        <p>Retail storefront prototype. Useful as a small-business layout and product-category example.</p>
+        <div class="menu"><a class="btn primary" href="https://bearicide.github.io/smoke-world-bowling-green/" target="_blank" rel="noopener">Live</a><a class="btn" href="https://github.com/bearicide/smoke-world-bowling-green" target="_blank" rel="noopener">Repo</a></div>
+      </article>
+      <article class="card project-card" style="--accent:rgba(255,224,122,.18)">
+        <div class="kicker"><span class="lane">retail</span><span class="status clean">concept</span></div>
+        <h3>Asian Store Concept</h3>
+        <p>Specialty retail direction for layout, product grouping, and local-store presentation.</p>
+        <div class="menu"><a class="btn primary" href="https://theflushinga.com/asian-store.html" target="_blank" rel="noopener">Live</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="games" aria-labelledby="games-title">
+    <div class="section-title">
+      <h2 id="games-title">Arcade + game systems</h2>
+      <p>Playable work, cabinet routes, word games, slots, and interactive builds. Fewer dead ends. More “press this and something happens.”</p>
+    </div>
+    <div class="grid four">
+      <article class="card project-card" style="--accent:rgba(103,255,84,.22)">
+        <div class="kicker"><span class="lane">arcade</span><span class="status live">active</span></div>
+        <h3>MATTBEARCADE</h3>
+        <p>Main arcade district for playable browser games and ongoing game experiments.</p>
+        <div class="menu"><a class="btn primary" href="/MATTBEARCADE/">Live</a></div>
+      </article>
+      <article class="card project-card" style="--accent:rgba(53,231,255,.22)">
+        <div class="kicker"><span class="lane">classic</span><span class="status clean">cabinet</span></div>
+        <h3>RETROCADE</h3>
+        <p>Retro arcade route for cabinet-flavored presentation, old-school styling, and preservation energy.</p>
+        <div class="menu"><a class="btn primary" href="https://bearicide.github.io/retrocade-/" target="_blank" rel="noopener">Live</a><a class="btn" href="https://github.com/bearicide/retrocade-" target="_blank" rel="noopener">Repo</a></div>
+      </article>
+      <article class="card project-card" style="--accent:rgba(255,181,63,.22)">
+        <div class="kicker"><span class="lane">slots</span><span class="status live">core</span></div>
+        <h3>WORD$LOTS</h3>
+        <p>Slot-machine and randomizer project. Casino mechanics without pretending the universe is fair.</p>
+        <div class="menu"><a class="btn primary" href="https://bearicide.github.io/wordslots/" target="_blank" rel="noopener">Live</a><a class="btn" href="https://github.com/bearicide/wordslots" target="_blank" rel="noopener">Repo</a></div>
+      </article>
+      <article class="card project-card" style="--accent:rgba(255,79,210,.18)">
+        <div class="kicker"><span class="lane">words</span><span class="status clean">visual</span></div>
+        <h3>WORDPLAY</h3>
+        <p>Letter tiles, word-game visuals, cabinet identity, and word system direction.</p>
+        <div class="menu"><a class="btn primary" href="https://bearicide.github.io/wordplay/" target="_blank" rel="noopener">Live</a><a class="btn" href="https://github.com/bearicide/wordplay" target="_blank" rel="noopener">Repo</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="music" aria-labelledby="music-title">
+    <div class="section-title">
+      <h2 id="music-title">Music + tools</h2>
+      <p>Release pages, audio toys, sampler tools, community audio routes, and other noises humans keep monetizing somehow.</p>
+    </div>
+    <div class="grid three">
+      <article class="card project-card" style="--accent:rgba(255,79,210,.22)">
+        <div class="kicker"><span class="lane">music</span><span class="status live">media</span></div>
+        <h3>MATTBEAR Music</h3>
+        <p>Singles, covers, release panels, audio visuals, and the main route for music-facing work.</p>
+        <div class="menu"><a class="btn primary" href="/music/">Live</a><a class="btn mag" href="https://soundcloud.com/mattbear86" target="_blank" rel="noopener">SoundCloud</a></div>
+      </article>
+      <article class="card project-card" style="--accent:rgba(103,255,84,.20)">
+        <div class="kicker"><span class="lane">sampler</span><span class="status live">tool</span></div>
+        <h3>The Choppa</h3>
+        <p>Browser pad, sampler, MIDI, and drum-performance tool. The machine has buttons. Society may recover.</p>
+        <div class="menu"><a class="btn primary" href="/the-choppa/">Live</a><a class="btn" href="https://github.com/bearicide/the-choppa" target="_blank" rel="noopener">Repo</a></div>
+      </article>
+      <article class="card project-card" style="--accent:rgba(255,224,122,.18)">
+        <div class="kicker"><span class="lane">audio toys</span><span class="status lab">lab</span></div>
+        <h3>Music Toys</h3>
+        <p>Experimental browser instruments, sound widgets, and mechanics for future audio projects.</p>
+        <div class="menu"><a class="btn primary" href="/music-toys/">Live</a></div>
+      </article>
+      <article class="card project-card" style="--accent:rgba(157,103,255,.18)">
+        <div class="kicker"><span class="lane">release</span><span class="status clean">promo</span></div>
+        <h3>All Fall Down</h3>
+        <p>Music-release and promo page tied into the broader audio lane.</p>
+        <div class="menu"><a class="btn primary" href="/mattbear-allfalldown/">Live</a></div>
+      </article>
+      <article class="card project-card" style="--accent:rgba(53,231,255,.22)">
+        <div class="kicker"><span class="lane">community</span><span class="status live">hub</span></div>
+        <h3>HiberNation</h3>
+        <p>Shared community route for groups, events, archives, music, and public collaboration.</p>
+        <div class="menu"><a class="btn primary" href="/HiberNation/">Live</a><a class="btn" href="https://github.com/bearicide/HiberNation" target="_blank" rel="noopener">Repo</a></div>
+      </article>
+      <article class="card project-card" style="--accent:rgba(255,181,63,.16)">
+        <div class="kicker"><span class="lane">atmosphere</span><span class="status lab">weird</span></div>
+        <h3>Fallen Earth</h3>
+        <p>Atmospheric experimental district. Strange is allowed. Lost is not.</p>
+        <div class="menu"><a class="btn primary" href="/fallen-earth/">Live</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="lab" aria-labelledby="lab-title">
+    <div class="section-title">
+      <h2 id="lab-title">Lab + archive</h2>
+      <p>Experimental routes stay grouped here so the front door does not become a garage sale with hover effects.</p>
+    </div>
+    <div class="matrix">
+      <div class="grid three">
+        <article class="card project-card" style="--accent:rgba(53,231,255,.22)">
+          <div class="kicker"><span class="lane">launcher</span><span class="status lab">map</span></div>
+          <h3>Interactive Map</h3>
+          <p>Clickable ecosystem map and project launcher for visual browsing.</p>
+          <div class="menu"><a class="btn primary" href="/interactive/">Live</a></div>
+        </article>
+        <article class="card project-card" style="--accent:rgba(255,224,122,.20)">
+          <div class="kicker"><span class="lane">print</span><span class="status clean">assets</span></div>
+          <h3>Trading Cards</h3>
+          <p>Printable project cards, characters, events, promo pieces, and collectible-style layouts.</p>
+          <div class="menu"><a class="btn primary" href="/trading-cards/">Live</a></div>
+        </article>
+        <article class="card project-card" style="--accent:rgba(255,79,210,.20)">
+          <div class="kicker"><span class="lane">visual</span><span class="status lab">identity</span></div>
+          <h3>NEONRITUAL</h3>
+          <p>Visual identity and interactive showcase lane for neon/glitch presentation work.</p>
+          <div class="menu"><a class="btn primary" href="/NEONRITUAL/">Live</a><a class="btn" href="https://github.com/bearicide/NEONRITUAL" target="_blank" rel="noopener">Repo</a></div>
+        </article>
+      </div>
+      <aside class="panel note-panel">
+        <p class="eyebrow">cleanup rules</p>
+        <ul class="clean-list">
+          <li><strong>Main stays the front door.</strong> It links out; it does not absorb every experiment.</li>
+          <li><strong>Examples stays client-safe.</strong> Clear proof, plain labels, strong first impression.</li>
+          <li><strong>Projects stays the map.</strong> No buried routes, mystery buttons, or duplicate public doors.</li>
+          <li><strong>Games, music, and lab stay separated.</strong> Weird is fine. Confusing is expensive.</li>
+          <li><strong>Every page needs the basics:</strong> purpose, home link, related route, mobile spacing, footer.</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
 </main>
-<footer class="wrap">MATTBEAR Project Focus • Ownership Through Creation • bearicide.github.io<div class="footer-menu"><a class="btn" href="/">Main</a><a class="btn" href="/examples/">Examples Hub</a><a class="btn" href="/music/">Music</a><a class="btn" href="/MATTBEARCADE/">Arcade</a></div></footer>
-<script src="/assets/mattbear-sitewide.js" defer data-mb-page="Project Focus" data-mb-section="repo command map"></script>
+
+<footer class="wrap">
+  MATTBEAR Projects • Ownership Through Creation • bearicide.github.io
+  <div class="footer-menu">
+    <a class="btn" href="/">Main</a>
+    <a class="btn" href="/examples/">Examples</a>
+    <a class="btn" href="/MATTBEARCADE/">Arcade</a>
+    <a class="btn" href="/music/">Music</a>
+    <a class="btn" href="/HiberNation/">HiberNation</a>
+  </div>
+</footer>
+<script src="/assets/mattbear-sitewide.js" defer data-mb-page="Projects" data-mb-section="public project map"></script>
 </body>
 </html>
