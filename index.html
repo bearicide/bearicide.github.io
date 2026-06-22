@@ -3,202 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>MATTBEAR | Main Portal</title>
-<meta name="description" content="MATTBEAR main portal for creative systems, music tools, arcade builds, HiberNation, examples, and useful project routes.">
-<meta name="theme-color" content="#05060b">
+<title>MATTBEAR | Interactive Main Map</title>
+<meta name="description" content="MATTBEAR interactive main map with visible clickable zones for music, games, creation, community, Midwest Made, and HiberNation routes.">
+<meta name="theme-color" content="#050507">
+<link rel="stylesheet" href="/assets/site-polish.css">
 <style>
-:root{
-  --ink:#f8fbff;
-  --muted:rgba(232,240,255,.72);
-  --soft:rgba(255,255,255,.11);
-  --line:rgba(255,255,255,.18);
-  --panel:rgba(8,10,22,.72);
-  --r:#ff2f6d;
-  --o:#ff8a00;
-  --y:#ffe047;
-  --g:#39ff14;
-  --c:#00e5ff;
-  --b:#2478ff;
-  --v:#a82be2;
-  --p:#ff00f6;
-  --grad:linear-gradient(90deg,var(--r),var(--o),var(--y),var(--g),var(--c),var(--b),var(--v),var(--p));
-  --wrap:1180px;
-  --edge:clamp(14px,3vw,34px);
-  --radius:28px;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  min-width:320px;
-  color:var(--ink);
-  background:
-    radial-gradient(circle at 10% 9%,rgba(255,0,246,.28),transparent 28%),
-    radial-gradient(circle at 88% 12%,rgba(0,229,255,.24),transparent 30%),
-    radial-gradient(circle at 58% 90%,rgba(57,255,20,.14),transparent 31%),
-    linear-gradient(180deg,#03040a,#080b14 46%,#05060b);
-  font-family:Inter,ui-sans-serif,system-ui,sans-serif;
-  overflow-x:hidden;
-}
-body:before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  background:
-    linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);
-  background-size:100% 4px,48px 48px;
-  opacity:.18;
-  mix-blend-mode:screen;
-}
-a{color:inherit;text-decoration:none}
-a:visited{color:inherit}
-.wrap{width:min(var(--wrap),calc(100% - var(--edge)*2));margin-inline:auto}
-.gradient{background:var(--grad);background-size:260% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:rainbowShift 12s linear infinite;text-shadow:0 0 1px rgba(255,255,255,.35)}
-.outline-text{-webkit-text-stroke:1px rgba(255,255,255,.28);filter:drop-shadow(0 0 22px rgba(0,229,255,.18))}
-.topbar{position:sticky;top:0;z-index:20;border-bottom:1px solid var(--line);background:rgba(3,4,10,.84);backdrop-filter:blur(15px)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 0;flex-wrap:wrap}
-.brand{display:flex;align-items:center;gap:10px;font-weight:1000;text-transform:uppercase;letter-spacing:.08em}
-.mark{width:40px;height:40px;border-radius:15px;background:var(--grad);background-size:220% 100%;box-shadow:0 0 0 1px rgba(255,255,255,.2),0 0 30px rgba(0,229,255,.25);animation:rainbowShift 10s linear infinite,softPulse 4s ease-in-out infinite}
-.brand small{display:block;color:var(--muted);font-size:.68rem;letter-spacing:.18em;margin-top:2px}
-.links,.actions,.footer-links{display:flex;gap:8px;flex-wrap:wrap}
-.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:9px 12px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.065);color:var(--ink);font-size:.79rem;font-weight:950;text-transform:uppercase;letter-spacing:.045em;text-align:center;box-shadow:inset 0 1px 0 rgba(255,255,255,.08);overflow:hidden;transform:translateY(0);transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease,background .18s ease}
-.btn:before{content:"";position:absolute;inset:-40% -20%;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.24),transparent 62%);transform:translateX(-130%);transition:transform .45s ease;pointer-events:none}
-.btn:hover,.btn:focus-visible{outline:0;transform:translateY(-2px);border-color:rgba(0,229,255,.55);background:rgba(255,255,255,.1);box-shadow:0 0 0 1px rgba(0,0,0,.4),0 0 26px rgba(0,229,255,.18)}
-.btn:hover:before,.btn:focus-visible:before{transform:translateX(130%)}
-.primary{border:0;background:var(--grad);background-size:240% 100%;color:#05060b;animation:rainbowShift 11s linear infinite;font-weight:1000;text-shadow:none}
-.hero{padding:clamp(26px,6vw,68px) 0 24px}
-.panel,.card,.faq-item{border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg,rgba(255,255,255,.095),rgba(255,255,255,.038));box-shadow:0 24px 75px rgba(0,0,0,.44),inset 0 1px 0 rgba(255,255,255,.08)}
-.panel{position:relative;isolation:isolate;overflow:hidden;padding:clamp(18px,4vw,42px)}
-.panel:before{content:"";position:absolute;inset:-2px;border-radius:inherit;background:radial-gradient(circle at 10% 0,rgba(255,0,246,.24),transparent 28%),radial-gradient(circle at 92% 10%,rgba(0,229,255,.2),transparent 28%);z-index:-1;filter:blur(1px)}
-.kicker{margin:0 0 14px;font-weight:1000;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem}
-h1,h2,h3{margin:0;font-family:Georgia,"Times New Roman",serif;text-transform:uppercase;letter-spacing:-.04em;font-weight:900}
-h1{max-width:980px;font-size:clamp(2.65rem,8vw,7.4rem);line-height:.84}
-h2{font-size:clamp(1.85rem,4vw,3.45rem);line-height:.92}
-h3{font-size:1.34rem;line-height:1}
-p{color:var(--muted);line-height:1.55}.lead{max-width:760px;font-size:clamp(1rem,2vw,1.22rem);margin:18px 0 0}.actions{margin-top:22px}.section{padding:22px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:14px}.section-head p{max-width:560px;margin:0}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.card{min-height:238px;padding:18px;display:flex;flex-direction:column;gap:12px;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}.card:hover,.card:focus-visible{outline:0;transform:translateY(-4px);border-color:rgba(255,255,255,.36);box-shadow:0 26px 80px rgba(0,0,0,.5),0 0 34px rgba(0,229,255,.12)}.icon{height:78px;border-radius:18px;display:grid;place-items:center;font-size:2.1rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}.card p{margin:0;flex:1}.status{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}.mini-list{display:grid;gap:10px;margin:14px 0 0}.mini{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid rgba(255,255,255,.12);border-radius:16px;background:rgba(0,0,0,.22);padding:12px}.mini strong{font-size:.88rem;text-transform:uppercase;letter-spacing:.08em}.mini span{color:var(--muted);font-size:.9rem;text-align:right}.faq{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.faq-item{padding:18px}.faq-item p{margin-bottom:0}.lights{position:fixed;left:0;right:0;bottom:0;height:4px;background:var(--grad);background-size:260% 100%;animation:rainbowShift 5s linear infinite;box-shadow:0 0 22px rgba(0,229,255,.35);z-index:30;pointer-events:none}.footer{padding:30px 0 42px;text-align:center;color:var(--muted)}.footer strong{display:block;font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.2rem,3vw,2rem);text-transform:uppercase}.footer-links{justify-content:center;margin-top:14px}
-@keyframes rainbowShift{to{background-position:260% 0}}
-@keyframes softPulse{0%,100%{transform:scale(1);filter:saturate(1)}50%{transform:scale(1.04);filter:saturate(1.35)}}
-@media(max-width:1060px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.status,.faq{grid-template-columns:1fr}}
-@media(max-width:760px){.wrap{width:calc(100% - 24px)}.nav{align-items:flex-start}.links,.actions,.footer-links{display:grid;width:100%;grid-template-columns:1fr 1fr;gap:7px}.btn{width:100%;min-height:39px;padding:8px 9px;font-size:.73rem}.hero{padding-top:24px}.panel{padding:18px}.section-head{display:block}.section-head p{margin-top:8px}.mini{display:block}.mini span{display:block;text-align:left;margin-top:4px}.mark{width:34px;height:34px}}
-@media(max-width:520px){.grid,.links,.actions,.footer-links{grid-template-columns:1fr}.card{min-height:0}h1{font-size:clamp(2.35rem,18vw,4rem)}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+:root{--map:url('/assets/interactive/mattbear-ecosystem-city-interactive.png')}
+*{box-sizing:border-box}html,body{min-height:100%;background:#020204;color:#fff}body{margin:0;overflow-x:hidden}a{color:inherit}.map-shell{min-height:100svh;display:grid;grid-template-rows:auto 1fr;background:#020204}.top{position:sticky;top:0;z-index:30;background:rgba(0,0,0,.86);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.16)}.nav{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 0}.brand{display:inline-flex;flex-direction:column;color:#fff;text-decoration:none;font:1000 1rem/1 system-ui,sans-serif;text-transform:uppercase;letter-spacing:.18em}.brand small{color:rgba(255,255,255,.68);font:850 .62rem/1.1 system-ui,sans-serif;letter-spacing:.14em}.menu{display:flex;gap:8px;flex-wrap:wrap}.btn,.zone{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:9px 13px;border-radius:14px;border:1px solid rgba(255,255,255,.26);background:rgba(0,0,0,.62);color:#fff;text-decoration:none;font:950 .72rem system-ui,sans-serif;text-transform:uppercase;letter-spacing:.1em;text-align:center;box-shadow:0 0 0 1px rgba(0,0,0,.72),0 0 22px rgba(53,231,255,.12);transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease,background .18s ease}.btn:hover,.btn:focus-visible,.zone:hover,.zone:focus-visible,.zone.active{transform:translateY(-2px);border-color:rgba(53,231,255,.82);background:rgba(0,0,0,.78);box-shadow:0 0 0 1px rgba(0,0,0,.72),0 0 25px currentColor;outline:0}.primary{border-color:rgba(255,224,122,.72);color:#fff1bd}.cyan{border-color:rgba(53,231,255,.62)}.mag{border-color:rgba(255,79,210,.62)}.green{border-color:rgba(103,255,84,.62)}.amber{border-color:rgba(255,181,63,.72)}.map-stage{position:relative;min-height:calc(100svh - 65px);overflow:hidden;background:linear-gradient(180deg,rgba(0,0,0,.03),rgba(0,0,0,.42)),var(--map) center/cover no-repeat}.map-stage:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.35),transparent 18%,transparent 76%,rgba(0,0,0,.42)),radial-gradient(circle at 50% 75%,rgba(255,224,122,.16),transparent 30%);mix-blend-mode:screen}.zone{position:absolute;z-index:5;min-width:120px;backdrop-filter:blur(8px)}.sidebar-music{left:5%;top:23%;color:#ff4fd8}.sidebar-games{left:5%;top:33%;color:#35d9ff}.sidebar-create{left:5%;top:43%;color:#ffe07a}.sidebar-community{left:5%;top:53%;color:#5dff93}.sidebar-midwest{left:5%;top:63%;color:#ff9d3c}.tower-hibernation{right:8%;top:18%;color:#5dff93}.billboard-main{right:18%;top:45%;color:#35d9ff}.diner-local{left:33%;top:58%;color:#ff9d3c}.bottom-music{left:24%;bottom:8%;color:#ff4fd8}.bottom-games{left:36%;bottom:8%;color:#35d9ff}.bottom-create{left:48%;bottom:8%;color:#ffe07a}.bottom-community{left:60%;bottom:8%;color:#5dff93}.bottom-midwest{left:72%;bottom:8%;color:#ff9d3c}.hud{position:absolute;z-index:10;left:clamp(12px,2vw,24px);right:clamp(12px,2vw,24px);bottom:clamp(12px,2vw,24px);display:flex;justify-content:space-between;align-items:end;gap:14px;pointer-events:none}.hud-card{max-width:450px;border:1px solid rgba(255,255,255,.18);border-radius:22px;background:rgba(0,0,0,.76);backdrop-filter:blur(12px);box-shadow:0 18px 50px rgba(0,0,0,.48);padding:14px 16px;pointer-events:auto}.hud-card h1{margin:0;font-size:clamp(1.45rem,3vw,2.85rem);line-height:.9;text-transform:uppercase}.hud-card p{margin:.45rem 0 0;color:rgba(255,255,255,.82);font-size:.92rem;line-height:1.45}.eyebrow{margin:0 0 6px;color:#ffe07a;font:1000 .72rem system-ui,sans-serif;text-transform:uppercase;letter-spacing:.2em}.rainbow{background:linear-gradient(90deg,#ff3434,#ff8a00,#ffe047,#67ff54,#35e7ff,#4f8dff,#9d67ff,#ff4fd2,#ff3434);background-size:240% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:rainbowShift 7s linear infinite}.mobile-routes{display:none}@keyframes rainbowShift{to{background-position:240% 50%}}@media(max-width:900px){.menu{display:grid;grid-template-columns:1fr 1fr;width:100%}.btn{width:100%}}@media(max-width:760px){body{overflow:auto}.map-stage{min-height:72svh;background-position:center top}.zone{display:none}.hud{position:relative;left:auto;right:auto;bottom:auto;padding:14px;display:block;background:#050507}.hud-card{max-width:none}.mobile-routes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:12px}.mobile-routes a{border:1px solid rgba(255,255,255,.18);border-radius:14px;background:rgba(255,255,255,.07);padding:11px;text-align:center;color:#fff;text-decoration:none;font-weight:900;text-transform:uppercase;font-size:.78rem}.nav{justify-content:center}.brand{text-align:center}.menu{grid-template-columns:1fr 1fr}}@media(max-width:520px){.wrap{width:calc(100% - 14px)}.menu,.mobile-routes{grid-template-columns:1fr}.hud-card{border-radius:18px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
-<div class="lights" aria-hidden="true"></div>
-<header class="topbar">
-  <div class="wrap nav">
-    <a class="brand" href="/" aria-label="MATTBEAR main portal">
-      <span class="mark" aria-hidden="true"></span>
-      <span><span class="gradient">MATTBEAR</span><small>Main Portal</small></span>
-    </a>
-    <nav class="links" aria-label="Primary routes">
-      <a class="btn primary" href="/">Main</a>
-      <a class="btn" href="/HiberNation/">HiberNation</a>
-      <a class="btn" href="/MATTBEARCADE/">Arcade</a>
-      <a class="btn" href="/examples/">Examples</a>
-      <a class="btn" href="/music/">Music</a>
-      <a class="btn" href="/projects.html">Projects</a>
-    </nav>
-  </div>
-</header>
-<main>
-  <section class="hero">
-    <div class="wrap">
-      <div class="panel">
-        <p class="kicker gradient">Official rainbow main portal</p>
-        <h1><span class="gradient outline-text">MATTBEAR</span><br>turns chaos into signal.</h1>
-        <p class="lead">Creative systems, music tools, browser games, community routes, local work, and proof-of-work builds under one front door. Main is the hub. Arcade is a room. Humanity survives another dropdown menu. 🧭</p>
-        <div class="actions">
-          <a class="btn primary" href="/HiberNation/">Enter HiberNation</a>
-          <a class="btn" href="/MATTBEARCADE/">Open Arcade</a>
-          <a class="btn" href="/examples/">View Examples</a>
-          <a class="btn" href="/music/">Music</a>
-          <a class="btn" href="/projects.html">Project Routes</a>
-          <a class="btn" href="https://soundcloud.com/mattbear86">SoundCloud</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section wrap" aria-labelledby="routes-title">
-    <div class="section-head">
-      <h2 id="routes-title" class="gradient">Main routes</h2>
-      <p>Fast doors to the parts that matter. No fake mystery. No browser-purple betrayal. Astonishing technology. ✨</p>
-    </div>
-    <div class="grid">
-      <a class="card" href="/HiberNation/">
-        <div class="icon" aria-hidden="true">🐻</div>
-        <h3>HiberNation</h3>
-        <p>Community, releases, project branches, Discord energy, and the soft riot layer.</p>
-        <span class="btn primary">Enter</span>
-      </a>
-      <a class="card" href="/MATTBEARCADE/">
-        <div class="icon" aria-hidden="true">🕹️</div>
-        <h3>Arcade</h3>
-        <p>Playable cabinets, casino branches, game experiments, and neon nonsense where it belongs.</p>
-        <span class="btn">Play</span>
-      </a>
-      <a class="card" href="/music/">
-        <div class="icon" aria-hidden="true">🎛️</div>
-        <h3>Music</h3>
-        <p>Tracks, tools, loop ideas, audio toys, and MATTBEAR noise machinery.</p>
-        <span class="btn">Listen</span>
-      </a>
-      <a class="card" href="/examples/">
-        <div class="icon" aria-hidden="true">🌐</div>
-        <h3>Examples</h3>
-        <p>Website examples, promo layouts, client-style previews, and visible proof-of-work.</p>
-        <span class="btn">View</span>
-      </a>
-    </div>
-  </section>
-
-  <section class="section wrap status" aria-labelledby="signal-title">
-    <div class="panel">
-      <p class="kicker gradient">What this is</p>
-      <h2 id="signal-title">A working front door.</h2>
-      <p>This page points people toward the actual ecosystem: creative services, music, web builds, games, and community. It is not supposed to be only an arcade map wearing the main page’s jacket like a tiny criminal.</p>
-      <div class="actions">
-        <a class="btn primary" href="/projects.html">See Projects</a>
-        <a class="btn" href="/midwest-made/">Midwest Made</a>
-      </div>
-    </div>
-    <div class="panel">
-      <p class="kicker gradient">Current signal</p>
-      <div class="mini-list">
-        <div class="mini"><strong>Main</strong><span>Rainbow portal restored</span></div>
-        <div class="mini"><strong>Arcade</strong><span>Separate route</span></div>
-        <div class="mini"><strong>Community</strong><span>HiberNation front-facing</span></div>
-        <div class="mini"><strong>Motion</strong><span>Buttons glow, shift, and behave</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section wrap" aria-labelledby="faq-title">
-    <div class="section-head">
-      <h2 id="faq-title" class="gradient">FAQ</h2>
-      <p>For visitors who require explanations before clicking bright objects. Society really did peak at tooltips.</p>
-    </div>
-    <div class="faq">
-      <div class="faq-item"><h3>What is MATTBEAR?</h3><p>A creative systems hub for websites, music tools, games, promo assets, and practical weirdness.</p></div>
-      <div class="faq-item"><h3>Where do I start?</h3><p>Use HiberNation for the community route, Examples for proof-of-work, or Arcade for playable builds.</p></div>
-      <div class="faq-item"><h3>Is this finished?</h3><p>No. It evolves. The point is useful momentum, not pretending a homepage is sacred marble.</p></div>
-    </div>
-  </section>
+<div class="map-shell">
+<header class="top"><div class="wrap nav"><a class="brand rainbow" href="/">MATTBEAR<small>Interactive Main Map</small></a><nav class="menu" aria-label="Primary routes"><a class="btn primary" href="/">Main</a><a class="btn cyan" href="/map/">Map</a><a class="btn green" href="/HiberNation/">HiberNation</a><a class="btn mag" href="/MATTBEARCADE/">Arcade</a><a class="btn amber" href="/examples/">Examples</a><a class="btn" href="/projects.html">Projects</a></nav></div></header>
+<main class="map-stage" id="mapStage" aria-label="MATTBEAR interactive ecosystem map">
+<a class="zone sidebar-music" href="/music/" data-title="Music District" data-desc="Suno, SoundCloud, MechaniMuzik, The Choppa, releases, loops, and audio tools.">Music</a>
+<a class="zone sidebar-games" href="/MATTBEARCADE/" data-title="Games District" data-desc="MATTBEARCADE, browser games, and playable experiments.">Games</a>
+<a class="zone sidebar-create" href="/projects.html" data-title="Creation District" data-desc="Projects, tools, graphics, ideas, and build routes.">Creation</a>
+<a class="zone sidebar-community" href="/HiberNation/" data-title="Community District" data-desc="HiberNation, Discord, shared projects, posts, and community routes.">Community</a>
+<a class="zone sidebar-midwest" href="/midwest-made/" data-title="Midwest Made" data-desc="Local work, Trackside, Flushing routes, and real-world business pages.">Midwest</a>
+<a class="zone tower-hibernation" href="/HiberNation/" data-title="HiberNation Tower" data-desc="The community signal: groups, events, and connected work.">HiberNation</a>
+<a class="zone billboard-main" href="/map/" data-title="Interactive Map" data-desc="The map version stays available here. Root now matches it visually and behaviorally.">Map</a>
+<a class="zone diner-local" href="/midwest-made/" data-title="Local Route" data-desc="Trackside, Flushing, local business work, food-page routes, and Midwest builds.">Local</a>
+<a class="zone bottom-music" href="/music/" data-title="Music" data-desc="Audio, releases, tools, and machine noise.">Music</a>
+<a class="zone bottom-games" href="/MATTBEARCADE/" data-title="Games" data-desc="Browser games, arcade branches, and playable builds.">Games</a>
+<a class="zone bottom-create" href="/projects.html" data-title="Creation" data-desc="Builds, art, site packages, examples, and project systems.">Create</a>
+<a class="zone bottom-community" href="/HiberNation/" data-title="Community" data-desc="Connected project routes, posts, Discord energy, and shared work.">Community</a>
+<a class="zone bottom-midwest" href="/midwest-made/" data-title="Midwest Made" data-desc="Real-world and local route for diners, Flushing, Trackside, and client-facing work.">Midwest</a>
+<section class="hud" aria-live="polite"><div class="hud-card"><p class="eyebrow">Click a district</p><h1 class="rainbow" id="hudTitle">Interactive Main</h1><p id="hudDesc">The city image is the menu. Hover, tap, or tab through the visible zones. Main now matches the /map/ concept and keeps a mobile fallback.</p><div class="mobile-routes"><a href="/music/">Music</a><a href="/MATTBEARCADE/">Games</a><a href="/projects.html">Creation</a><a href="/HiberNation/">Community</a><a href="/midwest-made/">Midwest</a><a href="/examples/">Examples</a><a href="/map/">Map</a></div></div></section>
 </main>
-<footer class="footer wrap">
-  <strong class="gradient">MATTBEAR • WAKE UP. STAY UP.</strong>
-  <div class="footer-links">
-    <a class="btn primary" href="/HiberNation/">HiberNation</a>
-    <a class="btn" href="/MATTBEARCADE/">Arcade</a>
-    <a class="btn" href="/music/">Music</a>
-    <a class="btn" href="/examples/">Examples</a>
-    <a class="btn" href="/projects.html">Projects</a>
-  </div>
-</footer>
-<script src="/assets/mattbear-sitewide.js" defer data-mb-page="MATTBEAR" data-mb-section="Main Portal" data-mb-description="Rainbow MATTBEAR main portal for HiberNation, music, arcade, examples, and project routes."></script>
+</div>
+<script>
+const title=document.getElementById('hudTitle');const desc=document.getElementById('hudDesc');const fallback={title:title.textContent,desc:desc.textContent};document.querySelectorAll('.zone').forEach(zone=>{const setActive=()=>{document.querySelectorAll('.zone.active').forEach(item=>item.classList.remove('active'));zone.classList.add('active');title.textContent=zone.dataset.title||fallback.title;desc.textContent=zone.dataset.desc||fallback.desc;};zone.addEventListener('mouseenter',setActive);zone.addEventListener('focus',setActive);zone.addEventListener('touchstart',setActive,{passive:true});});
+</script>
+<script src="/assets/mattbear-sitewide.js" defer data-mb-page="MATTBEAR Interactive Main" data-mb-section="Spatial ecosystem launcher"></script>
 </body>
 </html>
