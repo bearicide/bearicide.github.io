@@ -1,150 +1,27 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>HiberNation | MATTBEAR</title>
-<meta name="description" content="HiberNation is the MATTBEAR music, media, and creative movement hub: songs, SoundCloud, Suno, music machines, release worlds, and practical weirdness with structure.">
-<meta name="theme-color" content="#050505">
+<meta name="description" content="HiberNation is the MATTBEAR community and media hub for shared projects, creative updates, music routes, collaboration, events, and connected work.">
+<meta name="theme-color" content="#172236">
 <meta property="og:title" content="HiberNation | MATTBEAR">
-<meta property="og:description" content="Music, machines, release worlds, and the creative den behind MATTBEAR.">
+<meta property="og:description" content="Community, media, shared projects, creative updates, and connected MATTBEAR work.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bearicide.github.io/HiberNation/">
 <link rel="canonical" href="https://bearicide.github.io/HiberNation/">
-<style>
-:root{
-  --bg:#050505;--ink:#fff7e8;--muted:#d8c9b4;--soft:#9b917f;--line:rgba(255,255,255,.15);
-  --panel:rgba(15,15,18,.76);--panel2:rgba(255,255,255,.055);--cyan:#72e8ff;--pink:#ff55d6;--green:#7cff97;
-  --yellow:#ffe96b;--orange:#ffb24d;--violet:#8c74ff;--red:#ff4f6d;--shadow:0 24px 90px rgba(0,0,0,.55)
-}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-width:320px;color:var(--ink);font-family:Bahnschrift,"Arial Narrow",Arial,sans-serif;background:#050505;overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;z-index:-3;background:radial-gradient(circle at 15% 0,rgba(114,232,255,.24),transparent 27%),radial-gradient(circle at 85% 10%,rgba(255,85,214,.20),transparent 30%),radial-gradient(circle at 50% 100%,rgba(124,255,151,.14),transparent 40%),linear-gradient(180deg,#050505,#101018 42%,#050505)}
-body:after{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.72),transparent 78%)}
-a{color:inherit}.wrap{width:min(1180px,calc(100% - 22px));margin:auto}.top{position:sticky;top:0;z-index:30;border-bottom:1px solid var(--line);background:rgba(5,5,5,.86);backdrop-filter:blur(18px)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0;flex-wrap:wrap}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;text-transform:uppercase;font-weight:1000;letter-spacing:.08em}.mark{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,#ff4747,#ffbf5f 18%,#ffef65 34%,#7dff9f 51%,#7fd7ff 68%,#8b6dff 84%,#ff5fd2);box-shadow:0 0 26px rgba(255,85,214,.32)}
-.brand small{display:block;color:var(--muted);font-size:.65rem;letter-spacing:.16em}.links,.actions,.card-actions,.footer-links{display:flex;gap:8px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.035));color:var(--ink);text-decoration:none;text-transform:uppercase;font-size:.72rem;font-weight:1000;letter-spacing:.09em;text-align:center;transition:.18s ease}.btn:hover,.btn:focus-visible{transform:translateY(-2px);border-color:rgba(114,232,255,.42);box-shadow:0 0 24px rgba(114,232,255,.18);outline:none}.primary{border-color:rgba(255,233,107,.48);box-shadow:inset 0 0 0 1px rgba(255,233,107,.12)}
-.rainbow{background:linear-gradient(90deg,#ff4747,#ffbf5f,#ffef65,#7dff9f,#7fd7ff,#8b6dff,#ff5fd2);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 30px rgba(114,232,255,.18)}
-.hero{position:relative;padding:52px 0 22px}.hero:before{content:"HIBERNATION";position:absolute;left:50%;top:18px;transform:translateX(-50%);font-size:clamp(4rem,16vw,14rem);font-weight:1000;letter-spacing:-.08em;color:rgba(255,255,255,.035);white-space:nowrap;pointer-events:none}.panel,.card,.player,.stat{border:1px solid var(--line);background:linear-gradient(180deg,rgba(27,27,33,.82),rgba(7,7,10,.86));box-shadow:var(--shadow),inset 0 1px 0 rgba(255,255,255,.08);backdrop-filter:blur(12px)}.panel{border-radius:20px;padding:clamp(20px,4vw,46px);position:relative;overflow:hidden}.panel:before{content:"";position:absolute;inset:-2px;pointer-events:none;background:linear-gradient(120deg,rgba(114,232,255,.16),transparent 24%,rgba(255,85,214,.13) 54%,transparent 74%,rgba(124,255,151,.14));opacity:.65}.panel>*{position:relative}h1,h2,h3{margin:0;text-transform:uppercase;font-weight:1000}h1{font-size:clamp(3rem,9vw,8.4rem);line-height:.82;letter-spacing:-.07em}h1 .sub{display:block;margin-top:10px;font-size:clamp(1.45rem,4.2vw,4.1rem);line-height:1;letter-spacing:-.035em;color:var(--ink)}h2{font-size:clamp(1.7rem,4vw,3.4rem);line-height:.96;letter-spacing:-.04em}h3{font-size:1.08rem}.tag,.label{margin:0 0 10px;text-transform:uppercase;letter-spacing:.16em;font-weight:1000;font-size:.72rem;color:var(--cyan)}p{color:var(--muted);line-height:1.55}.lead{font-size:clamp(1.08rem,2.2vw,1.38rem);max-width:930px}.quote{margin:18px 0 0;padding:16px 18px;border-left:5px solid var(--green);border-radius:0 14px 14px 0;background:rgba(124,255,151,.08);font-size:clamp(1rem,2vw,1.2rem);color:var(--ink)}
-.kicker{display:flex;gap:9px;flex-wrap:wrap;margin:18px 0}.chip{border:1px solid rgba(255,255,255,.14);border-radius:999px;background:rgba(255,255,255,.05);padding:7px 10px;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.09em}.section{padding:18px 0}.split{display:grid;grid-template-columns:1.2fr .8fr;gap:14px;align-items:stretch}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:16px}.card{border-radius:16px;padding:18px;min-height:210px;position:relative;overflow:hidden;display:flex;flex-direction:column}.card:before{content:"";position:absolute;left:0;top:0;width:100%;height:3px;background:linear-gradient(90deg,var(--accent,var(--yellow)),transparent)}.card p{margin:8px 0 14px}.card-actions{margin-top:auto}.stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.stat{border-radius:14px;padding:14px}.stat strong{display:block;color:var(--yellow);font-size:1.6rem;line-height:1}.stat span{display:block;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;font-size:.68rem;margin-top:4px}.player{border-radius:16px;padding:14px;margin-top:14px}.player iframe{display:block;width:100%;height:166px;border:0;border-radius:12px;background:#111}.ticker{display:flex;gap:12px;overflow:hidden;border-block:1px solid var(--line);background:rgba(0,0,0,.36);padding:10px 0;margin:10px 0}.ticker span{white-space:nowrap;text-transform:uppercase;letter-spacing:.14em;font-size:.75rem;color:var(--soft);animation:roll 18s linear infinite}@keyframes roll{from{transform:translateX(0)}to{transform:translateX(-420px)}}
-footer{padding:30px 0 42px;text-align:center}.footer-box{border-top:1px solid var(--line);padding-top:20px}.tiny{font-size:.78rem;color:var(--soft)}
-@media(max-width:930px){.split,.grid{grid-template-columns:1fr}.stat-grid{grid-template-columns:repeat(2,1fr)}.links,.actions,.card-actions,.footer-links{display:grid;grid-template-columns:1fr 1fr;width:100%}.btn{width:100%}.hero{padding-top:34px}}
-@media(max-width:560px){.wrap{width:min(1120px,calc(100% - 14px))}.links,.actions,.card-actions,.footer-links,.stat-grid{grid-template-columns:1fr}.brand small{display:none}.mark{width:32px;height:32px}.panel,.card{border-radius:14px;padding:16px}h1{font-size:clamp(2.7rem,17vw,4.25rem)}h1 .sub{font-size:clamp(1.18rem,8vw,2rem)}.player iframe{height:136px}}
-</style>
+<link rel="stylesheet" href="/assets/site-polish.css">
+<link rel="stylesheet" href="/assets/public-facing.css">
 </head>
 <body>
-<header class="top">
-  <div class="wrap nav">
-    <a class="brand" href="/" aria-label="Back to MATTBEAR home"><span class="mark" aria-hidden="true"></span><span><span class="rainbow">MATTBEAR</span><small>HiberNation</small></span></a>
-    <nav class="links" aria-label="HiberNation navigation">
-      <a class="btn" href="#listen">Listen</a>
-      <a class="btn" href="#machines">Machines</a>
-      <a class="btn" href="#worlds">Worlds</a>
-      <a class="btn" href="/about/">About</a>
-      <a class="btn" href="/">Home</a>
-    </nav>
-  </div>
-</header>
-<main>
-  <section class="hero">
-    <div class="wrap">
-      <div class="panel">
-        <p class="tag">Music • Media • Machines • Weirdness with structure</p>
-        <h1><span class="rainbow">HiberNation</span><span class="sub">the den behind MATTBEAR.</span></h1>
-        <p class="lead">MATTBEAR is the loud thing people see first. HiberNation is the shelter underneath it: the songs, tools, half-broken ideas, release worlds, strange little machines, and practical creative help that turns chaos into something usable.</p>
-        <div class="quote">Technology is quietly human. I am loudly not.</div>
-        <div class="actions" style="margin-top:18px">
-          <a class="btn primary" href="https://suno.com/@mattbear86">Suno</a>
-          <a class="btn" href="https://soundcloud.com/mattbear86">SoundCloud</a>
-          <a class="btn" href="/music-toys/">Music Tools</a>
-          <a class="btn" href="/examples/">Examples</a>
-          <a class="btn" href="mailto:mattbear86@hotmail.com">Contact</a>
-        </div>
-        <div class="kicker" aria-label="HiberNation tags">
-          <span class="chip">songs</span><span class="chip">sample machines</span><span class="chip">web builds</span><span class="chip">release pages</span><span class="chip">neon cave energy</span><span class="chip">bearicide.github.io</span>
-        </div>
-      </div>
-    </div>
-  </section>
-  <div class="ticker" aria-hidden="true"><span>MATTBEAR • HIBERNATION • SOUND FIRST • BUILD THE WORLD AROUND IT • YOUR IDEAS / OUR SOLUTIONS • </span><span>MATTBEAR • HIBERNATION • SOUND FIRST • BUILD THE WORLD AROUND IT • YOUR IDEAS / OUR SOLUTIONS • </span></div>
-  <section class="section" id="listen">
-    <div class="wrap split">
-      <div class="panel">
-        <p class="tag">listen first</p>
-        <h2>The music is the front door.</h2>
-        <p class="lead">Suno is the fast laboratory. SoundCloud is the public shelf. HiberNation connects both to the rest of the MATTBEAR ecosystem so the songs do not just sit there like loose wires in a drawer.</p>
-        <div class="grid" style="grid-template-columns:repeat(2,minmax(0,1fr))">
-          <article class="card" style="--accent:var(--pink)"><p class="label">Suno</p><h3>Idea forge</h3><p>Hooks, genres, voices, jokes, serious cuts, weird drafts, and song experiments.</p><div class="card-actions"><a class="btn" href="https://suno.com/@mattbear86">Open Suno</a></div></article>
-          <article class="card" style="--accent:var(--cyan)"><p class="label">SoundCloud</p><h3>Public shelf</h3><p>The easier link when somebody asks, “so what does this actually sound like?”</p><div class="card-actions"><a class="btn" href="https://soundcloud.com/mattbear86">Open SoundCloud</a></div></article>
-        </div>
-      </div>
-      <aside>
-        <div class="stat-grid">
-          <div class="stat"><strong>01</strong><span>brand: MATTBEAR</span></div>
-          <div class="stat"><strong>02</strong><span>movement: HiberNation</span></div>
-          <div class="stat"><strong>03</strong><span>hub: bearicide</span></div>
-          <div class="stat"><strong>04</strong><span>rule: make it human</span></div>
-        </div>
-        <div class="player">
-          <p class="label">mini-player / public shelf</p>
-          <iframe title="MATTBEAR SoundCloud" loading="lazy" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/mattbear86&color=%23ff55d6&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-        </div>
-      </aside>
-    </div>
-  </section>
-  <section class="section" id="machines">
-    <div class="wrap">
-      <div class="panel">
-        <p class="tag">machines</p>
-        <h2>Browser toys that hit buttons back.</h2>
-        <p class="lead">Samplers, noise boxes, MIDI experiments, loop grids, and audio pages belong here — not buried like evidence.</p>
-        <div class="grid">
-          <article class="card" style="--accent:var(--green)"><p class="label">Sampler</p><h3>The Sampla</h3><p>Pad-based performance toy for chops, triggers, loops, and dumb-brilliant button mashing.</p><div class="card-actions"><a class="btn" href="https://bearicide.github.io/the-sampla/">Open</a></div></article>
-          <article class="card" style="--accent:var(--orange)"><p class="label">Texture</p><h3>Noise Generator</h3><p>Drone, grit, industrial hum, spooky beds, and controlled nonsense.</p><div class="card-actions"><a class="btn" href="https://bearicide.github.io/noisegenerator/">Open</a></div></article>
-          <article class="card" style="--accent:var(--cyan)"><p class="label">Controller</p><h3>The Choppa</h3><p>Launchkey/MIDI-flavored chop station and visual performance sandbox.</p><div class="card-actions"><a class="btn" href="https://bearicide.github.io/the-choppa/">Open</a></div></article>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="section" id="worlds">
-    <div class="wrap">
-      <div class="panel">
-        <p class="tag">release worlds</p>
-        <h2>One song can become a room.</h2>
-        <p class="lead">Cover art, lyrics, promo posts, links, backstory, weird little jokes, and the page that makes a track feel like it actually exists.</p>
-        <div class="grid">
-          <article class="card" style="--accent:var(--yellow)"><p class="label">Feature</p><h3>All Fall Down</h3><p>A release-world branch connected back into the music spine.</p><div class="card-actions"><a class="btn" href="https://bearicide.github.io/mattbear-allfalldown/">Open</a></div></article>
-          <article class="card" style="--accent:var(--pink)"><p class="label">Build type</p><h3>Song pages</h3><p>Single-track landing pages with links, story, credits, visuals, and shareable promo copy.</p><div class="card-actions"><a class="btn" href="/examples/">Examples</a></div></article>
-          <article class="card" style="--accent:var(--violet)"><p class="label">Services</p><h3>Web + media help</h3><p>Small sites, artist pages, promo pages, practical cleanup, and creative systems that do not feel corporate-dead.</p><div class="card-actions"><a class="btn" href="/website-design.html">Services</a></div></article>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="section" id="contact">
-    <div class="wrap">
-      <div class="panel">
-        <p class="tag">start here</p>
-        <h2>Bring the messy idea. That is the good part.</h2>
-        <p class="lead">A song, a phrase, a busted concept, a game idea, a weird business page, a sample machine, a release, a logo, a whole little universe — HiberNation is where it gets a den instead of getting forgotten.</p>
-        <div class="actions" style="margin-top:16px">
-          <a class="btn primary" href="mailto:mattbear86@hotmail.com">Email MATTBEAR</a>
-          <a class="btn" href="https://bearicide.github.io">bearicide.github.io</a>
-          <a class="btn" href="https://suno.com/@mattbear86">suno.com/@mattbear86</a>
-          <a class="btn" href="https://soundcloud.com/mattbear86">SoundCloud</a>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-<footer>
-  <div class="wrap footer-box">
-    <div class="footer-links" style="justify-content:center;margin-bottom:12px"><a class="btn" href="/">Home</a><a class="btn" href="/about/">About</a><a class="btn" href="/examples/">Examples</a><a class="btn" href="/music-toys/">Music Tools</a></div>
-    <p><span class="rainbow">MATTBEAR</span> / HiberNation — your ideas. our solutions.</p>
-    <p class="tiny">Privacy-conscious counter/admin hooks ready through sitewide script. No QR codes. No corporate beige. No mercy for boring pages.</p>
-  </div>
-</footer>
-<script>
-window.MATTBEAR_HIBERNATION={name:'HiberNation',system:'MATTBEAR music/media movement hub',version:'rebuild-2026-06-02',brand:'MATTBEAR',movement:'HiberNation',adminReady:true,counterReady:true};
-</script>
-<script src="/assets/mattbear-sitewide.js" defer data-mb-page="HiberNation" data-mb-section="Music media movement hub" data-mb-artist="MATTBEAR" data-mb-movement="HiberNation"></script>
+<header class="top"><div class="wrap nav"><a class="brand rainbow" href="/HiberNation/">MATTBEAR<small>HiberNation</small></a><nav class="menu" aria-label="Primary routes"><a class="btn" href="/">Main</a><a class="btn" href="/projects.html">Projects</a><a class="btn" href="/examples/">Examples</a><a class="btn amber" href="/music/">Music</a><a class="btn green" href="/MATTBEARCADE/">Arcade</a><a class="btn primary" href="/HiberNation/" aria-current="page">Community</a></nav></div></header>
+<main class="wrap">
+<section class="hero"><div class="panel glow pub-hero"><p class="eyebrow">community • media • collaboration</p><h1 class="rainbow">HiberNation</h1><p class="pub-copy">The community and media hub behind the MATTBEAR ecosystem: shared projects, creative updates, music routes, group spaces, event ideas, and collaboration paths.</p><div class="pub-actions"><a class="btn primary" href="/projects.html">Project Map</a><a class="btn mag" href="/music/">Music</a><a class="btn green" href="/MATTBEARCADE/">Arcade</a><a class="btn cyan" href="/about/">About</a></div><div class="pub-routes"><div class="pub-route"><b>Community</b><span>Shared updates, group routes, creative network pages, and collaboration paths.</span></div><div class="pub-route"><b>Music</b><span>SoundCloud, Suno, release pages, audio tools, and media experiments.</span></div><div class="pub-route"><b>Projects</b><span>Connected work from websites and games to visual systems and local routes.</span></div><div class="pub-route"><b>Events</b><span>Reusable pages for announcements, local activity, promos, and community posts.</span></div></div></div></section>
+<section><div class="pub-section-title"><h2 class="rainbow">Community paths</h2><p>Public routes for the parts of the ecosystem people can join, follow, or explore.</p></div><div class="pub-grid three"><article class="pub-card" style="--accent:rgba(112,221,255,.22)"><div class="pub-kicker"><span class="pub-lane">hub</span><span class="pub-status live">public</span></div><h3>Project Map</h3><p>The full public route board for websites, games, music tools, community pages, and experiments.</p><div class="menu"><a class="btn primary" href="/projects.html">Open</a><a class="btn" href="/map/">Visual Map</a></div></article><article class="pub-card" style="--accent:rgba(255,117,216,.20)"><div class="pub-kicker"><span class="pub-lane">music</span><span class="pub-status live">media</span></div><h3>Music Route</h3><p>Releases, SoundCloud, audio tools, sampler work, and connected music pages.</p><div class="menu"><a class="btn primary" href="/music/">Open</a><a class="btn" href="https://soundcloud.com/mattbear86" target="_blank" rel="noopener">SoundCloud</a></div></article><article class="pub-card" style="--accent:rgba(134,255,123,.20)"><div class="pub-kicker"><span class="pub-lane">play</span><span class="pub-status live">arcade</span></div><h3>MATTBEARCADE</h3><p>Playable browser games, arcade routes, word systems, and interactive entertainment concepts.</p><div class="menu"><a class="btn primary" href="/MATTBEARCADE/">Open</a><a class="btn" href="/projects.html#games">Game Routes</a></div></article></div></section>
+<section><div class="pub-section-title"><h2>Shared work</h2><p>HiberNation connects public work to people, posts, and project movement.</p></div><div class="pub-grid four"><article class="pub-card" style="--accent:rgba(246,207,101,.18)"><h3>Examples</h3><p>Client-facing examples and service routes for websites, promo work, and local presentation.</p><div class="menu"><a class="btn primary" href="/examples/">Open</a></div></article><article class="pub-card" style="--accent:rgba(184,150,255,.18)"><h3>About</h3><p>Short explanation of MATTBEAR, Bearicide Productions, and the connected project system.</p><div class="menu"><a class="btn primary" href="/about/">Open</a></div></article><article class="pub-card" style="--accent:rgba(255,200,106,.18)"><h3>Midwest Made</h3><p>Local work, restaurant routes, community projects, and regional client-facing pages.</p><div class="menu"><a class="btn primary" href="/midwest-made/">Open</a></div></article><article class="pub-card" style="--accent:rgba(112,221,255,.18)"><h3>Contact</h3><p>Use email for project help, collaboration, admin/mod interest, or direct creative work.</p><div class="menu"><a class="btn primary" href="mailto:mattbear86@hotmail.com">Email</a></div></article></div></section>
+<section><div class="pub-section-title"><h2>Music links</h2><p>Public listening and production-adjacent routes.</p></div><div class="pub-grid three"><article class="pub-card" style="--accent:rgba(255,117,216,.20)"><h3>SoundCloud</h3><p>Public listening route for MATTBEAR tracks and shareable music links.</p><div class="menu"><a class="btn primary" href="https://soundcloud.com/mattbear86" target="_blank" rel="noopener">Open</a></div></article><article class="pub-card" style="--accent:rgba(246,207,101,.20)"><h3>Suno</h3><p>Music drafts, experiments, song ideas, and fast creative testing.</p><div class="menu"><a class="btn primary" href="https://suno.com/@mattbear86" target="_blank" rel="noopener">Open</a></div></article><article class="pub-card" style="--accent:rgba(134,255,123,.20)"><h3>The Choppa</h3><p>Browser sampler and MIDI performance tool for pads, loops, and audio control.</p><div class="menu"><a class="btn primary" href="/the-choppa/">Open</a></div></article></div></section>
+</main><footer class="wrap">HiberNation • Community, media, and connected MATTBEAR work.<div class="footer-menu"><a class="btn" href="/">Main</a><a class="btn" href="/projects.html">Projects</a><a class="btn" href="/examples/">Examples</a><a class="btn" href="/music/">Music</a><a class="btn" href="/MATTBEARCADE/">Arcade</a></div></footer>
+<script src="/assets/mattbear-sitewide.js" defer data-mb-page="HiberNation" data-mb-section="public community and media hub"></script>
 </body>
 </html>
