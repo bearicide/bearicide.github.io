@@ -1,0 +1,52 @@
+{
+  "updated": "2026-06-22",
+  "purpose": "Direct source manifest for legally reusable free assets used by MATTBEAR web, Lovable, Unity, arcade, and music builds.",
+  "licensePreference": [
+    "CC0 / Public Domain",
+    "MIT / Apache / OFL",
+    "CC-BY with credit tracking"
+  ],
+  "sources": [
+    {
+      "id": "kenney-input-prompts",
+      "title": "Kenney Input Prompts",
+      "source": "Kenney",
+      "category": "ui-input-prompts",
+      "license": "Creative Commons CC0",
+      "creditRequired": false,
+      "sourcePage": "https://kenney.nl/assets/input-prompts",
+      "downloadUrl": "https://kenney.nl/media/pages/assets/input-prompts/8de120163f-1777890371/kenney_input-prompts_1.5.zip",
+      "targetPath": "assets-vault/kenney/ui/input-prompts/",
+      "bestFor": ["Unity controls", "web games", "mobile prompts", "Lovable game shells"]
+    },
+    {
+      "id": "kenney-interface-sounds",
+      "title": "Kenney Interface Sounds",
+      "source": "Kenney",
+      "category": "audio-ui",
+      "license": "Creative Commons CC0",
+      "creditRequired": false,
+      "sourcePage": "https://kenney.nl/assets/interface-sounds",
+      "downloadUrl": "https://kenney.nl/media/pages/assets/interface-sounds/fa43c1dd4d-1677589452/kenney_interface-sounds.zip",
+      "targetPath": "assets-vault/kenney/audio/interface-sounds/",
+      "bestFor": ["buttons", "menus", "UI feedback", "arcade clicks"]
+    },
+    {
+      "id": "kenney-casino-audio",
+      "title": "Kenney Casino Audio",
+      "source": "Kenney",
+      "category": "audio-casino",
+      "license": "Creative Commons CC0",
+      "creditRequired": false,
+      "sourcePage": "https://kenney.nl/assets/casino-audio",
+      "downloadUrl": "https://kenney.nl/media/pages/assets/casino-audio/2472606a04-1721639069/kenney_casino-audio.zip",
+      "targetPath": "assets-vault/kenney/audio/casino-audio/",
+      "bestFor": ["WORD$LOTS", "cards", "dice", "chips", "demo casino polish"]
+    }
+  ],
+  "notes": [
+    "Do not use NC assets for business/public-facing projects.",
+    "Do not use Nintendo, Disney, Marvel, Pokemon, Roblox, movie, celebrity, Pinterest, or random scraped assets.",
+    "Prefer storing source URLs and license details next to imported files. Future humans, tragically, need labels."
+  ]
+}
