@@ -1,0 +1,103 @@
+name: Pull Free Asset Vault
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  pull-free-assets:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Prepare folders
+        run: |
+          mkdir -p assets-vault/kenney/ui/input-prompts
+          mkdir -p assets-vault/kenney/audio/interface-sounds
+          mkdir -p assets-vault/kenney/audio/casino-audio
+          mkdir -p asset-library
+          mkdir -p .asset-downloads
+
+      - name: Download Kenney asset packs
+        run: |
+          curl -L --fail --retry 3 -o .asset-downloads/kenney-input-prompts.zip "https://kenney.nl/media/pages/assets/input-prompts/8de120163f-1777890371/kenney_input-prompts_1.5.zip"
+          curl -L --fail --retry 3 -o .asset-downloads/kenney-interface-sounds.zip "https://kenney.nl/media/pages/assets/interface-sounds/fa43c1dd4d-1677589452/kenney_interface-sounds.zip"
+          curl -L --fail --retry 3 -o .asset-downloads/kenney-casino-audio.zip "https://kenney.nl/media/pages/assets/casino-audio/2472606a04-1721639069/kenney_casino-audio.zip"
+
+      - name: Extract packs
+        run: |
+          unzip -o .asset-downloads/kenney-input-prompts.zip -d assets-vault/kenney/ui/input-prompts
+          unzip -o .asset-downloads/kenney-interface-sounds.zip -d assets-vault/kenney/audio/interface-sounds
+          unzip -o .asset-downloads/kenney-casino-audio.zip -d assets-vault/kenney/audio/casino-audio
+
+      - name: Write vault notes
+        run: |
+          cat > assets-vault/README.md <<'EOF'
+          # MATTBEAR Asset Vault
+
+          Legal free asset storage for MATTBEAR, Lovable, Unity, arcade, music, and web builds.
+
+          ## Current pulled packs
+
+          - Kenney Input Prompts - CC0
+          - Kenney Interface Sounds - CC0
+          - Kenney Casino Audio - CC0
+
+          ## Rule
+
+          Keep source/license info with every imported asset pack. Do not dump random scraped art here. The landfill has enough ambition.
+          EOF
+
+          cat > assets-vault/credits.md <<'EOF'
+          # Credits
+
+          ## Kenney
+
+          Source: https://kenney.nl/
+
+          The pulled Kenney packs are listed as Creative Commons CC0 on their asset pages. Attribution is not required, but crediting Kenney is appreciated.
+
+          Pulled packs:
+          - Input Prompts: https://kenney.nl/assets/input-prompts
+          - Interface Sounds: https://kenney.nl/assets/interface-sounds
+          - Casino Audio: https://kenney.nl/assets/casino-audio
+          EOF
+
+      - name: Build simple asset index
+        run: |
+          python3 - <<'PY'
+          import json, os
+          roots = [
+            'assets-vault/kenney/ui/input-prompts',
+            'assets-vault/kenney/audio/interface-sounds',
+            'assets-vault/kenney/audio/casino-audio',
+          ]
+          files = []
+          for root in roots:
+            for dirpath, _, filenames in os.walk(root):
+              for name in filenames:
+                path = os.path.join(dirpath, name).replace('\\', '/')
+                files.append({
+                  'path': path,
+                  'name': name,
+                  'source': 'Kenney',
+                  'license': 'CC0'
+                })
+          with open('assets-vault/asset-index.json', 'w', encoding='utf-8') as f:
+            json.dump({'updatedBy': 'pull-free-assets workflow', 'count': len(files), 'files': files}, f, indent=2)
+          PY
+
+      - name: Commit pulled assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets-vault asset-library/free-asset-sources.json .github/workflows/pull-free-assets.yml
+          if git diff --cached --quiet; then
+            echo "No asset changes to commit. Tiny mercy."
+          else
+            git commit -m "Pull CC0 free asset vault packs"
+            git push
+          fi
