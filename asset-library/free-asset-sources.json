@@ -20,6 +20,42 @@
       "bestFor": ["Unity controls", "web games", "mobile prompts", "Lovable game shells"]
     },
     {
+      "id": "kenney-ui-pack",
+      "title": "Kenney UI Pack",
+      "source": "Kenney",
+      "category": "ui-general",
+      "license": "Creative Commons CC0",
+      "creditRequired": false,
+      "sourcePage": "https://kenney.nl/assets/ui-pack",
+      "downloadUrl": "https://kenney.nl/media/pages/assets/ui-pack/f651646eab-1718203990/kenney_ui-pack.zip",
+      "targetPath": "assets-vault/kenney/ui/ui-pack/",
+      "bestFor": ["buttons", "panels", "sliders", "general Lovable UI", "game menus"]
+    },
+    {
+      "id": "kenney-ui-pack-sci-fi",
+      "title": "Kenney UI Pack - Sci-Fi",
+      "source": "Kenney",
+      "category": "ui-sci-fi",
+      "license": "Creative Commons CC0",
+      "creditRequired": false,
+      "sourcePage": "https://kenney.nl/assets/ui-pack-sci-fi",
+      "downloadUrl": "https://kenney.nl/media/pages/assets/ui-pack-sci-fi/b67c2acd31-1724181109/kenney_ui-pack-space-expansion.zip",
+      "targetPath": "assets-vault/kenney/ui/ui-pack-sci-fi/",
+      "bestFor": ["The Choppa", "Unity music room", "space HUD", "MATTBEAR arcade", "sci-fi panels"]
+    },
+    {
+      "id": "kenney-board-game-icons",
+      "title": "Kenney Board Game Icons",
+      "source": "Kenney",
+      "category": "icons-board-games",
+      "license": "Creative Commons CC0",
+      "creditRequired": false,
+      "sourcePage": "https://kenney.nl/assets/board-game-icons",
+      "downloadUrl": "https://kenney.nl/media/pages/assets/board-game-icons/19cae04050-1721645690/kenney_board-game-icons.zip",
+      "targetPath": "assets-vault/kenney/icons/board-game-icons/",
+      "bestFor": ["Trackside Kids", "card games", "board game UI", "icons"]
+    },
+    {
       "id": "kenney-interface-sounds",
       "title": "Kenney Interface Sounds",
       "source": "Kenney",
@@ -32,6 +68,18 @@
       "bestFor": ["buttons", "menus", "UI feedback", "arcade clicks"]
     },
     {
+      "id": "kenney-ui-audio",
+      "title": "Kenney UI Audio",
+      "source": "Kenney",
+      "category": "audio-ui-clicks",
+      "license": "Creative Commons CC0",
+      "creditRequired": false,
+      "sourcePage": "https://kenney.nl/assets/ui-audio",
+      "downloadUrl": "https://kenney.nl/media/pages/assets/ui-audio/490d233f68-1677590494/kenney_ui-audio.zip",
+      "targetPath": "assets-vault/kenney/audio/ui-audio/",
+      "bestFor": ["clicks", "toggles", "switches", "button feedback", "mobile UI"]
+    },
+    {
       "id": "kenney-casino-audio",
       "title": "Kenney Casino Audio",
       "source": "Kenney",
@@ -42,6 +90,78 @@
       "downloadUrl": "https://kenney.nl/media/pages/assets/casino-audio/2472606a04-1721639069/kenney_casino-audio.zip",
       "targetPath": "assets-vault/kenney/audio/casino-audio/",
       "bestFor": ["WORD$LOTS", "cards", "dice", "chips", "demo casino polish"]
+    },
+    {
+      "id": "kenney-sci-fi-sounds",
+      "title": "Kenney Sci-fi Sounds",
+      "source": "Kenney",
+      "category": "audio-sci-fi",
+      "license": "Creative Commons CC0",
+      "creditRequired": false,
+      "sourcePage": "https://kenney.nl/assets/sci-fi-sounds",
+      "downloadUrl": "https://kenney.nl/media/pages/assets/sci-fi-sounds/6b296f9ecf-1677589334/kenney_sci-fi-sounds.zip",
+      "targetPath": "assets-vault/kenney/audio/sci-fi-sounds/",
+      "bestFor": ["space doors", "ship hums", "The Choppa UI", "Unity portals", "arcade transitions"]
+    },
+    {
+      "id": "kenney-factory-kit",
+      "title": "Kenney Factory Kit",
+      "source": "Kenney",
+      "category": "3d-industrial",
+      "license": "Creative Commons CC0",
+      "creditRequired": false,
+      "sourcePage": "https://kenney.nl/assets/factory-kit",
+      "downloadUrl": "https://kenney.nl/media/pages/assets/factory-kit/edaac9d4f6-1777639602/kenney_factory-kit_3.0.zip",
+      "targetPath": "assets-vault/kenney/3d/factory-kit/",
+      "bestFor": ["industrial MATTBEAR scenes", "Unity music rooms", "factory levels", "conveyors", "warehouse props"]
+    },
+    {
+      "id": "kenney-platformer-kit",
+      "title": "Kenney Platformer Kit",
+      "source": "Kenney",
+      "category": "3d-platformer",
+      "license": "Creative Commons CC0",
+      "creditRequired": false,
+      "sourcePage": "https://kenney.nl/assets/platformer-kit",
+      "downloadUrl": "https://kenney.nl/media/pages/assets/platformer-kit/1585cf62b4-1775122253/kenney_platformer-kit.zip",
+      "targetPath": "assets-vault/kenney/3d/platformer-kit/",
+      "bestFor": ["Giant Moon", "kids games", "third-person prototypes", "playable Unity spaces"]
+    },
+    {
+      "id": "kenney-modular-dungeon-kit",
+      "title": "Kenney Modular Dungeon Kit",
+      "source": "Kenney",
+      "category": "3d-modular-dungeon",
+      "license": "Creative Commons CC0",
+      "creditRequired": false,
+      "sourcePage": "https://kenney.nl/assets/modular-dungeon-kit",
+      "downloadUrl": "https://kenney.nl/media/pages/assets/modular-dungeon-kit/7bed87605b-1771926065/kenney_modular-dungeon-kit_1.0.zip",
+      "targetPath": "assets-vault/kenney/3d/modular-dungeon-kit/",
+      "bestFor": ["dungeon rooms", "D&D-style prototypes", "dark arcade rooms", "walkable interiors"]
+    },
+    {
+      "id": "kenney-modular-space-kit",
+      "title": "Kenney Modular Space Kit",
+      "source": "Kenney",
+      "category": "3d-modular-space",
+      "license": "Creative Commons CC0",
+      "creditRequired": false,
+      "sourcePage": "https://kenney.nl/assets/modular-space-kit",
+      "downloadUrl": "https://kenney.nl/media/pages/assets/modular-space-kit/8261428a47-1771146076/kenney_modular-space-kit_1.0.zip",
+      "targetPath": "assets-vault/kenney/3d/modular-space-kit/",
+      "bestFor": ["space station", "Unity music room", "Giant Moon", "sci-fi portals", "empty liminal 3D spaces"]
+    },
+    {
+      "id": "kenney-city-kit-industrial",
+      "title": "Kenney City Kit - Industrial",
+      "source": "Kenney",
+      "category": "3d-city-industrial",
+      "license": "Creative Commons CC0",
+      "creditRequired": false,
+      "sourcePage": "https://kenney.nl/assets/city-kit-industrial",
+      "downloadUrl": "https://kenney.nl/media/pages/assets/city-kit-industrial/5fcb837741-1750838303/kenney_city-kit-industrial_1.0.zip",
+      "targetPath": "assets-vault/kenney/3d/city-kit-industrial/",
+      "bestFor": ["warehouse exteriors", "industrial districts", "MATTBEAR city map", "Unity background props"]
     }
   ],
   "notes": [
