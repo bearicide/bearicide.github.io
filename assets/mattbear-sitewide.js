@@ -7,7 +7,8 @@
     organization: "Bearicide Productions",
     creator: "Matt Baier",
     origin: "https://bearicide.github.io",
-    image: "https://bearicide.github.io/assets/interactive/mattbear-ecosystem-city-interactive.png",
+    image: "https://bearicide.github.io/assets/music/mattbear-hero.jpg",
+    background: "https://bearicide.github.io/assets/music/mattbear-bg.jpg",
     fallbackDescription: "MATTBEAR by Bearicide Productions: AI-assisted music, browser games, web tools, creative systems, local projects, and community routes."
   };
 
@@ -169,6 +170,7 @@
       "name": shareTitle,
       "description": shareText,
       "url": shareUrl,
+      "image": SITE.image,
       "isPartOf": {
         "@type": "WebSite",
         "name": SITE.name,
@@ -195,6 +197,51 @@
     document.head.appendChild(boost);
   }
 
+  if (!document.querySelector('style[data-mattbear-site-bg="true"]')) {
+    const bg = document.createElement("style");
+    bg.setAttribute("data-mattbear-site-bg", "true");
+    bg.textContent = `
+      html{background:#050507;}
+      body:not(.mattbear-no-bg){background:#050507;color-scheme:dark;}
+      body:not(.mattbear-no-bg)::before{
+        content:"" !important;
+        position:fixed !important;
+        inset:-28px !important;
+        z-index:-10 !important;
+        pointer-events:none !important;
+        background:
+          linear-gradient(180deg,rgba(0,0,0,.40),rgba(0,0,0,.92)),
+          url('/assets/music/mattbear-bg.jpg') center top/cover no-repeat,
+          radial-gradient(circle at 16% 4%,rgba(29,185,84,.20),transparent 30rem),
+          radial-gradient(circle at 86% 10%,rgba(255,79,216,.18),transparent 34rem),
+          radial-gradient(circle at 50% 100%,rgba(112,221,255,.14),transparent 34rem),
+          #050507 !important;
+        filter:saturate(1.18) contrast(1.05) !important;
+        opacity:.78 !important;
+        transform:none !important;
+        animation:none !important;
+      }
+      body:not(.mattbear-no-bg)::after{
+        content:"" !important;
+        position:fixed !important;
+        inset:0 !important;
+        z-index:-9 !important;
+        pointer-events:none !important;
+        background:
+          linear-gradient(90deg,rgba(0,0,0,.66),rgba(0,0,0,.18),rgba(0,0,0,.70)),
+          linear-gradient(rgba(255,255,255,.026) 1px,transparent 1px) !important;
+        background-size:auto,100% 8px !important;
+        mix-blend-mode:normal !important;
+        opacity:.72 !important;
+        animation:none !important;
+      }
+      .panel,.card,.feature,.machine,.faq details,.pub-card,.pub-route,.pub-note,.detail-main,.detail-side,.quote-card{
+        backdrop-filter:blur(12px) saturate(1.1);
+      }
+    `;
+    document.head.appendChild(bg);
+  }
+
   const viewKey = "MATTBEAR_VIEW_" + location.pathname.replace(/[^a-z0-9]/gi, "_");
   let views = 1;
   try {
@@ -203,7 +250,7 @@
   } catch (_) {}
 
   window.MATTBEAR_SITEWIDE = {
-    version: "shared-shell-7-music-seo",
+    version: "shared-shell-8-sitewide-music-assets",
     artist: cfg.artist,
     movement: cfg.movement,
     page: shareTitle,
@@ -213,6 +260,7 @@
     shareUrl,
     canonicalUrl: shareUrl,
     socialImage: SITE.image,
+    backgroundImage: SITE.background,
     pageViewsLocalOnly: views,
     visibleButtons: false,
     adminPanel: false,
@@ -220,5 +268,5 @@
   };
 
   // Visible route ring, share/admin panel, and shortcut controls intentionally removed.
-  // The script now handles metadata, title boost, structured data, and local page-view state.
+  // The script handles metadata, title boost, structured data, sitewide atmosphere, and local page-view state.
 })();
