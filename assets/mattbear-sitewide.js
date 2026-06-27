@@ -38,8 +38,8 @@
       section: "arcade"
     },
     "/music/": {
-      title: "MATTBEAR Music | Releases, Audio Tools & Media",
-      description: "MATTBEAR music route for AI-assisted releases, SoundCloud links, cover art, browser instruments, The Choppa, audio tools, and connected media projects.",
+      title: "MATTBEAR Music | Spotify, Releases & Audio Tools",
+      description: "MATTBEAR music route for Spotify, Bearicide Music, All Fall Down, SoundCloud, audio tools, browser instruments, The Choppa, and connected media projects.",
       section: "music"
     },
     "/music-toys/": {
@@ -68,9 +68,14 @@
       section: "local business and regional projects"
     },
     "/mattbear-allfalldown/": {
-      title: "All Fall Down | MATTBEAR Release Page",
-      description: "All Fall Down is a MATTBEAR music release route with cover art, promo visuals, and connected Bearicide Productions media work.",
-      section: "music release page"
+      title: "Bearicide Music | MATTBEAR on Spotify",
+      description: "Bearicide Music is the MATTBEAR release hub for All Fall Down, Spotify listening links, SoundCloud, Suno, promo videos, cover art, and connected music projects.",
+      section: "music release and Spotify hub"
+    },
+    "/all-fall-down/": {
+      title: "All Fall Down | Bearicide Music",
+      description: "All Fall Down now routes to the upgraded Bearicide Music hub for MATTBEAR on Spotify, SoundCloud, Suno, promo videos, and connected release links.",
+      section: "release route bridge"
     },
     "/fallen-earth/": {
       title: "Fallen Earth | MATTBEAR Visual World",
@@ -198,7 +203,7 @@
   } catch (_) {}
 
   window.MATTBEAR_SITEWIDE = {
-    version: "shared-shell-6-seo-normalized",
+    version: "shared-shell-7-music-seo",
     artist: cfg.artist,
     movement: cfg.movement,
     page: shareTitle,
