@@ -25,8 +25,8 @@
     },
     "/projects.html": {
       title: "MATTBEAR Projects | Websites, Games, Music & Tools",
-      description: "Explore MATTBEAR projects from Bearicide Productions: websites, browser games, music tools, local pages, community routes, and creative experiments.",
-      section: "project map"
+      description: "MATTBEAR project board for websites, games, music, tools, local work, and public creative routes.",
+      section: "project board"
     },
     "/examples/": {
       title: "MATTBEAR Examples | Websites, Promo Work & Creative Projects",
@@ -92,6 +92,11 @@
       title: "MATTBEAR Promo Hub | Bearicide Productions",
       description: "Promo routes, announcement graphics, release panels, campaign visuals, and shareable media from MATTBEAR and Bearicide Productions.",
       section: "promo hub"
+    },
+    "/promo-examples/": {
+      title: "Promo Examples | MATTBEAR Promo Design",
+      description: "MATTBEAR promo examples for flyers, social graphics, announcements, campaign visuals, and local business promos.",
+      section: "promo examples"
     }
   };
 
@@ -171,20 +176,9 @@
       "description": shareText,
       "url": shareUrl,
       "image": SITE.image,
-      "isPartOf": {
-        "@type": "WebSite",
-        "name": SITE.name,
-        "url": SITE.origin + "/"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": SITE.organization,
-        "url": SITE.origin + "/"
-      },
-      "creator": {
-        "@type": "Person",
-        "name": SITE.creator
-      }
+      "isPartOf": { "@type": "WebSite", "name": SITE.name, "url": SITE.origin + "/" },
+      "publisher": { "@type": "Organization", "name": SITE.organization, "url": SITE.origin + "/" },
+      "creator": { "@type": "Person", "name": SITE.creator }
     });
     document.head.appendChild(schema);
   }
@@ -212,11 +206,10 @@
         background:
           linear-gradient(180deg,rgba(0,0,0,.40),rgba(0,0,0,.92)),
           url('/assets/music/mattbear-bg.jpg') center top/cover no-repeat,
-          radial-gradient(circle at 16% 4%,rgba(29,185,84,.20),transparent 30rem),
-          radial-gradient(circle at 86% 10%,rgba(255,79,216,.18),transparent 34rem),
-          radial-gradient(circle at 50% 100%,rgba(112,221,255,.14),transparent 34rem),
+          radial-gradient(circle at 16% 4%,rgba(112,221,255,.16),transparent 30rem),
+          radial-gradient(circle at 86% 10%,rgba(255,117,216,.14),transparent 34rem),
           #050507 !important;
-        filter:saturate(1.18) contrast(1.05) !important;
+        filter:saturate(1.08) contrast(1.02) !important;
         opacity:.78 !important;
         transform:none !important;
         animation:none !important;
@@ -229,17 +222,60 @@
         pointer-events:none !important;
         background:
           linear-gradient(90deg,rgba(0,0,0,.66),rgba(0,0,0,.18),rgba(0,0,0,.70)),
-          linear-gradient(rgba(255,255,255,.026) 1px,transparent 1px) !important;
-        background-size:auto,100% 8px !important;
+          linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px) !important;
+        background-size:auto,100% 9px !important;
         mix-blend-mode:normal !important;
-        opacity:.72 !important;
+        opacity:.70 !important;
         animation:none !important;
       }
-      .panel,.card,.feature,.machine,.faq details,.pub-card,.pub-route,.pub-note,.detail-main,.detail-side,.quote-card{
-        backdrop-filter:blur(12px) saturate(1.1);
+      .mb-linked-hero{
+        width:min(1380px,calc(100% - 24px));
+        margin:16px auto 14px;
       }
+      .mb-linked-hero img{
+        display:block;
+        width:100%;
+        height:auto;
+        aspect-ratio:1983/708;
+        object-fit:cover;
+        border:1px solid rgba(255,255,255,.20);
+        border-radius:24px;
+        background:rgba(0,0,0,.35);
+        box-shadow:0 18px 54px rgba(0,0,0,.42);
+      }
+      .panel,.card,.feature,.machine,.faq details,.pub-card,.pub-route,.pub-note,.detail-main,.detail-side,.quote-card{
+        backdrop-filter:blur(12px) saturate(1.08);
+      }
+      @media(max-width:720px){.mb-linked-hero{width:calc(100% - 14px);margin:10px auto 10px}.mb-linked-hero img{border-radius:16px}}
     `;
     document.head.appendChild(bg);
+  }
+
+  const linkedHeroPaths = new Set([
+    "/projects.html",
+    "/examples/",
+    "/MATTBEARCADE/",
+    "/music/",
+    "/HiberNation/",
+    "/map/",
+    "/midwest-made/",
+    "/website-design.html",
+    "/promo-design.html",
+    "/promo-examples/",
+    "/project-packages.html",
+    "/about/"
+  ]);
+
+  const hasHeroArt = () => document.querySelector('.home-hero-art,.hero-img,.bridge-art,.mb-linked-hero,img[src="/assets/music/mattbear-hero.jpg"]');
+  if (linkedHeroPaths.has(path) && !document.body.classList.contains('mattbear-no-hero') && !hasHeroArt()) {
+    const main = document.querySelector('main');
+    if (main) {
+      const hero = document.createElement('section');
+      hero.className = 'mb-linked-hero';
+      hero.setAttribute('aria-label', 'MATTBEAR hero banner');
+      hero.innerHTML = '<img src="/assets/music/mattbear-hero.jpg" alt="MATTBEAR Bearicide Productions banner">';
+      main.insertBefore(hero, main.firstChild);
+    }
   }
 
   const viewKey = "MATTBEAR_VIEW_" + location.pathname.replace(/[^a-z0-9]/gi, "_");
@@ -250,7 +286,7 @@
   } catch (_) {}
 
   window.MATTBEAR_SITEWIDE = {
-    version: "shared-shell-8-sitewide-music-assets",
+    version: "shared-shell-9-linked-hero",
     artist: cfg.artist,
     movement: cfg.movement,
     page: shareTitle,
@@ -267,6 +303,5 @@
     miniPlayer: false
   };
 
-  // Visible route ring, share/admin panel, and shortcut controls intentionally removed.
-  // The script handles metadata, title boost, structured data, sitewide atmosphere, and local page-view state.
+  // Handles metadata, title boost, structured data, sitewide atmosphere, linked-page hero art, and local page-view state.
 })();
