@@ -1,0 +1,56 @@
+[
+  {
+    "title": "LinkedIn Dispatch Graphic",
+    "category": "social",
+    "type": "Business-facing social graphic",
+    "image": "/assets/promo/social/linkedin-dispatch.webp",
+    "fallback": "LinkedIn\nDispatch",
+    "description": "Corporate newspaper-style promo layout for business-facing posts and professional updates.",
+    "tags": ["social", "linkedin", "business"]
+  },
+  {
+    "title": "MATTBEAR Site Promo",
+    "category": "business",
+    "type": "Portfolio promo",
+    "image": "/assets/promo/business/mattbear-site-promo.webp",
+    "fallback": "MATTBEAR\nSite Promo",
+    "description": "Public-facing promo graphic for the MATTBEAR / Bearicide Productions web ecosystem.",
+    "tags": ["portfolio", "website", "brand"]
+  },
+  {
+    "title": "Bearicide Music Promo",
+    "category": "music",
+    "type": "Music promo",
+    "image": "/assets/promo/music/bearicide-music-promo.webp",
+    "fallback": "Music\nPromo",
+    "description": "Streaming and artist-promo layout for MATTBEAR music pages, posts, and release announcements.",
+    "tags": ["music", "streaming", "media"]
+  },
+  {
+    "title": "Arcade / Game Promo",
+    "category": "campaigns",
+    "type": "Interactive campaign",
+    "image": "/assets/promo/campaigns/arcade-game-promo.webp",
+    "fallback": "Arcade\nPromo",
+    "description": "Campaign-style graphic for MATTBEARCADE, games, interactive toys, and browser projects.",
+    "tags": ["arcade", "games", "interactive"]
+  },
+  {
+    "title": "Event / Announcement Layout",
+    "category": "events",
+    "type": "Announcement graphic",
+    "image": "/assets/promo/events/announcement-layout.webp",
+    "fallback": "Event\nAnnouncement",
+    "description": "Flexible event and announcement format for dated posts, public updates, and community notices.",
+    "tags": ["event", "announcement", "public"]
+  },
+  {
+    "title": "Flyer / Poster Layout",
+    "category": "flyers",
+    "type": "Print-ready promo",
+    "image": "/assets/promo/flyers/flyer-poster-layout.webp",
+    "fallback": "Flyer\nPoster",
+    "description": "Readable flyer and poster format for offers, menus, table inserts, and short-run print pieces.",
+    "tags": ["flyer", "poster", "print"]
+  }
+]
