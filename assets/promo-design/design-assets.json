@@ -1,0 +1,56 @@
+[
+  {
+    "title": "Flyer Layout System",
+    "category": "layout",
+    "type": "Print design asset",
+    "image": "/assets/promo-design/flyer-layout-system.webp",
+    "fallback": "Flyer\nLayout",
+    "description": "Readable flyer structure for events, specials, menus, offers, and announcements.",
+    "tags": ["layout", "print", "flyer"]
+  },
+  {
+    "title": "Social Post Template",
+    "category": "social",
+    "type": "Digital design asset",
+    "image": "/assets/promo-design/social-post-template.webp",
+    "fallback": "Social\nTemplate",
+    "description": "Square, story, and feed-style format for posts, launches, and updates.",
+    "tags": ["social", "template", "digital"]
+  },
+  {
+    "title": "Campaign Visual Kit",
+    "category": "campaign",
+    "type": "Connected promo system",
+    "image": "/assets/promo-design/campaign-visual-kit.webp",
+    "fallback": "Campaign\nKit",
+    "description": "Matched graphics for one idea across posts, flyers, banners, and landing pages.",
+    "tags": ["campaign", "series", "system"]
+  },
+  {
+    "title": "Offer / Special Card",
+    "category": "business",
+    "type": "Business promo asset",
+    "image": "/assets/promo-design/offer-special-card.webp",
+    "fallback": "Offer\nCard",
+    "description": "Simple, readable promo card for sales, specials, service offers, and featured items.",
+    "tags": ["offer", "business", "promo"]
+  },
+  {
+    "title": "Event Announcement Frame",
+    "category": "event",
+    "type": "Announcement asset",
+    "image": "/assets/promo-design/event-announcement-frame.webp",
+    "fallback": "Event\nFrame",
+    "description": "Clear date, location, title, and CTA structure for public-facing event graphics.",
+    "tags": ["event", "announcement", "date"]
+  },
+  {
+    "title": "Export Package Preview",
+    "category": "delivery",
+    "type": "Delivery asset",
+    "image": "/assets/promo-design/export-package-preview.webp",
+    "fallback": "Export\nPackage",
+    "description": "Preview of final deliverables: web image, print file, social crop, and share-ready export.",
+    "tags": ["export", "delivery", "files"]
+  }
+]
