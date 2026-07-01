@@ -1,0 +1,46 @@
+{
+  "name": "BOOMTOWN API Contract",
+  "version": "0.1.0",
+  "routes": {
+    "POST /api/boomtown/upload": {
+      "purpose": "Upload one full song and create or reuse analysis job.",
+      "requires": ["session_id", "audio_file"],
+      "returns": ["song_id", "job_id", "cached", "token_cost"]
+    },
+    "POST /api/boomtown/jobs/:job_id/start": {
+      "purpose": "Spend tokens and start queued analysis.",
+      "requires": ["session_id", "job_id", "token_authorization"],
+      "returns": ["job_status", "tokens_remaining"]
+    },
+    "GET /api/boomtown/jobs/:job_id": {
+      "purpose": "Poll analysis/stem split progress.",
+      "returns": ["queued", "analyzing", "splitting", "mapping", "ready", "failed"]
+    },
+    "GET /api/boomtown/songs/:song_id/map": {
+      "purpose": "Return tempo, sections, ULTRA window, and 8+8 pad mapping.",
+      "returns": ["analysis", "pad_map", "ultra_window"]
+    },
+    "POST /api/boomtown/session": {
+      "purpose": "Start Solo, Co-Op, or Duel play session from one analyzed song.",
+      "requires": ["song_id", "mode"],
+      "returns": ["session_id", "mode", "player_1_map", "player_2_map"]
+    },
+    "POST /api/boomtown/session/:session_id/hit": {
+      "purpose": "Record pad timing and evaluate sync/ULTRA readiness.",
+      "requires": ["player", "pad_id", "client_time", "song_time"],
+      "returns": ["quantized", "sync_score", "ultra_ready"]
+    },
+    "POST /api/boomtown/session/:session_id/ultra": {
+      "purpose": "Attempt ULTRA build/drop trigger.",
+      "requires": ["player", "song_time"],
+      "returns": ["success", "reason", "score_bonus"]
+    }
+  },
+  "pad_role_labels": ["steady", "heavy", "bright", "motion", "lift", "hit", "weird", "payoff"],
+  "player_layout": {
+    "player_1_pads": 8,
+    "player_2_pads": 8,
+    "effects_per_player": ["filter", "reverb", "delay", "crush"],
+    "sliders_per_player": ["low", "mid", "high", "volume"]
+  }
+}
