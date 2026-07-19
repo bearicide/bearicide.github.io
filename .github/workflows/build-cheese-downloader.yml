@@ -1,0 +1,25 @@
+name: Build Cheese Image Downloader
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'tools/cheese-image-downloader/**'
+      - '.github/workflows/build-cheese-downloader.yml'
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: pip install -r tools/cheese-image-downloader/requirements.txt
+      - name: Build EXE
+        run: pyinstaller --noconfirm --clean --onefile --windowed --name "MATTBEAR - Cheese Image Downloader" "tools/cheese-image-downloader/MATTBEAR - Cheese Image Downloader.py"
+      - name: Upload Windows app
+        uses: actions/upload-artifact@v4
+        with:
+          name: MATTBEAR Cheese Image Downloader Windows
+          path: dist/MATTBEAR - Cheese Image Downloader.exe
+          if-no-files-found: error
