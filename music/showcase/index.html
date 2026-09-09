@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>MATTBEAR Showcase | SoundCloud Tracks</title>
+<meta name="description" content="MATTBEAR music showcase featuring current SoundCloud tracks, artwork, and listening links.">
+<meta name="theme-color" content="#050507">
+<link rel="stylesheet" href="/assets/site-polish.css">
+<link rel="stylesheet" href="/assets/public-facing.css">
+<style>
+:root{--sc:#ff6b00}
+.showcase-hero{padding:34px 0 18px}
+.showcase-hero .panel{overflow:hidden;position:relative}
+.showcase-hero .panel:after{content:"";position:absolute;inset:auto -10% -45% 35%;height:260px;background:radial-gradient(circle,#ff6b0044,transparent 68%);filter:blur(18px);pointer-events:none}
+.deck{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;margin:22px 0}
+.release{padding:18px;border:1px solid rgba(255,255,255,.12);border-radius:20px;background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.02));box-shadow:0 18px 50px #0007}
+.release h2,.release h3{margin:.25rem 0 .55rem}
+.release p{color:var(--muted,#b7bbc6);margin:.2rem 0 1rem}
+.sc-frame{width:100%;border:0;border-radius:14px;background:#111;display:block}
+.sc-feature{height:300px}
+.sc-set{height:450px}
+.badge{display:inline-block;padding:6px 10px;border-radius:999px;background:#ff6b001d;border:1px solid #ff6b0055;color:#ffb079;font-weight:800;font-size:.76rem;letter-spacing:.08em;text-transform:uppercase}
+.quicklinks{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.note{font-size:.88rem;color:#9ea3af;margin-top:12px}
+@media(max-width:820px){.deck{grid-template-columns:1fr}.sc-set{height:520px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap nav"><a class="brand rainbow" href="/music/">MATTBEAR<small>Music</small></a><nav class="menu" aria-label="Primary routes"><a class="btn" href="/">Main</a><a class="btn primary" href="/music/">Music</a><a class="btn cyan" href="/music/showcase/" aria-current="page">Showcase</a><a class="btn green" href="/MATTBEARCADE/">Arcade</a><a class="btn mag" href="/HiberNation/">Community</a></nav></div></header>
+<main class="wrap">
+<section class="showcase-hero"><div class="panel glow pub-hero"><p class="eyebrow">current tracks</p><h1 class="rainbow">MATTBEAR Showcase</h1><p class="pub-copy">A visual listening shelf for current MATTBEAR tracks. Artwork and players are pulled directly from SoundCloud, so the presentation stays tied to the actual uploads instead of drifting into some weird parallel discography.</p><div class="quicklinks"><a class="btn primary" href="https://soundcloud.com/mattbear86" target="_blank" rel="noopener">SoundCloud Profile</a><a class="btn" href="https://soundcloud.com/mattbear86/sets/mattbear-tracks" target="_blank" rel="noopener">MATTBEAR Tracks Set</a></div></div></section>
+
+<section class="deck">
+<article class="release">
+<span class="badge">Featured track</span>
+<h2>Over and Over</h2>
+<p>Featured MATTBEAR track with the original SoundCloud artwork and player.</p>
+<iframe class="sc-frame sc-feature" scrolling="no" allow="autoplay" title="MATTBEAR - Over and Over on SoundCloud" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/mattbear86/mattbear-overandover&color=%23ff6b00&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"></iframe>
+<div class="quicklinks"><a class="btn primary" href="https://soundcloud.com/mattbear86/mattbear-overandover" target="_blank" rel="noopener">Open Track</a></div>
+</article>
+
+<article class="release">
+<span class="badge">Full set</span>
+<h2>MATTBEAR Tracks</h2>
+<p>The current SoundCloud set, with track artwork served by SoundCloud inside the player.</p>
+<iframe class="sc-frame sc-set" scrolling="no" allow="autoplay" title="MATTBEAR Tracks on SoundCloud" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/mattbear86/sets/mattbear-tracks&color=%23ff6b00&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"></iframe>
+<div class="quicklinks"><a class="btn primary" href="https://soundcloud.com/mattbear86/sets/mattbear-tracks" target="_blank" rel="noopener">Open Set</a></div>
+<p class="note">Because this player points at the live SoundCloud set, changes you make there can flow through here without maintaining a second track list by hand.</p>
+</article>
+</section>
+</main>
+<footer class="wrap">MATTBEAR Showcase • current tracks, artwork, and SoundCloud listening.<div class="footer-menu"><a class="btn" href="/music/">Music Home</a><a class="btn" href="https://soundcloud.com/mattbear86" target="_blank" rel="noopener">SoundCloud</a><a class="btn" href="/mattbear-allfalldown/">Bearicide Music</a></div></footer>
+<script src="/assets/mattbear-sitewide.js" defer data-mb-page="MATTBEAR Showcase" data-mb-section="music showcase"></script>
+</body>
+</html>
