@@ -1,0 +1,120 @@
+{
+  "checkedAt": "2026-10-03T19:26:56.432123+00:00",
+  "games": [
+    {
+      "name": "Daily 3 · Midday",
+      "drawDate": "2026-10-03T04:00:00.000Z",
+      "numbers": [
+        8,
+        9,
+        7
+      ],
+      "special": null
+    },
+    {
+      "name": "Daily 3 · Evening",
+      "drawDate": "2026-10-02T04:00:00.000Z",
+      "numbers": [
+        6,
+        3,
+        2
+      ],
+      "special": null
+    },
+    {
+      "name": "Daily 4 · Midday",
+      "drawDate": "2026-10-03T04:00:00.000Z",
+      "numbers": [
+        9,
+        6,
+        0,
+        4
+      ],
+      "special": null
+    },
+    {
+      "name": "Daily 4 · Evening",
+      "drawDate": "2026-10-02T04:00:00.000Z",
+      "numbers": [
+        3,
+        6,
+        1,
+        8
+      ],
+      "special": null
+    },
+    {
+      "name": "Daily 5 · Midday",
+      "drawDate": "2026-10-03T04:00:00.000Z",
+      "numbers": [
+        5,
+        8,
+        4,
+        2,
+        3
+      ],
+      "special": null
+    },
+    {
+      "name": "Daily 5 · Evening",
+      "drawDate": "2026-10-02T04:00:00.000Z",
+      "numbers": [
+        1,
+        7,
+        1,
+        6,
+        6
+      ],
+      "special": null
+    },
+    {
+      "name": "Fantasy 5",
+      "drawDate": "2026-10-02T04:00:00.000Z",
+      "numbers": [
+        10,
+        21,
+        28,
+        30,
+        36
+      ],
+      "special": null
+    },
+    {
+      "name": "Lotto 47",
+      "drawDate": "2026-09-30T04:00:00.000Z",
+      "numbers": [
+        10,
+        16,
+        26,
+        37,
+        46,
+        47
+      ],
+      "special": null
+    },
+    {
+      "name": "Powerball",
+      "drawDate": "2026-09-30T04:00:00.000Z",
+      "numbers": [
+        4,
+        6,
+        23,
+        33,
+        44
+      ],
+      "special": "Powerball: 13"
+    },
+    {
+      "name": "Mega Millions",
+      "drawDate": "2026-10-02T04:00:00.000Z",
+      "numbers": [
+        6,
+        37,
+        40,
+        41,
+        55
+      ],
+      "special": "Mega Ball: 10"
+    }
+  ]
+}
