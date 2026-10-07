@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-06T21:02:40.642594+00:00",
+  "checkedAt": "2026-10-07T00:43:38.568309+00:00",
   "games": [
     {
       "name": "Daily 3 · Midday",
@@ -13,11 +13,11 @@
     },
     {
       "name": "Daily 3 · Evening",
-      "drawDate": "2026-10-05T04:00:00.000Z",
+      "drawDate": "2026-10-06T04:00:00.000Z",
       "numbers": [
-        6,
-        9,
-        1
+        0,
+        4,
+        6
       ],
       "special": null
     },
@@ -34,12 +34,12 @@
     },
     {
       "name": "Daily 4 · Evening",
-      "drawDate": "2026-10-05T04:00:00.000Z",
+      "drawDate": "2026-10-06T04:00:00.000Z",
       "numbers": [
+        5,
+        6,
         4,
-        3,
-        8,
-        6
+        0
       ],
       "special": null
     },
@@ -57,25 +57,25 @@
     },
     {
       "name": "Daily 5 · Evening",
-      "drawDate": "2026-10-05T04:00:00.000Z",
+      "drawDate": "2026-10-06T04:00:00.000Z",
       "numbers": [
-        9,
-        3,
+        6,
         5,
-        4,
-        7
+        3,
+        0,
+        0
       ],
       "special": null
     },
     {
       "name": "Fantasy 5",
-      "drawDate": "2026-10-05T04:00:00.000Z",
+      "drawDate": "2026-10-06T04:00:00.000Z",
       "numbers": [
-        8,
-        15,
-        23,
-        28,
-        35
+        1,
+        7,
+        17,
+        21,
+        34
       ],
       "special": null
     },
