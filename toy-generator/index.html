@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>MATTBEAR Toy Forge</title>
+<meta name="description" content="Generate original toy concepts with live concept sketches, play mechanics, parts, prototype notes, and a useful design brief.">
+<meta name="theme-color" content="#181225">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://bearicide.github.io/toy-generator/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MATTBEAR Toy Forge">
+<meta property="og:description" content="A bright interactive toy concept and visual sketch generator from Bearicide Productions.">
+<meta property="og:url" content="https://bearicide.github.io/toy-generator/">
+<meta property="og:image" content="https://bearicide.github.io/assets/music/mattbear-hero.jpg">
+<link rel="stylesheet" href="/assets/site-polish.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="visuals.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"MATTBEAR Toy Forge","url":"https://bearicide.github.io/toy-generator/","applicationCategory":"DesignApplication","operatingSystem":"Any","description":"Generate original toy concepts with live concept sketches, play mechanics, parts, prototype notes, and a useful design brief."}</script>
+</head>
+<body class="toy-page">
+<a class="skip-link" href="#generator">Skip to generator</a>
+<header class="top toy-top">
+  <div class="wrap nav toy-nav">
+    <a class="brand rainbow" href="/">MATTBEAR<small>Bearicide Productions</small></a>
+    <nav class="menu" aria-label="Toy Forge routes">
+      <a class="btn" href="/">Main</a>
+      <a class="btn" href="/projects.html">Projects</a>
+      <a class="btn primary" href="#generator" aria-current="page">Toy Forge</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap toy-main">
+  <section class="toy-hero" aria-labelledby="page-title">
+    <div class="hero-copy">
+      <p class="eyebrow">MATTBEAR IDEA MACHINE</p>
+      <h1 id="page-title">TOY<br><span>FORGE</span></h1>
+      <p>Pick a direction or let the machine get strange. Every result includes a live concept sketch, color palette, play loop, parts, prototype approach, and the thing that makes it worth building.</p>
+      <div class="hero-actions">
+        <a class="forge-button primary-action" href="#generator">Start building</a>
+        <button class="forge-button" id="instant-button" type="button">Give me anything</button>
+      </div>
+    </div>
+    <div class="hero-machine" aria-hidden="true">
+      <div class="machine-face">
+        <span class="dial dial-one"></span>
+        <span class="dial dial-two"></span>
+        <span class="machine-slot">IDEAS IN</span>
+        <div class="machine-window"><span>?</span></div>
+        <span class="machine-label">PLAY TESTED<br>IN THE IMAGINATION</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="generator-shell" id="generator" aria-labelledby="generator-title">
+    <div class="control-panel">
+      <div class="section-heading">
+        <div>
+          <p class="step-label">01 / SET THE DIRECTION</p>
+          <h2 id="generator-title">What are we making?</h2>
+        </div>
+        <button class="tiny-button" id="surprise-button" type="button">Randomize controls</button>
+      </div>
+
+      <div class="controls-grid">
+        <label class="control">
+          <span>Age group</span>
+          <select id="age-select">
+            <option value="any">Any age</option>
+            <option value="3-5">Ages 3–5</option>
+            <option value="6-8">Ages 6–8</option>
+            <option value="9-12">Ages 9–12</option>
+            <option value="teen-adult">Teen / adult</option>
+          </select>
+        </label>
+
+        <label class="control">
+          <span>Toy family</span>
+          <select id="type-select">
+            <option value="any">Anything</option>
+            <option value="plush">Plush / character</option>
+            <option value="building">Building kit</option>
+            <option value="tabletop">Tabletop</option>
+            <option value="electronic">Electronic</option>
+            <option value="outdoor">Outdoor</option>
+            <option value="music">Musical</option>
+            <option value="desk">Desk toy</option>
+          </select>
+        </label>
+
+        <label class="control">
+          <span>Vibe</span>
+          <select id="vibe-select">
+            <option value="any">Surprise me</option>
+            <option value="cozy">Cozy</option>
+            <option value="weird">Weird</option>
+            <option value="spooky">Spooky</option>
+            <option value="gross">Gross</option>
+            <option value="future">Future</option>
+            <option value="nature">Nature</option>
+            <option value="chaos">Slapstick chaos</option>
+          </select>
+        </label>
+
+        <label class="control">
+          <span>Build level</span>
+          <select id="complexity-select">
+            <option value="simple">Simple prototype</option>
+            <option value="medium" selected>Weekend build</option>
+            <option value="wild">Full invention</option>
+          </select>
+        </label>
+      </div>
+
+      <fieldset class="play-modes">
+        <legend>What should it reward?</legend>
+        <label><input type="checkbox" name="reward" value="creativity" checked><span>Creativity</span></label>
+        <label><input type="checkbox" name="reward" value="movement"><span>Movement</span></label>
+        <label><input type="checkbox" name="reward" value="cooperation"><span>Cooperation</span></label>
+        <label><input type="checkbox" name="reward" value="collection"><span>Collecting</span></label>
+        <label><input type="checkbox" name="reward" value="sound"><span>Sound</span></label>
+      </fieldset>
+
+      <button class="generate-button" id="generate-button" type="button">
+        <span>Generate a toy</span>
+        <b aria-hidden="true">→</b>
+      </button>
+    </div>
+
+    <article class="result-panel" id="result-panel" aria-live="polite" aria-labelledby="toy-name">
+      <div class="result-topline">
+        <span id="result-number">CONCEPT 001</span>
+        <span id="result-tags">ANYTHING / WEEKEND BUILD</span>
+      </div>
+      <h2 id="toy-name">Ready when you are.</h2>
+      <p class="toy-pitch" id="toy-pitch">Choose a direction and generate a complete toy concept. The visual sketch appears directly below.</p>
+
+      <div class="result-grid">
+        <section>
+          <h3>How it plays</h3>
+          <p id="toy-play">The core play loop will appear here.</p>
+        </section>
+        <section>
+          <h3>The twist</h3>
+          <p id="toy-twist">The memorable mechanic will appear here.</p>
+        </section>
+        <section>
+          <h3>Parts</h3>
+          <p id="toy-parts">A practical starter parts list will appear here.</p>
+        </section>
+        <section>
+          <h3>Prototype it</h3>
+          <p id="toy-prototype">A first-build approach will appear here.</p>
+        </section>
+      </div>
+
+      <div class="fun-line">
+        <span>WHY IT IS FUN</span>
+        <p id="toy-fun">Because the player makes something happen.</p>
+      </div>
+
+      <p class="safety-note"><strong>Design check:</strong> <span id="toy-safety">Prototype responsibly and verify age-appropriate materials, dimensions, and supervision.</span></p>
+
+      <div class="result-actions">
+        <button class="forge-button primary-action" id="mutate-button" type="button">Mutate this idea</button>
+        <button class="forge-button" id="copy-button" type="button">Copy concept</button>
+        <button class="forge-button" id="save-button" type="button">Save locally</button>
+      </div>
+    </article>
+  </section>
+
+  <section class="saved-section" aria-labelledby="saved-title">
+    <div class="section-heading">
+      <div>
+        <p class="step-label">02 / KEEP THE GOOD ONES</p>
+        <h2 id="saved-title">Saved concepts</h2>
+      </div>
+      <button class="tiny-button" id="clear-saved-button" type="button">Clear saved</button>
+    </div>
+    <div class="saved-list" id="saved-list">
+      <p class="saved-empty">Nothing saved yet. Strong ideas will stay on this device.</p>
+    </div>
+  </section>
+
+  <section class="toy-note">
+    <p class="eyebrow">BUILD SMALL FIRST</p>
+    <h2>A toy is a behavior, not just an object.</h2>
+    <p>The best concept is the one you can test with cardboard, tape, paper, recycled parts, or a rough browser prototype before spending real money.</p>
+    <a class="forge-button" href="/">Back to MATTBEAR MAIN</a>
+  </section>
+</main>
+
+<footer class="wrap toy-footer">
+  <span>MATTBEAR Toy Forge • Bearicide Productions</span>
+  <div class="footer-links"><a href="/">Main</a><a href="/projects.html">Projects</a><a href="https://github.com/bearicide/bearicide.github.io">GitHub</a></div>
+</footer>
+
+<script src="app.js" defer></script>
+<script src="visuals.js" defer></script>
+<script src="/assets/mattbear-sitewide.js" defer data-mb-page="MATTBEAR Toy Forge" data-mb-section="interactive idea generator"></script>
+</body>
+</html>
