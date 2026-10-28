@@ -1,18 +1,11 @@
-MATTBEAR MAIN ASSETS
+STARSEEDLINGS ASSET PACK
 
-Upload the contents of this ZIP to:
+profiles/cyeraquill.webp: Cyera Quill supplied artwork
+profiles/mattbear.webp: stylized portrait, assigned provisionally to MATTBEAR
+profiles/giogold.webp: business portrait, assigned provisionally to Gio Gold
 
-bearicide.github.io/assets/main/
+Each profile includes 420px thumbnails and 1600x600 banners.
+Host identity assignment for the latter two images should be confirmed before public use.
+Upload the profiles/ and banners/ folders under stars/assets/ in the repository.
 
-The homepage currently expects these key files:
-- mattbear.png
-- mattbear-ameliorist.png
-- tile-a.png
-- headphones.png
-- keys.png
-- fx.png
-- flame.png
-- lightning.png
-- bonus.png
-
-Extra .ico and .gif files are included for favicon, app icon, and visual polish use.
+cosmic_art/: four original SVG illustrations integrated into the live Starseedlings pages.
