@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-29T01:48:31.501060+00:00",
+  "checkedAt": "2026-10-29T08:30:03.041781+00:00",
   "games": [
     {
       "name": "Daily 3 · Midday",
@@ -94,15 +94,15 @@
     },
     {
       "name": "Powerball",
-      "drawDate": "2026-10-26T04:00:00.000Z",
+      "drawDate": "2026-10-28T04:00:00.000Z",
       "numbers": [
-        18,
-        26,
-        49,
-        50,
-        54
+        11,
+        13,
+        16,
+        47,
+        60
       ],
-      "special": "Powerball: 1"
+      "special": "Powerball: 13"
     },
     {
       "name": "Mega Millions",
