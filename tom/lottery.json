@@ -1,13 +1,13 @@
 {
-  "checkedAt": "2026-11-03T15:09:48.341954+00:00",
+  "checkedAt": "2026-11-03T20:59:57.753901+00:00",
   "games": [
     {
       "name": "Daily 3 · Midday",
-      "drawDate": "2026-11-02T05:00:00.000Z",
+      "drawDate": "2026-11-03T05:00:00.000Z",
       "numbers": [
-        5,
-        3,
-        1
+        9,
+        7,
+        3
       ],
       "special": null
     },
@@ -23,12 +23,12 @@
     },
     {
       "name": "Daily 4 · Midday",
-      "drawDate": "2026-11-02T05:00:00.000Z",
+      "drawDate": "2026-11-03T05:00:00.000Z",
       "numbers": [
-        9,
         4,
-        5,
-        8
+        6,
+        8,
+        0
       ],
       "special": null
     },
@@ -45,13 +45,13 @@
     },
     {
       "name": "Daily 5 · Midday",
-      "drawDate": "2026-11-02T05:00:00.000Z",
+      "drawDate": "2026-11-03T05:00:00.000Z",
       "numbers": [
+        2,
+        6,
         9,
-        4,
-        3,
-        8,
-        1
+        1,
+        0
       ],
       "special": null
     },
