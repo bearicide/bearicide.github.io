@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-02T23:52:56.763648+00:00",
+  "checkedAt": "2026-11-03T06:49:16.051065+00:00",
   "games": [
     {
       "name": "Daily 3 · Midday",
@@ -13,11 +13,11 @@
     },
     {
       "name": "Daily 3 · Evening",
-      "drawDate": "2026-11-01T04:00:00.000Z",
+      "drawDate": "2026-11-02T05:00:00.000Z",
       "numbers": [
-        7,
-        3,
-        4
+        8,
+        2,
+        8
       ],
       "special": null
     },
@@ -34,12 +34,12 @@
     },
     {
       "name": "Daily 4 · Evening",
-      "drawDate": "2026-11-01T04:00:00.000Z",
+      "drawDate": "2026-11-02T05:00:00.000Z",
       "numbers": [
-        6,
-        8,
-        8,
-        7
+        9,
+        0,
+        9,
+        3
       ],
       "special": null
     },
@@ -57,24 +57,24 @@
     },
     {
       "name": "Daily 5 · Evening",
-      "drawDate": "2026-11-01T04:00:00.000Z",
+      "drawDate": "2026-11-02T05:00:00.000Z",
       "numbers": [
-        4,
         8,
-        7,
-        2,
-        3
+        4,
+        0,
+        8,
+        1
       ],
       "special": null
     },
     {
       "name": "Fantasy 5",
-      "drawDate": "2026-11-01T04:00:00.000Z",
+      "drawDate": "2026-11-02T05:00:00.000Z",
       "numbers": [
-        2,
-        8,
-        9,
-        14,
+        3,
+        10,
+        21,
+        24,
         27
       ],
       "special": null
@@ -94,15 +94,15 @@
     },
     {
       "name": "Powerball",
-      "drawDate": "2026-10-31T04:00:00.000Z",
+      "drawDate": "2026-11-02T05:00:00.000Z",
       "numbers": [
-        2,
-        4,
-        18,
-        50,
-        56
+        7,
+        23,
+        29,
+        64,
+        66
       ],
-      "special": "Powerball: 20"
+      "special": "Powerball: 23"
     },
     {
       "name": "Mega Millions",
