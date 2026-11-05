@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-04T22:14:04.464231+00:00",
+  "checkedAt": "2026-11-05T02:30:11.401074+00:00",
   "games": [
     {
       "name": "Daily 3 · Midday",
@@ -13,11 +13,11 @@
     },
     {
       "name": "Daily 3 · Evening",
-      "drawDate": "2026-11-03T05:00:00.000Z",
+      "drawDate": "2026-11-04T05:00:00.000Z",
       "numbers": [
-        2,
         5,
-        7
+        0,
+        8
       ],
       "special": null
     },
@@ -34,12 +34,12 @@
     },
     {
       "name": "Daily 4 · Evening",
-      "drawDate": "2026-11-03T05:00:00.000Z",
+      "drawDate": "2026-11-04T05:00:00.000Z",
       "numbers": [
-        0,
-        6,
-        8,
-        6
+        2,
+        4,
+        2,
+        3
       ],
       "special": null
     },
@@ -57,38 +57,38 @@
     },
     {
       "name": "Daily 5 · Evening",
-      "drawDate": "2026-11-03T05:00:00.000Z",
+      "drawDate": "2026-11-04T05:00:00.000Z",
       "numbers": [
-        3,
-        6,
-        3,
+        2,
         4,
-        5
+        5,
+        2,
+        0
       ],
       "special": null
     },
     {
       "name": "Fantasy 5",
-      "drawDate": "2026-11-03T05:00:00.000Z",
+      "drawDate": "2026-11-04T05:00:00.000Z",
       "numbers": [
-        16,
-        30,
-        33,
-        37,
-        39
+        14,
+        20,
+        22,
+        24,
+        31
       ],
       "special": null
     },
     {
       "name": "Lotto 47",
-      "drawDate": "2026-10-31T04:00:00.000Z",
+      "drawDate": "2026-11-04T05:00:00.000Z",
       "numbers": [
-        3,
-        6,
-        13,
-        15,
-        32,
-        44
+        4,
+        5,
+        7,
+        20,
+        30,
+        41
       ],
       "special": null
     },
