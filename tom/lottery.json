@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-13T23:53:43.491371+00:00",
+  "checkedAt": "2026-11-14T06:25:15.949473+00:00",
   "games": [
     {
       "name": "Daily 3 · Midday",
@@ -13,11 +13,11 @@
     },
     {
       "name": "Daily 3 · Evening",
-      "drawDate": "2026-11-12T05:00:00.000Z",
+      "drawDate": "2026-11-13T05:00:00.000Z",
       "numbers": [
         1,
-        2,
-        7
+        9,
+        5
       ],
       "special": null
     },
@@ -34,12 +34,12 @@
     },
     {
       "name": "Daily 4 · Evening",
-      "drawDate": "2026-11-12T05:00:00.000Z",
+      "drawDate": "2026-11-13T05:00:00.000Z",
       "numbers": [
-        6,
+        2,
         7,
         1,
-        0
+        4
       ],
       "special": null
     },
@@ -57,25 +57,25 @@
     },
     {
       "name": "Daily 5 · Evening",
-      "drawDate": "2026-11-12T05:00:00.000Z",
+      "drawDate": "2026-11-13T05:00:00.000Z",
       "numbers": [
-        5,
-        1,
+        3,
+        3,
         6,
-        5,
-        2
+        7,
+        7
       ],
       "special": null
     },
     {
       "name": "Fantasy 5",
-      "drawDate": "2026-11-12T05:00:00.000Z",
+      "drawDate": "2026-11-13T05:00:00.000Z",
       "numbers": [
-        2,
-        4,
+        1,
+        10,
+        15,
         19,
-        27,
-        33
+        32
       ],
       "special": null
     },
@@ -106,15 +106,15 @@
     },
     {
       "name": "Mega Millions",
-      "drawDate": "2026-11-10T05:00:00.000Z",
+      "drawDate": "2026-11-13T05:00:00.000Z",
       "numbers": [
-        2,
-        18,
-        25,
-        30,
-        65
+        10,
+        22,
+        33,
+        49,
+        57
       ],
-      "special": "Mega Ball: 22"
+      "special": "Mega Ball: 18"
     }
   ]
 }
