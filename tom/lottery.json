@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-22T00:20:58.772842+00:00",
+  "checkedAt": "2026-11-22T07:29:11.626216+00:00",
   "games": [
     {
       "name": "Daily 3 · Midday",
@@ -13,11 +13,11 @@
     },
     {
       "name": "Daily 3 · Evening",
-      "drawDate": "2026-11-20T05:00:00.000Z",
+      "drawDate": "2026-11-21T05:00:00.000Z",
       "numbers": [
-        8,
-        9,
-        5
+        3,
+        4,
+        0
       ],
       "special": null
     },
@@ -34,12 +34,12 @@
     },
     {
       "name": "Daily 4 · Evening",
-      "drawDate": "2026-11-20T05:00:00.000Z",
+      "drawDate": "2026-11-21T05:00:00.000Z",
       "numbers": [
-        1,
-        5,
         4,
-        2
+        2,
+        1,
+        9
       ],
       "special": null
     },
@@ -57,52 +57,52 @@
     },
     {
       "name": "Daily 5 · Evening",
-      "drawDate": "2026-11-20T05:00:00.000Z",
+      "drawDate": "2026-11-21T05:00:00.000Z",
       "numbers": [
-        8,
-        1,
-        3,
-        5,
-        8
+        7,
+        9,
+        4,
+        0,
+        0
       ],
       "special": null
     },
     {
       "name": "Fantasy 5",
-      "drawDate": "2026-11-20T05:00:00.000Z",
+      "drawDate": "2026-11-21T05:00:00.000Z",
       "numbers": [
-        9,
-        12,
-        19,
-        33,
-        39
+        1,
+        5,
+        18,
+        28,
+        32
       ],
       "special": null
     },
     {
       "name": "Lotto 47",
-      "drawDate": "2026-11-18T05:00:00.000Z",
+      "drawDate": "2026-11-21T05:00:00.000Z",
       "numbers": [
         2,
-        31,
-        35,
-        37,
-        41,
-        45
+        4,
+        14,
+        22,
+        39,
+        47
       ],
       "special": null
     },
     {
       "name": "Powerball",
-      "drawDate": "2026-11-18T05:00:00.000Z",
+      "drawDate": "2026-11-21T05:00:00.000Z",
       "numbers": [
-        18,
-        31,
-        43,
-        51,
-        62
+        5,
+        29,
+        33,
+        36,
+        45
       ],
-      "special": "Powerball: 12"
+      "special": "Powerball: 22"
     },
     {
       "name": "Mega Millions",
